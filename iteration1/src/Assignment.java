@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Assignment {
     // @todo assignments have one user only
+    // @todo github push
     private int id;
     private Instance instance;
     private User user;
