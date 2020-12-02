@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Assignment {
-
+    // @todo assignments have one user only
     private int id;
     private Instance instance;
     private User user;

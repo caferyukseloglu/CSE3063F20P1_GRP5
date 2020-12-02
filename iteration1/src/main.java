@@ -19,7 +19,7 @@ public class main {
 
 
         // OUTPUT:
-        User user = new User(1, "Emin Safa Tok", "TESTv1");
+        User user = new User(1, "Name", "TESTv1");
         Datetime datetime = new Datetime("TESTv1");
         for (Instance instance : fd.getInstances()){
 

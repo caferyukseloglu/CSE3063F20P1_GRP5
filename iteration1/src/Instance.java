@@ -4,7 +4,7 @@ public class Instance {
 
     private int id;
     private String text;
-    private boolean status = false; // @todo assigned or not?
+    private boolean status = false; // @todo Should see assingment are ready or not?
     private Dataset dataset;
 
     protected ArrayList<Assignment> assignments = new ArrayList<Assignment>(); // Make it limited

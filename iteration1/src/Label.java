@@ -10,7 +10,6 @@ public class Label {
 
     private void setId(int id){
         this.id = id;
-        // @todo Check if it used before
     }
 
     private void setText(String text){

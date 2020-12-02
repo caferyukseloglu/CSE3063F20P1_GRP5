@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Dataset {
-
+    // @todo check read and write json files
     private int id;
     private String name;
     private int maxNumberOfLabels;
