@@ -1,34 +1,148 @@
-import java.util.ArrayList;
+
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class main {
-
-    //static Dataset dataset = new Dataset(1996, "eminsafa");
-
-
-
     public static void main(String[] args) {
-
-        Dataset fd = new Dataset(1, "Multilabel Topic Classification Dataset", 10);
-
-        fd.addLabel(1, "bayi");
-        fd.addLabel(2, "numara");
-        fd.addLabel(3, "hat");
-
-        fd.addInstance(1, "35 tl kesinti yapmış turkcell'den üzerime kayıtlı numara olmamasına rağmen iki aydır ekstremden 35'er tl. kesilmiştir.");
-        fd.addInstance(2, "tele kurye işık hızında turkcell'den aldığım cihaz tele kurye denen ilgisiz, telefonlara bakmayan bir kurye tarafından 10 gündür elime ulaşılmadı. telefonlarıma bakılmıyor ne ciddiyetsiz kurumsallaşmamış bir kurye firması turkcell'e bu katkılarından dolayı teşekkürler!");
+        Dataset dataset = new Dataset(1, "1", 2);
+        Scanner in = new Scanner(System.in);
+        JSONParser parser = new JSONParser();
+        String s = in.nextLine();
+        try {
+            Object obj = parser.parse(new FileReader(s));
 
 
-        // OUTPUT:
-        User user = new User(1, "Name", "TESTv1");
+            JSONObject jsonObject = (JSONObject) obj;
+
+
+            JSONArray instanceList = (JSONArray) jsonObject.get("instances");
+            JSONArray LabelsList = (JSONArray) jsonObject.get("class labels");
+            //System.out.println(instanceList);
+            //System.out.println(LabelsList);
+
+            parseInstanceObject(instanceList, dataset);
+            parseLabelsObject(LabelsList, dataset);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void parseInstanceObject(JSONArray instanceList, Dataset dataset) {
+        int size = instanceList.size();
+        for (int i = 0; i < size; i++) {
+            JSONObject instancesObject = (JSONObject) instanceList.get(i);
+
+            String instance = (String) instancesObject.get("instance");
+            //System.out.println(instance);
+
+            int id = Integer.parseInt(instancesObject.get("id").toString());
+
+            //System.out.println(id);
+            dataset.addInstance(id, instance);
+        }
+
+    }
+
+    private static void parseLabelsObject(JSONArray LabelsList, Dataset dataset) {
+        int size = LabelsList.size();
+        for (int i = 0; i < size; i++) {
+            JSONObject instancesObject = (JSONObject) LabelsList.get(i);
+            String label = (String) instancesObject.get("label text");
+            //System.out.println(label);
+
+            int labelId = Integer.parseInt(instancesObject.get("label id").toString());
+            ;
+            //System.out.println(labelId);
+            dataset.addLabel(labelId, label);
+
+        }
+        dataset.getLabels();
+        User user = new User(1, "Emin Safa Tok", "TESTv1");
         Datetime datetime = new Datetime("TESTv1");
-        for (Instance instance : fd.getInstances()){
+        for (Instance instance : dataset.getInstances()) {
 
             Assignment assignment = instance.addAssignment(datetime, user);
             assignment.addLabelById(1);
             assignment.addLabelById(2);
         }
+        write(dataset);
 
+    }
+
+    private static void write(Dataset dataset) {
+
+        JSONObject object = new JSONObject();
+        object.put("dataset id", 1);
+        object.put("dataset name", "Sentiment Dataset");
+        object.put("maximum number of labels per instance", 1);
+
+        JSONArray label_1 = new JSONArray();
+        JSONArray instance_1 = new JSONArray();
+
+        for (Label label : dataset.getLabelList()) {
+            JSONObject objectforlabel = new JSONObject();
+            objectforlabel.put("label id", label.getId());
+            objectforlabel.put("label text", label.getText());
+            label_1.add(objectforlabel);
+        }
+        object.put("class labels", label_1);
+
+        for (Instance instance : dataset.getInstances()){
+            JSONObject objectforinstance = new JSONObject();
+            objectforinstance.put("id", instance.getId());
+            objectforinstance.put("instance", instance.getText());
+            instance_1.add(objectforinstance);
+        }
+        object.put("instances", instance_1);
+
+
+        JSONObject objectforclassignment = new JSONObject();
+        objectforclassignment.put("instance id", 1);
+        objectforclassignment.put("class label ids", 1);
+        objectforclassignment.put("user1 id", 1);
+        objectforclassignment.put("datetime", "12-12-2020,04:49:31");
+
+        JSONObject objectforusers = new JSONObject();
+        objectforusers.put("user1 id", 1);
+        objectforusers.put("user1 name", "RandomLabelingMechanism");
+
+
+
+
+
+
+
+        JSONArray assignment = new JSONArray();
+        assignment.add(objectforclassignment);
+        object.put("class label assignments", assignment);
+
+        JSONArray user = new JSONArray();
+        user.add(objectforusers);
+        object.put("users", user);
+
+
+
+
+
+        try {
+            FileWriter file = new FileWriter("output.json");
+            file.write(object.toJSONString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
 }
+
+
+

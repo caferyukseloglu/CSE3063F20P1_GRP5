@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Dataset {
-    // @todo check read and write json files
+
     private int id;
     private String name;
     private int maxNumberOfLabels;
@@ -52,9 +52,20 @@ public class Dataset {
 
     protected ArrayList<Instance> getInstances(){
 
-        return this.instances;
+            return this.instances;
 
     }
+    protected void getLabels(){
+        for(Label label : this.labels){
+            System.out.println("ID: "+label.getId() + " Text:" + label.getText());
+        }
+    }
+    protected ArrayList<Label> getLabelList(){
+        return this.labels;
+    }
+
+
+
 
     protected Label getLabelByText(String text){
         for(Label label : this.labels){
@@ -72,20 +83,6 @@ public class Dataset {
             }
         }
         return new Label(id, "");
-    }
-
-    protected void getLabels(){
-        for(Label label : this.labels){
-            System.out.println("ID: "+label.getId() + " Text:" + label.getText());
-        }
-    }
-
-    protected ArrayList<Label> getLabelList(){
-        return this.labels;
-    }
-
-    protected ArrayList<Instance> getInstanceList(){
-        return this.instances;
     }
 
 

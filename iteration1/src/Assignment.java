@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Assignment {
-    // @todo assignments have one user only
+
     private int id;
     private Instance instance;
     private User user;
@@ -28,14 +28,6 @@ public class Assignment {
 
     protected void setUser(User user){
         this.user = user;
-    }
-
-    protected User getUser(){
-        return this.user;
-    }
-
-    protected Datetime getDatetime(){
-        return this.datetime;
     }
 
     protected void addLabel(Label label){
@@ -74,10 +66,6 @@ public class Assignment {
         for (Label label : this.labels) {
             System.out.println(label.getId() + " " + label.getText());
         }
-    }
-
-    protected ArrayList<Label> getLabelList(){
-        return this.labels;
     }
 
 

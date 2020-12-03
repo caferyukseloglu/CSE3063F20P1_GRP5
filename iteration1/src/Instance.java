@@ -4,7 +4,7 @@ public class Instance {
 
     private int id;
     private String text;
-    private boolean status = false; // @todo Should see assingment are ready or not?
+    private boolean status = false; // @todo assigned or not?
     private Dataset dataset;
 
     protected ArrayList<Assignment> assignments = new ArrayList<Assignment>(); // Make it limited
@@ -49,10 +49,6 @@ public class Instance {
 
         Assignment assignment = new Assignment(this, datetime, user);
         return assignment;
-    }
-
-    protected ArrayList<Assignment> getAssignmentList(){
-        return this.assignments;
     }
 
 }

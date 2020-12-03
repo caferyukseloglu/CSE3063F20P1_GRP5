@@ -3,13 +3,14 @@ public class Label {
     private int id;
     private String text;
 
-    public Label(int id, String text){
+    public Label(int id, String name){
         setId(id);
-        setText(text);
+        setText(name);
     }
 
     private void setId(int id){
         this.id = id;
+        // @todo Check if it used before
     }
 
     private void setText(String text){
