@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+package com.groupfive;
 
+import java.util.ArrayList;
 public class Instance {
 
     private int id;
@@ -26,6 +27,7 @@ public class Instance {
     }
 
     private void setDataset(Dataset dataset){
+
         this.dataset = dataset;
     }
 

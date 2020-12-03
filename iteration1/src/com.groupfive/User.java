@@ -1,3 +1,4 @@
+package com.groupfive;
 public class User {
     // @todo User should be defined before, in config.json
     private int id;

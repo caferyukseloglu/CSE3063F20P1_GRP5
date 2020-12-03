@@ -1,3 +1,5 @@
+package com.groupfive;
+
 import java.util.ArrayList;
 
 public class Assignment {
@@ -11,7 +13,7 @@ public class Assignment {
     private ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
 
 
-    public Assignment(Instance instance, Datetime datetime, User user){
+    public Assignment(Instance instance, Datetime datetime, User user) {
 
         setInstance(instance);
         setDatetime(datetime);
@@ -19,68 +21,67 @@ public class Assignment {
 
     }
 
-    protected void setInstance(Instance instance){
+    protected void setInstance(Instance instance) {
         this.instance = instance;
     }
 
-    protected void setDatetime(Datetime datetime){
+    protected void setDatetime(Datetime datetime) {
         this.datetime = datetime;
     }
 
-    protected void setUser(User user){
+    protected void setUser(User user) {
         this.user = user;
     }
 
-    protected User getUser(){
+    protected User getUser() {
         return this.user;
     }
 
-    protected Datetime getDatetime(){
+    protected Datetime getDatetime() {
         return this.datetime;
     }
 
-    protected void addLabel(Label label){
+    protected void addLabel(Label label) {
         this.labels.add(label);
     }
 
-    protected void addLabelById(int id){
+    protected void addLabelById(int id) {
         Label label = this.instance.getDataset().getLabelById(id);
         addLabel(label);
     }
 
-    protected void addLabelByText(String text){
+    protected void addLabelByText(String text) {
         Label label = this.instance.getDataset().getLabelByText(text);
         addLabel(label);
     }
 
-    protected void addLabels(ArrayList<Label> labels){
+    protected void addLabels(ArrayList<Label> labels) {
         for (Label label : labels) {
             addLabel(label);
         }
     }
 
-    protected void addLabelByIdArray(ArrayList<Integer> ids){
-        for (Integer id : ids){
+    protected void addLabelByIdArray(ArrayList<Integer> ids) {
+        for (Integer id : ids) {
             addLabelById(id);
         }
     }
 
-    protected void addLabelByTextArray(ArrayList<String> texts){
-        for (String text : texts){
+    protected void addLabelByTextArray(ArrayList<String> texts) {
+        for (String text : texts) {
             addLabelByText(text);
         }
     }
 
-    protected void getLabels(){
+    protected void getLabels() {
         for (Label label : this.labels) {
             System.out.println(label.getId() + " " + label.getText());
         }
     }
 
-    protected ArrayList<Label> getLabelList(){
+    protected ArrayList<Label> getLabelList() {
         return this.labels;
     }
-
 
 
 }

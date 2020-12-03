@@ -1,3 +1,4 @@
+package com.groupfive;
 public class Label {
 
     private int id;
