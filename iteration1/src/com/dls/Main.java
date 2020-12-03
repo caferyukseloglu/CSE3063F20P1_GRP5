@@ -24,11 +24,9 @@ public class Main {
             assignment.addLabelByText("Positive");
 
         }
-        //fd.printLabels();
-        //fd.printInstances();
 
 
-        //fd.printDatasetDetailed();
+        RandomBot rb = new RandomBot(fd, 3);
 
         WriteJSON wj = new WriteJSON(fd);
 

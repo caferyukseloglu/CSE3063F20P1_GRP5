@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c895bb9-055e-483c-be33-0752b5b3c07a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Assignment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Dataset.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Datetime.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Instance.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Label.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/dls/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Assignment.java" afterDir="false" />
+    <list default="true" id="7c895bb9-055e-483c-be33-0752b5b3c07a" name="Default Changelist" comment="JSON and dataset integration completed.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/input_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iteration1/com/dls/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Dataset.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iteration1/com/dls/Instance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Instance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iteration1/com/dls/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iteration1/com/dls/WriteJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/iteration1/com/dls/WriteJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/dls/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/dls/Instance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Instance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/dls/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/dls/ReadJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/ReadJSON.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/dls/WriteJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/WriteJSON.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
@@ -43,10 +39,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dls/RandomBot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+              <folding>
+                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#280#281#0" expanded="true" />
+                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#708#709#0" expanded="true" />
+                <element signature="e#747#748#0" expanded="true" />
+                <element signature="e#861#862#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#936#937#0" expanded="true" />
+                <element signature="e#1002#1003#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dls/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -63,83 +82,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/output.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2070">
-              <caret line="138" column="1" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dls/WriteJSON.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dls/ReadJSON.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dls/Dataset.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="158" column="37" selection-start-line="158" selection-start-column="37" selection-end-line="158" selection-end-column="37" />
-              <folding>
-                <element signature="e#4951#4952#0" expanded="true" />
-                <element signature="e#4980#4981#0" expanded="true" />
-                <element signature="e#5017#5018#0" expanded="true" />
-                <element signature="e#5047#5048#0" expanded="true" />
-                <element signature="e#5087#5088#0" expanded="true" />
-                <element signature="e#5119#5120#0" expanded="true" />
-                <element signature="e#4884#4885#0" expanded="true" />
-                <element signature="e#4918#4919#0" expanded="true" />
-                <element signature="e#4972#4973#0" expanded="true" />
-                <element signature="e#5009#5010#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dls/Instance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-              <folding>
-                <element signature="e#586#587#0" expanded="true" />
-                <element signature="e#618#619#0" expanded="true" />
-                <element signature="e#666#667#0" expanded="true" />
-                <element signature="e#704#705#0" expanded="true" />
-                <element signature="e#733#734#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-                <element signature="e#797#798#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#885#886#0" expanded="true" />
-                <element signature="e#924#925#0" expanded="true" />
-                <element signature="e#962#963#0" expanded="true" />
-                <element signature="e#997#998#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1075#1076#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="1861" selection-start-column="1861" selection-end-column="1861" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -152,14 +108,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/input_1.json" />
         <option value="$PROJECT_DIR$/src/com/dls/Assignment.java" />
         <option value="$PROJECT_DIR$/src/com/dls/ReadJSON.java" />
-        <option value="$PROJECT_DIR$/src/com/dls/Dataset.java" />
-        <option value="$PROJECT_DIR$/src/com/dls/Main.java" />
         <option value="$PROJECT_DIR$/output.json" />
-        <option value="$PROJECT_DIR$/src/com/dls/WriteJSON.java" />
         <option value="$PROJECT_DIR$/src/com/dls/Instance.java" />
+        <option value="$PROJECT_DIR$/input_1.json" />
+        <option value="$PROJECT_DIR$/src/com/dls/Dataset.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/WriteJSON.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/RandomBot.java" />
       </list>
     </option>
   </component>
@@ -214,7 +171,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1607035279638" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1607037235473" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -260,12 +217,12 @@
       <updated>1607026046489</updated>
       <workItem from="1607026049909" duration="1813000" />
       <workItem from="1607028120532" duration="77000" />
-      <workItem from="1607028205564" duration="6759000" />
+      <workItem from="1607028205564" duration="8601000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8649000" />
+    <option name="totallyTimeSpent" value="10491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1438" height="940" extended-state="0" />
@@ -304,6 +261,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="JSON and dataset integration completed." />
+    <option name="LAST_COMMIT_MESSAGE" value="JSON and dataset integration completed." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
@@ -353,10 +314,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input_1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/Dataset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="158" column="37" selection-start-line="158" selection-start-column="37" selection-end-line="158" selection-end-column="37" />
+        <state relative-caret-position="1614">
+          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
           <folding>
             <element signature="e#4951#4952#0" expanded="true" />
             <element signature="e#4980#4981#0" expanded="true" />
@@ -384,8 +367,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/WriteJSON.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        <state relative-caret-position="555">
+          <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -394,37 +377,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/output.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="138" column="1" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
+        <state>
+          <caret column="1861" selection-start-column="1861" selection-end-column="1861" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input_1.json">
+    <entry file="file://$PROJECT_DIR$/src/com/dls/RandomBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="357">
+          <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+          <folding>
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#936#937#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#877#878#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
+          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>

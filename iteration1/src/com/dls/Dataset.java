@@ -15,8 +15,8 @@ public class Dataset {
     private int maxNumberOfLabels;
 
     protected ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
-    protected ArrayList<User> users = new ArrayList<User>();
-    protected ArrayList<Instance> instances = new ArrayList<Instance>();
+    private ArrayList<User> users = new ArrayList<User>();
+    private ArrayList<Instance> instances = new ArrayList<Instance>();
 
     /*
      * Construct method of the Dataset class
@@ -159,13 +159,15 @@ public class Dataset {
         return this.maxNumberOfLabels;
     }
 
-    protected ArrayList<Label> getLabelList(){
+    protected ArrayList<Label> getLabels(){
         return this.labels;
     }
 
     protected ArrayList<Instance> getInstanceList(){
         return this.instances;
     }
+
+
 
 
 }

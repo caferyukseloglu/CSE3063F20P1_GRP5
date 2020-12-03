@@ -2,7 +2,7 @@
   "dataset id":1,
   "dataset name":"Sentiment Dataset",
   "maximum number of labels per instance":1,
-  "class labels":[ {"label id":1,"label text":"Positive"}, {"label id":2,"label text":"Negative"}, {"label id":3,"label text":"Notr"} ],
+  "class labels":[ {"label id":1,"label text":"Positive"}, {"label id":2,"label text":"Negative"}, {"label id":8,"label text":"Notr"} ],
   "instances":[
     {"id":1, "instance":"aldım eve gidince kutusundan çıkardım hasarlıydı"},
     {"id":2, "instance":"yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"},

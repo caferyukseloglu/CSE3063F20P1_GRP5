@@ -35,7 +35,7 @@ public class WriteJSON {
 
 
         // @todo add some comments
-        for (Label label : this.dataset.getLabelList()) {
+        for (Label label : this.dataset.getLabels()) {
             JSONObject singleLabelJSON = new JSONObject();
             singleLabelJSON.put("label text", label.getText());
             singleLabelJSON.put("label id", label.getId());
