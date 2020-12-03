@@ -123,10 +123,40 @@ public class Dataset {
         return new Label(id, "");
     }
 
-    protected void getLabels(){
+    protected void printLabels(){
         for(Label label : this.labels){
             System.out.println("ID: "+label.getId() + " Text:" + label.getText());
         }
+    }
+
+    protected void printInstances(){
+        for(Instance instance : this.instances){
+            System.out.println("ID: "+instance.getId() + " Text:" + instance.getText());
+        }
+    }
+
+    protected void printDatasetDetailed(){
+        for(Instance instance : this.instances){
+            System.out.println("ID: "+instance.getId() + " Text:" + instance.getText());
+            for(Assignment assignment : instance.getAssignments()){
+                System.out.println("---Assignment ID: "+assignment.getId()+" Username: "+assignment.getUser().getName());
+                for(Label label : assignment.getLabels()){
+                    System.out.println("------Label: "+label.getText());
+                }
+            }
+        }
+    }
+
+    protected int getId(){
+        return this.id;
+    }
+
+    protected String getName(){
+        return this.name;
+    }
+
+    protected int getMaxNumberOfLabels(){
+        return this.maxNumberOfLabels;
     }
 
     protected ArrayList<Label> getLabelList(){

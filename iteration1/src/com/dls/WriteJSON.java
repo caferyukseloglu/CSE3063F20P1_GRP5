@@ -1,3 +1,5 @@
+package com.dls;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -6,65 +8,74 @@ import java.io.IOException;
 
 public class WriteJSON {
 
-    protected void write(Dataset dataset) {
+    private Dataset dataset;
+    private String outputFileName;
+    public WriteJSON(Dataset dataset){
 
-        JSONObject object = new JSONObject();
-        object.put("dataset id", 1);
-        object.put("dataset name", "Sentiment Dataset");
-        object.put("maximum number of labels per instance", 1);
+        setDataset(dataset);
+        write();
+    }
 
-        JSONArray label_1 = new JSONArray();
-        JSONArray instance_1 = new JSONArray();
+    private void setDataset(Dataset dataset){ this.dataset = dataset; }
 
-        for (Label label : dataset.getLabelList()) {
-            JSONObject objectforlabel = new JSONObject();
-            objectforlabel.put("label text", label.getText());
-            objectforlabel.put("label id", label.getId());
+    protected void setOutputFileName(String outputFileName){ this.outputFileName = outputFileName; }
 
-            label_1.add(objectforlabel);
+    protected void write() {
+
+        JSONObject mainJSON = new JSONObject();
+        mainJSON.put("dataset id", this.dataset.getId());
+        mainJSON.put("dataset name", this.dataset.getName());
+        mainJSON.put("maximum number of labels per instance", this.dataset.getMaxNumberOfLabels());
+
+
+        // Sub-arrays
+        JSONArray labelsJSON = new JSONArray();
+        JSONArray instancesJSON = new JSONArray();
+        JSONArray assignmentsJSON = new JSONArray();
+
+
+        // @todo add some comments
+        for (Label label : this.dataset.getLabelList()) {
+            JSONObject singleLabelJSON = new JSONObject();
+            singleLabelJSON.put("label text", label.getText());
+            singleLabelJSON.put("label id", label.getId());
+
+            labelsJSON.add(singleLabelJSON);
         }
-        object.put("class labels", label_1);
 
-        for (Instance instance : dataset.getInstances()){
-            JSONObject objectforinstance = new JSONObject();
-            objectforinstance.put("id", instance.getId());
-            objectforinstance.put("instance", instance.getText());
-            instance_1.add(objectforinstance);
+        //mainJSON.put("class labels", labelsJSON);
+
+
+
+        // @todo add some comments
+        for (Instance instance : this.dataset.getInstances()){
+            JSONObject singleInstanceJSON = new JSONObject();
+            singleInstanceJSON.put("id", instance.getId());
+            singleInstanceJSON.put("instance", instance.getText());
+            instancesJSON.add(singleInstanceJSON);
+
+            for(Assignment assignment : instance.getAssignments()){
+                JSONObject singleAssignmentJSON = new JSONObject();
+                singleAssignmentJSON.put("datetime", assignment.getDatetime().getRawDatetime());
+                singleAssignmentJSON.put("user id", assignment.getUser().getId());
+
+                JSONArray assignmentLabelsArray = new JSONArray();
+                for(Label label : assignment.getLabels()){
+                    assignmentLabelsArray.add(label.getId());
+                }
+                singleAssignmentJSON.put("class label ids", assignmentLabelsArray);
+                singleAssignmentJSON.put("instance id", instance.getId());
+
+                assignmentsJSON.add(singleAssignmentJSON);
+            }
+
         }
-        object.put("instances", instance_1);
-
-        // user label assign methodu gelince düzenlencek
-        JSONObject objectforclassignment = new JSONObject();
-        objectforclassignment.put("instance id", 1);
-        objectforclassignment.put("class label ids", 1);
-        objectforclassignment.put("user1 id", 1);
-        objectforclassignment.put("datetime", "12-12-2020,04:49:31");
-
-        JSONObject objectforusers = new JSONObject();
-        objectforusers.put("user1 id", 1);
-        objectforusers.put("user1 name", "RandomLabelingMechanism");
-
-
-
-
-
-
-
-        JSONArray assignment = new JSONArray();
-        assignment.add(objectforclassignment);
-        object.put("class label assignments", assignment);
-
-        JSONArray user = new JSONArray();
-        user.add(objectforusers);
-        object.put("users", user);
-
-
-
-
+        mainJSON.put("instances", instancesJSON);
+        mainJSON.put("class label assignments", assignmentsJSON);
 
         try {
             FileWriter file = new FileWriter("output.json");
-            file.write(object.toJSONString());
+            file.write(mainJSON.toJSONString());
             file.flush();
 
         } catch (IOException e) {

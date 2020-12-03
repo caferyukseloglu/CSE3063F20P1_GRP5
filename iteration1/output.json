@@ -1,0 +1,139 @@
+{
+  "class label assignments": [
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 1,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 2,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 3,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 4,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 5,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 6,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 7,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 8,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 9,
+      "user id": 1
+    },
+    {
+      "datetime": "12\/12\/2020, 04:52:21",
+      "class label ids": [
+        2,
+        1
+      ],
+      "instance id": 10,
+      "user id": 1
+    }
+  ],
+  "dataset name": "Multilabel Topic Classification Dataset",
+  "instances": [
+    {
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı",
+      "id": 1
+    },
+    {
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler",
+      "id": 2
+    },
+    {
+      "instance": "mesela kamerası aldık yoktu",
+      "id": 3
+    },
+    {
+      "instance": "siteniz çalışmıyor kaç gündür",
+      "id": 4
+    },
+    {
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez",
+      "id": 5
+    },
+    {
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi",
+      "id": 6
+    },
+    {
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı",
+      "id": 7
+    },
+    {
+      "instance": "şarjı hemen bitiriyor",
+      "id": 8
+    },
+    {
+      "instance": "in yeni kampanyasi cok basarili",
+      "id": 9
+    },
+    {
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz",
+      "id": 10
+    }
+  ],
+  "dataset id": 1,
+  "maximum number of labels per instance": 10
+}

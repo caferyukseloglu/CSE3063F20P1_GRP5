@@ -10,23 +10,31 @@ public class Main {
 
         Dataset fd = new Dataset(1, "Multilabel Topic Classification Dataset", 10);
 
-        fd.addLabel(1, "bayi");
-        fd.addLabel(2, "numara");
-        fd.addLabel(3, "hat");
-
-        fd.addInstance(1, "35 tl kesinti yapmış turkcell'den üzerime kayıtlı numara olmamasına rağmen iki aydır ekstremden 35'er tl. kesilmiştir.");
-        fd.addInstance(2, "tele kurye işık hızında turkcell'den aldığım cihaz tele kurye denen ilgisiz, telefonlara bakmayan bir kurye tarafından 10 gündür elime ulaşılmadı. telefonlarıma bakılmıyor ne ciddiyetsiz kurumsallaşmamış bir kurye firması turkcell'e bu katkılarından dolayı teşekkürler!");
-
-        fd.getLabelByText("bayi");
         // OUTPUT:
-        User user = new User(1, "Name", "TESTv1");
-        Datetime datetime = new Datetime("TESTv1");
+        User user = new User(1, "Test User Name", "Test User Type");
+        Datetime datetime = new Datetime("12/12/2020, 04:52:21");
+
+        ReadJSON rj = new ReadJSON(fd, "/Users/eminsafatok/IdeaProjects/DLSProject/CSE3063F20P1_GRP5/iteration1/input_1.json");
+
+
         for (Instance instance : fd.getInstances()){
 
             Assignment assignment = instance.addAssignment(datetime, user);
-            assignment.addLabelById(1);
-            assignment.addLabelById(2);
+            assignment.addLabelByText("Negative");
+            assignment.addLabelByText("Positive");
+
         }
+        //fd.printLabels();
+        //fd.printInstances();
+
+
+        //fd.printDatasetDetailed();
+
+        WriteJSON wj = new WriteJSON(fd);
+
+
+
+
 
     }
 

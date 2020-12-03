@@ -1,3 +1,5 @@
+package com.dls;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -7,69 +9,88 @@ import java.util.Scanner;
 
 public class ReadJSON {
 
+    private Dataset dataset;
+    private String jsonPath;
 
-    public void readJson(Dataset dataset) {
-        //Dataset dataset = new Dataset(1, "1", 2);
-        Scanner in = new Scanner(System.in);
+    public ReadJSON(Dataset dataset, String jsonPath){
+
+        setDataset(dataset);
+        setJsonPath(jsonPath);
+        read();
+    }
+
+    protected void read() {
+
+        // @todo Do not need to use Scanner function, so we can deprecate import function and methods.
+        // Dataset dataset = new Dataset(1, "1", 2);
+        // Scanner in = new Scanner(System.in);
+
+
         JSONParser parser = new JSONParser();
-        String s = in.nextLine();
+
         try {
-            Object obj = parser.parse(new FileReader(s));
 
-
-            JSONObject jsonObject = (JSONObject) obj;
-
+            Object jsonParser = parser.parse(new FileReader(jsonPath));
+            JSONObject jsonObject = (JSONObject) jsonParser;
 
             JSONArray instanceList = (JSONArray) jsonObject.get("instances");
-            JSONArray LabelsList = (JSONArray) jsonObject.get("class labels");
-            //System.out.println(instanceList);
-            //System.out.println(LabelsList);
+            JSONArray labelList = (JSONArray) jsonObject.get("class labels");
 
-            parseInstanceObject(instanceList, dataset);
-            parseLabelsObject(LabelsList, dataset);
+            parseInstanceObject(instanceList);
+            parseLabelObject(labelList);
+
+
         } catch (Exception e) {
+
             e.printStackTrace();
+
         }
     }
-    private static void parseInstanceObject(JSONArray instanceList, Dataset dataset) {
+    protected void parseInstanceObject(JSONArray instanceList) {
+
         int size = instanceList.size();
+
         for (int i = 0; i < size; i++) {
+
             JSONObject instancesObject = (JSONObject) instanceList.get(i);
 
-            String instance = (String) instancesObject.get("instance");
-            //System.out.println(instance);
+            int instanceId = Integer.parseInt(instancesObject.get("id").toString());
+            String instanceText = (String) instancesObject.get("instance");
 
-            int id = Integer.parseInt(instancesObject.get("id").toString());
+            this.dataset.addInstance(instanceId, instanceText);
 
-            //System.out.println(id);
-            dataset.addInstance(id, instance);
         }
 
     }
 
-    private static void parseLabelsObject(JSONArray LabelsList, Dataset dataset) {
+    protected void parseLabelObject(JSONArray LabelsList) {
+
         int size = LabelsList.size();
-        for (int i = 0; i < size; i++) {
-            JSONObject instancesObject = (JSONObject) LabelsList.get(i);
-            String label = (String) instancesObject.get("label text");
-            //System.out.println(label);
 
+        for (int i = 0; i < size; i++) {
+
+            JSONObject instancesObject = (JSONObject) LabelsList.get(i);
+
+            String labelText = (String) instancesObject.get("label text");
             int labelId = Integer.parseInt(instancesObject.get("label id").toString());
-            ;
-            //System.out.println(labelId);
-            dataset.addLabel(labelId, label);
+
+            this.dataset.addLabel(labelId, labelText);
 
         }
-        dataset.getLabels();
-//        User user = new User(1, "Emin Safa Tok", "TESTv1");
-//        Datetime datetime = new Datetime("TESTv1");
-//        for (Instance instance : dataset.getInstances()) {
-//
-//            Assignment assignment = instance.addAssignment(datetime, user);
-//            assignment.addLabelById(1);
-//            assignment.addLabelById(2);
-//        }
+    }
 
+
+    protected void setDataset(Dataset dataset){
+
+        this.dataset = dataset;
 
     }
+
+    protected void setJsonPath(String jsonPath){
+
+        this.jsonPath = jsonPath;
+
+    }
+
+
 }

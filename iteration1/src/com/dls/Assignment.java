@@ -38,6 +38,10 @@ public class Assignment {
         return this.user;
     }
 
+    protected int getId(){
+        return this.id;
+    }
+
     protected Datetime getDatetime() {
         return this.datetime;
     }
@@ -74,14 +78,10 @@ public class Assignment {
         }
     }
 
-    protected void getLabels() {
-        for (Label label : this.labels) {
-            System.out.println(label.getId() + " " + label.getText());
-        }
-    }
+    protected ArrayList<Label> getLabels() {
 
-    protected ArrayList<Label> getLabelList() {
         return this.labels;
+
     }
 
 
