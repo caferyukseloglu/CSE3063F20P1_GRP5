@@ -1,4 +1,11 @@
 package com.dls;
+
+/**
+ * The User class stores variables and methods for each user that stated initially.
+ * @version iteration-1.0
+ * @since 2020-12-01
+ *
+ */
 public class User {
 
     private int id;

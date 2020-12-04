@@ -1,6 +1,12 @@
 package com.dls;
 import java.util.Random;
 
+/**
+ * The RandomBot class
+ * @version iteration-1.0
+ * @since 2020-12-01
+ *
+ */
 public class RandomBot {
 
     private Dataset dataset;

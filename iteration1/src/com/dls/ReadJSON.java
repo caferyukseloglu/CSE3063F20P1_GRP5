@@ -1,12 +1,15 @@
 package com.dls;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.io.FileReader;
-import java.util.Scanner;
 
+/**
+ * The ReadJSON class is @todo complete comments
+ * @version iteration-1.0
+ * @since 2020-12-01
+ *
+ */
 public class ReadJSON {
 
     private Dataset dataset;

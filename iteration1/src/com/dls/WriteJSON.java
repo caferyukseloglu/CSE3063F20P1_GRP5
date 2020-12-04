@@ -1,11 +1,16 @@
 package com.dls;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * The WriteJSON class is @todo complete comments.
+ * @todo We need to create a new method to read config.json file
+ * @version iteration-1.0
+ * @since 2020-12-01
+ *
+ */
 public class WriteJSON {
 
     private Dataset dataset;
@@ -42,8 +47,6 @@ public class WriteJSON {
 
             labelsJSON.add(singleLabelJSON);
         }
-
-        //mainJSON.put("class labels", labelsJSON);
 
 
 
