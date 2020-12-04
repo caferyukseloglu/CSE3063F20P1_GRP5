@@ -5,7 +5,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 
 /**
- * The ReadJSON class is @todo complete comments
+ * The ReadJSON class is @todo complete comments.
  * @version iteration-1.0
  * @since 2020-12-01
  *

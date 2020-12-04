@@ -11,6 +11,7 @@ public class User {
     private int id;
     private String name;
     private String type;
+    private String password;
 
 
     public User(int id, String name, String type){
@@ -28,6 +29,10 @@ public class User {
         this.name = name;
     }
 
+    private void setPassword(String password){
+        this.password = password;
+    }
+
     private void setType(String type){
         this.type = type;
     }
@@ -38,6 +43,15 @@ public class User {
 
     protected String getName(){
         return this.name;
+    }
+
+    protected String getPassword(){
+        return this.password;
+    }
+
+    protected Boolean checkPassword(String userName, String password){
+
+        return this.getName().equals(userName) && this.getPassword().equals(password);
     }
 
     protected String getType(){

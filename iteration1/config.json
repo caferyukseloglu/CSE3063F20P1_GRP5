@@ -1,0 +1,10 @@
+{
+  "users":[
+    {"user id":1,"user name":"RandomLabelingMechanism1","user type":"RandomBot", "password": "r123"},
+    {"user id":2,"user name":"RandomLabelingMechanism2","user type":"RandomBot", "password": "r123"},
+    {"user id":3,"user name":"MachineLearningLabelingMechanism","user type":"MachineLearningBot", "password": "m123"}
+  ],
+  "input path": "input_1.json",
+  "output path": "output.json"
+
+}
