@@ -15,11 +15,10 @@ public class RandomBot {
     private Datetime datetime;
     private Random random;
 
-    public RandomBot(Dataset dataset, int maxNumberOfLabels){
+    public RandomBot(Dataset dataset){
         setDataset(dataset);
-        setMaxNumberOfLabels(maxNumberOfLabels);
         setUser(new User(1, "Random Bot v1", "RandomBot"));
-        setDatetime(new Datetime("0"));
+        setDatetime(new Datetime());
         setRandom();
         run();
 
@@ -29,11 +28,9 @@ public class RandomBot {
 
     private void setDataset(Dataset dataset){
         this.dataset = dataset;
+        this.maxNumberOfLabels = dataset.getMaxNumberOfLabels();
     }
 
-    private void setMaxNumberOfLabels(int maxNumberOfLabels){
-        this.maxNumberOfLabels = maxNumberOfLabels;
-    }
 
     protected void setUser(User user){
         this.user = user;
@@ -50,7 +47,7 @@ public class RandomBot {
     private int getRandomInt(){
         return random.nextInt(this.maxNumberOfLabels) + 1;
     }
-
+    // @todo EXCEPTION: What if maxNumberOfLabels > dataset.labels.size()
     private Label getRandomLabel(){
 
         return this.dataset.getLabels().get(getRandomInt() - 1);

@@ -5,17 +5,24 @@ import java.util.ArrayList;
  * The Instance class stores variables and methods for each instance that created by WriteJSON class.
  * @version iteration-1.0
  * @since 2020-12-01
+ * @todo Is status variable needed to show instance has assigned or not?
  *
  */
 public class Instance {
 
     private int id;
     private String text;
-    private boolean status = false; // @todo Is it needed to show it has assigned or not?
+    private boolean status = false; //
     private Dataset dataset;
 
     private ArrayList<Assignment> assignments = new ArrayList<Assignment>(); // Make it limited
-
+    /*
+     * Construct method of the Instance class
+     * @param   id                  unique id number of instance
+     * @param   text                text of the dataset
+     * @param   <Dataset>           parent dataset object
+     * @return  nothing
+     */
     public Instance(int id, String text, Dataset dataset) {
 
         setId(id);
@@ -25,11 +32,11 @@ public class Instance {
     }
     /*
      * Sets id of "instance" as instance variable
+     * @todo Check if it used before
      * @return  nothing
      */
     private void setId(int id) {
         this.id = id;
-        // @todo Check if it used before
     }
     /*
      * Sets text of "instance" as instance variable

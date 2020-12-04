@@ -33,12 +33,12 @@ public class Dataset {
     }
     /*
      * Sets the id of dataset
+     * @todo Check if it used before
      * @param   id                  unique id number of dataset
      * @return  nothing
      */
     private void setId(int id){
         this.id = id;
-        // @todo Check if it used before
     }
     /*
      * Sets the name of dataset
@@ -160,10 +160,6 @@ public class Dataset {
             }
         }
     }
-
-
-
-
 
 
 

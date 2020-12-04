@@ -63,4 +63,7 @@ public class Label {
     protected void updateText(String text){
         this.text = text;
     }
+
+
+
 }

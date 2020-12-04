@@ -10,14 +10,21 @@ import java.util.ArrayList;
  *
  */
 public class Assignment {
-    // @todo assignments have one user only
+
     private int instanceId;
     private Instance instance;
     private User user;
     private Datetime datetime;
 
-    private ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
+    private ArrayList<Label> labels = new ArrayList<Label>();
 
+    /*
+     * Construct method of the Assignment class
+     * @param   <Instance>          instance object to assign this object
+     * @param   <Datetime>          datatime object to
+     * @param   maxNumberOfLabels   maximum number of labels to assign a single instance
+     * @return  nothing
+     */
     public Assignment(Instance instance, Datetime datetime, User user) {
 
         // @todo datetime should be created under construct method, not as an input.
@@ -28,7 +35,8 @@ public class Assignment {
     }
     /*
      * Sets instance object as instance variable
-     * Sets instance ID as intance variable @todo check if it is suitable
+     * Sets instance ID as intance variable
+     * @todo check if it is suitable
      * @return  nothing
      */
     protected void setInstance(Instance instance) {
@@ -79,10 +87,14 @@ public class Assignment {
     }
     /*
      * Add assigned label to array list label.
+     * @todo If maximum number of labels is reached, throw exception!
+     * @param   <Label>             Label to assign.
      * @return  nothing
      */
     protected void addLabel(Label label) {
-        this.labels.add(label);
+        if(this.labels.size() < this.instance.getDataset().getMaxNumberOfLabels()){
+            this.labels.add(label);
+        }
     }
     /*
      * Add label by label id. This method checks all label with given id
@@ -100,5 +112,16 @@ public class Assignment {
         Label label = this.instance.getDataset().getLabelByText(text);
         addLabel(label);
     }
+    /*
+     * Removes all labels that assigned.
+     * @return  nothing
+     */
+    protected void removeAllLabels(){
+        for(Label label : getLabels()){
+            this.labels.remove(label);
+        }
+    }
+
+
 
 }

@@ -59,7 +59,7 @@ public class WriteJSON {
 
             for(Assignment assignment : instance.getAssignments()){
                 JSONObject singleAssignmentJSON = new JSONObject();
-                singleAssignmentJSON.put("datetime", assignment.getDatetime().getRawDatetime());
+                singleAssignmentJSON.put("datetime", assignment.getDatetime().getDatetimeText());
                 singleAssignmentJSON.put("user id", assignment.getUser().getId());
 
                 JSONArray assignmentLabelsArray = new JSONArray();
