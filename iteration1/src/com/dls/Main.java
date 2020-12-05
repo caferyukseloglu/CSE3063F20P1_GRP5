@@ -28,7 +28,6 @@ public class Main {
         Config config = new Config("config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
-        config.loginInterface();
         RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
         config.loginInterface();
         RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser());
