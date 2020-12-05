@@ -20,9 +20,9 @@ public class Assignment {
 
     /*
      * Construct method of the Assignment class
-     * @param   <Instance>          instance object to assign this object
-     * @param   <Datetime>          datatime object to
-     * @param   maxNumberOfLabels   maximum number of labels to assign a single instance
+     * @param   instance                instance object to assign this object
+     * @param   datetime                datatime object to
+     * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
      * @return  nothing
      */
     public Assignment(Instance instance, Datetime datetime, User user) {
@@ -37,6 +37,7 @@ public class Assignment {
      * Sets instance object as instance variable
      * Sets instance ID as intance variable
      * @todo check if it is suitable
+     * @param   instance                instance object to set instanceId and object
      * @return  nothing
      */
     protected void setInstance(Instance instance) {
@@ -45,42 +46,44 @@ public class Assignment {
     }
     /*
      * Sets datatime object as instance variable
-     * @return  nothing
+     * @param   datetime                datetime object to set
+     * @return                          nothing
      */
     protected void setDatetime(Datetime datetime) {
         this.datetime = datetime;
     }
     /*
      * Sets user object as instance variable
-     * @return  nothing
+     * @param   user                    user object to set
+     * @return                          nothing
      */
     protected void setUser(User user) {
         this.user = user;
     }
     /*
      * Get id of instance object @todo check if it is suitable
-     * @return  int             id of instance object
+     * @return                          id of instance object
      */
     protected int getInstanceId(){
         return this.instanceId;
     }
     /*
      * Get user object
-     * @return  <User>          user object
+     * @return                          user object
      */
     protected User getUser() {
         return this.user;
     }
     /*
      * Get datetime object
-     * @return  <Datetime>      datetime object
+     * @return                          datetime object
      */
     protected Datetime getDatetime() {
         return this.datetime;
     }
     /*
      * Get array list of labels
-     * @return  ArrayList<Label>    array list of labels
+     * @return                          array list of labels
      */
     protected ArrayList<Label> getLabels() {
         return this.labels;
@@ -88,8 +91,8 @@ public class Assignment {
     /*
      * Add assigned label to array list label.
      * @todo If maximum number of labels is reached, throw exception!
-     * @param   <Label>             Label to assign.
-     * @return  nothing
+     * @param   label                   label to assign.
+     * @return                          nothing
      */
     protected void addLabel(Label label) {
         if(this.labels.size() < this.instance.getDataset().getMaxNumberOfLabels()){
@@ -98,7 +101,8 @@ public class Assignment {
     }
     /*
      * Add label by label id. This method checks all label with given id
-     * @return  nothing
+     * @param   id                      id of label to add labels list
+     * @return                          nothing
      */
     protected void addLabelById(int id) {
         Label label = this.instance.getDataset().getLabelById(id);
@@ -106,7 +110,8 @@ public class Assignment {
     }
     /*
      * Add label by label text. This method checks all label with given text
-     * @return  nothing
+     * @param   text                    text of label to add labels list
+     * @return                          nothing
      */
     protected void addLabelByText(String text) {
         Label label = this.instance.getDataset().getLabelByText(text);
@@ -114,7 +119,7 @@ public class Assignment {
     }
     /*
      * Removes all labels that assigned.
-     * @return  nothing
+     * @return                          nothing
      */
     protected void removeAllLabels(){
         for(Label label : getLabels()){

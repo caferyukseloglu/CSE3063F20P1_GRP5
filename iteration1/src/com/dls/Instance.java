@@ -33,62 +33,67 @@ public class Instance {
     /*
      * Sets id of "instance" as instance variable
      * @todo Check if it used before
-     * @return  nothing
+     * @param   id                      instance id
+     * @return                          nothing
      */
     private void setId(int id) {
         this.id = id;
     }
     /*
      * Sets text of "instance" as instance variable
-     * @return  nothing
+     * @param   text                    instance text
+     * @return                          nothing
      */
     private void setText(String text) {
         this.text = text;
     }
     /*
      * Sets object of parent dataset as instance variable
-     * @return  nothing
+     * @param   dataset                 parent dataset of instance
+     * @return                          nothing
      */
     private void setDataset(Dataset dataset) {
         this.dataset = dataset;
     }
     /*
      * Gets id of instance
-     * @return  int                 instance id
+     * @return                          instance id
      */
     protected int getId() {
         return this.id;
     }
     /*
      * Gets id of instance
-     * @return  String              instance text
+     * @return                          instance text
      */
     protected String getText() {
         return this.text;
     }
     /*
      * Gets array list of instance object
-     * @return  ArrayList<Assignment>   array list of assignment object
+     * @return                          array list of assignment object
      */
     protected ArrayList<Assignment> getAssignments() {
         return this.assignments;
     }
     /*
      * Gets object of parent dataset
-     * @return  <Dataset>               dataset object
+     * @return                          parent dataset object
      */
     protected Dataset getDataset() {
         return this.dataset;
     }
     /*
      * Updates text of instance
-     * @return  nothing
+     * @return                          nothing
      */
     protected void updateText(String text) {
         this.text = text;
     }
     /*
      * Creates new assignment objects and adds it to the array list of assignments.
+     * @param   datetime                datetime object
+     * @param   user                    user object
      * @return  <Assignment>            assignment object
      */
     protected Assignment addAssignment(Datetime datetime, User user) {

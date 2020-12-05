@@ -20,7 +20,7 @@ public class Datetime {
 
     /*
      * Construct method of the Datetime class
-     * @return  nothing
+     * @return                          nothing
      */
     public Datetime(){
         setCurrentDatetime();
@@ -28,21 +28,21 @@ public class Datetime {
     }
     /*
      * Sets LocalDateTime object with current time.
-     * @return nothing
+     * @return                          nothing
      */
     private void setCurrentDatetime(){
         this.currentDatetime = LocalDateTime.now();
     }
     /*
      * Sets LocalDateTime object as a text.
-     * @return nothing
+     * @return                          nothing
      */
     private void setDatetimeText(){
         datetimeText = this.currentDatetime.format(this.datetimeFormatter);
     }
     /*
      * Gets LocalDateTime object as a text.
-     * @return String               Datetime text as defined format
+     * @return                          datetime text as defined format
      */
     protected String getDatetimeText(){
         return this.datetimeText;

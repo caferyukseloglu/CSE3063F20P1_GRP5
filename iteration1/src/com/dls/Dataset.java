@@ -21,10 +21,10 @@ public class Dataset {
 
     /*
      * Construct method of the Dataset class
-     * @param   id                  unique id number of dataset
-     * @param   name                name of the dataset
-     * @param   maxNumberOfLabels   maximum number of labels to assign a single instance
-     * @return  nothing
+     * @param   id                      unique id number of dataset
+     * @param   name                    name of the dataset
+     * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
+     * @return                          nothing
      */
     public Dataset(int id, String name, int maxNumberOfLabels) {
          setId(id);
@@ -34,45 +34,45 @@ public class Dataset {
     /*
      * Sets the id of dataset
      * @todo Check if it used before
-     * @param   id                  unique id number of dataset
-     * @return  nothing
+     * @param   id                      unique id number of dataset
+     * @return                          nothing
      */
     private void setId(int id){
         this.id = id;
     }
     /*
      * Sets the name of dataset
-     * @param   name                name of dataset to set
-     * @return  nothing
+     * @param   name                    name of dataset to set
+     * @return                          nothing
      */
     private void setName(String name){
         this.name = name;
     }
     /*
      * Sets the maximum number of labels to asing a single instance
-     * @param   maxNumberOfLabels   Maximum number of label for a single instance
-     * @return  nothing
+     * @param   maxNumberOfLabels       maximum number of label for a single instance
+     * @return                          nothing
      */
     private void setMaxNumberOfLabels(int maxNumberOfLabels){
         this.maxNumberOfLabels = maxNumberOfLabels;
     }
     /*
      * Gets dataset id
-     * @return  int                  id of dataset
+     * @return                          id of dataset
      */
     protected int getId(){
         return this.id;
     }
     /*
      * Gets dataset name
-     * @return  String              name of dataset
+     * @return                          name of dataset
      */
     protected String getName(){
         return this.name;
     }
     /*
      * Gets maximum number of labels to assign a instance
-     * @return  int                  MaxNumberOfLabels
+     * @return                          MaxNumberOfLabels
      */
     protected int getMaxNumberOfLabels(){
         return this.maxNumberOfLabels;
@@ -80,7 +80,7 @@ public class Dataset {
     /*
      * Returns list of instances of dataset
      * This function is used during the JSON reading process.
-     * @return  ArrayList<Instance> Array List of <Instance> objects
+     * @return                          Array List of <Instance> objects
      */
     protected ArrayList<Instance> getInstances(){
         return this.instances;
@@ -88,16 +88,16 @@ public class Dataset {
     /*
      * Returns list of labels of dataset
      * This function is used during the JSON reading process.
-     * @return  ArrayList<Label>    Array List of <Label> objects
+     * @return                          Array List of <Label> objects
      */
     protected ArrayList<Label> getLabels(){
         return this.labels;
     }
     /*
      * Creates a <Instance> object with its id and text then adds <Instance> object to instances list of dataset.
-     * @param   id                  id of instance
-     * @param   text                text of instance
-     * @return  <Instance>          created <Instance> object
+     * @param   id                      id of instance
+     * @param   text                    text of instance
+     * @return                          created <Instance> object
      */
     protected Instance addInstance(int id, String text){
         Instance instance = new Instance(id, text, this);
@@ -107,9 +107,9 @@ public class Dataset {
     /*
      * Creates a <Label> object with its id and text then adds <Label> object to labels list of dataset.
      * This function is used during the JSON reading process.
-     * @param   id                  id of label
-     * @param   text                text of label
-     * @return  <Label>             created <Label> object
+     * @param   id                      id of label
+     * @param   text                    text of label
+     * @return                          created <Label> object
      */
     protected Label addLabel(int id, String text){
         Label label = new Label(id, text);
@@ -119,8 +119,8 @@ public class Dataset {
     /*
      * Finds and returns the <Label> object with the given text value.
      * @todo What if Label has not found?
-     * @param   text                text of label
-     * @return  <Label>             <Label> object
+     * @param   text                    text of label
+     * @return                          <Label> object
      */
     protected Label getLabelByText(String text){
         for(Label label : this.labels){
@@ -133,8 +133,8 @@ public class Dataset {
     /*
      * Finds and returns the <Label> object with the given id value.
      * @todo What if Label has not found?
-     * @param   int                 id of label
-     * @return  <Label>             <Label> object
+     * @param   int                     id of label
+     * @return                          <Label> object
      */
     protected Label getLabelById(int id){
         for(Label label : this.labels){
@@ -147,7 +147,7 @@ public class Dataset {
     /*
      * Prints detailed dataset parameters.
      * This method is useful for development purposes.
-     * @return  nothing             prints detailed dataset parameters
+     * @return                          nothing
      */
     protected void printDatasetDetailed(){
         for(Instance instance : this.instances){

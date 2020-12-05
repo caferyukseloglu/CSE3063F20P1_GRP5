@@ -4,30 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        // readjson -> dataset
-
-        test();
-
+        Config config = new Config("config.json");
+        ReadJSON read = new ReadJSON(config);
+        Dataset dataset = read.readInput();
+        config.loginInterface();
+        RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
+        config.loginInterface();
+        RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser());
+        WriteJSON write = new WriteJSON(dataset, config);
 
     }
-
-    public static void test(){
-        // Sample Test
-        // Read JSON -> Creates Objects -> Runs RandomBot -> Write JSON
-
-        Dataset fd = new Dataset(1, "Multilabel Topic Classification Dataset", 3);
-        User user = new User(1, "Test User Name", "Test User Type");
-        Datetime datetime = new Datetime();
-
-
-
-        //ReadJSON rj = new ReadJSON( fd, "input_1.json");
-        fd.printDatasetDetailed();
-        RandomBot rb = new RandomBot(fd);
-        WriteJSON wj = new WriteJSON(fd);
-    }
-
 
 
 }

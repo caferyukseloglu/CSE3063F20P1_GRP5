@@ -13,55 +13,100 @@ public class User {
     private String type;
     private String password;
 
-
-    public User(int id, String name, String type){
+    /*
+     * Construct method of the User class
+     * @param   id                      id of user
+     * @param   name                    name of user
+     * @param   type                    type of user
+     * @param   password                password of user
+     * @return                          nothing
+     */
+    public User(int id, String name, String type, String password){
         setId(id);
         setName(name);
         setType(type);
+        setPassword(password);
     }
-
+    /*
+     * Sets the id of user
+     * @todo Check if this id used before
+     * @param   id                      unique id of user
+     * @return                          nothing
+     */
     private void setId(int id){
         this.id = id;
-        // @todo Check if it used before
-    }
 
+    }
+    /*
+     * Sets name of user
+     * @param   text                    name of user
+     * @return                          nothing
+     */
     private void setName(String name){
         this.name = name;
     }
-
-    private void setPassword(String password){
-        this.password = password;
-    }
-
+    /*
+     * Sets type of user
+     * @param   type                    type of user
+     * @return                          nothing
+     */
     private void setType(String type){
         this.type = type;
     }
-
+    /*
+     * Sets password of user
+     * @param   password                password of user
+     * @return                          nothing
+     */
+    private void setPassword(String password){
+        this.password = password;
+    }
+    /*
+     * Gets id of user
+     * @return                          user id
+     */
     protected int getId(){
         return this.id;
     }
-
-    protected String getName(){
-        return this.name;
-    }
-
-    protected String getPassword(){
-        return this.password;
-    }
-
-    protected Boolean checkPassword(String userName, String password){
-
-        return this.getName().equals(userName) && this.getPassword().equals(password);
-    }
-
+    /*
+     * Gets type of user
+     * @return                          user type
+     */
     protected String getType(){
         return this.type;
     }
-
+    /*
+     * Gets name of user
+     * @return                          user name
+     */
+    protected String getName(){
+        return this.name;
+    }
+    /*
+     * Gets password of user
+     * @return                          user password
+     */
+    protected String getPassword(){
+        return this.password;
+    }
+    /*
+     * Checks user name and password.
+     * @return                          if credentials correct
+     */
+    protected Boolean checkPassword(String userName, String password){
+        return this.getName().equals(userName) && this.getPassword().equals(password);
+    }
+    /*
+     * Updates user name
+     * @return                          nothing
+     */
     protected void updateName(String name){
         this.name = name;
     }
-
+    /*
+     * Updates user type
+     * @return                          nothing
+     */
     protected void updateType(String type){
         this.type = type;
     }

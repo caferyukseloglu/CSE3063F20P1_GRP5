@@ -1,6 +1,8 @@
 package com.dls;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -14,16 +16,30 @@ import java.io.IOException;
 public class WriteJSON {
 
     private Dataset dataset;
-    private String outputFileName;
-    public WriteJSON(Dataset dataset){
+    private Config config;
+
+    public WriteJSON(Dataset dataset, Config config){
 
         setDataset(dataset);
+        setConfig(config);
         write();
     }
 
-    private void setDataset(Dataset dataset){ this.dataset = dataset; }
+    protected void setDataset(Dataset dataset){
+        this.dataset = dataset;
+    }
 
-    protected void setOutputFileName(String outputFileName){ this.outputFileName = outputFileName; }
+    protected void setConfig(Config config){
+        this.config = config;
+    }
+
+    protected Dataset getDataset(){
+        return this.dataset;
+    }
+
+    protected Config getConfig(){
+        return this.config;
+    }
 
     protected void write() {
 
@@ -38,8 +54,7 @@ public class WriteJSON {
         JSONArray instancesJSON = new JSONArray();
         JSONArray assignmentsJSON = new JSONArray();
 
-
-        // @todo add some comments
+        // LABELS
         for (Label label : this.dataset.getLabels()) {
             JSONObject singleLabelJSON = new JSONObject();
             singleLabelJSON.put("label text", label.getText());
@@ -47,10 +62,10 @@ public class WriteJSON {
 
             labelsJSON.add(singleLabelJSON);
         }
+        mainJSON.put("class labels", labelsJSON);
 
 
-
-        // @todo add some comments
+        // INSTANCES AND ASSIGNMENTS
         for (Instance instance : this.dataset.getInstances()){
             JSONObject singleInstanceJSON = new JSONObject();
             singleInstanceJSON.put("id", instance.getId());
@@ -77,7 +92,7 @@ public class WriteJSON {
         mainJSON.put("class label assignments", assignmentsJSON);
 
         try {
-            FileWriter file = new FileWriter("output.json");
+            FileWriter file = new FileWriter(this.config.getOutputPath());
             file.write(mainJSON.toJSONString());
             file.flush();
 
