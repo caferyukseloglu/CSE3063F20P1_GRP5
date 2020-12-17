@@ -1,0 +1,19 @@
+{
+  "users":[
+    {"user id":1,"user name":"RandomLabelingMechanism1","user type":"RandomBot", "password": "r123"},
+    {"user id":3,"user name":"RandomLabelingMechanism3","user type":"RandomBot", "password": "r123"},
+    {"user id":2,"user name":"RandomLabelingMechanism2","user type":"RandomBot", "password": "r123"},
+    {"user id":3,"user name":"MachineLearningLabelingMechanism","user type":"MachineLearningBot", "password": "m123"},
+    {"user id":4, "user name":"test", "user type":"MachineLearningBot", "password": "test"},
+    {"user id":5, "user name":"test2", "user type":"MachineLearningBot", "password": "test2"}
+  ],
+  "datasets":[
+    {"dataset id":2,"dataset name":"Sentiment Dataset","input path": "input_1.json"},
+    {"dataset id":55,"dataset name":"Sentiment Dataset1","input path": "input_2.json"}
+
+  ],
+
+  "output path": "output.json",
+  "CurrentDatasetId": 55,
+  "ConsistencyCheckProbability":0.1
+}
