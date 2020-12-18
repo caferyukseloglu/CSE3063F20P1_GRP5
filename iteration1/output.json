@@ -1,1 +1,223 @@
-{"class label assignments":[{"datetime":"05\/12\/2020, 20:41:13","class label ids":[4,9,5,4,7,7,5,2],"instance id":1,"user id":4},{"datetime":"05\/12\/2020, 20:41:17","class label ids":[5,4,8,9,2],"instance id":1,"user id":5},{"datetime":"05\/12\/2020, 20:41:13","class label ids":[2,1,3,1,1,5,7,1,8,9],"instance id":2,"user id":4},{"datetime":"05\/12\/2020, 20:41:17","class label ids":[2,4,5,10,9,8],"instance id":2,"user id":5},{"datetime":"05\/12\/2020, 20:41:13","class label ids":[4,7,5],"instance id":3,"user id":4},{"datetime":"05\/12\/2020, 20:41:17","class label ids":[2,1,8,3],"instance id":3,"user id":5},{"datetime":"05\/12\/2020, 20:41:13","class label ids":[6,3,10,8,10,5,4,8,9],"instance id":4,"user id":4},{"datetime":"05\/12\/2020, 20:41:17","class label ids":[6,3],"instance id":4,"user id":5},{"datetime":"05\/12\/2020, 20:41:13","class label ids":[4,8,6,10,8],"instance id":5,"user id":4},{"datetime":"05\/12\/2020, 20:41:17","class label ids":[5,8],"instance id":5,"user id":5}],"dataset name":"Multilabel Topic Classification Dataset","instances":[{"instance":"35 tl kesinti yapmış turkcell'den üzerime kayıtlı numara olmamasına rağmen iki aydır ekstremden 35'er tl. kesilmiştir.","id":1},{"instance":"tele kurye işık hızında turkcell'den aldığım cihaz tele kurye denen ilgisiz, telefonlara bakmayan bir kurye tarafından 10 gündür elime ulaşılmadı. telefonlarıma bakılmıyor ne ciddiyetsiz kurumsallaşmamış bir kurye firması turkcell'e bu katkılarından dolayı teşekkürler!","id":2},{"instance":"bursa anatolium müşteriyi kandırma 15 eylül günü bursa anatolium turkcell mağazasına iphone cihazım için şarj kablosu almaya gittim. aksesuar için etikette yazan fiyat 89,90dı turkcell uygulamada son bahar indiriminden dolayı fiyatın 63 tl olduğunu gösterdim; aldığım cevap uygulamadaki ürünün orijinal olmadığıydı. ","id":3},{"instance":"turkcell haksız borçlar turkcell **** numaralı ödediğim faturalardan devir bakiyesini almıyor sonra 2011 yılındaki 1 kuruşluk faturayı ödemediği iddia ederek borcu tarafıma 10 tl olarak icra başlatıyor ve bunu avukat ıvır zıvır olarak 500 tl bitirecek. borcu, reel alacak diye bir firmaya devrediyor turkcell ismine yakışmayan bir şey. 2011 'den bu yana 6 sene içerisinde tarafıma bir tebligat bile yapmıyor yazık yazık.","id":4},{"instance":"turkcell bana sormadan paket tanımlanmış! turkcell internet paketim bitince bana sormadan otomatik olarak 1 gb internet tanımlamış ve 10 tl yansıtmış, ayrıca fatura kesim tarihim 1 gün kala bu paketi tanımlamış ve fatura kesim tarihi yani 1 gün sonrasında bu paketi iptal etmiş ve ücreti iptal etmemiştir.","id":5}],"dataset id":2,"class labels":[{"label id":1,"label text":"bayi "},{"label id":2,"label text":"numara "},{"label id":3,"label text":"hat "},{"label id":4,"label text":"işlem"},{"label id":5,"label text":"müşteri"},{"label id":6,"label text":"bilgi "},{"label id":7,"label text":"telefon"},{"label id":8,"label text":"konu "},{"label id":9,"label text":"firma "},{"label id":10,"label text":"cihaz"},{"label id":11,"label text":"hat "},{"label id":12,"label text":"borç "},{"label id":13,"label text":"fatura "},{"label id":14,"label text":"taraf"},{"label id":15,"label text":"borç "},{"label id":16,"label text":"paket"}],"maximum number of labels per instance":10}
+{
+  "class label assignments": [
+    {
+      "datetime": "18\/12\/2020, 14:27:09",
+      "class label ids": [
+        2,
+        5
+      ],
+      "instance id": 1,
+      "user id": 4
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:14",
+      "class label ids": [
+        1,
+        5,
+        2,
+        4,
+        8,
+        1,
+        9,
+        1,
+        7,
+        7
+      ],
+      "instance id": 1,
+      "user id": 5
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:09",
+      "class label ids": [
+        2,
+        10,
+        9,
+        2,
+        10,
+        10,
+        7,
+        3
+      ],
+      "instance id": 2,
+      "user id": 4
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:14",
+      "class label ids": [
+        5,
+        6,
+        7,
+        2,
+        3,
+        3,
+        10,
+        7,
+        5,
+        6
+      ],
+      "instance id": 2,
+      "user id": 5
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:09",
+      "class label ids": [
+        1,
+        5,
+        3,
+        6,
+        9,
+        4
+      ],
+      "instance id": 3,
+      "user id": 4
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:14",
+      "class label ids": [
+        5,
+        9,
+        5,
+        9,
+        8,
+        5
+      ],
+      "instance id": 3,
+      "user id": 5
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:09",
+      "class label ids": [
+        10,
+        2,
+        5,
+        8,
+        5
+      ],
+      "instance id": 4,
+      "user id": 4
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:14",
+      "class label ids": [
+        6
+      ],
+      "instance id": 4,
+      "user id": 5
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:09",
+      "class label ids": [
+        9,
+        8,
+        7,
+        5
+      ],
+      "instance id": 5,
+      "user id": 4
+    },
+    {
+      "datetime": "18\/12\/2020, 14:27:14",
+      "class label ids": [
+        5,
+        6,
+        8,
+        4,
+        8,
+        8
+      ],
+      "instance id": 5,
+      "user id": 5
+    }
+  ],
+  "dataset name": "Multilabel Topic Classification Dataset",
+  "instances": [
+    {
+      "instance": "35 tl kesinti yapmış turkcell'den üzerime kayıtlı numara olmamasına rağmen iki aydır ekstremden 35'er tl. kesilmiştir.",
+      "id": 1
+    },
+    {
+      "instance": "tele kurye işık hızında turkcell'den aldığım cihaz tele kurye denen ilgisiz, telefonlara bakmayan bir kurye tarafından 10 gündür elime ulaşılmadı. telefonlarıma bakılmıyor ne ciddiyetsiz kurumsallaşmamış bir kurye firması turkcell'e bu katkılarından dolayı teşekkürler!",
+      "id": 2
+    },
+    {
+      "instance": "bursa anatolium müşteriyi kandırma 15 eylül günü bursa anatolium turkcell mağazasına iphone cihazım için şarj kablosu almaya gittim. aksesuar için etikette yazan fiyat 89,90dı turkcell uygulamada son bahar indiriminden dolayı fiyatın 63 tl olduğunu gösterdim; aldığım cevap uygulamadaki ürünün orijinal olmadığıydı. ",
+      "id": 3
+    },
+    {
+      "instance": "turkcell haksız borçlar turkcell **** numaralı ödediğim faturalardan devir bakiyesini almıyor sonra 2011 yılındaki 1 kuruşluk faturayı ödemediği iddia ederek borcu tarafıma 10 tl olarak icra başlatıyor ve bunu avukat ıvır zıvır olarak 500 tl bitirecek. borcu, reel alacak diye bir firmaya devrediyor turkcell ismine yakışmayan bir şey. 2011 'den bu yana 6 sene içerisinde tarafıma bir tebligat bile yapmıyor yazık yazık.",
+      "id": 4
+    },
+    {
+      "instance": "turkcell bana sormadan paket tanımlanmış! turkcell internet paketim bitince bana sormadan otomatik olarak 1 gb internet tanımlamış ve 10 tl yansıtmış, ayrıca fatura kesim tarihim 1 gün kala bu paketi tanımlamış ve fatura kesim tarihi yani 1 gün sonrasında bu paketi iptal etmiş ve ücreti iptal etmemiştir.",
+      "id": 5
+    }
+  ],
+  "dataset id": 2,
+  "class labels": [
+    {
+      "label id": 1,
+      "label text": "bayi "
+    },
+    {
+      "label id": 2,
+      "label text": "numara "
+    },
+    {
+      "label id": 3,
+      "label text": "hat "
+    },
+    {
+      "label id": 4,
+      "label text": "işlem"
+    },
+    {
+      "label id": 5,
+      "label text": "müşteri"
+    },
+    {
+      "label id": 6,
+      "label text": "bilgi "
+    },
+    {
+      "label id": 7,
+      "label text": "telefon"
+    },
+    {
+      "label id": 8,
+      "label text": "konu "
+    },
+    {
+      "label id": 9,
+      "label text": "firma "
+    },
+    {
+      "label id": 10,
+      "label text": "cihaz"
+    },
+    {
+      "label id": 11,
+      "label text": "hat "
+    },
+    {
+      "label id": 12,
+      "label text": "borç "
+    },
+    {
+      "label id": 13,
+      "label text": "fatura "
+    },
+    {
+      "label id": 14,
+      "label text": "taraf"
+    },
+    {
+      "label id": 15,
+      "label text": "borç "
+    },
+    {
+      "label id": 16,
+      "label text": "paket"
+    }
+  ],
+  "maximum number of labels per instance": 10
+}

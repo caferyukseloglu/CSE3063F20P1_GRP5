@@ -25,18 +25,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Config config = new Config("C:\\Users\\ahmet\\IdeaProjects\\CSE3063F20P1_GRP5_iteration1\\CSE3063F20P1_JAVA_GRP5_iteration1\\config.json");
+        Config config = new Config("/Users/eminsafatok/Workspace/CSE3063F20P1_GRP5/iteration2/config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
         String key = "exit";
         Scanner myObj;
         do {
-
-
+            System.out.println("Line 0");
             RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
+            System.out.println("Login 0");
             config.loginInterface();
-            RandomBot randomBot1 = new RandomBot(dataset, config.getActiveUser());
-
+            System.out.println("login True");
+            System.out.println(config.getActiveUser().getNumberOfLabeledInstaces());
             myObj = new Scanner(System.in);
             System.out.println("Write exit to write file");
         }
@@ -48,4 +48,3 @@ public class Main {
 
 
 }
-

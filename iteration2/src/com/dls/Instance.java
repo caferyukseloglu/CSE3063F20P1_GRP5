@@ -103,4 +103,13 @@ public class Instance {
         return assignment;
     }
 
+    protected boolean checkUserAssignment(User user){
+        for(Assignment assignment : this.assignments){
+            if(assignment.getUser().equals(user)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

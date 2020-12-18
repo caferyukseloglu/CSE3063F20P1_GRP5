@@ -1,5 +1,8 @@
 package com.dls;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * The User class stores variables and methods for each user that stated initially.
  * @version iteration-1.0
@@ -12,6 +15,7 @@ public class User {
     private String name;
     private String type;
     private String password;
+    private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
 
     /*
      * Construct method of the User class
@@ -110,4 +114,39 @@ public class User {
     protected void updateType(String type){
         this.type = type;
     }
+
+    /*
+    @todo not ready yet.
+    */
+    protected int getNumberOfAssignedDatasets(){
+        return this.datasets.size();
+    }
+
+    /*
+    @todo not ready yet.
+     */
+    protected HashMap<Dataset, Double> getDatasetCompletenessList(){
+        HashMap<Dataset, Double> datasetCompletenessList = new HashMap<Dataset, Double>();
+        return datasetCompletenessList;
+    }
+
+    protected int getNumberOfLabeledInstacesOfDataset(Dataset dataset){
+        int totalInstances = 0;
+        for (Instance instance : dataset.getInstances()){
+            if(instance.checkUserAssignment(this)){
+                totalInstances ++;
+            }
+        }
+        return totalInstances;
+    }
+
+    protected int getNumberOfLabeledInstaces(){
+        int totalInstances = 0;
+        for (Dataset dataset : this.datasets){
+            totalInstances += this.getNumberOfLabeledInstacesOfDataset(dataset);
+        }
+        return totalInstances;
+    }
+
+
 }

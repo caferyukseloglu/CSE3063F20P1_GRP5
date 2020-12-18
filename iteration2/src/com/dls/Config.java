@@ -150,13 +150,10 @@ public class Config {
         for (Dataset dataset : getDatasets()){
                 System.out.println(dataset.getName());
                 System.out.println(dataset.getId());
-
                 System.out.println(getCurrentDatasetId());
             if(dataset.getId() == getCurrentDatasetId()){
 
                 this.setActiveDataset(dataset);
-
-
 
             }
         }
