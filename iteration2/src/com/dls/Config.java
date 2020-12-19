@@ -1,6 +1,8 @@
 package com.dls;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The Config class stores configuration information of program.
@@ -9,7 +11,7 @@ import java.util.Scanner;
  *
  */
 public class Config {
-
+    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     private ArrayList<User> users = new ArrayList<User>();
     private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
     private User activeUser;
@@ -170,8 +172,10 @@ public class Config {
         }
         if(loggedIn){
             System.out.println("LOGIN SUCCESSFUL!");
+            logger.log(Level.WARNING,String.valueOf(userName+" is login"));
         }else{
             System.out.println("LOGIN ERROR!");
+            logger.log(Level.WARNING,"LOGIN ERROR");
             this.loginInterface();
         }
     }

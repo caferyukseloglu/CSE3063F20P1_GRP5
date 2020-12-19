@@ -1,6 +1,6 @@
 package com.dls;
 import java.util.Random;
-
+import java.util.logging.*;
 /**
  * The RandomBot class simulates a labeling mechanism like Machine Learning Algorithms
  * @version iteration-1.0
@@ -8,7 +8,7 @@ import java.util.Random;
  *
  */
 public class RandomBot {
-
+    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     private Dataset dataset;
     private int maxNumberOfLabels;
     private User user;
@@ -92,13 +92,13 @@ public class RandomBot {
 
             int numberOfLabelCount = getRandomInt();
             for (int i = 0; i < numberOfLabelCount; i++) {
-
                 Label label = getRandomLabel();
                 assignment.addLabel(label);
-
+                logger.info(String.valueOf("user: "+ this.user.getName()+" labeled this instance ıd: "+ instance.getId()));
             }
         }
     }
+
 
 
 

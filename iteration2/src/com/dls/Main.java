@@ -24,13 +24,22 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        Config config = new Config("/Users/eminsafatok/Workspace/CSE3063F20P1_GRP5/iteration2/config.json");
+        Log.setupLogger();
+        Config config = new Config("config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
         String key = "exit";
         Scanner myObj;
+        Runtime runtime = Runtime.getRuntime();
+        runtime.addShutdownHook(new Thread() {
+            public void run() {
+                // save state before exiting and start again
+                System.out.println("saving...");
+                WriteJSON write = new WriteJSON(dataset, config);
+            }
+        });
         do {
+
             System.out.println("Line 0");
             RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
             System.out.println("Login 0");
@@ -42,9 +51,8 @@ public class Main {
         }
         while (! key.equals(myObj.nextLine()));
 
-        WriteJSON write = new WriteJSON(dataset, config);
+
 
     }
-
 
 }
