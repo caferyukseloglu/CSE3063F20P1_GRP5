@@ -30,11 +30,10 @@ public class Main {
         Dataset dataset = read.readInput();
         String key = "exit";
         Scanner myObj;
-        Runtime runtime = Runtime.getRuntime();
-        runtime.addShutdownHook(new Thread() {
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
             public void run() {
-                // save state before exiting and start again
-                System.out.println("saving...");
+                System.out.println("Saving......");
                 WriteJSON write = new WriteJSON(dataset, config);
             }
         });
@@ -51,8 +50,7 @@ public class Main {
         }
         while (! key.equals(myObj.nextLine()));
 
-
-
     }
+
 
 }
