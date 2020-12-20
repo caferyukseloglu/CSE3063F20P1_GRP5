@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Datetime {
 
-    private LocalDateTime currentDatetime;
+    private LocalDateTime datetime;
     private DateTimeFormatter datetimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm:ss");
     private String datetimeText;
 
@@ -31,14 +31,14 @@ public class Datetime {
      * @return                          nothing
      */
     private void setCurrentDatetime(){
-        this.currentDatetime = LocalDateTime.now();
+        this.datetime = LocalDateTime.now();
     }
     /*
      * Sets LocalDateTime object as a text.
      * @return                          nothing
      */
     private void setDatetimeText(){
-        datetimeText = this.currentDatetime.format(this.datetimeFormatter);
+        datetimeText = this.datetime.format(this.datetimeFormatter);
     }
     /*
      * Gets LocalDateTime object as a text.
@@ -46,6 +46,10 @@ public class Datetime {
      */
     protected String getDatetimeText(){
         return this.datetimeText;
+    }
+
+    protected LocalDateTime getDatetime(){
+        return this.datetime;
     }
 
 

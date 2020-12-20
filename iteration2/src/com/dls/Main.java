@@ -1,5 +1,7 @@
 package com.dls;
+
 import java.util.Scanner;
+
 /**
  * The Data Labeling System (DLS) provides simple, stable and reliable labeling software as a third party integration.
  * This is term project of Marmara University CSE3063 Object-Oriented Software Design Lecture.
@@ -24,33 +26,37 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Log.setupLogger();
+
         Config config = new Config("config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
-        String key = "exit";
-        Scanner myObj;
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                System.out.println("Saving......");
-                WriteJSON write = new WriteJSON(dataset, config);
-            }
-        });
-        do {
+        //RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
 
-            System.out.println("Line 0");
-            RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
-            System.out.println("Login 0");
-            config.loginInterface();
-            System.out.println("login True");
-            System.out.println(config.getActiveUser().getNumberOfLabeledInstaces());
-            myObj = new Scanner(System.in);
-            System.out.println("Write exit to write file");
-        }
-        while (! key.equals(myObj.nextLine()));
+        Instance instance = dataset.getInstances().get(0);
+        Assignment assignment = instance.addAssignment(config.getActiveUser());
+        assignment.addLabelById(3);
+        assignment.addLabelById(3);
+
+        Assignment assignmentiki = instance.addAssignment(config.getActiveUser());
+        assignmentiki.addLabelById(6);
+        assignmentiki.addLabelById(6);
+
+
+        dataset.getLabelFrequencies();
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        //System.out.println();
+        dataset.getInstances().get(0).getNumberOfUniqueAssignments();
+        String delay = scanner.nextLine();
+        config.logout();
+        //config.loginInterface();
+        //RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser());
+        WriteJSON write = new WriteJSON(dataset, config);
 
     }
 
 
 }
+

@@ -1,8 +1,6 @@
 package com.dls;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * The Config class stores configuration information of program.
@@ -11,14 +9,10 @@ import java.util.logging.Logger;
  *
  */
 public class Config {
-    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
+
     private ArrayList<User> users = new ArrayList<User>();
-    private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
     private User activeUser;
-    private Dataset activeDataset;
-    private int currentDatasetId;
-    //private String datasetName;
-    //private String inputPath;
+    private String inputPath;
     private String outputPath;
     private String configFilePath;
 
@@ -45,17 +39,9 @@ public class Config {
      * @param   inputPath               input path as string to set
      * @return                          nothing
      */
-
-    protected void setActiveDataset(Dataset dataset){
-        this.activeDataset = dataset;
-
+    protected void setInputPath(String inputPath){
+        this.inputPath = inputPath;
     }
-    protected void setCurrentDatasetId(int datasetId){this.currentDatasetId = datasetId;}
-    //protected void setDatasetName(String datasetName){this.datasetName = datasetName;}
-
-//    protected void setInputPath(String inputPath){
-//        this.inputPath = inputPath;
-//    }
     /*
      * Sets output path as instance variable
      * @param   outputPath              output path as string to set
@@ -83,7 +69,6 @@ public class Config {
      * Gets logged in user object
      * @return                          user object
      */
-    protected ArrayList<Dataset> getDatasets(){return this.datasets;}
     protected User getActiveUser(){
         return this.activeUser;
     }
@@ -91,19 +76,9 @@ public class Config {
      * Gets input path as text
      * @return                          input path as text
      */
-
-    protected Dataset getActiveDataset(){
-        return this.activeDataset;
+    protected String getInputPath(){
+        return this.inputPath;
     }
-
-    ///////////////
-
-    protected int getCurrentDatasetId() { return this.currentDatasetId;}
-    //protected String getDatasetName() {return  this.datasetName;}
-
-//    protected String getInputPath(){
-//        return this.inputPath;
-//    }
     /*
      * Gets output path as text
      * @return                          output path as String
@@ -129,7 +104,6 @@ public class Config {
     protected User addUser(int userId, String userName, String userType, String userPassword){
         User user = new User(userId, userName, userType, userPassword);
         this.users.add(user);
-
         return user;
     }
     /*
@@ -139,46 +113,31 @@ public class Config {
      * @param   password                user password input
      * @return                          nothing
      */
-
-    protected Dataset addDataset(int datasetId, String datasetName, int maxNumberOfLabels, String inputPath){
-        Dataset dataset = new Dataset(datasetId, datasetName, maxNumberOfLabels,inputPath);
-        this.datasets.add(dataset);
-
-        return dataset;
-    }
-
-    protected void  Check(){
-
-        for (Dataset dataset : getDatasets()){
-                System.out.println(dataset.getName());
-                System.out.println(dataset.getId());
-                System.out.println(getCurrentDatasetId());
-            if(dataset.getId() == getCurrentDatasetId()){
-
-                this.setActiveDataset(dataset);
-
-            }
-        }
-
-    }
     protected void login(String userName, String password){
         boolean loggedIn = false;
         for(User user : getUsers()){
             if(user.checkPassword(userName, password)){
                 this.setActiveUser(user);
+                user.setLoginDatetime();
                 loggedIn = true;
                 break;
             }
         }
         if(loggedIn){
             System.out.println("LOGIN SUCCESSFUL!");
-            logger.log(Level.WARNING,String.valueOf(userName+" is login"));
         }else{
             System.out.println("LOGIN ERROR!");
-            logger.log(Level.WARNING,"LOGIN ERROR");
             this.loginInterface();
         }
     }
+
+    protected User logout(){
+        User user = this.activeUser;
+        user.setLogoutDatetime();
+        this.activeUser = null;
+        return user;
+    }
+
     /*
      * Prints login interface and calls login method with given credentials
      * @return                          nothing

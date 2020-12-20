@@ -1,6 +1,8 @@
 package com.dls;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Dataset class is main class of the project. It stores all other objects and instances.
@@ -14,8 +16,6 @@ public class Dataset {
     private int id;
     private String name;
     private int maxNumberOfLabels;
-    private String inputPath;
-
     private ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
     private ArrayList<User> users = new ArrayList<User>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
@@ -27,11 +27,10 @@ public class Dataset {
      * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
      * @return                          nothing
      */
-    public Dataset(int id, String name, int maxNumberOfLabels,String inputPath) {
+    public Dataset(int id, String name, int maxNumberOfLabels) {
          setId(id);
          setName(name);
          setMaxNumberOfLabels(maxNumberOfLabels);
-         setInputPath(inputPath);
     }
     /*
      * Sets the id of dataset
@@ -55,14 +54,13 @@ public class Dataset {
      * @param   maxNumberOfLabels       maximum number of label for a single instance
      * @return                          nothing
      */
-    public void setMaxNumberOfLabels(int maxNumberOfLabels){
+    private void setMaxNumberOfLabels(int maxNumberOfLabels){
         this.maxNumberOfLabels = maxNumberOfLabels;
     }
     /*
      * Gets dataset id
      * @return                          id of dataset
      */
-    private  void  setInputPath(String inputPath){this.inputPath = inputPath;}
     protected int getId(){
         return this.id;
     }
@@ -85,8 +83,6 @@ public class Dataset {
      * This function is used during the JSON reading process.
      * @return                          Array List of <Instance> objects
      */
-    protected  String getInputPath(){return inputPath;}
-
     protected ArrayList<Instance> getInstances(){
         return this.instances;
     }
@@ -105,10 +101,11 @@ public class Dataset {
      * @return                          created <Instance> object
      */
     protected Instance addInstance(int id, String text){
-        Instance instance = new Instance(id, text, this);
-        this.instances.add(instance);
-        return instance;
+        Instance newInstance = new Instance(id, text, this);
+        this.instances.add(newInstance);
+        return newInstance;
     }
+
     /*
      * Creates a <Label> object with its id and text then adds <Label> object to labels list of dataset.
      * This function is used during the JSON reading process.
@@ -164,6 +161,75 @@ public class Dataset {
                 }
             }
         }
+    }
+
+    protected int getIntanceNumber(){
+        return this.instances.size();
+    }
+
+
+    protected Float getCompletenessPercentage(){
+        Integer numberOfInstances = this.instances.size();
+        Integer numberOfInstancesWithLabel = 0;
+        for(Instance instance : this.instances){
+            if(!instance.getAssignments().isEmpty()){
+                numberOfInstancesWithLabel += 1;
+            }
+            numberOfInstances += 1;
+        }
+
+        return numberOfInstancesWithLabel.floatValue()/numberOfInstances.floatValue()*100;
+
+    }
+
+    protected void getLabelFrequencies(){
+        HashMap<Label, Double> labelFrequencies = new HashMap<Label, Double>();
+        for(Instance instance : this.instances){
+            if(instance.getFinalLabel() != null){
+                Label label = instance.getFinalLabel();
+                if(labelFrequencies.containsKey(label)){
+                    labelFrequencies.replace(label, labelFrequencies.get(label)+1.0);
+                }else{
+                    labelFrequencies.put(label, 1.0);
+                }
+            }
+        }
+        Map.Entry<Label, Double> maxEntry = null;
+        Integer totalNumberOfLabels = this.getIntanceNumber();
+        for (Map.Entry<Label, Double> entry : labelFrequencies.entrySet())
+        {
+            labelFrequencies.replace(entry.getKey(), entry.getValue()/totalNumberOfLabels*100);
+        }
+
+
+        for(Map.Entry<Label, Double> entry : labelFrequencies.entrySet()){
+
+           System.out.println(entry.getKey().getText()+" => "+entry.getValue());
+
+        }
+
+    }
+
+    protected void printUserList(){
+
+        for(User user : this.users){
+            System.out.println(user.getName());
+        }
+
+    }
+
+    protected int getNumberOfUsers(){
+        return this.users.size();
+    }
+
+
+    protected HashMap<User, Double> getUserCompletenessPercentages(){
+        HashMap<User, Double> userCompletenessPercentages = new HashMap<User, Double>();
+        for(User user : this.users){
+            Double completeness = user.getCompletenessPercentageOfDataset(this);
+            userCompletenessPercentages.put(user, completeness);
+        }
+        return userCompletenessPercentages;
     }
 
 

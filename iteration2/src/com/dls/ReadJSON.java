@@ -66,23 +66,22 @@ public class ReadJSON {
 
         // JSONParser object created
         JSONParser parser = new JSONParser();
-        Dataset dataset = config.getActiveDataset();
-        System.out.println(dataset.getName());
+
         try {
 
             // FileReader gets file from given path
-            Object jsonParser = parser.parse(new FileReader(dataset.getInputPath()));
+            Object jsonParser = parser.parse(new FileReader(getConfig().getInputPath()));
             JSONObject jsonObject = (JSONObject) jsonParser;
 
             // JSONParser parses with given json keys then assigns them to JSONArray
             JSONArray instanceList = (JSONArray) jsonObject.get("instances");
             JSONArray labelList = (JSONArray) jsonObject.get("class labels");
+            int datasetId =Integer.parseInt(jsonObject.get("dataset id").toString());
+            String datasetName =(String) jsonObject.get("dataset name");
             int maxNumberOfLabels = Integer.parseInt(jsonObject.get("maximum number of labels per instance").toString());
 
             // Dataset created with JSON values.
-
-            dataset.setMaxNumberOfLabels(maxNumberOfLabels);
-            //Dataset dataset = new Dataset(getConfig().getDatasetId(),getConfig().getDatasetName(), maxNumberOfLabels);
+            Dataset dataset = new Dataset(datasetId, datasetName, maxNumberOfLabels);
             setDataset(dataset);
 
             // Parsing methods called for sub-arrays of Instances and Labels
@@ -119,19 +118,11 @@ public class ReadJSON {
             // JSONParser parses with given json keys then assigns userList to JSONArray
             // inputPath and outputPath assigned to config object from JSON file
             JSONArray userList = (JSONArray) jsonObject.get("users");
-            JSONArray datasetList =(JSONArray) jsonObject.get("datasets");
-//            config.setDatasetId(Integer.parseInt(jsonObject.get("dataset id").toString()));;
-//            config.setDatasetName((String) jsonObject.get("dataset name"));
-//            config.setInputPath((String) jsonObject.get("input path"));
+            config.setInputPath((String) jsonObject.get("input path"));
             config.setOutputPath((String) jsonObject.get("output path"));
-            config.setCurrentDatasetId(Integer.parseInt(jsonObject.get("CurrentDatasetId").toString()));
 
             // parseUsers method called to parse userList and to add them config object
-
             parseUsers(userList, config);
-            parseDatasets(datasetList,config);
-            config.Check();
-
 
             System.out.println("Reading config file process completed successfully.");
 
@@ -195,23 +186,6 @@ public class ReadJSON {
             String userType = (String) usersObject.get("user type");
             String userPassword = (String) usersObject.get("password");
             config.addUser(userId, userName, userType, userPassword);
-
-        }
-
-    }
-    protected static void parseDatasets(JSONArray datasetList, Config config) {
-
-        int datasetListSize = datasetList.size();
-
-        for (int i = 0; i < datasetListSize; i++) {
-
-            JSONObject datasetObject = (JSONObject) datasetList.get(i);
-            int datasetId = Integer.parseInt(datasetObject.get("dataset id").toString());
-            String datasetName = (String) datasetObject.get("dataset name");
-
-            String datasetPath = (String) datasetObject.get("input path");
-
-            config.addDataset(datasetId, datasetName, 0,datasetPath);
 
         }
 

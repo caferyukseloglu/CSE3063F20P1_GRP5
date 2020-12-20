@@ -15,6 +15,8 @@ public class User {
     private String name;
     private String type;
     private String password;
+    private Datetime loginDatetime;
+    private Datetime logoutDatetime;
     private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
 
     /*
@@ -115,37 +117,73 @@ public class User {
         this.type = type;
     }
 
-    /*
-    @todo not ready yet.
-    */
-    protected int getNumberOfAssignedDatasets(){
+    protected void addDataset(Dataset dataset){
+        if(!this.datasets.contains(dataset)){
+            this.datasets.add(dataset);
+        }
+    }
+
+    protected int getTotalNumberOfInstancesLabeled(Dataset dataset, Boolean unique){
+        int number = 0;
+        ArrayList<User> users = new ArrayList<User>();
+        ArrayList<String> instanceTexts = new ArrayList<String>();
+        for(Instance instance : dataset.getInstances()){
+            if(instance.getUsers().contains(this)){
+                if(unique) {
+                    if(!instanceTexts.contains(instance.getText())){
+                        instanceTexts.add(instance.getText());
+                        number ++;
+                    }
+                }else{
+                    instanceTexts.add(instance.getText());
+                    number ++;
+                }
+            }
+        }
+
+        return number;
+    }
+
+    protected int getNumberOfDataset(){
         return this.datasets.size();
     }
 
-    /*
-    @todo not ready yet.
-     */
-    protected HashMap<Dataset, Double> getDatasetCompletenessList(){
-        HashMap<Dataset, Double> datasetCompletenessList = new HashMap<Dataset, Double>();
-        return datasetCompletenessList;
+    protected String getCompletenessPercentageOfDatasets(){
+        String completenessOfDatasets = " ";
+        for(Dataset dataset : this.datasets){
+            double labeledInstanceNumberOfDataset = this.getTotalNumberOfInstancesLabeled(dataset, false);
+            double instanceNumber = dataset.getIntanceNumber();
+            String completeness =  String.valueOf(labeledInstanceNumberOfDataset/ instanceNumber * 100);
+            completenessOfDatasets = completenessOfDatasets + "\"" + dataset.getName() + "\": " + completeness+",";
+        }
+        return completenessOfDatasets;
     }
 
-    protected int getNumberOfLabeledInstacesOfDataset(Dataset dataset){
-        int totalInstances = 0;
-        for (Instance instance : dataset.getInstances()){
-            if(instance.checkUserAssignment(this)){
-                totalInstances ++;
-            }
-        }
-        return totalInstances;
+    protected Double getCompletenessPercentageOfDataset(Dataset dataset){
+        double labeledInstanceNumberOfDataset = this.getTotalNumberOfInstancesLabeled(dataset, false);
+        double instanceNumber = dataset.getIntanceNumber();
+        return labeledInstanceNumberOfDataset/ instanceNumber * 100;
     }
 
-    protected int getNumberOfLabeledInstaces(){
-        int totalInstances = 0;
-        for (Dataset dataset : this.datasets){
-            totalInstances += this.getNumberOfLabeledInstacesOfDataset(dataset);
+    protected void setLoginDatetime(){
+        this.loginDatetime = new Datetime();
+        this.logoutDatetime = this.loginDatetime;
+    }
+
+    protected void setLogoutDatetime(){
+        this.logoutDatetime = new Datetime();
+    }
+
+    protected double getAverageTimeSpentInLabeling(Dataset dataset){
+        int totalNumberOfInstancesLabeled = getTotalNumberOfInstancesLabeled(dataset, false);
+        if(this.loginDatetime.equals(this.logoutDatetime)){
+            Datetime secondDatetime = new Datetime();
+            double totalSpent = java.time.Duration.between(this.loginDatetime.getDatetime(), secondDatetime.getDatetime()).getSeconds();
+            return totalSpent/totalNumberOfInstancesLabeled;
+        }else{
+            double totalSpent = java.time.Duration.between(this.loginDatetime.getDatetime(), this.logoutDatetime.getDatetime()).getSeconds();
+            return totalSpent/totalNumberOfInstancesLabeled;
         }
-        return totalInstances;
     }
 
 

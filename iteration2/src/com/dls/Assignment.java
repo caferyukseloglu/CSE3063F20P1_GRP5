@@ -1,5 +1,8 @@
 package com.dls;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * The Assignment class stores assignments of an instance.
@@ -12,6 +15,7 @@ import java.util.ArrayList;
 public class Assignment {
 
     private int instanceId;
+    private Dataset dataset;
     private Instance instance;
     private User user;
     private Datetime datetime;
@@ -25,14 +29,20 @@ public class Assignment {
      * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
      * @return  nothing
      */
-    public Assignment(Instance instance, Datetime datetime, User user) {
+    public Assignment(Instance instance, User user) {
 
         // @todo datetime should be created under construct method, not as an input.
         setInstance(instance);
-        setDatetime(datetime);
+        setDatetime(new Datetime());
         setUser(user);
+        setDataset(instance.getDataset());
 
     }
+
+    protected void setDataset(Dataset dataset){
+        this.dataset = dataset;
+    }
+
     /*
      * Sets instance object as instance variable
      * Sets instance ID as intance variable
@@ -97,6 +107,7 @@ public class Assignment {
     protected void addLabel(Label label) {
         if(this.labels.size() < this.instance.getDataset().getMaxNumberOfLabels()){
             this.labels.add(label);
+            this.instance.getTheMostFrequentLabel();
         }
     }
     /*
@@ -125,6 +136,15 @@ public class Assignment {
         for(Label label : getLabels()){
             this.labels.remove(label);
         }
+    }
+
+    protected List<Integer> getLabelIDs(){
+        List<Integer> labelWithIDs = new ArrayList<Integer>();
+        for(Label label : this.labels){
+            labelWithIDs.add(label.getId());
+        }
+        //Arrays.sort(labelsWithIDs);
+        return labelWithIDs;
     }
 
 
