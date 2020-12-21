@@ -16,6 +16,7 @@ public class Dataset {
     private int id;
     private String name;
     private int maxNumberOfLabels;
+    private String inputPath;
     private ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
     private ArrayList<User> users = new ArrayList<User>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
@@ -27,10 +28,11 @@ public class Dataset {
      * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
      * @return                          nothing
      */
-    public Dataset(int id, String name, int maxNumberOfLabels) {
+    public Dataset(int id, String name, int maxNumberOfLabels,String inputPath) {
          setId(id);
          setName(name);
          setMaxNumberOfLabels(maxNumberOfLabels);
+         setInputPath(inputPath);
     }
     /*
      * Sets the id of dataset
@@ -54,13 +56,15 @@ public class Dataset {
      * @param   maxNumberOfLabels       maximum number of label for a single instance
      * @return                          nothing
      */
-    private void setMaxNumberOfLabels(int maxNumberOfLabels){
+    public void setMaxNumberOfLabels(int maxNumberOfLabels){
         this.maxNumberOfLabels = maxNumberOfLabels;
     }
     /*
      * Gets dataset id
      * @return                          id of dataset
      */
+    private  void  setInputPath(String inputPath){this.inputPath = inputPath;}
+
     protected int getId(){
         return this.id;
     }
@@ -83,6 +87,8 @@ public class Dataset {
      * This function is used during the JSON reading process.
      * @return                          Array List of <Instance> objects
      */
+    protected  String getInputPath(){return inputPath;}
+
     protected ArrayList<Instance> getInstances(){
         return this.instances;
     }

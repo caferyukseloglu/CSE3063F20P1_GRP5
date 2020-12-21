@@ -26,34 +26,45 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+        Log.setupLogger();
         Config config = new Config("config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
         //RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
+        String key = "exit";
+        Scanner myObj;
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                System.out.println("Saving......");
+                WriteJSON write = new WriteJSON(dataset, config);
+            }
+        });
+        do {
+            Instance instance = dataset.getInstances().get(0);
+            Assignment assignment = instance.addAssignment(config.getActiveUser());
+            assignment.addLabelById(3);
+            assignment.addLabelById(3);
 
-        Instance instance = dataset.getInstances().get(0);
-        Assignment assignment = instance.addAssignment(config.getActiveUser());
-        assignment.addLabelById(3);
-        assignment.addLabelById(3);
-
-        Assignment assignmentiki = instance.addAssignment(config.getActiveUser());
-        assignmentiki.addLabelById(6);
-        assignmentiki.addLabelById(6);
+            Assignment assignmentiki = instance.addAssignment(config.getActiveUser());
+            assignmentiki.addLabelById(6);
+            assignmentiki.addLabelById(6);
 
 
-        dataset.getLabelFrequencies();
+            dataset.getLabelFrequencies();
 
 
+            Scanner scanner = new Scanner(System.in);
+            //System.out.println();
+            dataset.getInstances().get(0).getNumberOfUniqueAssignments();
+            String delay = scanner.nextLine();
+            myObj = new Scanner(System.in);
+            config.logout();
+        }
+        while (! key.equals(myObj.nextLine()));
 
-        Scanner scanner = new Scanner(System.in);
-        //System.out.println();
-        dataset.getInstances().get(0).getNumberOfUniqueAssignments();
-        String delay = scanner.nextLine();
-        config.logout();
         //config.loginInterface();
         //RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser());
-        WriteJSON write = new WriteJSON(dataset, config);
 
     }
 

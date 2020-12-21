@@ -3,6 +3,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * The WriteJSON class writes dataset data to JSON file.
@@ -11,6 +12,7 @@ import java.io.IOException;
  *
  */
 public class WriteJSON {
+    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
 
     private Dataset dataset;
     private Config config;
@@ -116,6 +118,7 @@ public class WriteJSON {
         mainJSON.put("class label assignments", assignmentsJSON);
 
         System.out.println("Writing process completed successfully.");
+        logger.info(String.valueOf(assignmentsJSON));
 
         try {
             FileWriter file = new FileWriter(this.config.getOutputPath());
