@@ -2,6 +2,7 @@ package com.dls;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -99,6 +100,19 @@ public class Assignment {
         return this.labels;
     }
     /*
+     * Get list of label IDs.
+     * v2
+     * @return                          array list of label IDs
+     */
+    protected List<Integer> getLabelIDs(){
+        List<Integer> labelWithIDs = new ArrayList<Integer>();
+        for(Label label : this.labels){
+            labelWithIDs.add(label.getId());
+        }
+        //Arrays.sort(labelsWithIDs);
+        return labelWithIDs;
+    }
+    /*
      * Add assigned label to array list label.
      * @todo If maximum number of labels is reached, throw exception!
      * @param   label                   label to assign.
@@ -137,14 +151,17 @@ public class Assignment {
             this.labels.remove(label);
         }
     }
-
-    protected List<Integer> getLabelIDs(){
-        List<Integer> labelWithIDs = new ArrayList<Integer>();
-        for(Label label : this.labels){
-            labelWithIDs.add(label.getId());
-        }
-        //Arrays.sort(labelsWithIDs);
-        return labelWithIDs;
+    /*
+     * Compares label lists of this assignment and given assignment.
+     * @param   <Assignment>            assignment object to compare
+     * @return                          Boolean
+     */
+    protected Boolean compareAssignmentLabels(Assignment assignment){
+        List<Integer> assignmentA = this.getLabelIDs();
+        List<Integer> assignmentB = assignment.getLabelIDs();
+        Collections.sort(assignmentA);
+        Collections.sort(assignmentB);
+        return assignmentA.equals(assignmentB);
     }
 
 

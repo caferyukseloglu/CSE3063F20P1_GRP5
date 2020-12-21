@@ -43,16 +43,25 @@ public class Main {
         do {
             Instance instance = dataset.getInstances().get(0);
             Assignment assignment = instance.addAssignment(config.getActiveUser());
-            assignment.addLabelById(3);
-            assignment.addLabelById(3);
+            assignment.addLabelById(1);
+            assignment.addLabelById(2);
 
             Assignment assignmentiki = instance.addAssignment(config.getActiveUser());
-            assignmentiki.addLabelById(6);
-            assignmentiki.addLabelById(6);
+            assignmentiki.addLabelById(1);
+            assignmentiki.addLabelById(2);
 
 
-            dataset.getLabelFrequencies();
+            Instance instance1 = dataset.getInstances().get(1);
+            Assignment assignmentx2 = instance1.addAssignment(config.getActiveUser());
+            assignmentx2.addLabelById(8);
+            assignmentx2.addLabelById(8);
 
+            Assignment assignmentikix2 = instance1.addAssignment(config.getActiveUser());
+            assignmentikix2.addLabelById(1);
+            assignmentikix2.addLabelById(2);
+
+
+            dataset.printLabelInstanceList();
 
             Scanner scanner = new Scanner(System.in);
             //System.out.println();

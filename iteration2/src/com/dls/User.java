@@ -1,5 +1,6 @@
 package com.dls;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,6 +19,7 @@ public class User {
     private Datetime loginDatetime;
     private Datetime logoutDatetime;
     private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
+    private ArrayList<Datetime> datetimes = new ArrayList<Datetime>();
 
     /*
      * Construct method of the User class
@@ -123,8 +125,8 @@ public class User {
         }
     }
 
-    protected int getTotalNumberOfInstancesLabeled(Dataset dataset, Boolean unique){
-        int number = 0;
+    protected Integer getTotalNumberOfInstancesLabeled(Dataset dataset, Boolean unique){
+        Integer number = 0;
         ArrayList<User> users = new ArrayList<User>();
         ArrayList<String> instanceTexts = new ArrayList<String>();
         for(Instance instance : dataset.getInstances()){
@@ -144,26 +146,35 @@ public class User {
         return number;
     }
 
-    protected int getNumberOfDataset(){
+    protected Integer getNumberOfDataset(){
         return this.datasets.size();
     }
 
-    protected String getCompletenessPercentageOfDatasets(){
-        String completenessOfDatasets = " ";
+    protected HashMap<Dataset, Double> getComplitionsOfAllDataset(){
+        HashMap<Dataset, Double> complitionsOfAllDataset = new HashMap<Dataset, Double>();
         for(Dataset dataset : this.datasets){
-            double labeledInstanceNumberOfDataset = this.getTotalNumberOfInstancesLabeled(dataset, false);
-            double instanceNumber = dataset.getIntanceNumber();
-            String completeness =  String.valueOf(labeledInstanceNumberOfDataset/ instanceNumber * 100);
-            completenessOfDatasets = completenessOfDatasets + "\"" + dataset.getName() + "\": " + completeness+",";
+            complitionsOfAllDataset.put(dataset, getComplitionOfDataset(dataset));
         }
-        return completenessOfDatasets;
+        return complitionsOfAllDataset;
     }
 
-    protected Double getCompletenessPercentageOfDataset(Dataset dataset){
-        double labeledInstanceNumberOfDataset = this.getTotalNumberOfInstancesLabeled(dataset, false);
-        double instanceNumber = dataset.getIntanceNumber();
-        return labeledInstanceNumberOfDataset/ instanceNumber * 100;
+    protected Double getComplitionOfDataset(Dataset dataset){
+        Integer labeledInstanceNumberOfDataset = this.getTotalNumberOfInstancesLabeled(dataset, false);
+        Integer instanceNumber = dataset.getNumberOfInstances();
+        return (double) labeledInstanceNumberOfDataset/ instanceNumber;
     }
+
+    protected void printComplitionsOfDataset(Dataset dataset){
+        Double percentage = this.getComplitionOfDataset(dataset) * 100.0;
+        System.out.println("Completeness Percentage of "+dataset.getName()+" : "+percentage.intValue()+" %");
+    }
+
+    protected void printComplitionsOfAllDataset(){
+        for(Dataset dataset : this.datasets){
+            this.printComplitionsOfDataset(dataset);
+        }
+    }
+
 
     protected void setLoginDatetime(){
         this.loginDatetime = new Datetime();
@@ -186,5 +197,39 @@ public class User {
         }
     }
 
+    protected Double getConsistencyPercentage(Dataset dataset){
+
+        Integer numberOfConsistentAssignments = 0;
+        Integer numberOfTotalInstances = 0;
+
+        for (Instance instance : this.getLabeledInstancesOfUser(dataset)){
+
+            if(instance.checkAssignmentConsistencyOfUser(this)){
+                numberOfConsistentAssignments ++;
+            }
+
+            numberOfTotalInstances ++;
+
+        }
+
+        if(numberOfTotalInstances == 0){
+            // @todo may return null
+            return 0.0;
+        }else{
+            return (double) numberOfConsistentAssignments/numberOfTotalInstances;
+        }
+
+    }
+
+    protected ArrayList<Instance> getLabeledInstancesOfUser(Dataset dataset){
+        ArrayList<Instance> labeledInstancesOfUser = new ArrayList<Instance>();
+        for (Instance instance : dataset.getInstances()){
+            ArrayList<Assignment> assignmentsOfUser = instance.getAssignmentsOfUser(this);
+            if(!assignmentsOfUser.isEmpty()){
+                labeledInstancesOfUser.add(instance);
+            }
+        }
+        return labeledInstancesOfUser;
+    }
 
 }

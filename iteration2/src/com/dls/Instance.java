@@ -85,38 +85,10 @@ public class Instance {
     protected Dataset getDataset() {
         return this.dataset;
     }
-    /*
-     * Updates text of instance
-     * @return                          nothing
-     */
-    protected void updateText(String text) {
-        this.text = text;
-    }
-    /*
-     * Creates new assignment objects and adds it to the array list of assignments.
-     * @param   datetime                datetime object
-     * @param   user                    user object
-     * @return  <Assignment>            assignment object
-     */
-    protected Assignment addAssignment(User user) {
-
-        Assignment assignment = new Assignment(this, user);
-        this.assignments.add(assignment);
-        user.addDataset(this.getDataset());
-        this.users.add(user);
-        return assignment;
-    }
 
     protected ArrayList<User> getUsers(){
         return this.users;
     }
-
-    protected void addUser(User user){
-        if(!this.users.contains(user)){
-            this.users.add(user);
-        }
-    }
-
     protected int getNumberOfAssignments(){
         return this.assignments.size();
     }
@@ -135,27 +107,28 @@ public class Instance {
                     break;
                 }
             }
-
             if (unique){
                 uniqueLists.add(labelIDs);
                 i++;
             }
-
         }
-        /*
-        for(List<Integer> list : uniqueLists){
-
-            for(int x : list){
-                System.out.println("ID: "+x);
-            }
-
-        }
-        */
         return uniqueLists.size();
     }
 
     protected int getNumberOfUsers(){
         return this.users.size();
+    }
+
+    protected ArrayList<Label> getUniqueLabels(){
+        ArrayList<Label> labels = new ArrayList<Label>();
+        for(Assignment assignment : this.assignments){
+            for(Label label : assignment.getLabels()){
+                if(!labels.contains(label)){
+                    labels.add(label);
+                }
+            }
+        }
+        return labels;
     }
 
     protected HashMap<Label, Integer> getLabelFrequencies(){
@@ -192,6 +165,56 @@ public class Instance {
 
     protected Label getFinalLabel(){
         return this.finalLabel;
+    }
+
+    protected ArrayList<Assignment> getAssignmentsOfUser(User user){
+        ArrayList<Assignment> assignmentsOfUser = new ArrayList<Assignment>();
+        for (Assignment assignment : this.assignments){
+            if(assignment.getUser().equals(user)){
+                assignmentsOfUser.add(assignment);
+            }
+        }
+        return assignmentsOfUser;
+    }
+
+    /*
+     * Updates text of instance
+     * @return                          nothing
+     */
+    protected void updateText(String text) {
+        this.text = text;
+    }
+    /*
+     * Creates new assignment objects and adds it to the array list of assignments.
+     * @param   datetime                datetime object
+     * @param   user                    user object
+     * @return  <Assignment>            assignment object
+     */
+    protected Assignment addAssignment(User user) {
+
+        Assignment assignment = new Assignment(this, user);
+        this.assignments.add(assignment);
+        user.addDataset(this.getDataset());
+        this.users.add(user);
+        this.dataset.addUser(user);
+        return assignment;
+    }
+
+
+    protected void addUser(User user){
+        if(!this.users.contains(user)){
+            this.users.add(user);
+        }
+    }
+
+    protected boolean checkAssignmentConsistencyOfUser(User user){
+        ArrayList<Assignment> assignmentsOfUser = getAssignmentsOfUser(user);
+        for (int i = 0; i < assignmentsOfUser.size()-1; i++) {
+            if(!assignmentsOfUser.get(i).compareAssignmentLabels(assignmentsOfUser.get(i+1))){
+                return false;
+            }
+        }
+        return true;
     }
 
 }
