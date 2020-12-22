@@ -40,7 +40,7 @@ public class Main {
                 WriteJSON write = new WriteJSON(dataset, config);
             }
         });
-        do {
+        //do {
             Instance instance = dataset.getInstances().get(0);
             Assignment assignment = instance.addAssignment(config.getActiveUser());
             assignment.addLabelById(1);
@@ -60,8 +60,9 @@ public class Main {
             assignmentikix2.addLabelById(1);
             assignmentikix2.addLabelById(2);
 
-
-            dataset.printLabelInstanceList();
+            config.getActiveUser().printPerformanceMetrics();
+            instance.printPerformanceMetrics();
+            dataset.printPerformanceMetrics();
 
             Scanner scanner = new Scanner(System.in);
             //System.out.println();
@@ -69,8 +70,8 @@ public class Main {
             String delay = scanner.nextLine();
             myObj = new Scanner(System.in);
             config.logout();
-        }
-        while (! key.equals(myObj.nextLine()));
+        //}
+        //while (! key.equals(myObj.nextLine()));
 
         //config.loginInterface();
         //RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser());

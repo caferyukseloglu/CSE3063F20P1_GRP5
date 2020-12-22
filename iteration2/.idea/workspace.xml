@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e5d2aab-0bcb-4c72-8642-11ec610a7fea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/dls/CommandLineInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/com/dls/Assignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/com/dls/Assignment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/com/dls/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/com/dls/Dataset.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/com/dls/Instance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/com/dls/Instance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/com/dls/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/com/dls/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/com/dls/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/com/dls/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/dls/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/dls/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Dataset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/dls/Instance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Instance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/dls/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dls/Main.java" afterDir="false" />
@@ -21,12 +27,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dls/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1081">
-              <caret line="168" column="40" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="40" />
+            <state relative-caret-position="63">
+              <caret line="261" column="54" selection-start-line="261" selection-start-column="21" selection-end-line="261" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#463#472#0" expanded="true" />
-                <element signature="e#565#575#0" expanded="true" />
+                <element signature="e#569#581#0" expanded="true" />
                 <element signature="e#3412#3418#0" expanded="true" />
                 <element signature="e#3477#3485#0" expanded="true" />
                 <element signature="e#4052#4053#0" expanded="true" />
@@ -34,8 +40,18 @@
                 <element signature="e#4239#4256#0" expanded="true" />
                 <element signature="e#5305#5306#0" expanded="true" />
                 <element signature="e#5357#5358#0" expanded="true" />
+                <element signature="e#7251#7259#0" expanded="true" />
                 <element signature="e#6902#6912#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/dls/CommandLineInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -43,8 +59,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dls/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+            <state relative-caret-position="228">
+              <caret line="71" column="28" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="71" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dls/Config.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="155" column="21" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -62,15 +87,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/input_1.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dls/Dataset.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="173" column="44" selection-start-line="173" selection-start-column="21" selection-end-line="173" selection-end-column="44" />
+            <state relative-caret-position="251">
+              <caret line="204" column="74" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#433#440#0" expanded="true" />
@@ -101,7 +135,6 @@
                 <element signature="e#5771#5772#0" expanded="true" />
                 <element signature="e#5916#5930#0" expanded="true" />
                 <element signature="e#6307#6321#0" expanded="true" />
-                <element signature="e#6354#6370#0" expanded="true" />
                 <element signature="e#6440#6455#0" expanded="true" />
                 <element signature="e#7598#7626#0" expanded="true" />
                 <element signature="e#7948#7958#0" expanded="true" />
@@ -111,24 +144,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1109">
-              <caret line="160" column="61" lean-forward="true" selection-start-line="160" selection-start-column="61" selection-end-line="160" selection-end-column="61" />
-              <folding>
-                <element signature="e#2892#2893#0" expanded="true" />
-                <element signature="e#2926#2927#0" expanded="true" />
-                <element signature="e#3055#3064#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dls/Instance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="95" column="49" lean-forward="true" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
+            <state relative-caret-position="774">
+              <caret line="219" selection-start-line="219" selection-end-line="219" />
               <folding>
                 <element signature="e#501#513#0" expanded="true" />
                 <element signature="e#585#591#0" expanded="true" />
@@ -154,11 +173,13 @@
                 <element signature="e#3627#3628#0" expanded="true" />
                 <element signature="e#3667#3668#0" expanded="true" />
                 <element signature="e#3771#3778#0" expanded="true" />
-                <element signature="e#3793#3809#0" expanded="true" />
-                <element signature="e#5356#5357#0" expanded="true" />
-                <element signature="e#5394#5395#0" expanded="true" />
+                <element signature="e#3993#4009#0" expanded="true" />
+                <element signature="e#4698#4713#0" expanded="true" />
+                <element signature="e#5266#5281#0" expanded="true" />
+                <element signature="e#5749#5750#0" expanded="true" />
+                <element signature="e#5787#5788#0" expanded="true" />
                 <element signature="e#5215#5227#0" expanded="true" />
-                <element signature="e#5824#5825#0" expanded="true" />
+                <element signature="e#6918#6919#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,13 +187,33 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>System.out.pr</find>
       <find>com</find>
       <find>completeness</find>
-      <find>Completeness</find>
       <find>Percentage</find>
+      <find>user</find>
+      <find>getCompletionPercentage</find>
+      <find>finalL</find>
+      <find>getFinalLabelPercentages</find>
+      <find>finalLabel</find>
+      <find>addAss</find>
+      <find>this.Fin</find>
+      <find>Final</find>
+      <find>Completeness</find>
+      <find>get</find>
+      <find>getFinalLabel</find>
+      <find>getConsis</find>
+      <find>consisten</find>
+      <find>getConsistencyPercentage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,18 +224,21 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/dls/Config.java" />
         <option value="$PROJECT_DIR$/src/com/dls/ReadJSON.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/CLI.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/DataLabelingSystem.java" />
         <option value="$PROJECT_DIR$/src/com/dls/Assignment.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/Instance.java" />
         <option value="$PROJECT_DIR$/src/com/dls/Main.java" />
         <option value="$PROJECT_DIR$/src/com/dls/User.java" />
-        <option value="$PROJECT_DIR$/src/com/dls/Instance.java" />
         <option value="$PROJECT_DIR$/src/com/dls/Dataset.java" />
+        <option value="$PROJECT_DIR$/src/com/dls/CommandLineInterface.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1265" />
-    <option name="height" value="906" />
+    <option name="width" value="1105" />
+    <option name="height" value="959" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -251,7 +295,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608585447021" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608649542499" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -303,18 +347,17 @@
       <option name="presentableId" value="Default" />
       <updated>1608237179264</updated>
       <workItem from="1608237180572" duration="6496000" />
-      <workItem from="1608546863160" duration="15015000" />
+      <workItem from="1608546863160" duration="24105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21511000" />
+    <option name="totallyTimeSpent" value="30601000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="959" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1105" height="959" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17338218" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2088429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -323,7 +366,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38408303" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.44059977" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,17 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dls/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="155" column="21" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
-          <folding>
-            <element signature="e#6211#6212#0" expanded="true" />
-            <element signature="e#6252#6253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/RandomBot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="737">
@@ -397,42 +429,34 @@
     <entry file="file://$PROJECT_DIR$/Logger.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1109">
-          <caret line="160" column="61" lean-forward="true" selection-start-line="160" selection-start-column="61" selection-end-line="160" selection-end-column="61" />
-          <folding>
-            <element signature="e#2892#2893#0" expanded="true" />
-            <element signature="e#2926#2927#0" expanded="true" />
-            <element signature="e#3055#3064#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dls/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dls/ReadJSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="72" column="67" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input_1.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/CLI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/DataLabelingSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="155" column="21" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/Instance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="95" column="49" lean-forward="true" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
+        <state relative-caret-position="774">
+          <caret line="219" selection-start-line="219" selection-end-line="219" />
           <folding>
             <element signature="e#501#513#0" expanded="true" />
             <element signature="e#585#591#0" expanded="true" />
@@ -458,23 +482,25 @@
             <element signature="e#3627#3628#0" expanded="true" />
             <element signature="e#3667#3668#0" expanded="true" />
             <element signature="e#3771#3778#0" expanded="true" />
-            <element signature="e#3793#3809#0" expanded="true" />
-            <element signature="e#5356#5357#0" expanded="true" />
-            <element signature="e#5394#5395#0" expanded="true" />
+            <element signature="e#3993#4009#0" expanded="true" />
+            <element signature="e#4698#4713#0" expanded="true" />
+            <element signature="e#5266#5281#0" expanded="true" />
+            <element signature="e#5749#5750#0" expanded="true" />
+            <element signature="e#5787#5788#0" expanded="true" />
             <element signature="e#5215#5227#0" expanded="true" />
-            <element signature="e#5824#5825#0" expanded="true" />
+            <element signature="e#6918#6919#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="168" column="40" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="40" />
+        <state relative-caret-position="63">
+          <caret line="261" column="54" selection-start-line="261" selection-start-column="21" selection-end-line="261" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#463#472#0" expanded="true" />
-            <element signature="e#565#575#0" expanded="true" />
+            <element signature="e#569#581#0" expanded="true" />
             <element signature="e#3412#3418#0" expanded="true" />
             <element signature="e#3477#3485#0" expanded="true" />
             <element signature="e#4052#4053#0" expanded="true" />
@@ -482,15 +508,33 @@
             <element signature="e#4239#4256#0" expanded="true" />
             <element signature="e#5305#5306#0" expanded="true" />
             <element signature="e#5357#5358#0" expanded="true" />
+            <element signature="e#7251#7259#0" expanded="true" />
             <element signature="e#6902#6912#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/Assignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/ReadJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="72" column="67" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dls/Dataset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="173" column="44" selection-start-line="173" selection-start-column="21" selection-end-line="173" selection-end-column="44" />
+        <state relative-caret-position="251">
+          <caret line="204" column="74" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#433#440#0" expanded="true" />
@@ -521,11 +565,24 @@
             <element signature="e#5771#5772#0" expanded="true" />
             <element signature="e#5916#5930#0" expanded="true" />
             <element signature="e#6307#6321#0" expanded="true" />
-            <element signature="e#6354#6370#0" expanded="true" />
             <element signature="e#6440#6455#0" expanded="true" />
             <element signature="e#7598#7626#0" expanded="true" />
             <element signature="e#7948#7958#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="71" column="28" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="71" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dls/CommandLineInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
         </state>
       </provider>
     </entry>

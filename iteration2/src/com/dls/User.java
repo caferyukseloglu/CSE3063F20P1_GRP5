@@ -1,5 +1,6 @@
 package com.dls;
 
+import javax.xml.crypto.Data;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +20,7 @@ public class User {
     private Datetime loginDatetime;
     private Datetime logoutDatetime;
     private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
-    private ArrayList<Datetime> datetimes = new ArrayList<Datetime>();
+    private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
 
     /*
      * Construct method of the User class
@@ -125,6 +126,12 @@ public class User {
         }
     }
 
+    protected void addAssignment(Assignment assignment){
+        if(!this.assignments.contains(assignment)){
+            this.assignments.add(assignment);
+        }
+    }
+
     protected Integer getTotalNumberOfInstancesLabeled(Dataset dataset, Boolean unique){
         Integer number = 0;
         ArrayList<User> users = new ArrayList<User>();
@@ -185,7 +192,7 @@ public class User {
         this.logoutDatetime = new Datetime();
     }
 
-    protected double getAverageTimeSpentInLabeling(Dataset dataset){
+    protected double getAverageTimeSpentInLabelingOld(Dataset dataset){
         int totalNumberOfInstancesLabeled = getTotalNumberOfInstancesLabeled(dataset, false);
         if(this.loginDatetime.equals(this.logoutDatetime)){
             Datetime secondDatetime = new Datetime();
@@ -197,7 +204,62 @@ public class User {
         }
     }
 
-    protected Double getConsistencyPercentage(Dataset dataset){
+    protected Double getAverageTimeSpentWhileLabeling(){
+        Integer totalNumberOfInstancesLabeled = this.assignments.size();
+        Double totalTimeSpent = 0.0;
+        totalTimeSpent += java.time.Duration.between(this.loginDatetime.getDatetime(), this.assignments.get(0).getDatetime().getDatetime()).getSeconds();
+        for(Integer i = 1; i < totalNumberOfInstancesLabeled ; i ++){
+            totalTimeSpent += java.time.Duration.between(this.assignments.get(i-1).getDatetime().getDatetime(), this.assignments.get(i).getDatetime().getDatetime()).getSeconds();
+        }
+        return totalTimeSpent / totalNumberOfInstancesLabeled.doubleValue();
+    }
+
+    protected Double getStdDevOfTimeSpentWhileLabeling(){
+
+        Integer totalNumberOfInstancesLabeled = this.assignments.size();
+        ArrayList<Double> timesSpent = new ArrayList<Double>();
+        Double totalTimeSpent = 0.0;
+        totalTimeSpent += java.time.Duration.between(this.loginDatetime.getDatetime(), this.assignments.get(0).getDatetime().getDatetime()).getSeconds();
+        for(Integer i = 1; i < totalNumberOfInstancesLabeled ; i ++){
+            Double timeSpent = (double) java.time.Duration.between(this.assignments.get(i-1).getDatetime().getDatetime(), this.assignments.get(i).getDatetime().getDatetime()).getSeconds();
+            totalTimeSpent += timeSpent;
+            timesSpent.add(timeSpent);
+        }
+
+
+        Double standardDeviation = 0.0;
+
+
+        Double mean = totalTimeSpent / timesSpent.size();
+
+        for(Double time: timesSpent) {
+            standardDeviation += Math.pow(time - mean, 2);
+        }
+
+        return Math.sqrt(standardDeviation/timesSpent.size());
+    }
+
+    protected Double getConsistencyPercentageOfAllDatasets(){
+
+        Integer numberOfConsistentAssignments = 0;
+        Integer numberOfTotalInstances = 0;
+        for(Dataset dataset : this.datasets){
+            for (Instance instance : this.getLabeledInstancesOfUser(dataset)){
+                if(instance.checkAssignmentConsistencyOfUser(this)){
+                    numberOfConsistentAssignments ++;
+                }
+                numberOfTotalInstances ++;
+            }
+        }
+        if(numberOfTotalInstances == 0){
+            // @todo may return null
+            return 0.0;
+        }else{
+            return (double) numberOfConsistentAssignments/numberOfTotalInstances;
+        }
+    }
+
+    protected Double getConsistencyPercentageOfDataset(Dataset dataset){
 
         Integer numberOfConsistentAssignments = 0;
         Integer numberOfTotalInstances = 0;
@@ -230,6 +292,41 @@ public class User {
             }
         }
         return labeledInstancesOfUser;
+    }
+
+    protected Integer getTotalNumberOfLabeledInstancesOfAllDatasets(){
+        Integer totalNumberOfLabeledInstancesOfAllDatasets = 0;
+        for(Dataset dataset : this.datasets){
+            totalNumberOfLabeledInstancesOfAllDatasets += getTotalNumberOfInstancesLabeled(dataset, false);
+        }
+        return totalNumberOfLabeledInstancesOfAllDatasets;
+    }
+
+    protected Integer getTotalNumberOfLabeledUniqueInstancesOfAllDatasets(){
+        Integer totalNumberOfLabeledInstancesOfAllDatasets = 0;
+        for(Dataset dataset : this.datasets){
+            totalNumberOfLabeledInstancesOfAllDatasets += getTotalNumberOfInstancesLabeled(dataset, true);
+        }
+        return totalNumberOfLabeledInstancesOfAllDatasets;
+    }
+
+
+    protected void printPerformanceMetrics(){
+        System.out.println("\u001B[34m"+"USER PERFORMANCE METRICS"+"\u001B[0m");
+        System.out.println("1. Number of Labeled Datasets:");
+        System.out.println(getNumberOfDataset());
+        System.out.println("2. Datasets With Completeness Percentages:");
+        printComplitionsOfAllDataset();
+        System.out.println("3. Total Number of Instances Labeled:");
+        System.out.println(getTotalNumberOfLabeledInstancesOfAllDatasets());
+        System.out.println("4. Total Number of Unique Instances Labeled:");
+        System.out.println(getTotalNumberOfLabeledUniqueInstancesOfAllDatasets());
+        System.out.println("5. Consistency Percentage");
+        System.out.println(getConsistencyPercentageOfAllDatasets());
+        System.out.println("6. Average Labeling Time");
+        System.out.println(getAverageTimeSpentWhileLabeling());
+        System.out.println("7. Standard Deviation of Labeling Time");
+        System.out.println(getStdDevOfTimeSpentWhileLabeling());
     }
 
 }

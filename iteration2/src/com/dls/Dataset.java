@@ -16,6 +16,7 @@ public class Dataset {
     private String name;
     private int maxNumberOfLabels;
     private String inputPath;
+    private Double consistencyCheckProbability;
     private ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
     private ArrayList<User> users = new ArrayList<User>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
@@ -27,10 +28,11 @@ public class Dataset {
      * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
      * @return                          nothing
      */
-    public Dataset(int id, String name, int maxNumberOfLabels,String inputPath) {
+    public Dataset(int id, String name, int maxNumberOfLabels, String inputPath) {
          setId(id);
          setName(name);
          setMaxNumberOfLabels(maxNumberOfLabels);
+         //this.consistencyCheckProbability = consistencyCheckProbability;
          this.inputPath = inputPath;
          //@todo set input path method
     }
@@ -193,7 +195,7 @@ public class Dataset {
     protected HashMap<User, Double> getUserConsistencyPercentages(){
         HashMap<User, Double> userConsistencyPercentages = new HashMap<User, Double>();
         for(User user : this.users){
-            Double consistency = user.getConsistencyPercentage(this);
+            Double consistency = user.getConsistencyPercentageOfDataset(this);
             userConsistencyPercentages.put(user, consistency);
         }
         return userConsistencyPercentages;
@@ -331,6 +333,22 @@ public class Dataset {
             }
             System.out.println(row);
         }
+    }
+
+    protected void printPerformanceMetrics(){
+        System.out.println("\u001B[34m"+"DATASET PERFORMANCE METRICS"+"\u001B[0m");
+        System.out.println("1. Completion Percentages:");
+        System.out.println(getCompletionPercentage());
+        System.out.println("2. Final Label Percentage:");
+        printFinalLabelPercentages();
+        System.out.println("3. List of Unique Instances With Related Labels:");
+        printLabelInstanceList(); //@todo check if unique
+        System.out.println("4. Number of User Assigned");
+        System.out.println(getNumberOfUsers());
+        System.out.println("5. List of Users Assigned and Their Completeness Percentages");
+        printUserCompletions();
+        System.out.println("5. List of Users Assigned and Their Consistency Percentages");
+        printUserConsistencies();
     }
 
 }
