@@ -124,7 +124,7 @@ public class ReadJSON {
 
             config.setOutputPath((String) jsonObject.get("output path"));
             config.setCurrentDatasetId(Integer.parseInt(jsonObject.get("CurrentDatasetId").toString()));
-
+            config.setConsistencyCheckP(Float.parseFloat(jsonObject.get("ConsistencyCheckProbability").toString()));
             // parseUsers method called to parse userList and to add them config object
             parseUsers(userList, config);
             parseDatasets(datasetList,config);

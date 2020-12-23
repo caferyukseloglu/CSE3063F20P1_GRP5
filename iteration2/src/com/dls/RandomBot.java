@@ -1,7 +1,7 @@
 package com.dls;
 import java.util.Random;
 import java.util.logging.Logger;
-
+import java.util.concurrent.TimeUnit;
 /**
  * The RandomBot class simulates a labeling mechanism like Machine Learning Algorithms
  * @version iteration-1.0
@@ -15,6 +15,7 @@ public class RandomBot {
     private User user;
     private Datetime datetime;
     private Random random;
+    private Config config;
 
     /*
      * Construct method of the RandomBot class
@@ -22,10 +23,11 @@ public class RandomBot {
      * @param   user                    user object
      * @return                          nothing
      */
-    public RandomBot(Dataset dataset, User user){
+    public RandomBot(Dataset dataset, User user, Config config){
 
         setDataset(dataset);
         setUser(user);
+        setConfig(config);
         setDatetime(new Datetime());
         setRandom();
         run();
@@ -45,6 +47,7 @@ public class RandomBot {
      * @param   user                    parent dataset of instance
      * @return                          nothing
      */
+    protected void setConfig(Config config){this.config = config;}
     protected void setUser(User user){
         this.user = user;
     }
@@ -76,6 +79,7 @@ public class RandomBot {
      * @todo EXCEPTION: What if maxNumberOfLabels > dataset.labels.size()
      * @return                          label object
      */
+    private int getRandom(){return random.nextInt(100);}
     private Label getRandomLabel(){
 
         return this.dataset.getLabels().get(getRandomInt() - 1);
@@ -85,24 +89,43 @@ public class RandomBot {
      * This method calls all instances of the dataset and assigns random labels.
      * @return                          nothing
      */
-    protected void run(){
+    protected void run() {
 
-        for(Instance instance : this.dataset.getInstances()){
+        for (Instance instance : this.dataset.getInstances()) {
+
+            System.out.println(this.dataset.getInstances().size());
 
             Assignment assignment = instance.addAssignment(this.user);
+            if (!instance.getAssignments().isEmpty()) {
+                logger.info(String.valueOf("user: " + this.user.getName() + " labeled this instance ıd: " + instance.getId()));
+                try {
+                    TimeUnit.MILLISECONDS.sleep(100);
 
-            int numberOfLabelCount = getRandomInt();
-            for (int i = 0; i < numberOfLabelCount; i++) {
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-                Label label = getRandomLabel();
-                assignment.addLabel(label);
-                logger.info(String.valueOf("user: "+ this.user.getName()+" labeled this instance ıd: "+ instance.getId()));
 
+                int numberOfLabelCount = getRandomInt();
+                for (int i = 0; i < numberOfLabelCount; i++) {
+
+                    Label label = getRandomLabel();
+
+                    assignment.addLabel(label);
+                    WriteJSON write = new WriteJSON(dataset, config);
+                }
+            } else {
+                if (Math.round(user.getConsistencyCheckProbability()) > getRandom()) {
+                    assignment.addLabel(instance.getFinalLabel());
+
+                }
 
             }
         }
     }
-
-
-
 }
+
+
+
+
+

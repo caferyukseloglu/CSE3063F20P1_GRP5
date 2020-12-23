@@ -20,6 +20,7 @@ public class Config {
     private int currentDatasetId;
     private String outputPath;
     private String configFilePath;
+    private float consistencyCheckP;
     /*
      * Construct method of the Config class
      * @param   configFilePath          config json file path to read from
@@ -58,6 +59,7 @@ public class Config {
 //     * @param   outputPath              output path as string to set
 //     * @return                          nothing
 //     */
+    protected void setConsistencyCheckP(float consistencyCheckP){this.consistencyCheckP = consistencyCheckP*100;}
     protected void setOutputPath(String outputPath){
         this.outputPath = outputPath;
     }
@@ -101,7 +103,7 @@ public class Config {
     }
     protected int getCurrentDatasetId() { return this.currentDatasetId;}
 
-    protected String getOutputPath(){
+    public String getOutputPath(){
         return this.outputPath;
     }
     /*
@@ -121,6 +123,7 @@ public class Config {
      */
     protected User addUser(int userId, String userName, String userType, String userPassword){
         User user = new User(userId, userName, userType, userPassword);
+        user.setConsistencyCheckProbability(this.consistencyCheckP);
         this.users.add(user);
         return user;
     }

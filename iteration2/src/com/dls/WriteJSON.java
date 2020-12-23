@@ -17,6 +17,7 @@ public class WriteJSON {
     private Dataset dataset;
     private Config config;
 
+
     /*
      * Construct method of the WriteJSON class
      * @param   config                  config object
@@ -69,6 +70,8 @@ public class WriteJSON {
 
         // Main JSONObject object created
         JSONObject mainJSON = new JSONObject();
+        JSONObject userPerformansJSON = new JSONObject();
+        JSONObject datasetPerdormansJSON = new JSONObject();
         // First level keys and their values
         mainJSON.put("dataset id", this.dataset.getId());
         mainJSON.put("dataset name", this.dataset.getName());
@@ -105,6 +108,7 @@ public class WriteJSON {
 
                 JSONArray assignmentLabelsArray = new JSONArray();
                 for(Label label : assignment.getLabels()){
+//                    System.out.println(label.getId());
                     assignmentLabelsArray.add(label.getId());
                 }
                 singleAssignmentJSON.put("class label ids", assignmentLabelsArray);
@@ -119,11 +123,26 @@ public class WriteJSON {
 
         System.out.println("Writing process completed successfully.");
         logger.info(String.valueOf(assignmentsJSON));
-
+        userPerformansJSON.put("1. Number of Labeled Datasets:",config.getActiveUser().getNumberOfDataset());
+        //userPerformansJSON.put("2. Datasets With Completeness Percentages:",config.getActiveUser().printComplitionsOfAllDataset(););
+        userPerformansJSON.put("3. Total Number of Instances Labeled:",config.getActiveUser().getTotalNumberOfLabeledInstancesOfAllDatasets());
+        userPerformansJSON.put("4. Total Number of Unique Instances Labeled:",config.getActiveUser().getTotalNumberOfLabeledUniqueInstancesOfAllDatasets());
+        userPerformansJSON.put("5. Consistency Percentage",config.getActiveUser().getConsistencyPercentageOfAllDatasets());
+        userPerformansJSON.put("6. Average Labeling Time",config.getActiveUser().getAverageTimeSpentWhileLabeling());
+        userPerformansJSON.put("7. Standard Deviation of Labeling Time",config.getActiveUser().getStdDevOfTimeSpentWhileLabeling());
+        //
+        //
+        //
+        datasetPerdormansJSON.put("1. Completion Percentages:",dataset.getCompletionPercentage());
+        //datasetPerdormansJSON.put("2. Final Label Percentage:",dataset.printFinalLabelPercentages());
+        //datasetPerdormansJSON.put("3. List of Unique Instances With Related Labels:")
         try {
             FileWriter file = new FileWriter(this.config.getOutputPath());
+            FileWriter file2 = new FileWriter("Report.json");
             file.write(mainJSON.toJSONString());
+            file2.write(userPerformansJSON.toJSONString());
             file.flush();
+            file2.flush();
 
         } catch (IOException e) {
             e.printStackTrace();

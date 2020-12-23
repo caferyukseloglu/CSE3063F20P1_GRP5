@@ -19,6 +19,7 @@ public class User {
     private String password;
     private Datetime loginDatetime;
     private Datetime logoutDatetime;
+    private float consistencyCheckProbability;
     private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
     private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
 
@@ -67,6 +68,7 @@ public class User {
      * @param   password                password of user
      * @return                          nothing
      */
+    public void setConsistencyCheckProbability(float probability){this.consistencyCheckProbability =probability;}
     private void setPassword(String password){
         this.password = password;
     }
@@ -102,6 +104,7 @@ public class User {
      * Checks user name and password.
      * @return                          if credentials correct
      */
+    protected float getConsistencyCheckProbability(){return  this.consistencyCheckProbability;}
     protected Boolean checkPassword(String userName, String password){
         return this.getName().equals(userName) && this.getPassword().equals(password);
     }

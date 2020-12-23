@@ -30,51 +30,53 @@ public class Main {
         Config config = new Config("config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
-        //RandomBot randomBot = new RandomBot(dataset, config.getActiveUser());
         String key = "exit";
         Scanner myObj;
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
                 System.out.println("Saving......");
-                WriteJSON write = new WriteJSON(dataset, config);
+                //WriteJSON write = new WriteJSON(dataset, config);
             }
         });
-        //do {
-            Instance instance = dataset.getInstances().get(0);
-            Assignment assignment = instance.addAssignment(config.getActiveUser());
-            assignment.addLabelById(1);
-            assignment.addLabelById(2);
+        do {
 
-            Assignment assignmentiki = instance.addAssignment(config.getActiveUser());
-            assignmentiki.addLabelById(1);
-            assignmentiki.addLabelById(2);
+            config.loginInterface();
+            RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser(),config);
 
-
-            Instance instance1 = dataset.getInstances().get(1);
-            Assignment assignmentx2 = instance1.addAssignment(config.getActiveUser());
-            assignmentx2.addLabelById(8);
-            assignmentx2.addLabelById(8);
-
-            Assignment assignmentikix2 = instance1.addAssignment(config.getActiveUser());
-            assignmentikix2.addLabelById(1);
-            assignmentikix2.addLabelById(2);
-
-            config.getActiveUser().printPerformanceMetrics();
-            instance.printPerformanceMetrics();
-            dataset.printPerformanceMetrics();
-
-            Scanner scanner = new Scanner(System.in);
-            //System.out.println();
-            dataset.getInstances().get(0).getNumberOfUniqueAssignments();
-            String delay = scanner.nextLine();
-            myObj = new Scanner(System.in);
             config.logout();
-        //}
-        //while (! key.equals(myObj.nextLine()));
+//            Instance instance = dataset.getInstances().get(0);
+//            Assignment assignment = instance.addAssignment(config.getActiveUser());
+//            assignment.addLabelById(1);
+//            assignment.addLabelById(2);
+//
+//            Assignment assignmentiki = instance.addAssignment(config.getActiveUser());
+//            assignmentiki.addLabelById(1);
+//            assignmentiki.addLabelById(2);
+//
+//
+//            Instance instance1 = dataset.getInstances().get(1);
+//            Assignment assignmentx2 = instance1.addAssignment(config.getActiveUser());
+//            assignmentx2.addLabelById(8);
+//            assignmentx2.addLabelById(8);
+//
+//            Assignment assignmentikix2 = instance1.addAssignment(config.getActiveUser());
+//            assignmentikix2.addLabelById(1);
+//            assignmentikix2.addLabelById(2);
+//
+//            config.getActiveUser().printPerformanceMetrics();
+//            instance.printPerformanceMetrics();
+//            dataset.printPerformanceMetrics();
+//
+//            Scanner scanner = new Scanner(System.in);
+//            //System.out.println();
+//            dataset.getInstances().get(0).getNumberOfUniqueAssignments();
+//            String delay = scanner.nextLine();
+            myObj = new Scanner(System.in);
 
-        //config.loginInterface();
-        //RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser());
+        }
+        while (! key.equals(myObj.nextLine()));
+
 
     }
 
