@@ -93,8 +93,6 @@ public class RandomBot {
 
         for (Instance instance : this.dataset.getInstances()) {
 
-            System.out.println(this.dataset.getInstances().size());
-
             Assignment assignment = instance.addAssignment(this.user);
             if (!instance.getAssignments().isEmpty()) {
                 logger.info(String.valueOf("user: " + this.user.getName() + " labeled this instance ıd: " + instance.getId()));
@@ -112,11 +110,14 @@ public class RandomBot {
                     Label label = getRandomLabel();
 
                     assignment.addLabel(label);
-                    WriteJSON write = new WriteJSON(dataset, config);
+                    logger.info("added random label to this instance" +instance.getId());
+                    WriteJSON write = new WriteJSON(dataset, config,instance);
+                    logger.info("Writing process completed successfully");
                 }
             } else {
                 if (Math.round(user.getConsistencyCheckProbability()) > getRandom()) {
                     assignment.addLabel(instance.getFinalLabel());
+                    logger.info("added same label to this instance" +instance.getId());
 
                 }
 
