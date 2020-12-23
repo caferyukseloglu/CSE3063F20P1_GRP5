@@ -278,7 +278,7 @@ public class Dataset {
         for(Instance instance : this.instances){
             System.out.println("ID: "+instance.getId() + " Text:" + instance.getText());
             for(Assignment assignment : instance.getAssignments()){
-                System.out.println("---Instance ID: "+assignment.getInstanceId()+" Username: "+assignment.getUser().getName());
+                System.out.println("---Instance ID: "+assignment.getInstance().getId()+" Username: "+assignment.getUser().getName());
                 for(Label label : assignment.getLabels()){
                     System.out.println("------Label: "+label.getText());
                 }

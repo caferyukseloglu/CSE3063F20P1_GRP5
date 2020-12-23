@@ -15,46 +15,27 @@ import java.util.List;
  */
 public class Assignment {
 
-    private int instanceId;
-    private Dataset dataset;
+    private Datetime datetime;
     private Instance instance;
     private User user;
-    private Datetime datetime;
-
     private ArrayList<Label> labels = new ArrayList<Label>();
 
     /*
      * Construct method of the Assignment class
      * @param   instance                instance object to assign this object
-     * @param   datetime                datatime object to
-     * @param   maxNumberOfLabels       maximum number of labels to assign a single instance
+     * @param   user                    user object to assign this object
      * @return  nothing
      */
     public Assignment(Instance instance, User user) {
 
-        // @todo datetime should be created under construct method, not as an input.
         setInstance(instance);
         setDatetime(new Datetime());
         setUser(user);
-        setDataset(instance.getDataset());
 
     }
 
-    protected void setDataset(Dataset dataset){
-        this.dataset = dataset;
-    }
 
-    /*
-     * Sets instance object as instance variable
-     * Sets instance ID as intance variable
-     * @todo check if it is suitable
-     * @param   instance                instance object to set instanceId and object
-     * @return  nothing
-     */
-    protected void setInstance(Instance instance) {
-        this.instance = instance;
-        this.instanceId = instance.getId();
-    }
+
     /*
      * Sets datatime object as instance variable
      * @param   datetime                datetime object to set
@@ -64,6 +45,14 @@ public class Assignment {
         this.datetime = datetime;
     }
     /*
+     * Sets instance object as instance variable
+     * @param   instance                instance object to set object
+     * @return  nothing
+     */
+    protected void setInstance(Instance instance) {
+        this.instance = instance;
+    }
+    /*
      * Sets user object as instance variable
      * @param   user                    user object to set
      * @return                          nothing
@@ -71,12 +60,22 @@ public class Assignment {
     protected void setUser(User user) {
         this.user = user;
     }
+
+
+
     /*
-     * Get id of instance object @todo check if it is suitable
-     * @return                          id of instance object
+     * Get datetime object
+     * @return                          datetime object
      */
-    protected int getInstanceId(){
-        return this.instanceId;
+    protected Datetime getDatetime() {
+        return this.datetime;
+    }
+    /*
+     * Get instance object
+     * @return                          instance object
+     */
+    protected Instance getInstance(){
+        return this.instance;
     }
     /*
      * Get user object
@@ -86,21 +85,17 @@ public class Assignment {
         return this.user;
     }
     /*
-     * Get datetime object
-     * @return                          datetime object
-     */
-    protected Datetime getDatetime() {
-        return this.datetime;
-    }
-    /*
      * Get array list of labels
      * @return                          array list of labels
      */
     protected ArrayList<Label> getLabels() {
         return this.labels;
     }
+
+
+
     /*
-     * Get list of label IDs.
+     * Get list of label IDs to compare equalities.
      * v2
      * @return                          array list of label IDs
      */
@@ -109,7 +104,6 @@ public class Assignment {
         for(Label label : this.labels){
             labelWithIDs.add(label.getId());
         }
-        //Arrays.sort(labelsWithIDs);
         return labelWithIDs;
     }
     /*
@@ -122,6 +116,9 @@ public class Assignment {
         if(this.labels.size() < this.instance.getDataset().getMaxNumberOfLabels()){
             this.labels.add(label);
             this.instance.getTheMostFrequentLabel();
+        }else{
+            // @todo CLI display error.
+            System.out.println(label.getText()+" could not assigned, due to exceed maximum number of labels.");
         }
     }
     /*
@@ -163,7 +160,4 @@ public class Assignment {
         Collections.sort(assignmentB);
         return assignmentA.equals(assignmentB);
     }
-
-
-
 }

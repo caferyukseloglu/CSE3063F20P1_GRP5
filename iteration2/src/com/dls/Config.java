@@ -12,27 +12,33 @@ import java.util.logging.Logger;
  */
 public class Config {
 
-    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
-    private ArrayList<User> users = new ArrayList<User>();
-    private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
-    private User activeUser;
     private Dataset activeDataset;
-    private int currentDatasetId;
-    private String outputPath;
+    private User activeUser;
     private String configFilePath;
-    private float consistencyCheckP;
+    private Double consistencyCheckProbability;
+    private Integer currentDatasetId;
+    private String outputPath;
+    private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
+    private ArrayList<User> users = new ArrayList<User>();
+    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
+
     /*
      * Construct method of the Config class
      * @param   configFilePath          config json file path to read from
      * @return                          nothing
      */
     public Config(String configFilePath){
+
         setConfigFilePath(configFilePath);
         readConfigFile();
         loginInterface();
+
     }
+
+
+
     /*
-     * Sets user object as instance variable
+     * Sets active user object as instance variable
      * @param   user                    user object to set
      * @return                          nothing
      */
@@ -40,26 +46,36 @@ public class Config {
         this.activeUser = user;
     }
     /*
-     * Sets input path as instance variable
-     * @param   inputPath               input path as string to set
+     * Sets dataset object as instance variable
+     * @param   dataset                 dataset object to set
      * @return                          nothing
      */
-
     protected void setActiveDataset(Dataset dataset){
         this.activeDataset = dataset;
 
     }
-    protected void setCurrentDatasetId(int datasetId){this.currentDatasetId = datasetId;}
+    /*
+     * Sets consistency check probability as instance variable
+     * @param   consistencyCheckProbability     consistency check probability
+     * @return                                  nothing
+     */
+    protected void setConsistencyCheckProbability(Double consistencyCheckProbability){
+        this.consistencyCheckProbability = consistencyCheckProbability * 100.0;
+    }
+    /*
+     * Sets current dataset ID as instance variable
+     * @param   datasetId               dataset id to set
+     * @return                          nothing
+     */
+    protected void setCurrentDatasetId(Integer datasetId){
+        this.currentDatasetId = datasetId;
+    }
 
-    //    protected void setInputPath(String inputPath){
-//        this.inputPath = inputPath;
-//    }
-//    /*
-//     * Sets output path as instance variable
-//     * @param   outputPath              output path as string to set
-//     * @return                          nothing
-//     */
-    protected void setConsistencyCheckP(float consistencyCheckP){this.consistencyCheckP = consistencyCheckP*100;}
+    /*
+     * Sets output path as instance variable
+     * @param   outputPath              output path as string to set
+     * @return                          nothing
+     */
     protected void setOutputPath(String outputPath){
         this.outputPath = outputPath;
     }
@@ -79,30 +95,38 @@ public class Config {
         return this.users;
     }
     /*
+     * Gets ArrayList of datasets
+     * @return                          array list of datasets
+     */
+    protected ArrayList<Dataset> getDatasets(){
+        return this.datasets;
+    }
+    /*
      * Gets logged in user object
      * @return                          user object
      */
-    protected ArrayList<Dataset> getDatasets(){return this.datasets;}
-
     protected User getActiveUser(){
         return this.activeUser;
     }
     /*
-     * Gets input path as text
-     * @return                          input path as text
-     */
-//    protected String getInputPath(){
-//        return this.inputPath;
-//    }
-    /*
-     * Gets output path as text
-     * @return                          output path as String
+     * Gets active dataset object
+     * @return                          active dataset object
      */
     protected Dataset getActiveDataset(){
         return this.activeDataset;
     }
-    protected int getCurrentDatasetId() { return this.currentDatasetId;}
-
+    /*
+     * Gets current dataset ID
+     * @return                          current dataset ID
+     * @todo this methos and currentDatasetId parameter should not be used.
+     */
+    protected int getCurrentDatasetId() {
+        return this.currentDatasetId;
+    }
+    /*
+     * Gets output path
+     * @return                          outputPath
+     */
     public String getOutputPath(){
         return this.outputPath;
     }
@@ -123,14 +147,21 @@ public class Config {
      */
     protected User addUser(int userId, String userName, String userType, String userPassword){
         User user = new User(userId, userName, userType, userPassword);
-        user.setConsistencyCheckProbability(this.consistencyCheckP);
+        user.setConsistencyCheckProbability(this.consistencyCheckProbability);
         this.users.add(user);
         return user;
     }
-    protected Dataset addDataset(int datasetId, String datasetName, int maxNumberOfLabels, String inputPath){
+    /*
+     * Creates an dataset object and adds it to datasets list then returns created dataset object
+     * @param   datasetId               dataset id
+     * @param   datasetName             dataset name
+     * @param   maxNumberOfLabels       maximum number of labels to assign single instance
+     * @param   inputPath               input path
+     * @return                          created dataset object
+     */
+    protected Dataset addDataset(Integer datasetId, String datasetName, Integer maxNumberOfLabels, String inputPath){
         Dataset dataset = new Dataset(datasetId, datasetName, maxNumberOfLabels,inputPath);
         this.datasets.add(dataset);
-
         return dataset;
     }
     /*
@@ -140,19 +171,20 @@ public class Config {
      * @param   password                user password input
      * @return                          nothing
      */
-
     protected void  Check(){
-
         for (Dataset dataset : getDatasets()){
-
             if(dataset.getId() == getCurrentDatasetId()){
-
                 this.setActiveDataset(dataset);
-
             }
         }
-
     }
+    /*
+     * If given parameters are correct, sets active user with given credentials
+     * Else it calls userInterface method again
+     * @param   userName                user name input
+     * @param   password                user password input
+     * @return                          nothing
+     */
     protected void login(String userName, String password){
         boolean loggedIn = false;
         for(User user : getUsers()){
@@ -173,7 +205,14 @@ public class Config {
             this.loginInterface();
         }
     }
-
+    /*
+     * Creates an user object and adds it to users list then returns created user object
+     * @param   userId                  user id
+     * @param   userName                user name
+     * @param   userType                user type
+     * @param   userPassword            user password
+     * @return                          created user object
+     */
     protected User logout(){
         User user = this.activeUser;
         user.setLogoutDatetime();
@@ -203,6 +242,5 @@ public class Config {
     protected void readConfigFile(){
         ReadJSON.readConfig(this);
     }
-
 }
 
