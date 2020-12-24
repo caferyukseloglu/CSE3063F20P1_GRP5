@@ -120,7 +120,7 @@ public class Config {
      * @return                          current dataset ID
      * @todo this methos and currentDatasetId parameter should not be used.
      */
-    protected int getCurrentDatasetId() {
+    protected Integer getCurrentDatasetId() {
         return this.currentDatasetId;
     }
     /*
@@ -165,10 +165,7 @@ public class Config {
         return dataset;
     }
     /*
-     * If given parameters are correct, sets active user with given credentials
-     * Else it calls userInterface method again
-     * @param   userName                user name input
-     * @param   password                user password input
+     * Assign active dataset
      * @return                          nothing
      */
     protected void  Check(){
@@ -206,12 +203,8 @@ public class Config {
         }
     }
     /*
-     * Creates an user object and adds it to users list then returns created user object
-     * @param   userId                  user id
-     * @param   userName                user name
-     * @param   userType                user type
-     * @param   userPassword            user password
-     * @return                          created user object
+     * User logout function, makes activeUser parameter null and calls setLogoutDatetime method of user object.
+     * @return                          nothing
      */
     protected User logout(){
         User user = this.activeUser;

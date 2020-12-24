@@ -1,7 +1,5 @@
 package com.dls;
 
-import javax.xml.crypto.Data;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -135,19 +133,33 @@ public class User {
     protected void updateType(String type){
         this.type = type;
     }
-
+    /*
+     * Adds dataset to datasets list
+     * @param   dataset                 Dataset object
+     * @return                          nothing
+     */
     protected void addDataset(Dataset dataset){
         if(!this.datasets.contains(dataset)){
             this.datasets.add(dataset);
         }
     }
-
+    /*
+     * Adds assignment to assignments list
+     * @param   assignment              Assignment object
+     * @return                          nothing
+     */
     protected void addAssignment(Assignment assignment){
         if(!this.assignments.contains(assignment)){
             this.assignments.add(assignment);
         }
     }
-
+    /*
+     * Calculates total number of instances labeled within all the datasets assigned by this user.
+     * If unique parameter is True, It also compare all the instances' uniqueness.
+     * @param   dataset                 Dataset object
+     * @param   unique                  unique instances or not
+     * @return                          nothing
+     */
     protected Integer getTotalNumberOfInstancesLabeled(Dataset dataset, Boolean unique){
         Integer number = 0;
         ArrayList<User> users = new ArrayList<User>();
@@ -165,50 +177,74 @@ public class User {
                 }
             }
         }
-
         return number;
     }
-
+    /*
+     * Gets total number of datasets
+     * @return                          total number of datasets
+     */
     protected Integer getNumberOfDataset(){
         return this.datasets.size();
     }
-
-    protected HashMap<Dataset, Double> getComplitionsOfAllDataset(){
-        HashMap<Dataset, Double> complitionsOfAllDataset = new HashMap<Dataset, Double>();
+    /*
+     * Calculates completeness percentage of all datasets and returns HashMap
+     * @return                          HashMap of dataset and its completeness percentage distribution
+     */
+    protected HashMap<Dataset, Double> getCompletionsOfAllDataset(){
+        HashMap<Dataset, Double> completionsOfAllDataset = new HashMap<Dataset, Double>();
         for(Dataset dataset : this.datasets){
-            complitionsOfAllDataset.put(dataset, getComplitionOfDataset(dataset));
+            completionsOfAllDataset.put(dataset, getCompletionOfDataset(dataset));
         }
-        return complitionsOfAllDataset;
+        return completionsOfAllDataset;
     }
-
-    protected Double getComplitionOfDataset(Dataset dataset){
+    /*
+     * Calculates completeness percentage of given datasets and returns percentage
+     * @return                          completeness percentage of dataset
+     */
+    protected Double getCompletionOfDataset(Dataset dataset){
         Integer labeledInstanceNumberOfDataset = this.getTotalNumberOfInstancesLabeled(dataset, false);
         Integer instanceNumber = dataset.getNumberOfInstances();
         return (double) labeledInstanceNumberOfDataset/ instanceNumber;
     }
-
-    protected void printComplitionsOfDataset(Dataset dataset){
-        Double percentage = this.getComplitionOfDataset(dataset) * 100.0;
+    /*
+     * Prints getCompletionOfDataset method
+     * @return                          nothing
+     */
+    protected void printCompletionsOfDataset(Dataset dataset){
+        Double percentage = this.getCompletionOfDataset(dataset) * 100.0;
         System.out.println("Completeness Percentage of "+dataset.getName()+" : "+percentage.intValue()+" %");
     }
-
-    protected void printComplitionsOfAllDataset(){
+    /*
+     * Repeats printCompletionsOfDataset method for each dataset
+     * @return                          nothing
+     */
+    protected void printCompletionsOfAllDataset(){
         for(Dataset dataset : this.datasets){
-            this.printComplitionsOfDataset(dataset);
+            this.printCompletionsOfDataset(dataset);
         }
     }
-
-
+    /*
+     * Sets loginDatetime for user
+     * @return                          nothing
+     */
     protected void setLoginDatetime(){
         this.loginDatetime = new Datetime();
         this.logoutDatetime = this.loginDatetime;
     }
-
+    /*
+     * Sets logoutDatetime for user
+     * @return                          nothing
+     */
     protected void setLogoutDatetime(){
         this.logoutDatetime = new Datetime();
     }
-
-    protected double getAverageTimeSpentInLabelingOld(Dataset dataset){
+    /*
+     * Calculate average time spent while labeling
+     * @deprecated
+     * @see getAverageTimeSpentWhileLabeling
+     * @return                          nothing
+     */
+    protected Double getAverageTimeSpentInLabelingOld(Dataset dataset){
         int totalNumberOfInstancesLabeled = getTotalNumberOfInstancesLabeled(dataset, false);
         if(this.loginDatetime.equals(this.logoutDatetime)){
             Datetime secondDatetime = new Datetime();
@@ -219,7 +255,10 @@ public class User {
             return totalSpent/totalNumberOfInstancesLabeled;
         }
     }
-
+    /*
+     * Calculate average time spent while labeling
+     * @return                          Average time spent
+     */
     protected Double getAverageTimeSpentWhileLabeling(){
         Integer totalNumberOfInstancesLabeled = this.assignments.size();
         Double totalTimeSpent = 0.0;
@@ -229,9 +268,11 @@ public class User {
         }
         return totalTimeSpent / totalNumberOfInstancesLabeled.doubleValue();
     }
-
+    /*
+     * Calculate standard deviation of time spent while labeling
+     * @return                          standard deviation of time spent while labeling
+     */
     protected Double getStdDevOfTimeSpentWhileLabeling(){
-
         Integer totalNumberOfInstancesLabeled = this.assignments.size();
         ArrayList<Double> timesSpent = new ArrayList<Double>();
         Double totalTimeSpent = 0.0;
@@ -241,22 +282,18 @@ public class User {
             totalTimeSpent += timeSpent;
             timesSpent.add(timeSpent);
         }
-
-
         Double standardDeviation = 0.0;
-
-
         Double mean = totalTimeSpent / timesSpent.size();
-
         for(Double time: timesSpent) {
             standardDeviation += Math.pow(time - mean, 2);
         }
-
         return Math.sqrt(standardDeviation/timesSpent.size());
     }
-
+    /*
+     * Get consistency percentages of all datasets.
+     * @return                          consistency percentage
+     */
     protected Double getConsistencyPercentageOfAllDatasets(){
-
         Integer numberOfConsistentAssignments = 0;
         Integer numberOfTotalInstances = 0;
         for(Dataset dataset : this.datasets){
@@ -274,22 +311,19 @@ public class User {
             return (double) numberOfConsistentAssignments/numberOfTotalInstances;
         }
     }
-
+    /*
+     * Calculate consistency percentage of given dataset
+     * @return                          consistency percentage of dataset
+     */
     protected Double getConsistencyPercentageOfDataset(Dataset dataset){
-
         Integer numberOfConsistentAssignments = 0;
         Integer numberOfTotalInstances = 0;
-
         for (Instance instance : this.getLabeledInstancesOfUser(dataset)){
-
             if(instance.checkAssignmentConsistencyOfUser(this)){
                 numberOfConsistentAssignments ++;
             }
-
             numberOfTotalInstances ++;
-
         }
-
         if(numberOfTotalInstances == 0){
             // @todo may return null
             return 0.0;
@@ -298,7 +332,10 @@ public class User {
         }
 
     }
-
+    /*
+     * Gets all the instances which labeled by the user of given dataset.
+     * @return                          list of instances
+     */
     protected ArrayList<Instance> getLabeledInstancesOfUser(Dataset dataset){
         ArrayList<Instance> labeledInstancesOfUser = new ArrayList<Instance>();
         for (Instance instance : dataset.getInstances()){
@@ -309,7 +346,10 @@ public class User {
         }
         return labeledInstancesOfUser;
     }
-
+    /*
+     * Gets total number of labeled instances of all the datasets
+     * @return                          total number of labeled instances
+     */
     protected Integer getTotalNumberOfLabeledInstancesOfAllDatasets(){
         Integer totalNumberOfLabeledInstancesOfAllDatasets = 0;
         for(Dataset dataset : this.datasets){
@@ -317,7 +357,10 @@ public class User {
         }
         return totalNumberOfLabeledInstancesOfAllDatasets;
     }
-
+    /*
+     * Gets total number of unique instances labeled by user
+     * @return                          unique instances list
+     */
     protected Integer getTotalNumberOfLabeledUniqueInstancesOfAllDatasets(){
         Integer totalNumberOfLabeledInstancesOfAllDatasets = 0;
         for(Dataset dataset : this.datasets){
@@ -325,14 +368,16 @@ public class User {
         }
         return totalNumberOfLabeledInstancesOfAllDatasets;
     }
-
-
+    /*
+     * Prints user performance metrics
+     * @return                          nothing
+     */
     protected void printPerformanceMetrics(){
         System.out.println("\u001B[34m"+"USER PERFORMANCE METRICS"+"\u001B[0m");
         System.out.println("1. Number of Labeled Datasets:");
         System.out.println(getNumberOfDataset());
         System.out.println("2. Datasets With Completeness Percentages:");
-        printComplitionsOfAllDataset();
+        printCompletionsOfAllDataset();
         System.out.println("3. Total Number of Instances Labeled:");
         System.out.println(getTotalNumberOfLabeledInstancesOfAllDatasets());
         System.out.println("4. Total Number of Unique Instances Labeled:");
@@ -344,5 +389,4 @@ public class User {
         System.out.println("7. Standard Deviation of Labeling Time");
         System.out.println(getStdDevOfTimeSpentWhileLabeling());
     }
-
 }

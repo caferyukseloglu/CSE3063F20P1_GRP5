@@ -15,12 +15,11 @@ import java.util.logging.Logger;
  *
  */
 public class WriteJSON {
-    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
 
+    private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
     private Dataset dataset;
     private Config config;
     private Instance instance;
-
 
     /*
      * Construct method of the WriteJSON class
@@ -36,6 +35,9 @@ public class WriteJSON {
         write();
 
     }
+
+
+
     /*
      * Sets object of dataset as instance variable
      * @param   dataset                 dataset object to set
@@ -100,7 +102,6 @@ public class WriteJSON {
         }
         mainJSON.put("class labels", labelsJSON);
 
-
         // Instances and Assignments
         for (Instance instance : this.dataset.getInstances()){
             JSONObject singleInstanceJSON = new JSONObject();
@@ -115,7 +116,6 @@ public class WriteJSON {
 
                 JSONArray assignmentLabelsArray = new JSONArray();
                 for(Label label : assignment.getLabels()){
-//                    System.out.println(label.getId());
                     assignmentLabelsArray.add(label.getId());
                 }
                 singleAssignmentJSON.put("class label ids", assignmentLabelsArray);
@@ -123,27 +123,20 @@ public class WriteJSON {
 
                 assignmentsJSON.add(singleAssignmentJSON);
             }
-
         }
         mainJSON.put("instances", instancesJSON);
         mainJSON.put("class label assignments", assignmentsJSON);
 
-        
         logger.info(String.valueOf(assignmentsJSON));
 
-
-
-
         userPerformansJSON.put("1. Number of Labeled Datasets:",config.getActiveUser().getNumberOfDataset());
-        userPerformansJSON.put("2. Datasets With Completeness Percentages:",(config.getActiveUser().getComplitionOfDataset(dataset) * 100.0));
+        userPerformansJSON.put("2. Datasets With Completeness Percentages:",(config.getActiveUser().getCompletionOfDataset(dataset) * 100.0));
         userPerformansJSON.put("3. Total Number of Instances Labeled:",config.getActiveUser().getTotalNumberOfLabeledInstancesOfAllDatasets());
         userPerformansJSON.put("4. Total Number of Unique Instances Labeled:",config.getActiveUser().getTotalNumberOfLabeledUniqueInstancesOfAllDatasets());
         userPerformansJSON.put("5. Consistency Percentage",config.getActiveUser().getConsistencyPercentageOfAllDatasets());
         userPerformansJSON.put("6. Average Labeling Time",config.getActiveUser().getAverageTimeSpentWhileLabeling());
         userPerformansJSON.put("7. Standard Deviation of Labeling Time",config.getActiveUser().getStdDevOfTimeSpentWhileLabeling());
-        //
-        //
-        //
+
         JSONArray datasetFinalLabel=new JSONArray();
         JSONArray datasetUnigueInstance = new JSONArray();
         JSONArray datasetUserCompletions = new JSONArray();
@@ -151,15 +144,14 @@ public class WriteJSON {
 
         HashMap<Label, Double> finalLabelPercentages = dataset.getFinalLabelPercentages();
         for(Map.Entry<Label, Double> entry : finalLabelPercentages.entrySet()){
-            datasetFinalLabel.add(entry.getKey().getText()+" => "+entry.getValue());}
-
+            datasetFinalLabel.add(entry.getKey().getText()+" => "+entry.getValue());
+        }
 
         HashMap<Label, ArrayList<Instance>> labelInstanceList = dataset.getLabelInstanceList();
         for(Map.Entry<Label, ArrayList<Instance>> entry : labelInstanceList.entrySet()){
             String row = entry.getKey().getText()+" => ";
             for(Instance instance : entry.getValue()){
                 row = row + instance.getId() + ",";
-
             }
             datasetUnigueInstance.add(row);
         }
@@ -182,12 +174,6 @@ public class WriteJSON {
         datasetPerdormansJSON.put("5. List of Users Assigned and Their Completeness Percentages",datasetUserCompletions);
         datasetPerdormansJSON.put("6. List of Users Assigned and Their Consistency Percentages",datasetUserConsistency);
 
-        //
-        //
-        //
-        //
-        //
-
         JSONArray instanceMostF =new JSONArray();
         JSONArray instanceLabelP = new JSONArray();
 
@@ -199,6 +185,7 @@ public class WriteJSON {
         for (Map.Entry<Label, Double> entry : labelPercentages.entrySet()){
             instanceLabelP.add(entry.getKey().getText() + " => " + entry.getValue() + "%");
         }
+
         instancePerformansJSON.put("1. Number of Assignments",instance.getAssignments().size());
         instancePerformansJSON.put("2. Number of Unique Assignments",instance.getNumberOfUniqueAssignments());
         instancePerformansJSON.put("3. Number of Unique Users",instance.getNumberOfUsers());
@@ -223,7 +210,4 @@ public class WriteJSON {
             e.printStackTrace();
         }
     }
-
-
-
 }

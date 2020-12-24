@@ -12,11 +12,10 @@ import java.util.Map;
  */
 public class Dataset {
     
-    private int id;
+    private Integer id;
     private String name;
-    private int maxNumberOfLabels;
+    private Integer maxNumberOfLabels;
     private String inputPath;
-    private Double consistencyCheckProbability;
     private ArrayList<Label> labels = new ArrayList<Label>(); // Make it limited
     private ArrayList<User> users = new ArrayList<User>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
@@ -38,7 +37,6 @@ public class Dataset {
     }
     /*
      * Sets the id of dataset
-     * @todo Check if it used before
      * @param   id                      unique id number of dataset
      * @return                          nothing
      */
@@ -58,14 +56,14 @@ public class Dataset {
      * @param   maxNumberOfLabels       maximum number of label for a single instance
      * @return                          nothing
      */
-    public void setMaxNumberOfLabels(int maxNumberOfLabels){
+    protected void setMaxNumberOfLabels(int maxNumberOfLabels){
         this.maxNumberOfLabels = maxNumberOfLabels;
     } 
     /*
      * Gets dataset id
      * @return                          id of dataset
      */
-    protected int getId(){
+    protected Integer getId(){
         return this.id;
     }
     /*
@@ -126,11 +124,17 @@ public class Dataset {
         }
         return new Label(id, "");
     }
-
+    /*
+     * Returns InputPath
+     * @return                          input path
+     */
     protected String getInputPath(){
         return this.inputPath;
     }
-
+    /*
+     * Returns user completions of the dataset object
+     * @return                          completeness percentage
+     */
     protected Float getUserCompletions(){
         Integer numberOfInstances = this.instances.size();
         Integer numberOfInstancesWithLabel = 0;
@@ -142,7 +146,10 @@ public class Dataset {
         }
         return numberOfInstancesWithLabel.floatValue()/numberOfInstances.floatValue()*100;
     }
-
+    /*
+     * Returns label frequencies of the dataset object
+     * @return                          labelFrequencies HashMap object
+     */
     protected HashMap<Label, Double> getLabelFrequencies(){
         HashMap<Label, Double> labelFrequencies = new HashMap<Label, Double>();
         for(Instance instance : this.instances){
@@ -162,17 +169,24 @@ public class Dataset {
         }
         return labelFrequencies;
     }
-
-
+    /*
+     * Returns total number of instances
+     * @return                          total number of instances
+     */
     protected int getNumberOfInstances(){
         return this.instances.size();
     }
-
-
+    /*
+     * Returns total number of users
+     * @return                          total number of users
+     */
     protected int getNumberOfUsers(){
         return this.users.size();
     }
-
+    /*
+     * Completion percentage of dataset
+     * @return                          completeness percentage
+     */
     protected Double getCompletionPercentage(){
         Integer completedInstances = 0;
         for(Instance instance : this.instances){
@@ -182,16 +196,22 @@ public class Dataset {
         }
         return completedInstances.doubleValue() / this.instances.size() * 100.0;
     }
-
+    /*
+     * Get user completeness percentage list by user
+     * @return                          completeness percentage HashMap by user
+     */
     protected HashMap<User, Double> getUserCompletionsPercentages(){
         HashMap<User, Double> userCompletionsPercentages = new HashMap<User, Double>();
         for(User user : this.users){
-            Double complitions = user.getComplitionOfDataset(this);
+            Double complitions = user.getCompletionOfDataset(this);
             userCompletionsPercentages.put(user, complitions);
         }
         return userCompletionsPercentages;
     }
-
+    /*
+     * Get user consistency percentage list by user
+     * @return                          consistency percentage HashMap by user
+     */
     protected HashMap<User, Double> getUserConsistencyPercentages(){
         HashMap<User, Double> userConsistencyPercentages = new HashMap<User, Double>();
         for(User user : this.users){
@@ -200,7 +220,10 @@ public class Dataset {
         }
         return userConsistencyPercentages;
     }
-
+    /*
+     * Get instance final label percentage list by user
+     * @return                           final label percentage HashMap
+     */
     protected HashMap<Label, Double> getFinalLabelPercentages(){
         HashMap<Label, Integer> finalLabelCounts = new HashMap<Label, Integer>();
         HashMap<Label, Double> finalLabelPercentages = new HashMap<Label, Double>();
@@ -222,7 +245,10 @@ public class Dataset {
         }
         return finalLabelPercentages;
     }
-
+    /*
+     * Get Label and Instance HashMap
+     * @return                          Label and Instance HashMap
+     */
     protected HashMap<Label, ArrayList<Instance>> getLabelInstanceList(){
         HashMap<Label, ArrayList<Instance>> labelInstanceList = new HashMap<Label, ArrayList<Instance>>();
         for(Instance instance : this.instances){
@@ -238,7 +264,6 @@ public class Dataset {
         }
         return labelInstanceList;
     }
-
     /*
      * Creates a <Instance> object with its id and text then adds <Instance> object to instances list of dataset.
      * @param   id                      id of instance
@@ -250,7 +275,6 @@ public class Dataset {
         this.instances.add(newInstance);
         return newInstance;
     }
-
     /*
      * Creates a <Label> object with its id and text then adds <Label> object to labels list of dataset.
      * This function is used during the JSON reading process.
@@ -263,7 +287,10 @@ public class Dataset {
         this.labels.add(label);
         return label;
     }
-    
+    /*
+     * Adds user to users list
+     * @return                          nothing
+     */
     protected void addUser(User user){
         if(!this.users.contains(user)){
             this.users.add(user);
@@ -285,7 +312,10 @@ public class Dataset {
             }
         }
     }
-
+    /*
+     * Prints getUserCompletionsPercentages method
+     * @return                          nothing
+     */
     protected void printUserCompletions(){
         HashMap<User, Double> userCompletions = this.getUserCompletionsPercentages();
         for (Map.Entry<User, Double> entry : userCompletions.entrySet())
@@ -294,7 +324,10 @@ public class Dataset {
             System.out.println(entry.getKey().getName()+" : "+percentage.intValue()+" %");
         }
     }
-    
+    /*
+     * Prints getUserConsistencyPercentages method
+     * @return                          nothing
+     */
     protected void printUserConsistencies(){
         HashMap<User, Double> userConsistencyPercentages = this.getUserConsistencyPercentages();
         for (Map.Entry<User, Double> entry : userConsistencyPercentages.entrySet())
@@ -303,27 +336,39 @@ public class Dataset {
             System.out.println(entry.getKey().getName()+" : "+percentage.intValue()+" %");
         }
     }
-
+    /*
+     * Prints getLabelFrequencies method
+     * @return                          nothing
+     */
     protected void printLabelFrequencies(){
         HashMap<Label, Double> labelFrequencies = getLabelFrequencies();
         for(Map.Entry<Label, Double> entry : labelFrequencies.entrySet()){
             System.out.println(entry.getKey().getText()+" => "+entry.getValue());
         }
     }
-    
+    /*
+     * Prints userList
+     * @return                          nothing
+     */
     protected void printUserList(){
         for(User user : this.users){
             System.out.println(user.getName());
         }
     }
-
+    /*
+     * Prints getFinalLabelPercentages method
+     * @return                          nothing
+     */
     protected void printFinalLabelPercentages(){
         HashMap<Label, Double> finalLabelPercentages = getFinalLabelPercentages();
         for(Map.Entry<Label, Double> entry : finalLabelPercentages.entrySet()){
             System.out.println(entry.getKey().getText()+" => "+entry.getValue());
         }
     }
-
+    /*
+     * Prints getLabelInstanceList method
+     * @return                          nothing
+     */
     protected void printLabelInstanceList(){
         HashMap<Label, ArrayList<Instance>> labelInstanceList = getLabelInstanceList();
         for(Map.Entry<Label, ArrayList<Instance>> entry : labelInstanceList.entrySet()){
@@ -334,7 +379,10 @@ public class Dataset {
             System.out.println(row);
         }
     }
-
+    /*
+     * Prints all performance metrics
+     * @return                          nothing
+     */
     protected void printPerformanceMetrics(){
         System.out.println("\u001B[34m"+"DATASET PERFORMANCE METRICS"+"\u001B[0m");
         System.out.println("1. Completion Percentages:");
@@ -350,5 +398,4 @@ public class Dataset {
         System.out.println("5. List of Users Assigned and Their Consistency Percentages");
         printUserConsistencies();
     }
-
 }

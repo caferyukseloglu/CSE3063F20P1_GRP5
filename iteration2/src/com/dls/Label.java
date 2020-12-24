@@ -8,7 +8,7 @@ package com.dls;
  */
 public class Label {
 
-    private int id;
+    private Integer id;
     private String text;
 
     /*
@@ -23,9 +23,11 @@ public class Label {
         setText(text);
 
     }
+
+
+
     /*
      * Sets the id of label
-     * @todo Check if it is unique or not
      * @param   id                      unique id of label
      * @return                          nothing
      */
@@ -34,7 +36,6 @@ public class Label {
     }
     /*
      * Sets the id of label
-     * @todo Check if it exist or not
      * @param   text                    unique text of label
      * @return                          nothing
      */
@@ -45,7 +46,7 @@ public class Label {
      * Gets the id of label
      * @return                          id of label
      */
-    protected int getId(){
+    protected Integer getId(){
         return this.id;
     }
     /*
@@ -63,7 +64,4 @@ public class Label {
     protected void updateText(String text){
         this.text = text;
     }
-
-
-
 }

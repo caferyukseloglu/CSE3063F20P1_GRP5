@@ -90,25 +90,18 @@ public class RandomBot {
      * @return                          nothing
      */
     protected void run() {
-
         for (Instance instance : this.dataset.getInstances()) {
-
             Assignment assignment = instance.addAssignment(this.user);
             if (!instance.getAssignments().isEmpty()) {
                 logger.info(String.valueOf("user: " + this.user.getName() + " labeled this instance ıd: " + instance.getId()));
                 try {
                     TimeUnit.MILLISECONDS.sleep(100);
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
-
                 int numberOfLabelCount = getRandomInt();
                 for (int i = 0; i < numberOfLabelCount; i++) {
-
                     Label label = getRandomLabel();
-
                     assignment.addLabel(label);
                     logger.info("added random label to this instance" +instance.getId());
                     WriteJSON write = new WriteJSON(dataset, config,instance);
@@ -118,15 +111,17 @@ public class RandomBot {
                 if (Math.round(user.getConsistencyCheckProbability()) > getRandom()) {
                     assignment.addLabel(instance.getFinalLabel());
                     logger.info("added same label to this instance" +instance.getId());
-
+                }else {
+                    int numberOfLabelCount = getRandomInt();
+                    for (int i = 0; i < numberOfLabelCount; i++) {
+                        Label label = getRandomLabel();
+                        assignment.addLabel(label);
+                        logger.info("added random label to this instance" + instance.getId());
+                        WriteJSON write = new WriteJSON(dataset, config, instance);
+                        logger.info("Writing process completed successfully");
+                    }
                 }
-
             }
         }
     }
 }
-
-
-
-
-

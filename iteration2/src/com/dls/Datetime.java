@@ -23,9 +23,14 @@ public class Datetime {
      * @return                          nothing
      */
     public Datetime(){
+
         setCurrentDatetime();
         setDatetimeText();
+
     }
+
+
+
     /*
      * Sets LocalDateTime object with current time.
      * @return                          nothing
@@ -47,7 +52,10 @@ public class Datetime {
     protected String getDatetimeText(){
         return this.datetimeText;
     }
-
+    /*
+     * Gets LocalDateTime object as a text.
+     * @return                          LocalDateTime object
+     */
     protected LocalDateTime getDatetime(){
         return this.datetime;
     }

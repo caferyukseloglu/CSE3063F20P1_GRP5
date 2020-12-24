@@ -10,12 +10,11 @@ import java.util.*;
  */
 public class Instance {
 
-    private int id;
+    private Integer id;
     private String text;
-    private boolean status = false; //
+    private Boolean status = false; //@deprecated
     private Dataset dataset;
     private Label finalLabel;
-
     private ArrayList<Assignment> assignments = new ArrayList<Assignment>(); // Make it limited
     private ArrayList<User> users = new ArrayList<User>();
 
@@ -33,9 +32,11 @@ public class Instance {
         setDataset(dataset);
 
     }
+
+
+
     /*
      * Sets id of "instance" as instance variable
-     * @todo Check if it used before
      * @param   id                      instance id
      * @return                          nothing
      */
@@ -86,14 +87,24 @@ public class Instance {
     protected Dataset getDataset() {
         return this.dataset;
     }
-
+    /*
+     * Gets users list
+     * @return                          users list
+     */
     protected ArrayList<User> getUsers(){
         return this.users;
     }
+    /*
+     * Gets total number of assignments
+     * @return                          total number of assignments
+     */
     protected int getNumberOfAssignments(){
         return this.assignments.size();
     }
-
+    /*
+     * Gets total number of unique assignments
+     * @return                          total number of unique assignments
+     */
     protected int getNumberOfUniqueAssignments(){
         List<List<Integer>> uniqueLists = new ArrayList<List<Integer>>();
         int i = 0;
@@ -115,11 +126,17 @@ public class Instance {
         }
         return uniqueLists.size();
     }
-
+    /*
+     * Gets total number of users
+     * @return                          total number of users
+     */
     protected int getNumberOfUsers(){
         return this.users.size();
     }
-
+    /*
+     * Gets list of unique labels
+     * @return                          list of unique labels
+     */
     protected ArrayList<Label> getUniqueLabels(){
         ArrayList<Label> labels = new ArrayList<Label>();
         for(Assignment assignment : this.assignments){
@@ -131,7 +148,10 @@ public class Instance {
         }
         return labels;
     }
-
+    /*
+     * Gets HashMap of Label and Integer distributions.
+     * @return                          HashMap of Label and Integer distributions
+     */
     protected HashMap<Label, Integer> getLabelFrequencies(){
         HashMap<Label, Integer> labelFrequencies = new HashMap<Label, Integer>();
         for(Assignment assignment : this.assignments){
@@ -145,7 +165,10 @@ public class Instance {
         }
         return labelFrequencies;
     }
-
+    /*
+     * Gets HashMap of Label and Percentages distributions.
+     * @return                          HashMap of Label and Percentage distributions
+     */
     protected HashMap<Label, Double> getLabelPercentages(){
         HashMap<Label, Integer> labelFrequencies = getLabelFrequencies();
         HashMap<Label, Double> labelPercentages = new HashMap<Label, Double>();
@@ -158,28 +181,38 @@ public class Instance {
         }
         return labelPercentages;
     }
-
+    /*
+     * Gets HashMap of Final Label and Percentage distributions.
+     * @return                          HashMap of Final Label and Percentage distributions
+     */
     protected HashMap<Label, Double> getTheMostFrequentLabel(){
         HashMap<Label, Integer> labelFrequencies = this.getLabelFrequencies();
         HashMap<Label, Double> mostFrequent = new HashMap<Label, Double>();
         Map.Entry<Label, Integer> maxEntry = null;
         Integer totalNumberOfLabels = 0;
         for (Map.Entry<Label, Integer> entry : labelFrequencies.entrySet()){
-            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
-            {
+            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
                 maxEntry = entry;
             }
         }
-        for (Integer f : labelFrequencies.values()) { totalNumberOfLabels += f; }
+        for (Integer f : labelFrequencies.values()){
+            totalNumberOfLabels += f;
+        }
         mostFrequent.put(maxEntry.getKey(), maxEntry.getValue().doubleValue()*100.0);
         this.finalLabel = maxEntry.getKey();
         return mostFrequent;
     }
-
+    /*
+     * Gets Final Label of this object
+     * @return                          Final label object
+     */
     protected Label getFinalLabel(){
         return this.finalLabel;
     }
-
+    /*
+     * Gets entropy of label distribution.
+     * @return                          entropy of label distribution
+     */
     protected Double getLabelDistributionEntropy(){
         HashMap<Label, Double> labelPercentages = getLabelPercentages();
         Double totalEntropy = 0.0;
@@ -189,7 +222,11 @@ public class Instance {
         }
         return totalEntropy;
     }
-
+    /*
+     * Gets list of assignments of given user
+     * @param   user                    User object
+     * @return                          List of assignments by user
+     */
     protected ArrayList<Assignment> getAssignmentsOfUser(User user){
         ArrayList<Assignment> assignmentsOfUser = new ArrayList<Assignment>();
         for (Assignment assignment : this.assignments){
@@ -199,7 +236,6 @@ public class Instance {
         }
         return assignmentsOfUser;
     }
-
     /*
      * Updates text of instance
      * @return                          nothing
@@ -214,7 +250,6 @@ public class Instance {
      * @return  <Assignment>            assignment object
      */
     protected Assignment addAssignment(User user) {
-
         Assignment assignment = new Assignment(this, user);
         this.assignments.add(assignment);
         user.addDataset(this.dataset);
@@ -223,15 +258,20 @@ public class Instance {
         this.dataset.addUser(user);
         return assignment;
     }
-
-
+    /*
+     * Adds user to users list if not exist.
+     * @return                          nothing
+     */
     protected void addUser(User user){
         if(!this.users.contains(user)){
             this.users.add(user);
         }
     }
-
-    protected boolean checkAssignmentConsistencyOfUser(User user){
+    /*
+     * Calculate assignment consistency of user. Compares two assignments.
+     * @return                          assignment consistency
+     */
+    protected Boolean checkAssignmentConsistencyOfUser(User user){
         ArrayList<Assignment> assignmentsOfUser = getAssignmentsOfUser(user);
         for (int i = 0; i < assignmentsOfUser.size()-1; i++) {
             if(!assignmentsOfUser.get(i).compareAssignmentLabels(assignmentsOfUser.get(i+1))){
@@ -240,21 +280,30 @@ public class Instance {
         }
         return true;
     }
-
+    /*
+     * Prints getLabelPercentages method.
+     * @return                          nothing
+     */
     protected void printLabelPercentages(){
         HashMap<Label, Double> labelPercentages = getLabelPercentages();
         for (Map.Entry<Label, Double> entry : labelPercentages.entrySet()){
             System.out.println(entry.getKey().getText() + " => " + entry.getValue() + "%");
         }
     }
-
+    /*
+     * Prints getTheMostFrequentLabel method.
+     * @return                          nothing
+     */
     protected void printMostFrequentLabel(){
         HashMap<Label, Double> mostFrequentLabel = getTheMostFrequentLabel();
         for (Map.Entry<Label, Double> entry : mostFrequentLabel.entrySet()){
             System.out.println(entry.getKey().getText() + " => " + entry.getValue() + "%");
         }
     }
-
+    /*
+     * Prints all performance metrics of instance.
+     * @return                          nothing
+     */
     protected void printPerformanceMetrics(){
         System.out.println("\u001B[34m" + "INSTANCE PERFORMANCE METRICS" + "\u001B[0m");
         System.out.println("1. Number of Assignments");
