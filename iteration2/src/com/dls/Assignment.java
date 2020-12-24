@@ -9,7 +9,7 @@ import java.util.List;
  * The Assignment class stores assignments of an instance.
  * Instances may have more than one assignment which created by different users (bots).
  * Assignments should have at least one assigned label.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

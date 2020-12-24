@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 /**
  * The User class stores variables and methods for each user that stated initially.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

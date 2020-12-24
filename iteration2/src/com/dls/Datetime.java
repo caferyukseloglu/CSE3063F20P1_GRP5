@@ -7,8 +7,7 @@ import java.time.format.DateTimeFormatter;
  * @todo Create a method to get current timestamp (Next iteration)
  * @todo Create a method to convert raw value to dynamic datetime (Next iteration)
  * @todo Check other classes (especially RandomBot) for deprecated methods.
- * @todo Add comments
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

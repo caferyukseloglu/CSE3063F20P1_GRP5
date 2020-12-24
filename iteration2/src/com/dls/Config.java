@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 /**
  * The Config class stores configuration information of program.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

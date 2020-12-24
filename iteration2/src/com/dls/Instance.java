@@ -3,16 +3,14 @@ import java.util.*;
 
 /**
  * The Instance class stores variables and methods for each instance that created by WriteJSON class.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
- * @todo Is status variable needed to show instance has assigned or not?
  *
  */
 public class Instance {
 
     private Integer id;
     private String text;
-    private Boolean status = false; //@deprecated
     private Dataset dataset;
     private Label finalLabel;
     private ArrayList<Assignment> assignments = new ArrayList<Assignment>(); // Make it limited

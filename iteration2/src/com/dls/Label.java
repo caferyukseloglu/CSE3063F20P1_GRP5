@@ -2,7 +2,7 @@ package com.dls;
 
 /**
  * The Label class stores variables and methods for each label that created initially.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

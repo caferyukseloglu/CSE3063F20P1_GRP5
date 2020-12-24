@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 import java.util.concurrent.TimeUnit;
 /**
  * The RandomBot class simulates a labeling mechanism like Machine Learning Algorithms
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

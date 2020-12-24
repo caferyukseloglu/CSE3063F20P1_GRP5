@@ -7,7 +7,7 @@ import java.io.FileReader;
 /**
  * The ReadJSON class reads and parses given JSON file with json.simple package.
  * Then assign related values to given objects.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */

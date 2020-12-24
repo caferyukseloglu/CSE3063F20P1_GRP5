@@ -19,7 +19,7 @@ import java.util.Scanner;
  *
  * NOTE: Check config.json to configure this software to work with your input file and to see other settings.
  *
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */
@@ -39,17 +39,11 @@ public class Main {
             }
         });
         do {
-
-            RandomBot randomBot2 = new RandomBot(dataset, config.getActiveUser(),config);
+            RandomBot randomBot = new RandomBot(dataset, config.getActiveUser(),config);
             config.logout();
             myObj = new Scanner(System.in);
-
         }
         while (! key.equals(myObj.nextLine()));
-
-
     }
-
-
 }
 

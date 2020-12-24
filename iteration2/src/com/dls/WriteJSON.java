@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 /**
  * The WriteJSON class writes dataset data to JSON file.
- * @version iteration-1.0
+ * @version iteration-2.0
  * @since 2020-12-01
  *
  */
