@@ -43,6 +43,7 @@ public class Config {
      * @return                          nothing
      */
     protected void setActiveUser(User user){
+        System.out.println("Active is:"+user.getName());
         this.activeUser = user;
     }
     /*
@@ -51,6 +52,7 @@ public class Config {
      * @return                          nothing
      */
     protected void setActiveDataset(Dataset dataset){
+        System.out.println("Active dataset:"+dataset.getName());
         this.activeDataset = dataset;
 
     }
@@ -68,6 +70,7 @@ public class Config {
      * @return                          nothing
      */
     protected void setCurrentDatasetId(Integer datasetId){
+        System.out.println("Current dataset is:"+datasetId);
         this.currentDatasetId = datasetId;
     }
 
@@ -207,6 +210,7 @@ public class Config {
      * @return                          nothing
      */
     protected User logout(){
+        System.out.println("User logged out:"+this.activeUser.getName());
         User user = this.activeUser;
         user.setLogoutDatetime();
         this.activeUser = null;

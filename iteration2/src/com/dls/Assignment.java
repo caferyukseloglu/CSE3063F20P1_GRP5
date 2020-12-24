@@ -113,6 +113,7 @@ public class Assignment {
      * @return                          nothing
      */
     protected void addLabel(Label label) {
+        System.out.println("\u001B[34m"+"Adding new labels to :"+label.getText()+"\u001B[0m");
         if(this.labels.size() < this.instance.getDataset().getMaxNumberOfLabels()){
             this.labels.add(label);
             this.instance.getTheMostFrequentLabel();

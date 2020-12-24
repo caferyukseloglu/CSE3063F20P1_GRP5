@@ -216,7 +216,7 @@ public class Instance {
         Double totalEntropy = 0.0;
         for (Map.Entry<Label, Double> entry : labelPercentages.entrySet()){
             Double percentage = entry.getValue().doubleValue() / 100.0;
-            totalEntropy += -1.0 * percentage * Math.log(percentage) / Math.log(2);
+            totalEntropy += -1.0 * percentage * Math.log(percentage) / Math.log(labelPercentages.size());
         }
         return totalEntropy;
     }
@@ -248,6 +248,7 @@ public class Instance {
      * @return  <Assignment>            assignment object
      */
     protected Assignment addAssignment(User user) {
+        System.out.println("Adding new assignment to :"+this.getText());
         Assignment assignment = new Assignment(this, user);
         this.assignments.add(assignment);
         user.addDataset(this.dataset);

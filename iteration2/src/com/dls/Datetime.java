@@ -22,7 +22,7 @@ public class Datetime {
      * @return                          nothing
      */
     public Datetime(){
-
+        System.out.println("Current date and time captured.");
         setCurrentDatetime();
         setDatetimeText();
 

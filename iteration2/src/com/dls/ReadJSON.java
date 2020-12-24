@@ -105,6 +105,7 @@ public class ReadJSON {
      * @return                          nothing
      */
     public static void readConfig(Config config){
+        System.out.println("\u001B[36m"+"Reading config file.");
         // JSONParser object created
         JSONParser parser = new JSONParser();
         try {
@@ -127,6 +128,7 @@ public class ReadJSON {
             e.printStackTrace();
             System.out.println("ERROR: Config file Not Found!");
         }
+        System.out.println("Reading config file completed."+"\u001B[0m");
     }
     /*
      * Parses sub-array of JSON file then adds instances by-one-by to dataset object

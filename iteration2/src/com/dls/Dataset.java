@@ -271,6 +271,7 @@ public class Dataset {
      * @return                          created <Instance> object
      */
     protected Instance addInstance(int id, String text){
+        System.out.println("Adding new instance to :"+this.getName()+" instance :"+text);
         Instance newInstance = new Instance(id, text, this);
         this.instances.add(newInstance);
         return newInstance;
@@ -283,6 +284,7 @@ public class Dataset {
      * @return                          created <Label> object
      */
     protected Label addLabel(int id, String text){
+        System.out.println("\u001B[35m"+"Adding PreDefined Label:"+text+"\u001B[0m");
         Label label = new Label(id, text);
         this.labels.add(label);
         return label;
@@ -292,6 +294,7 @@ public class Dataset {
      * @return                          nothing
      */
     protected void addUser(User user){
+        System.out.println("\u001B[35m"+"Adding PreDefined User:"+user.getName()+"\u001B[0m");
         if(!this.users.contains(user)){
             this.users.add(user);
         }

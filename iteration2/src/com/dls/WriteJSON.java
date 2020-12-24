@@ -12,7 +12,6 @@ import java.util.logging.Logger;
  * The WriteJSON class writes dataset data to JSON file.
  * @version iteration-2.0
  * @since 2020-12-01
- *
  */
 public class WriteJSON {
 
@@ -75,7 +74,7 @@ public class WriteJSON {
      * @return                          nothing
      */
     protected void write() {
-
+        System.out.println("\u001B[31m"+"Writing JSON FILE"+"\u001B[0m");
         // Main JSONObject object created
         JSONObject mainJSON = new JSONObject();
         JSONObject userPerformansJSON = new JSONObject();
@@ -209,5 +208,6 @@ public class WriteJSON {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("\u001B[31m"+"Writing JSON File Process Completed!"+"\u001B[0m");
     }
 }

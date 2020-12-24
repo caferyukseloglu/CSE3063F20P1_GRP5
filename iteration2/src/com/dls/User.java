@@ -30,10 +30,13 @@ public class User {
      * @return                          nothing
      */
     public User(int id, String name, String type, String password){
+
         setId(id);
         setName(name);
         setType(type);
         setPassword(password);
+        System.out.println("User created.");
+
     }
     /*
      * Sets the id of user
@@ -141,6 +144,7 @@ public class User {
     protected void addDataset(Dataset dataset){
         if(!this.datasets.contains(dataset)){
             this.datasets.add(dataset);
+            System.out.println("Dataset assigned to user.");
         }
     }
     /*

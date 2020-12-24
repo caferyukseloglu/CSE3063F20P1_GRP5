@@ -21,6 +21,7 @@ public class Label {
 
         setId(id);
         setText(text);
+        System.out.println("Label created.");
 
     }
 

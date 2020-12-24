@@ -43,11 +43,16 @@ public class RandomBot {
         this.maxNumberOfLabels = dataset.getMaxNumberOfLabels();
     }
     /*
+     * Sets config object as instance variable
+     * @param   config                  config object
+     * @return                          nothing
+     */
+    protected void setConfig(Config config){this.config = config;}
+    /*
      * Sets user object as instance variable
      * @param   user                    parent dataset of instance
      * @return                          nothing
      */
-    protected void setConfig(Config config){this.config = config;}
     protected void setUser(User user){
         this.user = user;
     }
@@ -91,6 +96,7 @@ public class RandomBot {
      */
     protected void run() {
         for (Instance instance : this.dataset.getInstances()) {
+            System.out.println("Adding new assignment to :"+instance.getId());
             Assignment assignment = instance.addAssignment(this.user);
             if (!instance.getAssignments().isEmpty()) {
                 logger.info(String.valueOf("user: " + this.user.getName() + " labeled this instance ıd: " + instance.getId()));
