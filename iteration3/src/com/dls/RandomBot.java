@@ -1,5 +1,6 @@
 package com.dls;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.logging.Logger;
 import java.util.concurrent.TimeUnit;
 /**
@@ -90,44 +91,88 @@ public class RandomBot {
         return this.dataset.getLabels().get(getRandomInt() - 1);
 
     }
+
+    private Label getLabel(int id){ return this.dataset.getLabelById(id);}
     /*
      * This method calls all instances of the dataset and assigns random labels.
      * @return                          nothing
      */
     public void run() {
-        for (Instance instance : this.dataset.getInstances()) {
-            System.out.println("Adding new assignment to :"+instance.getId());
-            Assignment assignment = instance.addAssignment(this.user);
-            if (!instance.getAssignments().isEmpty()) {
-                logger.info(String.valueOf("user: " + this.user.getName() + " labeled this instance ıd: " + instance.getId()));
-                try {
-                    TimeUnit.MILLISECONDS.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                int numberOfLabelCount = getRandomInt();
-                for (int i = 0; i < numberOfLabelCount; i++) {
-                    Label label = getRandomLabel();
+
+        if(this.user.getType().equals("human")){
+            System.out.println(this.user.getType());
+            Scanner select;
+            for(Instance instance : this.dataset.getInstances()){
+                Assignment assignment = instance.addAssignment(this.user);
+                System.out.println("First instance is: "+ instance.getText());
+                if (maxNumberOfLabels>1){
+                    System.out.println("You can select more than one label for this instance. Example = label id1,label id2");
+                    for (Label label :this.dataset.getLabels()){
+                        System.out.println(label.getId()+" "+label.getText());
+                    }
+
+                    select=new Scanner(System.in);
+                    String input=select.nextLine();
+                    String[] strs = input.split(",");
+                    for (int i = 0; i < strs.length; i++) {
+                        Label label = getLabel(Integer.parseInt(strs[i]));
+                        assignment.addLabel(label);
+                        WriteJSON write = new WriteJSON(dataset, config,instance);
+                    }
+                }else{
+                    System.out.println("You can select Only ONE label for this instance. Example = label id1");
+                    for (Label label :this.dataset.getLabels()){
+                        System.out.println(label.getId()+" "+label.getText()); }
+                    select=new Scanner(System.in);
+                    int input=select.nextInt();
+                    Label label = getLabel(input);
                     assignment.addLabel(label);
-                    logger.info("added random label to this instance" +instance.getId());
                     WriteJSON write = new WriteJSON(dataset, config,instance);
-                    logger.info("Writing process completed successfully");
                 }
-            } else {
-                if (Math.round(user.getConsistencyCheckProbability()) > getRandom()) {
-                    assignment.addLabel(instance.getFinalLabel());
-                    logger.info("added same label to this instance" +instance.getId());
-                }else {
+
+
+            }
+
+
+        }
+        else {
+
+            for (Instance instance : this.dataset.getInstances()) {
+                System.out.println("Adding new assignment to :"+instance.getId());
+                Assignment assignment = instance.addAssignment(this.user);
+                if (!instance.getAssignments().isEmpty()) {
+                    logger.info(String.valueOf("user: " + this.user.getName() + " labeled this instance ıd: " + instance.getId()));
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     int numberOfLabelCount = getRandomInt();
                     for (int i = 0; i < numberOfLabelCount; i++) {
                         Label label = getRandomLabel();
                         assignment.addLabel(label);
-                        logger.info("added random label to this instance" + instance.getId());
-                        WriteJSON write = new WriteJSON(dataset, config, instance);
+                        logger.info("added random label to this instance" +instance.getId());
+                        WriteJSON write = new WriteJSON(dataset, config,instance);
                         logger.info("Writing process completed successfully");
+                    }
+                } else {
+                    if (Math.round(user.getConsistencyCheckProbability()) > getRandom()) {
+                        assignment.addLabel(instance.getFinalLabel());
+                        logger.info("added same label to this instance" +instance.getId());
+                    }else {
+                        int numberOfLabelCount = getRandomInt();
+                        for (int i = 0; i < numberOfLabelCount; i++) {
+                            Label label = getRandomLabel();
+                            assignment.addLabel(label);
+                            logger.info("added random label to this instance" + instance.getId());
+                            WriteJSON write = new WriteJSON(dataset, config, instance);
+                            logger.info("Writing process completed successfully");
+                        }
                     }
                 }
             }
         }
+
+
     }
 }
