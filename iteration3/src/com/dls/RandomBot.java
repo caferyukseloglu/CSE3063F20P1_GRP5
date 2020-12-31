@@ -100,40 +100,49 @@ public class RandomBot {
     public void run() {
 
         if(this.user.getType().equals("human")){
+
             System.out.println(this.user.getType());
             Scanner select;
-            for(Instance instance : this.dataset.getInstances()){
+            for(Instance instance : this.dataset.getInstances()) {
+
                 Assignment assignment = instance.addAssignment(this.user);
-                System.out.println("First instance is: "+ instance.getText());
-                if (maxNumberOfLabels>1){
-                    System.out.println("You can select more than one label for this instance. Example = label id1,label id2");
-                    for (Label label :this.dataset.getLabels()){
-                        System.out.println(label.getId()+" "+label.getText());
+                System.out.println("First instance is: " + instance.getText());
+                if (!instance.getAssignments().isEmpty()) {
+                    if (maxNumberOfLabels > 1) {
+                        System.out.println("You can select more than one label for this instance. Example = label id1,label id2");
+                        for (Label label : this.dataset.getLabels()) {
+                            System.out.println(label.getId() + " " + label.getText());
+                        }
+
+                        select = new Scanner(System.in);
+                        String input = select.nextLine();
+                        String[] strs = input.split(",");
+                        for (int i = 0; i < strs.length; i++) {
+                            Label label = getLabel(Integer.parseInt(strs[i]));
+                            assignment.addLabel(label);
+                            WriteJSON write = new WriteJSON(dataset, config, instance);
+                        }
+                    } else {
+                        System.out.println("You can select Only ONE label for this instance. Example = label id1");
+                        for (Label label : this.dataset.getLabels()) {
+                            System.out.println(label.getId() + " " + label.getText());
+                        }
+                        select = new Scanner(System.in);
+                        int input = select.nextInt();
+                        Label label = getLabel(input);
+                        assignment.addLabel(label);
+                        WriteJSON write = new WriteJSON(dataset, config, instance);
+                    }
+                } else {
+                    if (Math.round(user.getConsistencyCheckProbability()) > getRandom()) {
+                        assignment.addLabel(instance.getFinalLabel());
+                        WriteJSON write = new WriteJSON(dataset, config, instance);
+
                     }
 
-                    select=new Scanner(System.in);
-                    String input=select.nextLine();
-                    String[] strs = input.split(",");
-                    for (int i = 0; i < strs.length; i++) {
-                        Label label = getLabel(Integer.parseInt(strs[i]));
-                        assignment.addLabel(label);
-                        WriteJSON write = new WriteJSON(dataset, config,instance);
-                    }
-                }else{
-                    System.out.println("You can select Only ONE label for this instance. Example = label id1");
-                    for (Label label :this.dataset.getLabels()){
-                        System.out.println(label.getId()+" "+label.getText()); }
-                    select=new Scanner(System.in);
-                    int input=select.nextInt();
-                    Label label = getLabel(input);
-                    assignment.addLabel(label);
-                    WriteJSON write = new WriteJSON(dataset, config,instance);
                 }
 
-
             }
-
-
         }
         else {
 
