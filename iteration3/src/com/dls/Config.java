@@ -228,8 +228,18 @@ public class Config {
         String userName = scanner.nextLine();
         System.out.println("Enter Password");
         String password = scanner.nextLine();
+        if (!(userName.isBlank()& password.isBlank())) {
+            this.login(userName, password);
+        }
+        else {
+           for(User user:getUsers()){
+               if (!user.getType().equals("human")){
+                   this.setActiveUser(user);
+                   user.setLoginDatetime();
+               }
+           }
+        }
 
-        this.login(userName, password);
 
     }
     /*
