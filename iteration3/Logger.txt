@@ -12946,3 +12946,2371 @@
   <thread>1</thread>
   <message>Writing process completed successfully</message>
 </record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T15:53:49.958374Z</date>
+  <millis>1609602829958</millis>
+  <nanos>374000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.003966Z</date>
+  <millis>1609602830003</millis>
+  <nanos>966000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 1</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.111481Z</date>
+  <millis>1609602830111</millis>
+  <nanos>481000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance1</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.116849Z</date>
+  <millis>1609602830116</millis>
+  <nanos>849000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.142819Z</date>
+  <millis>1609602830142</millis>
+  <nanos>819000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.143701Z</date>
+  <millis>1609602830143</millis>
+  <nanos>701000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 2</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.250208Z</date>
+  <millis>1609602830250</millis>
+  <nanos>208000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance2</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.251263Z</date>
+  <millis>1609602830251</millis>
+  <nanos>263000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.254166Z</date>
+  <millis>1609602830254</millis>
+  <nanos>166000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.256658Z</date>
+  <millis>1609602830256</millis>
+  <nanos>658000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 3</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.361030Z</date>
+  <millis>1609602830361</millis>
+  <nanos>30000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance3</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.362459Z</date>
+  <millis>1609602830362</millis>
+  <nanos>459000</nanos>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.365557Z</date>
+  <millis>1609602830365</millis>
+  <nanos>557000</nanos>
+  <sequence>12</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.366951Z</date>
+  <millis>1609602830366</millis>
+  <nanos>951000</nanos>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 4</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.472701Z</date>
+  <millis>1609602830472</millis>
+  <nanos>701000</nanos>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance4</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.476005Z</date>
+  <millis>1609602830476</millis>
+  <nanos>5000</nanos>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.483378Z</date>
+  <millis>1609602830483</millis>
+  <nanos>378000</nanos>
+  <sequence>16</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.484642Z</date>
+  <millis>1609602830484</millis>
+  <nanos>642000</nanos>
+  <sequence>17</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 5</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.591442Z</date>
+  <millis>1609602830591</millis>
+  <nanos>442000</nanos>
+  <sequence>18</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance5</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.592583Z</date>
+  <millis>1609602830592</millis>
+  <nanos>583000</nanos>
+  <sequence>19</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":5,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.595969Z</date>
+  <millis>1609602830595</millis>
+  <nanos>969000</nanos>
+  <sequence>20</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.596725Z</date>
+  <millis>1609602830596</millis>
+  <nanos>725000</nanos>
+  <sequence>21</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 6</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.701648Z</date>
+  <millis>1609602830701</millis>
+  <nanos>648000</nanos>
+  <sequence>22</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance6</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.703025Z</date>
+  <millis>1609602830703</millis>
+  <nanos>25000</nanos>
+  <sequence>23</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":6,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.709768Z</date>
+  <millis>1609602830709</millis>
+  <nanos>768000</nanos>
+  <sequence>24</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.710763Z</date>
+  <millis>1609602830710</millis>
+  <nanos>763000</nanos>
+  <sequence>25</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 7</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.812993Z</date>
+  <millis>1609602830812</millis>
+  <nanos>993000</nanos>
+  <sequence>26</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance7</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.813838Z</date>
+  <millis>1609602830813</millis>
+  <nanos>838000</nanos>
+  <sequence>27</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":7,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.817365Z</date>
+  <millis>1609602830817</millis>
+  <nanos>365000</nanos>
+  <sequence>28</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.818327Z</date>
+  <millis>1609602830818</millis>
+  <nanos>327000</nanos>
+  <sequence>29</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 8</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.920764Z</date>
+  <millis>1609602830920</millis>
+  <nanos>764000</nanos>
+  <sequence>30</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance8</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.923415Z</date>
+  <millis>1609602830923</millis>
+  <nanos>415000</nanos>
+  <sequence>31</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":8,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.929119Z</date>
+  <millis>1609602830929</millis>
+  <nanos>119000</nanos>
+  <sequence>32</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:50.929878Z</date>
+  <millis>1609602830929</millis>
+  <nanos>878000</nanos>
+  <sequence>33</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 9</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.034789Z</date>
+  <millis>1609602831034</millis>
+  <nanos>789000</nanos>
+  <sequence>34</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance9</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.035709Z</date>
+  <millis>1609602831035</millis>
+  <nanos>709000</nanos>
+  <sequence>35</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":9,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.038766Z</date>
+  <millis>1609602831038</millis>
+  <nanos>766000</nanos>
+  <sequence>36</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.039579Z</date>
+  <millis>1609602831039</millis>
+  <nanos>579000</nanos>
+  <sequence>37</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 10</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.143925Z</date>
+  <millis>1609602831143</millis>
+  <nanos>925000</nanos>
+  <sequence>38</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance10</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.144560Z</date>
+  <millis>1609602831144</millis>
+  <nanos>560000</nanos>
+  <sequence>39</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:53:49","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 18:53:50","class label ids":[1],"instance id":9,"user id":4},{"datetime":"02\/01\/2021, 18:53:51","class label ids":[1],"instance id":10,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:53:51.148056Z</date>
+  <millis>1609602831148</millis>
+  <nanos>56000</nanos>
+  <sequence>40</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T15:58:01.370994Z</date>
+  <millis>1609603081370</millis>
+  <nanos>994000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test2 is login</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:13.997885Z</date>
+  <millis>1609603093997</millis>
+  <nanos>885000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:18.051678Z</date>
+  <millis>1609603098051</millis>
+  <nanos>678000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:21.349881Z</date>
+  <millis>1609603101349</millis>
+  <nanos>881000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:23.241322Z</date>
+  <millis>1609603103241</millis>
+  <nanos>322000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:24.250664Z</date>
+  <millis>1609603104250</millis>
+  <nanos>664000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 18:58:23","class label ids":[1],"instance id":5,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:24.991416Z</date>
+  <millis>1609603104991</millis>
+  <nanos>416000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 18:58:23","class label ids":[1],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":6,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:25.656773Z</date>
+  <millis>1609603105656</millis>
+  <nanos>773000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 18:58:23","class label ids":[1],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":7,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:26.310654Z</date>
+  <millis>1609603106310</millis>
+  <nanos>654000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 18:58:23","class label ids":[1],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":7,"user id":5},{"datetime":"02\/01\/2021, 18:58:25","class label ids":[2],"instance id":8,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:27.403265Z</date>
+  <millis>1609603107403</millis>
+  <nanos>265000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 18:58:23","class label ids":[1],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":7,"user id":5},{"datetime":"02\/01\/2021, 18:58:25","class label ids":[2],"instance id":8,"user id":5},{"datetime":"02\/01\/2021, 18:58:26","class label ids":[2],"instance id":9,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T15:58:28.271327Z</date>
+  <millis>1609603108271</millis>
+  <nanos>327000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 18:58:01","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 18:58:14","class label ids":[2],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 18:58:18","class label ids":[8],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 18:58:21","class label ids":[2],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 18:58:23","class label ids":[1],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 18:58:24","class label ids":[2],"instance id":7,"user id":5},{"datetime":"02\/01\/2021, 18:58:25","class label ids":[2],"instance id":8,"user id":5},{"datetime":"02\/01\/2021, 18:58:26","class label ids":[2],"instance id":9,"user id":5},{"datetime":"02\/01\/2021, 18:58:27","class label ids":[2],"instance id":10,"user id":5}]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:43:21.608306Z</date>
+  <millis>1609605801608</millis>
+  <nanos>306000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+<record>
+  <date>2021-01-02T16:44:04.280222Z</date>
+  <millis>1609605844280</millis>
+  <nanos>222000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test2 is login</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:46:56.220061Z</date>
+  <millis>1609606016220</millis>
+  <nanos>61000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+<record>
+  <date>2021-01-02T16:47:05.920043Z</date>
+  <millis>1609606025920</millis>
+  <nanos>43000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test2 is login</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:50:11.713249Z</date>
+  <millis>1609606211713</millis>
+  <nanos>249000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:53:27.432302Z</date>
+  <millis>1609606407432</millis>
+  <nanos>302000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>LOGIN ERROR</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.555510Z</date>
+  <millis>1609606410555</millis>
+  <nanos>510000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.567632Z</date>
+  <millis>1609606410567</millis>
+  <nanos>632000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 1</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.673979Z</date>
+  <millis>1609606410673</millis>
+  <nanos>979000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance1</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.679389Z</date>
+  <millis>1609606410679</millis>
+  <nanos>389000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.707264Z</date>
+  <millis>1609606410707</millis>
+  <nanos>264000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.707956Z</date>
+  <millis>1609606410707</millis>
+  <nanos>956000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 2</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.812979Z</date>
+  <millis>1609606410812</millis>
+  <nanos>979000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance2</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.813426Z</date>
+  <millis>1609606410813</millis>
+  <nanos>426000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.815602Z</date>
+  <millis>1609606410815</millis>
+  <nanos>602000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.816502Z</date>
+  <millis>1609606410816</millis>
+  <nanos>502000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 3</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.922408Z</date>
+  <millis>1609606410922</millis>
+  <nanos>408000</nanos>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance3</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.923506Z</date>
+  <millis>1609606410923</millis>
+  <nanos>506000</nanos>
+  <sequence>12</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.927505Z</date>
+  <millis>1609606410927</millis>
+  <nanos>505000</nanos>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:30.928578Z</date>
+  <millis>1609606410928</millis>
+  <nanos>578000</nanos>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 4</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.035150Z</date>
+  <millis>1609606411035</millis>
+  <nanos>150000</nanos>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance4</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.035850Z</date>
+  <millis>1609606411035</millis>
+  <nanos>850000</nanos>
+  <sequence>16</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.041843Z</date>
+  <millis>1609606411041</millis>
+  <nanos>843000</nanos>
+  <sequence>17</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.043156Z</date>
+  <millis>1609606411043</millis>
+  <nanos>156000</nanos>
+  <sequence>18</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 5</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.144991Z</date>
+  <millis>1609606411144</millis>
+  <nanos>991000</nanos>
+  <sequence>19</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance5</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.146060Z</date>
+  <millis>1609606411146</millis>
+  <nanos>60000</nanos>
+  <sequence>20</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":5,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.149536Z</date>
+  <millis>1609606411149</millis>
+  <nanos>536000</nanos>
+  <sequence>21</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.150336Z</date>
+  <millis>1609606411150</millis>
+  <nanos>336000</nanos>
+  <sequence>22</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 6</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.252148Z</date>
+  <millis>1609606411252</millis>
+  <nanos>148000</nanos>
+  <sequence>23</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance6</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.253248Z</date>
+  <millis>1609606411253</millis>
+  <nanos>248000</nanos>
+  <sequence>24</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":6,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.257355Z</date>
+  <millis>1609606411257</millis>
+  <nanos>355000</nanos>
+  <sequence>25</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.259704Z</date>
+  <millis>1609606411259</millis>
+  <nanos>704000</nanos>
+  <sequence>26</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 7</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.365687Z</date>
+  <millis>1609606411365</millis>
+  <nanos>687000</nanos>
+  <sequence>27</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance7</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.367071Z</date>
+  <millis>1609606411367</millis>
+  <nanos>71000</nanos>
+  <sequence>28</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":7,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.370695Z</date>
+  <millis>1609606411370</millis>
+  <nanos>695000</nanos>
+  <sequence>29</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.371459Z</date>
+  <millis>1609606411371</millis>
+  <nanos>459000</nanos>
+  <sequence>30</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 8</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.474527Z</date>
+  <millis>1609606411474</millis>
+  <nanos>527000</nanos>
+  <sequence>31</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance8</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.476298Z</date>
+  <millis>1609606411476</millis>
+  <nanos>298000</nanos>
+  <sequence>32</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":8,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.478174Z</date>
+  <millis>1609606411478</millis>
+  <nanos>174000</nanos>
+  <sequence>33</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.478553Z</date>
+  <millis>1609606411478</millis>
+  <nanos>553000</nanos>
+  <sequence>34</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 9</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.583353Z</date>
+  <millis>1609606411583</millis>
+  <nanos>353000</nanos>
+  <sequence>35</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance9</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.584786Z</date>
+  <millis>1609606411584</millis>
+  <nanos>786000</nanos>
+  <sequence>36</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":9,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.588746Z</date>
+  <millis>1609606411588</millis>
+  <nanos>746000</nanos>
+  <sequence>37</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.589723Z</date>
+  <millis>1609606411589</millis>
+  <nanos>723000</nanos>
+  <sequence>38</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 10</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.692880Z</date>
+  <millis>1609606411692</millis>
+  <nanos>880000</nanos>
+  <sequence>39</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance10</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.694405Z</date>
+  <millis>1609606411694</millis>
+  <nanos>405000</nanos>
+  <sequence>40</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:53:30","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":9,"user id":4},{"datetime":"02\/01\/2021, 19:53:31","class label ids":[1],"instance id":10,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:53:31.699842Z</date>
+  <millis>1609606411699</millis>
+  <nanos>842000</nanos>
+  <sequence>41</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:54:28.705446Z</date>
+  <millis>1609606468705</millis>
+  <nanos>446000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.720196Z</date>
+  <millis>1609606468720</millis>
+  <nanos>196000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 1</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.822571Z</date>
+  <millis>1609606468822</millis>
+  <nanos>571000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance1</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.828025Z</date>
+  <millis>1609606468828</millis>
+  <nanos>25000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.852887Z</date>
+  <millis>1609606468852</millis>
+  <nanos>887000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.853519Z</date>
+  <millis>1609606468853</millis>
+  <nanos>519000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 2</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.958758Z</date>
+  <millis>1609606468958</millis>
+  <nanos>758000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance2</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.959327Z</date>
+  <millis>1609606468959</millis>
+  <nanos>327000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.961889Z</date>
+  <millis>1609606468961</millis>
+  <nanos>889000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:28.963751Z</date>
+  <millis>1609606468963</millis>
+  <nanos>751000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 3</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.067074Z</date>
+  <millis>1609606469067</millis>
+  <nanos>74000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance3</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.068500Z</date>
+  <millis>1609606469068</millis>
+  <nanos>500000</nanos>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.072489Z</date>
+  <millis>1609606469072</millis>
+  <nanos>489000</nanos>
+  <sequence>12</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.073402Z</date>
+  <millis>1609606469073</millis>
+  <nanos>402000</nanos>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 4</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.178549Z</date>
+  <millis>1609606469178</millis>
+  <nanos>549000</nanos>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance4</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.179189Z</date>
+  <millis>1609606469179</millis>
+  <nanos>189000</nanos>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.182554Z</date>
+  <millis>1609606469182</millis>
+  <nanos>554000</nanos>
+  <sequence>16</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.184381Z</date>
+  <millis>1609606469184</millis>
+  <nanos>381000</nanos>
+  <sequence>17</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 5</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.289540Z</date>
+  <millis>1609606469289</millis>
+  <nanos>540000</nanos>
+  <sequence>18</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance5</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.290906Z</date>
+  <millis>1609606469290</millis>
+  <nanos>906000</nanos>
+  <sequence>19</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":5,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.293058Z</date>
+  <millis>1609606469293</millis>
+  <nanos>58000</nanos>
+  <sequence>20</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.293631Z</date>
+  <millis>1609606469293</millis>
+  <nanos>631000</nanos>
+  <sequence>21</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 6</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.398112Z</date>
+  <millis>1609606469398</millis>
+  <nanos>112000</nanos>
+  <sequence>22</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance6</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.398982Z</date>
+  <millis>1609606469398</millis>
+  <nanos>982000</nanos>
+  <sequence>23</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":6,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.403950Z</date>
+  <millis>1609606469403</millis>
+  <nanos>950000</nanos>
+  <sequence>24</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.406976Z</date>
+  <millis>1609606469406</millis>
+  <nanos>976000</nanos>
+  <sequence>25</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 7</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.514785Z</date>
+  <millis>1609606469514</millis>
+  <nanos>785000</nanos>
+  <sequence>26</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance7</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.515757Z</date>
+  <millis>1609606469515</millis>
+  <nanos>757000</nanos>
+  <sequence>27</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":7,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.519424Z</date>
+  <millis>1609606469519</millis>
+  <nanos>424000</nanos>
+  <sequence>28</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.520217Z</date>
+  <millis>1609606469520</millis>
+  <nanos>217000</nanos>
+  <sequence>29</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 8</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.622081Z</date>
+  <millis>1609606469622</millis>
+  <nanos>81000</nanos>
+  <sequence>30</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance8</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.624159Z</date>
+  <millis>1609606469624</millis>
+  <nanos>159000</nanos>
+  <sequence>31</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":8,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.630369Z</date>
+  <millis>1609606469630</millis>
+  <nanos>369000</nanos>
+  <sequence>32</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.631632Z</date>
+  <millis>1609606469631</millis>
+  <nanos>632000</nanos>
+  <sequence>33</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 9</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.737244Z</date>
+  <millis>1609606469737</millis>
+  <nanos>244000</nanos>
+  <sequence>34</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance9</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.738278Z</date>
+  <millis>1609606469738</millis>
+  <nanos>278000</nanos>
+  <sequence>35</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":9,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.741544Z</date>
+  <millis>1609606469741</millis>
+  <nanos>544000</nanos>
+  <sequence>36</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.742419Z</date>
+  <millis>1609606469742</millis>
+  <nanos>419000</nanos>
+  <sequence>37</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 10</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.843451Z</date>
+  <millis>1609606469843</millis>
+  <nanos>451000</nanos>
+  <sequence>38</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance10</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.845608Z</date>
+  <millis>1609606469845</millis>
+  <nanos>608000</nanos>
+  <sequence>39</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 19:54:28","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":9,"user id":4},{"datetime":"02\/01\/2021, 19:54:29","class label ids":[1],"instance id":10,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:54:29.849339Z</date>
+  <millis>1609606469849</millis>
+  <nanos>339000</nanos>
+  <sequence>40</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:57:20.389961Z</date>
+  <millis>1609606640389</millis>
+  <nanos>961000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test2 is login</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T16:58:44.948356Z</date>
+  <millis>1609606724948</millis>
+  <nanos>356000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test2 is login</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:47.267346Z</date>
+  <millis>1609606727267</millis>
+  <nanos>346000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:47.894445Z</date>
+  <millis>1609606727894</millis>
+  <nanos>445000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:48.585869Z</date>
+  <millis>1609606728585</millis>
+  <nanos>869000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:49.308710Z</date>
+  <millis>1609606729308</millis>
+  <nanos>710000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:49.938242Z</date>
+  <millis>1609606729938</millis>
+  <nanos>242000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[4],"instance id":5,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:51.382689Z</date>
+  <millis>1609606731382</millis>
+  <nanos>689000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[4],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[2],"instance id":6,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:52.004964Z</date>
+  <millis>1609606732004</millis>
+  <nanos>964000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[4],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 19:58:51","class label ids":[1],"instance id":7,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:52.846932Z</date>
+  <millis>1609606732846</millis>
+  <nanos>932000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[4],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 19:58:51","class label ids":[1],"instance id":7,"user id":5},{"datetime":"02\/01\/2021, 19:58:52","class label ids":[3],"instance id":8,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:53.626566Z</date>
+  <millis>1609606733626</millis>
+  <nanos>566000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[4],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 19:58:51","class label ids":[1],"instance id":7,"user id":5},{"datetime":"02\/01\/2021, 19:58:52","class label ids":[3],"instance id":8,"user id":5},{"datetime":"02\/01\/2021, 19:58:52","class label ids":[2],"instance id":9,"user id":5}]</message>
+</record>
+<record>
+  <date>2021-01-02T16:58:54.392965Z</date>
+  <millis>1609606734392</millis>
+  <nanos>965000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 19:58:44","class label ids":[1],"instance id":1,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[1],"instance id":2,"user id":5},{"datetime":"02\/01\/2021, 19:58:47","class label ids":[2],"instance id":3,"user id":5},{"datetime":"02\/01\/2021, 19:58:48","class label ids":[3],"instance id":4,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[4],"instance id":5,"user id":5},{"datetime":"02\/01\/2021, 19:58:49","class label ids":[2],"instance id":6,"user id":5},{"datetime":"02\/01\/2021, 19:58:51","class label ids":[1],"instance id":7,"user id":5},{"datetime":"02\/01\/2021, 19:58:52","class label ids":[3],"instance id":8,"user id":5},{"datetime":"02\/01\/2021, 19:58:52","class label ids":[2],"instance id":9,"user id":5},{"datetime":"02\/01\/2021, 19:58:53","class label ids":[1],"instance id":10,"user id":5}]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-02T17:01:11.915349Z</date>
+  <millis>1609606871915</millis>
+  <nanos>349000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>com.dls.Config</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>test is login</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:11.931585Z</date>
+  <millis>1609606871931</millis>
+  <nanos>585000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 1</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.039629Z</date>
+  <millis>1609606872039</millis>
+  <nanos>629000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance1</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.044902Z</date>
+  <millis>1609606872044</millis>
+  <nanos>902000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.070043Z</date>
+  <millis>1609606872070</millis>
+  <nanos>43000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.070812Z</date>
+  <millis>1609606872070</millis>
+  <nanos>812000</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 2</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.172618Z</date>
+  <millis>1609606872172</millis>
+  <nanos>618000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance2</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.173307Z</date>
+  <millis>1609606872173</millis>
+  <nanos>307000</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.175607Z</date>
+  <millis>1609606872175</millis>
+  <nanos>607000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.176964Z</date>
+  <millis>1609606872176</millis>
+  <nanos>964000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 3</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.280842Z</date>
+  <millis>1609606872280</millis>
+  <nanos>842000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance3</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.281851Z</date>
+  <millis>1609606872281</millis>
+  <nanos>851000</nanos>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.289368Z</date>
+  <millis>1609606872289</millis>
+  <nanos>368000</nanos>
+  <sequence>12</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.290109Z</date>
+  <millis>1609606872290</millis>
+  <nanos>109000</nanos>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 4</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.394781Z</date>
+  <millis>1609606872394</millis>
+  <nanos>781000</nanos>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance4</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.397858Z</date>
+  <millis>1609606872397</millis>
+  <nanos>858000</nanos>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.402353Z</date>
+  <millis>1609606872402</millis>
+  <nanos>353000</nanos>
+  <sequence>16</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.406809Z</date>
+  <millis>1609606872406</millis>
+  <nanos>809000</nanos>
+  <sequence>17</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 5</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.511214Z</date>
+  <millis>1609606872511</millis>
+  <nanos>214000</nanos>
+  <sequence>18</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance5</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.511838Z</date>
+  <millis>1609606872511</millis>
+  <nanos>838000</nanos>
+  <sequence>19</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":5,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.513690Z</date>
+  <millis>1609606872513</millis>
+  <nanos>690000</nanos>
+  <sequence>20</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.514153Z</date>
+  <millis>1609606872514</millis>
+  <nanos>153000</nanos>
+  <sequence>21</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 6</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.617110Z</date>
+  <millis>1609606872617</millis>
+  <nanos>110000</nanos>
+  <sequence>22</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance6</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.621036Z</date>
+  <millis>1609606872621</millis>
+  <nanos>36000</nanos>
+  <sequence>23</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":6,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.625905Z</date>
+  <millis>1609606872625</millis>
+  <nanos>905000</nanos>
+  <sequence>24</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.627993Z</date>
+  <millis>1609606872627</millis>
+  <nanos>993000</nanos>
+  <sequence>25</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 7</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.731785Z</date>
+  <millis>1609606872731</millis>
+  <nanos>785000</nanos>
+  <sequence>26</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance7</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.732701Z</date>
+  <millis>1609606872732</millis>
+  <nanos>701000</nanos>
+  <sequence>27</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":7,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.736315Z</date>
+  <millis>1609606872736</millis>
+  <nanos>315000</nanos>
+  <sequence>28</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.738139Z</date>
+  <millis>1609606872738</millis>
+  <nanos>139000</nanos>
+  <sequence>29</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 8</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.839856Z</date>
+  <millis>1609606872839</millis>
+  <nanos>856000</nanos>
+  <sequence>30</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance8</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.842484Z</date>
+  <millis>1609606872842</millis>
+  <nanos>484000</nanos>
+  <sequence>31</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":8,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.845939Z</date>
+  <millis>1609606872845</millis>
+  <nanos>939000</nanos>
+  <sequence>32</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.846389Z</date>
+  <millis>1609606872846</millis>
+  <nanos>389000</nanos>
+  <sequence>33</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 9</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.950136Z</date>
+  <millis>1609606872950</millis>
+  <nanos>136000</nanos>
+  <sequence>34</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance9</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.951071Z</date>
+  <millis>1609606872951</millis>
+  <nanos>71000</nanos>
+  <sequence>35</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":9,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.954586Z</date>
+  <millis>1609606872954</millis>
+  <nanos>586000</nanos>
+  <sequence>36</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:12.955404Z</date>
+  <millis>1609606872955</millis>
+  <nanos>404000</nanos>
+  <sequence>37</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>user: test labeled this instance ıd: 10</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:13.060380Z</date>
+  <millis>1609606873060</millis>
+  <nanos>380000</nanos>
+  <sequence>38</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>added random label to this instance10</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:13.060936Z</date>
+  <millis>1609606873060</millis>
+  <nanos>936000</nanos>
+  <sequence>39</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.WriteJSON</class>
+  <method>write</method>
+  <thread>1</thread>
+  <message>[{"datetime":"02\/01\/2021, 20:01:11","class label ids":[1],"instance id":1,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":2,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":3,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":4,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":5,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":6,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":7,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":8,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":9,"user id":4},{"datetime":"02\/01\/2021, 20:01:12","class label ids":[1],"instance id":10,"user id":4}]</message>
+</record>
+<record>
+  <date>2021-01-02T17:01:13.066971Z</date>
+  <millis>1609606873066</millis>
+  <nanos>971000</nanos>
+  <sequence>40</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>com.dls.RandomBot</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Writing process completed successfully</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>

@@ -30,6 +30,8 @@ public class Main {
         Config config = new Config("config.json");
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
+        config.setActiveDataset(dataset);
+        config.getUserInterface().userMenuInterface();
         String key = "exit";
         Scanner myObj;
         Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -39,13 +41,6 @@ public class Main {
             }
         });
         do {
-            RandomBot randomBot = new RandomBot(dataset, config.getActiveUser(),config);
-            dataset.printPerformanceMetrics();
-            // Sample Instance Performance Metrics:
-            dataset.getInstances().get(0).printPerformanceMetrics();
-            // Sample User Performance Metrics:
-            config.getActiveUser().printPerformanceMetrics();
-            config.logout();
             myObj = new Scanner(System.in);
         }
         while (! key.equals(myObj.nextLine()));

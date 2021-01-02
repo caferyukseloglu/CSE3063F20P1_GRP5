@@ -21,6 +21,7 @@ public class Config {
     private ArrayList<Dataset> datasets = new ArrayList<Dataset>();
     private ArrayList<User> users = new ArrayList<User>();
     private final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
+    private UserInterface UI;
 
     /*
      * Construct method of the Config class
@@ -31,11 +32,13 @@ public class Config {
 
         setConfigFilePath(configFilePath);
         readConfigFile();
-        loginInterface();
+        this.UI = new UserInterface(this);
 
     }
 
-
+    public UserInterface getUserInterface(){
+        return this.UI;
+    }
 
     /*
      * Sets active user object as instance variable

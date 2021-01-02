@@ -25,7 +25,7 @@ public class Log {
      *    FINEST
      *    ALL
      */
-    pro
+
     public static void setupLogger() {
         LogManager.getLogManager().reset();
         logger.setLevel(Level.ALL);
