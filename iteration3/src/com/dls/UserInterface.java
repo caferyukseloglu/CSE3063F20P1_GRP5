@@ -2,10 +2,22 @@ package com.dls;
 
 import java.util.Scanner;
 
+/**
+ * The User class stores variables and methods user interface
+ * @version iteration-2.0
+ * @since 2020-12-01
+ *
+ */
 public class UserInterface {
 
     private Config config;
     private RandomBot randomBot;
+
+    /*
+     * Construct method of the UserInterface class
+     * @param   config                  config object
+     * @return                          nothing
+     */
     public UserInterface(Config config){
 
         this.config = config;
@@ -13,9 +25,12 @@ public class UserInterface {
 
     }
 
+    /*
+     * Prints user menu items, then calls corresponding method
+     * @param   config                  config object
+     * @return                          nothing
+     */
     public void userMenuInterface(){
-
-
         System.out.println("\u001B[34m"+"<-----      M E N U      ----->"+"\u001B[0m");
         System.out.println("\u001B[34m"+"1. LOGIN AND ASSIGN LABEL"+"\u001B[0m");
         System.out.println("\u001B[34m"+"2. SHOW DATASET PERFORMANCE METRICS"+"\u001B[0m");
@@ -47,17 +62,14 @@ public class UserInterface {
             System.out.println("WRONG INPUT TRY AGAIN!");
             this.userMenuInterface();
         }
-
     }
-
+    /*
+     * Calls login method then asks user to assign label to given instances
+     * @return                          nothing
+     */
     public void loginAndAssignInterface(){
             config.loginInterface();
             this.randomBot = new RandomBot(config.getActiveDataset(), config.getActiveUser(),config);
             this.userMenuInterface();
     }
-
-
-
-
-
 }

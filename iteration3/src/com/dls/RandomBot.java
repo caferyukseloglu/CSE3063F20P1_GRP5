@@ -87,51 +87,64 @@ public class RandomBot {
      * @todo EXCEPTION: What if maxNumberOfLabels > dataset.labels.size()
      * @return                          label object
      */
-    private int getRandom(){return random.nextInt(100);}
-    private Label getRandomLabel(){
-
-        return this.dataset.getLabels().get(getRandomInt() - 1);
-
+    private int getRandom(){
+        return random.nextInt(100);
     }
-
-    private Label getLabel(int id){ return this.dataset.getLabelById(id);}
+    /*
+     * Gets a random label
+     * @return                          random label
+     */
+    private Label getRandomLabel(){
+        return this.dataset.getLabels().get(getRandomInt() - 1);
+    }
+    /*
+     * Gets label by ID
+     * @return                          label
+     */
+    private Label getLabel(int id){
+        return this.dataset.getLabelById(id);
+    }
     /*
      * This method calls all instances of the dataset and assigns random labels.
      * @return                          nothing
      */
     public void run() {
         CheckHuman();
-
-
     }
-
-
-
+    /*
+     * Checks if it is RandomBot or not
+     * @return                          nothing
+     */
     public void CheckHuman(){
         if(this.user.getType().equals("human")){
             human();
         }else {
             bot();
         }
-
-
     }
+    /*
+     * Checks probability
+     * @return                          nothing
+     */
     public void CheckPro(){
         int Random = (int)(Math.random()*100);
-
         if ((int)Math.round(user.getConsistencyCheckProbability()*100) < Random) {
-
             humanNoPro();
         }else {
-
             humanWhitPro();
         }
-
     }
+    /*
+     * Calls humanNoPro method
+     * return                           nothing
+     */
     public void human(){
         humanNoPro();
-
     }
+    /*
+     * Assigns all instances by corresponding label
+     * @return                          nothing
+     */
     public void bot(){
         for (Instance instance : this.dataset.getInstances()) {
             System.out.println("Adding new assignment to :"+instance.getId());
@@ -167,9 +180,11 @@ public class RandomBot {
                 }
             }
         }
-
-
     }
+    /*
+     * Assigns all instances by corresponding label with user interaction
+     * @return                          nothing
+     */
     public void humanWhitPro(){
         Scanner select;
         if(!instances.isEmpty()) {
@@ -204,15 +219,15 @@ public class RandomBot {
                 WriteJSON write = new WriteJSON(dataset, config, this.instances.get(index));
                 CheckPro();
             }
-
-
-        }else {
+        } else {
             System.out.println("There are no labelled instance");
         }
     }
+    /*
+     * Assigns all instances by corresponding label without probability check
+     * @return                          nothing
+     */
     public void humanNoPro(){
-
-
         while (number<(this.dataset.getInstances().size())) {
             System.out.println(this.dataset.getInstances().size());
             Scanner select;
@@ -236,8 +251,6 @@ public class RandomBot {
                     assignment.addLabel(label);
                     WriteJSON write = new WriteJSON(dataset, config, instance);
                     number++;
-
-
                 }
             } else {
                 System.out.println("You can select Only ONE label for this instance. Example = label id1");
@@ -250,14 +263,9 @@ public class RandomBot {
                 assignment.addLabel(label);
                 WriteJSON write = new WriteJSON(dataset, config, instance);
                 number++;
-
-
             }
-
             CheckPro();
         }
-
-        }
-
+    }
 }
 
