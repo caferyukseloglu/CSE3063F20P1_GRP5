@@ -31,19 +31,17 @@ public class Main {
         ReadJSON read = new ReadJSON(config);
         Dataset dataset = read.readInput();
         config.setActiveDataset(dataset);
-        config.getUserInterface().userMenuInterface();
-        String key = "exit";
-        Scanner myObj;
+        try {
+            config.getUserInterface().userMenuInterface();
+        } catch (Exception e) {
+            config.getUserInterface().userMenuInterface();
+        }
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
                 System.out.println("Saving......");
             }
         });
-        do {
-            myObj = new Scanner(System.in);
-        }
-        while (! key.equals(myObj.nextLine()));
+
     }
 }
-

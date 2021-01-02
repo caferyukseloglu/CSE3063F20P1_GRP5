@@ -1,4 +1,5 @@
 package com.dls;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -17,7 +18,8 @@ public class RandomBot {
     private Datetime datetime;
     private Random random;
     private Config config;
-
+    private ArrayList<Instance> instances = new ArrayList<Instance>(); // Make it limited
+    private int number=0;
     /*
      * Construct method of the RandomBot class
      * @param   dataset                 dataset object to run this bot
@@ -31,6 +33,7 @@ public class RandomBot {
         setConfig(config);
         setDatetime(new Datetime());
         setRandom();
+        run();
 
     }
     /*
@@ -84,21 +87,52 @@ public class RandomBot {
      * @todo EXCEPTION: What if maxNumberOfLabels > dataset.labels.size()
      * @return                          label object
      */
-    public int getRandom(){return random.nextInt(100);}
-
+    private int getRandom(){return random.nextInt(100);}
     private Label getRandomLabel(){
 
         return this.dataset.getLabels().get(getRandomInt() - 1);
 
     }
 
-    public Label getLabel(int id){ return this.dataset.getLabelById(id);}
+    private Label getLabel(int id){ return this.dataset.getLabelById(id);}
     /*
      * This method calls all instances of the dataset and assigns random labels.
      * @return                          nothing
      */
     public void run() {
+        CheckHuman();
 
+
+    }
+
+
+
+    public void CheckHuman(){
+        if(this.user.getType().equals("human")){
+            human();
+        }else {
+            bot();
+        }
+
+
+    }
+    public void CheckPro(){
+        int Random = (int)(Math.random()*100);
+
+        if ((int)Math.round(user.getConsistencyCheckProbability()*100) < Random) {
+
+            humanNoPro();
+        }else {
+
+            humanWhitPro();
+        }
+
+    }
+    public void human(){
+        humanNoPro();
+
+    }
+    public void bot(){
         for (Instance instance : this.dataset.getInstances()) {
             System.out.println("Adding new assignment to :"+instance.getId());
             Assignment assignment = instance.addAssignment(this.user);
@@ -134,5 +168,96 @@ public class RandomBot {
             }
         }
 
+
     }
+    public void humanWhitPro(){
+        Scanner select;
+        if(!instances.isEmpty()) {
+            Random random = new Random();
+            int index = random.nextInt(this.instances.size());
+            Assignment assignment = this.instances.get(index).addAssignment(this.user);
+            System.out.println("İnstance is: " + this.instances.get(index).getText());
+            if (maxNumberOfLabels > 1) {
+                System.out.println("You can select more than one label for this instance. Example = label id1,label id2");
+                for (Label label : this.dataset.getLabels()) {
+                    System.out.println(label.getId() + " " + label.getText());
+                }
+
+                select = new Scanner(System.in);
+                String input = select.nextLine();
+                String[] strs = input.split(",");
+                for (String str : strs) {
+                    Label label = getLabel(Integer.parseInt(str));
+                    assignment.addLabel(label);
+                    WriteJSON write = new WriteJSON(dataset, config, this.instances.get(index));
+                    CheckPro();
+                }
+            } else {
+                System.out.println("You can select Only ONE label for this instance. Example = label id1");
+                for (Label label : this.dataset.getLabels()) {
+                    System.out.println(label.getId() + " " + label.getText());
+                }
+                select = new Scanner(System.in);
+                int input = select.nextInt();
+                Label label = getLabel(input);
+                assignment.addLabel(label);
+                WriteJSON write = new WriteJSON(dataset, config, this.instances.get(index));
+                CheckPro();
+            }
+
+
+        }else {
+            System.out.println("There are no labelled instance");
+        }
+    }
+    public void humanNoPro(){
+
+
+        while (number<(this.dataset.getInstances().size())) {
+            System.out.println(this.dataset.getInstances().size());
+            Scanner select;
+            System.out.println(number);
+            Instance instance = this.dataset.getInstances().get(number);
+            Assignment assignment = instance.addAssignment(this.user);
+            this.instances.add(instance);
+
+            System.out.println("İnstance is: " + instance.getText());
+            if (maxNumberOfLabels > 1) {
+                System.out.println("You can select more than one label for this instance. Example = label id1,label id2");
+                for (Label label : this.dataset.getLabels()) {
+                    System.out.println(label.getId() + " " + label.getText());
+                }
+
+                select = new Scanner(System.in);
+                String input = select.nextLine();
+                String[] strs = input.split(",");
+                for (String str : strs) {
+                    Label label = getLabel(Integer.parseInt(str));
+                    assignment.addLabel(label);
+                    WriteJSON write = new WriteJSON(dataset, config, instance);
+                    number++;
+
+
+                }
+            } else {
+                System.out.println("You can select Only ONE label for this instance. Example = label id1");
+                for (Label label : this.dataset.getLabels()) {
+                    System.out.println(label.getId() + " " + label.getText());
+                }
+                select = new Scanner(System.in);
+                int input = select.nextInt();
+                Label label = getLabel(input);
+                assignment.addLabel(label);
+                WriteJSON write = new WriteJSON(dataset, config, instance);
+                number++;
+
+
+            }
+
+            CheckPro();
+        }
+
+        }
+
 }
+

@@ -32,19 +32,24 @@ public class Config {
 
         setConfigFilePath(configFilePath);
         readConfigFile();
+
         this.UI = new UserInterface(this);
 
     }
 
-    public UserInterface getUserInterface(){
-        return this.UI;
-    }
+
 
     /*
      * Sets active user object as instance variable
      * @param   user                    user object to set
      * @return                          nothing
      */
+
+    public UserInterface getUserInterface(){
+        return this.UI;
+    }
+
+
     public void setActiveUser(User user){
         System.out.println("Active is:"+user.getName());
         this.activeUser = user;
