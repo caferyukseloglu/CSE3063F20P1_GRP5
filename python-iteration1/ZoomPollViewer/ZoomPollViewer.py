@@ -4,8 +4,8 @@
 ZOOM POLL VIEWER v0.1
 
 """
-from ZoomPollViewer import *
 
+from ZoomPollViewer import *
 
 class ZoomPollViewer:
 
@@ -15,9 +15,10 @@ class ZoomPollViewer:
         self._sessions = []
         self._polls = []
 
+        self.__apples = 123
         self.GUI = 0        # not implemented yet
         self.loggerActive = True
-        self.importerType = "TABLE" #API OR TABLE
+        self.importerType = "TABLE" #API OR TABLE (API for v2)
 
     def add_session(self, session):
         self._sessions.append(session)
@@ -28,6 +29,9 @@ class ZoomPollViewer:
     def add_poll(self, poll):
         self._polls.append(poll)
 
+    def test(self):
+        self.__apples = self.__apples + 10
+        print(self.__apples)
 
 
-tester = ZoomPollViewer()
+
