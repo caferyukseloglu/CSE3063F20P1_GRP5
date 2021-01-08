@@ -19,24 +19,25 @@ class CsvReader:
         except Exception as err:
             print("Error Occured",err)
     def poll_report_reader(self):
-        print("Poll Name: {}".format(os.path.basename(self.file)))
-        with open(self.file, newline='',encoding="utf8") as csvfile:
-            csv_array = csv.reader(csvfile)
-            i = 0
-            for row in csv_array:
-                if i == 0:
-                    pass
-                else:
-                    name = row[1]
-                    email = row[2]
-                        # add_student( fullname, email )
-                    for j in range(4, len(row) - 1, 2):
-                        question = row[j]
-                        answer = row[j + 1]
-                            # add_question ( question, email )
-                        print(question,answer)
-                i = i + 1
-#            elif self.csv_file2.lower().endswith(".xls"):
-#                pass
+        if os.path.basename(self.file).upper().endswith(".csv"):
+            print("Poll Name: {}".format(os.path.basename(self.file)))
+            with open(self.file, newline='',encoding="utf8") as csvfile:
+                csv_array = csv.reader(csvfile)
+                i = 0
+                for row in csv_array:
+                    if i == 0:
+                        pass
+                    else:
+                        name = row[1]
+                        email = row[2]
+                            # add_student( fullname, email )
+                        for j in range(4, len(row) - 1, 2):
+                            question = row[j]
+                            answer = row[j + 1]
+                                # add_question ( question, email )
+                            print(question,answer)
+                    i = i + 1
+        elif os.path.basename(self.file).upper().endswith(".xls"):
+            pass
 data=CsvReader("CSE3063_20201124_Tue_zoom_PollReport.csv")
 data.poll_report_reader()
