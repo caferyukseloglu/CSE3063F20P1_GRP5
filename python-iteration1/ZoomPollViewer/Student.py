@@ -7,10 +7,19 @@ ZOOM POLL VIEWER v0.1
 
 class Student:
 
-    def __init__(self,name,surname,mail):
-        self.name = name
-        self.surname = surname
-        self.mail = mail
+    def __init__(self, name, surname, email=""):
+        self._name = name
+        self._surname = surname
+        self._email = ""
+        # @todo While creating object of this Student class, we need to check all students to ensure email is unique.
+        # @todo Main class is going to has check_student_email method.
+        self._responses = [] # this is the list of objects of responses
 
-    def func(student):
-        print("Student name is " + student.name)
+
+    def set_email(self, email):
+        # @todo While creating object of this Student class, we need to check all students to ensure email is unique.
+        # @todo Main class is going to has check_student_email method.
+        self._email = email
+
+    def add_response(self, response):
+        pass

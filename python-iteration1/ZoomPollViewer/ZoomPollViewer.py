@@ -5,7 +5,8 @@ ZOOM POLL VIEWER v0.1
 
 """
 
-from ZoomPollViewer import *
+from .Session import Session
+
 
 class ZoomPollViewer:
 
@@ -30,8 +31,9 @@ class ZoomPollViewer:
         self._polls.append(poll)
 
     def test(self):
-        self.__apples = self.__apples + 10
-        print(self.__apples)
+        a = Session(0000)
+
+
 
 
 
