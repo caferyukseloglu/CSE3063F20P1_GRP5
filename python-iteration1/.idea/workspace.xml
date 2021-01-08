@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1766a92-335b-4558-b06f-22f08be2eac0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZoomPollViewer/ZoomPollViewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZoomPollViewer/ZoomPollViewer.py" afterDir="false" />
-    </list>
+    <list default="true" id="c1766a92-335b-4558-b06f-22f08be2eac0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +262,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610059864818</updated>
-      <workItem from="1610059866084" duration="2473000" />
+      <workItem from="1610059866084" duration="2638000" />
     </task>
     <task id="LOCAL-00001" summary="Created">
       <created>1610059971817</created>
@@ -279,7 +275,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2473000" />
+    <option name="totallyTimeSpent" value="2638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="961" extended-state="0" />
