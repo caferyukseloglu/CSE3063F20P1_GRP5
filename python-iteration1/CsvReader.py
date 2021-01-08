@@ -38,6 +38,21 @@ class CsvReader:
                             print(question,answer)
                     i = i + 1
         elif os.path.basename(self.file).upper().endswith(".xls"):
-            pass
+            with open(self.file, newline='',encoding="utf8") as csvfile:
+                read_xls=xlrd.open_workbook(self.file)
+                i = 0
+                for row in read_xls:
+                    if i == 0:
+                        pass
+                    else:
+                        name = row[1]
+                        email = row[2]
+                            # add_student( fullname, email )
+                        for j in range(4, len(row) - 1, 2):
+                            question = row[j]
+                            answer = row[j + 1]
+                                # add_question ( question, email )
+                            print(question,answer)
+                    i = i + 1
 data=CsvReader("CSE3063_20201124_Tue_zoom_PollReport.csv")
 data.poll_report_reader()
