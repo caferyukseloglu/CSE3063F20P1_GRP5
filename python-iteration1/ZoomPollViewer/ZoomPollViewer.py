@@ -50,9 +50,10 @@ class ZoomPollViewer:
 
         #### 3 - ÖĞRENCİ CEVAPLARININ YÜKLENMESİ
 
-
-
-        SESS1 = Session(20201102)
-
+        SESS1 = Session(20201102) # öğrenci cevapları yüklenirken session da tespit ediliyor.
         SESS1.add_poll(POLL1)
+
+
+
+
 
