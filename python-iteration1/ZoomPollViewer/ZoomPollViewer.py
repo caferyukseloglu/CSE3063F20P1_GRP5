@@ -21,16 +21,29 @@ class ZoomPollViewer:
         self.loggerActive = True
         self.importerType = "TABLE" #API OR TABLE (API for v2)
 
-    def add_session(self, session):
+    def add_session(self, date):
+        session = Session(221023)
         self._sessions.append(session)
+        return session
 
-    def add_student(self, name):
-        student = Student(name)
+    def add_student(self, name, surname, email, id):
+        student = Student(name, surname, email, id)
         self._students.append(student)
+        # maybe check if exist
         return student
 
-    def add_poll(self, poll):
+    # get_student # cafer yapacak
+
+    def get_poll(self, question_text):
+        # get poll which has question with given text.
+        # else return none or -1 or 0
+        pass
+
+    def add_poll(self, text):
+        poll = Poll(text)
         self._polls.append(poll)
+        # maybe check if exist
+        return poll
 
     def test(self):
 
@@ -57,3 +70,6 @@ class ZoomPollViewer:
 
 
 
+# 1. BYS (ad soyad email)
+# 2. Poll Answer Key (question, answer)
+# 3. Poll answers (students)

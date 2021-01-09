@@ -4,11 +4,13 @@
 ZOOM POLL VIEWER v0.1
 
 """
+from .Response import Response
+
 
 class Student:
 
-    def __init__(self, fullname):
-        self._fullname = fullname
+    def __init__(self, name, surname, email, id):
+        self._fullname = name
         self._firstname = None
         self._surname = None
         self._email = ""
@@ -22,5 +24,6 @@ class Student:
         # @todo Main class is going to has check_student_email method.
         self._email = email
 
-    def add_response(self, response):
-        pass
+    def add_response(self, session, poll):
+        response = Response(self, session, poll)
+        return response

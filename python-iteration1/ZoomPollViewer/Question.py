@@ -9,7 +9,7 @@ from .Choice import Choice
 
 class Question:
 
-    def __init__(self, text, type="QUIZ"):
+    def __init__(self, text, type="single"):
         self._text = text
         self._type = type
         self._choices = []
@@ -19,3 +19,9 @@ class Question:
         choice = Choice(text, correctness)
         self._choices.append(choice)
         return choice
+
+    def get_choice(self, choice_text):
+        # check all choices text to get given
+        # if not exist create one
+        # then return choice object
+        pass
