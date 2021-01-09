@@ -39,11 +39,26 @@ class ZoomPollViewer:
         # else return none or -1 or 0
         pass
 
-    def add_poll(self, text):
-        poll = Poll(text)
+    def add_poll(self, poll_name):
+        poll = Poll(poll_name)
         self._polls.append(poll)
         # maybe check if exist
         return poll
+
+    def get_student(self, fullname, email):
+        found = 0
+        for student in self._students:
+            if student._email == email:
+                found = student
+        if found == 0:
+            fullname = str(fullname).split(" ")
+            firstname = fullname[0]
+            surname = fullname[-1]
+            for student in self._students:
+                if str(student._firstname).lower() == firstname.lower() and str(student._surname).lower() == surname.lower():
+                    student._email = email
+                    found = student
+        return found
 
     def test(self):
 

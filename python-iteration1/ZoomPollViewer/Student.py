@@ -9,8 +9,7 @@ from .Response import Response
 
 class Student:
 
-    def __init__(self, name, surname, email, id):
-        self._fullname = name
+    def __init__(self, name, surname):
         self._firstname = None
         self._surname = None
         self._email = ""
