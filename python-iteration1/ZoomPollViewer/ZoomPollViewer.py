@@ -26,8 +26,8 @@ class ZoomPollViewer:
         self._sessions.append(session)
         return session
 
-    def add_student(self, name, surname, email, id):
-        student = Student(name, surname, email, id)
+    def add_student(self, name, surname, student_id):
+        student = Student(name, surname, student_id)
         self._students.append(student)
         # maybe check if exist
         return student
@@ -86,5 +86,27 @@ class ZoomPollViewer:
 
 
 # 1. BYS (ad soyad email)
+    # AD, SOYAD, OGRENCI-NO
+    # main.add_student -> AD, SOYAD, OGRENCI-NO (3 input)
+
 # 2. Poll Answer Key (question, answer)
-# 3. Poll answers (students)
+    # main.add_poll -> verilen isimde poll oluştur ve oluşturulan poll objesini döndür.
+    # poll.add_question -> input olarak question text alacak. question objesini döndürecek.
+    # question.add_choice -> input olarak choice text ve correctness alacak. correctness = 1/0
+
+# 3. Poll report (students)
+    # student = main.get_student(fullname, email) @todo cafer bakacak.
+    # @todo student class'ında email array olmalı. student classında add_email diye method olmalı.
+    # main.add_session(date_time_text) // session üretecek ancak date time modülünü kullanacak. session return
+    # poll = main.get_poll(question_text) // verilen soru ile _poll arrayinde arama yapılacak ve ilgili poll return edilecek.
+    # student.add_response(question_text, answer_texts, poll) -> ogrenciye response objesi olusturacak ve response içerisinde verilen bilgileri tutacak
+    #      => poll loop question -> verilen question_text ile question objesi return edilecek.
+    # her answer_text için => loop ile choice aranacak. verilen choice_text ile choice objesi döndürülecek.
+    #               -> eğer choice question içerisinde yoksa oluşturulacak
+    #      => response.add_answer(<question>, [<answer>]) response classı içerisinde answer dicte eklenecek.
+
+
+# Session -> * poll
+# 1 poll -> * question
+# 1 question -> * choice
+# 1 student -> * response

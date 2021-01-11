@@ -1,6 +1,9 @@
 import csv
 import xlrd
 import os,sys
+from .ZoomPollViewer import ZoomPollViewer as ZPV
+
+
 class CsvReader:
     def __init__(self,file):
         self.file=file
@@ -15,6 +18,7 @@ class CsvReader:
                 if col_of_name[i]=="" or col_of_name[i]=="Adı" or col_of_surname[i]=="" or col_of_surname[i]=="Soyadı":
                     pass
                 else:
+                    #ZPV.ZoomPollViewer.add_student(col_of_name[i], col_of_surname[i], 1111111)
                     print(col_of_name[i], col_of_surname[i])
         except Exception as err:
             print("Error Occured",err)
