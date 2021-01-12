@@ -4,7 +4,7 @@
 ZOOM POLL VIEWER v0.1
 
 """
-
+import logging
 from .Student import Student
 from .Poll import Poll
 from .Session import Session
@@ -21,6 +21,8 @@ class ZoomPollViewer:
         self.loggerActive = True
         self.importerType = "TABLE" #API OR TABLE (API for v2)
 
+        log=logging.getLogger("ZoomPollViewer.in")
+        log.info("burda")
     def add_session(self, date):
         session = Session(221023)
         self._sessions.append(session)
