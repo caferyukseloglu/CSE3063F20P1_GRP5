@@ -4,8 +4,7 @@
 ZOOM POLL VIEWER v0.1
 
 """
-from .ZoomPollViewer import ZoomPollViewer as ZPV
-
+#from .ZoomPollViewer import ZoomPollViewer
 
 
 class Response:

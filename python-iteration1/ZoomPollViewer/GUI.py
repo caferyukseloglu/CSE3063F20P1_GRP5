@@ -4,9 +4,11 @@
 ZOOM POLL VIEWER v0.1
 
 """
+from Tki
 
 
 class GUI:
 
     def __init__(self):
-        self.window = 0 # tk()
+        self.window = tk.
+

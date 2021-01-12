@@ -1,6 +1,4 @@
-import ZoomPollViewer.ZoomPollViewer as ZPV
+from ZoomPollViewer import ZoomPollViewer
 
 
-a = ZPV.ZoomPollViewer()
-a.test()
-
+a = ZoomPollViewer.ZoomPollViewer()
