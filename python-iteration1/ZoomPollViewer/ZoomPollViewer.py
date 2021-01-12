@@ -9,6 +9,8 @@ from .Student import Student
 from .Poll import Poll
 from .Session import Session
 from .Logger import Logger
+
+
 class ZoomPollViewer:
 
     def __init__(self):
@@ -45,7 +47,6 @@ class ZoomPollViewer:
         # get poll which has question with given text.
         # else return none or -1 or 0
         pass
-
 
     def add_poll(self, poll_name):
         poll = Poll(poll_name)
@@ -118,4 +119,3 @@ class ZoomPollViewer:
 # 1 poll -> * question
 # 1 question -> * choice
 # 1 student -> * response
-a=ZoomPollViewer().add_session(2222)
