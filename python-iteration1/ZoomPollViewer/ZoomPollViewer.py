@@ -8,7 +8,7 @@ import logging
 from .Student import Student
 from .Poll import Poll
 from .Session import Session
-
+from .Logger import Logger
 class ZoomPollViewer:
 
     def __init__(self):
@@ -21,11 +21,16 @@ class ZoomPollViewer:
         self.loggerActive = True
         self.importerType = "TABLE" #API OR TABLE (API for v2)
 
-        log=logging.getLogger("ZoomPollViewer.in")
-        log.info("burda")
+
+
     def add_session(self, date):
         session = Session(221023)
         self._sessions.append(session)
+        # Logging example
+        #
+        #
+        log=Logger(ZoomPollViewer.add_session.__name__,"deneme")
+
         return session
 
     def add_student(self, name, surname, student_id):
@@ -40,6 +45,7 @@ class ZoomPollViewer:
         # get poll which has question with given text.
         # else return none or -1 or 0
         pass
+
 
     def add_poll(self, poll_name):
         poll = Poll(poll_name)
@@ -112,3 +118,4 @@ class ZoomPollViewer:
 # 1 poll -> * question
 # 1 question -> * choice
 # 1 student -> * response
+a=ZoomPollViewer().add_session(2222)
