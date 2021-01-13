@@ -4,6 +4,7 @@
 ZOOM POLL VIEWER v0.1
 
 """
+from datetime import datetime
 import logging
 from .Student import Student
 from .Poll import Poll
@@ -20,54 +21,78 @@ class ZoomPollViewer:
         self._polls = []
 
         self.GUI = 0        # not implemented yet
-        self.loggerActive = True
-        self.importerType = "TABLE" #API OR TABLE (API for v2)
 
+        self.date_time_format = "%b %d, %Y %H:%M:%S"
+        self.file_name_date_format = "%Y%m%d"
+        self._is_logger_active = True
 
-
-    def add_session(self, date):
-        session = Session(221023)
-        self._sessions.append(session)
-        # Logging example
-        #
-        #
-        log=Logger(ZoomPollViewer.add_session.__name__,"deneme")
-
-        return session
-
-    def add_student(self, name, surname, student_id):
-        student = Student(name, surname, student_id)
-        self._students.append(student)
-        # maybe check if exist
-        return student
-
-    # get_student # cafer yapacak
-
-    def get_poll(self, question_text):
-        # get poll which has question with given text.
-        # else return none or -1 or 0
-        pass
-
-    def add_poll(self, poll_name):
-        poll = Poll(poll_name)
-        self._polls.append(poll)
-        # maybe check if exist
-        return poll
-
-    def get_student(self, fullname, email):
-        found = 0
+    def get_student(self, full_name, email):
+        found = False
         for student in self._students:
             if student._email == email:
                 found = student
-        if found == 0:
-            fullname = str(fullname).split(" ")
-            firstname = fullname[0]
-            surname = fullname[-1]
+        if not found:
+            full_name = str(full_name).split(" ")
+            first_name = full_name[0]
+            last_name = full_name[-1]
             for student in self._students:
-                if str(student._firstname).lower() == firstname.lower() and str(student._surname).lower() == surname.lower():
+                if str(student._firs_name).lower() == first_name.lower() and str(student._last_name).lower() == last_name.lower():
                     student._email = email
-                    found = student
+                    return student
         return found
+
+    def get_poll_by_question(self, question_text):
+        for poll in self._polls:
+            for question in poll._questions:
+                if question_text == question._text:
+                    return poll
+        # @todo It may throw error.
+        return 0
+
+    def get_poll_by_name(self, poll_name, poll_type):
+        for poll in self._polls:
+            if poll.get_name() == poll_name:
+                return poll
+        return False
+
+    def get_session(self, date_time_text):
+        date_time_object = datetime.strptime(date_time_text, self.date_time_format)
+        date_text = date_time_object.strftime(self.file_name_date_format)
+        for session in self._sessions:
+            if session.get_date_text() == date_text:
+                return session
+        return False
+        #Logger(ZoomPollViewer.add_session.__name__,"deneme")
+
+    def add_student(self, firstname, surname, student_id):
+        student = Student(self, firstname, surname, student_id)
+        self._students.append(student)
+        # @todo It may check if user exist
+        return student
+
+    def add_session(self, date_time_text):
+        session = self.get_session(date_time_text)
+        if session:
+            return session
+        else:
+            date_time_object = datetime.strptime(date_time_text, self.date_time_format)
+            session = Session(self, date_time_object)
+            self._sessions.append(session)
+            return session
+
+    def add_poll(self, poll_name, poll_type="QUIZ"):
+        for poll in self._polls:
+            if poll.get_name() == poll_name:
+                return poll
+        poll = Poll(self, poll_name, poll_type)
+        self._polls.append(poll)
+        return poll
+
+    def check_student_email(self, email):
+        for student in self._students:
+            if student.get_email() == email:
+                return True
+        return False
 
     def test(self):
 
@@ -91,9 +116,6 @@ class ZoomPollViewer:
         SESS1.add_poll(POLL1)
 
 
-
-
-
 # 1. BYS (ad soyad email)
     # AD, SOYAD, OGRENCI-NO
     # main.add_student -> AD, SOYAD, OGRENCI-NO (3 input)
@@ -106,7 +128,7 @@ class ZoomPollViewer:
 # 3. Poll report (students)
     # student = main.get_student(fullname, email) @todo cafer bakacak.
     # @todo student class'ında email array olmalı. student classında add_email diye method olmalı.
-    # main.add_session(date_time_text) // session üretecek ancak date time modülünü kullanacak. session return
+    # session = main.add_session(date_time_text) // session üretecek ancak date time modülünü kullanacak. session return
     # poll = main.get_poll(question_text) // verilen soru ile _poll arrayinde arama yapılacak ve ilgili poll return edilecek.
     # student.add_response(question_text, answer_texts, poll) -> ogrenciye response objesi olusturacak ve response içerisinde verilen bilgileri tutacak
     #      => poll loop question -> verilen question_text ile question objesi return edilecek.

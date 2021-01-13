@@ -19,9 +19,20 @@ class Response:
         self._answers = {}
         # _answers = { <question_A> :  [<choice_1>, <choice_2>], <question_B> :  [<choice_2>]}
 
-    def add_answer(self, question_text, choice_texts):
+    def add_answer(self, question_text, answer_texts):
         question = self._poll.get_question(question_text)
-        choice_list = []
-        for choice_text in choice_texts:
-            choice_list.append(question.get_choice(choice_text))
-        self._answers[question] = choice_list
+        choices = []
+        if isinstance(answer_texts, list):
+            for answer_text in answer_texts:
+                choice = question.get_choice(answer_text)
+                choices.append(choice)
+                #
+        else:
+            choice = question.get_choice(answer_texts)
+            choices.append(choice)
+
+        if question not in self._answers:
+            self._answers[question] = []
+
+        for choice in choices:
+            self._answers[question].append(choice)
