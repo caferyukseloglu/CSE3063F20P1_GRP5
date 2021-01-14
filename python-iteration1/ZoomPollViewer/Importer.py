@@ -33,12 +33,15 @@ class Importer():
                         middle_name = getname[1]
                     else:
                         middle_name = ''
-                    self.zpv.add_student(first_names[i], middle_name, last_names[i], students_ids[i])
+                    if (n.isspace() for n in str(last_names[i])):
+                        lastname = last_names[i].split(" ")[-1]
+                    self.zpv.add_student(first_names[i], middle_name, lastname, students_ids[i])
         except Exception as err:
             print("Error Occurred", err)
 
     def import_answer_key(self, file_path):
         # @todo CSV version not working well with semicolon delimeter
+        # TODO: This library will no longer read anything other than .xls
         print(file_path)
         paths = self.get_paths(file_path, ["xls", "csv"])
         print("PATHS: ", paths)
