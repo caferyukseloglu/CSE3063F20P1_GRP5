@@ -237,7 +237,7 @@ class GUI:
         for student in self.zpv._students:
             self.insert_student({
                 'id': student.get_student_id(),
-                'first_name': student.get_first_name(),
+                'first_name': student.get_name(),
                 'last_name': student.get_last_name(),
                 'email': student.get_email(),
                 'grade': student.get_average_grade(),

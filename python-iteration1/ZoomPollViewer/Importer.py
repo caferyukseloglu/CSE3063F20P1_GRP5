@@ -99,7 +99,7 @@ class Importer():
                         session.add_poll(poll)
                         full_name = row[1]
                         email = row[2]
-                        self.control_student(full_name,email,session,poll,row)
+                        self.control_student(full_name, email, session, poll, row)
                     i = i + 1
 
     def get_paths(self, file_path, file_types):

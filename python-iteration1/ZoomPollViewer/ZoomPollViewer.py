@@ -27,7 +27,6 @@ class ZoomPollViewer:
         self.file_name_date_format = "%Y%m%d"
         self._is_logger_active = True
         self._import_completed = False
-
         self.GUI.root.mainloop()
 
     def get_student(self, full_name, email):
@@ -56,9 +55,10 @@ class ZoomPollViewer:
                     ord(u'Ş'): u'ş',
                 }
                 # Strip used to get away from spaces
-                if (str(student._firs_name).strip().translate(lower_map).lower() == first_name.strip().translate(lower_map).lower() and str(student._last_name).strip().translate(lower_map).lower() == last_name.strip().translate(lower_map).lower()):
+                if (str(student.get_first_name()).strip().translate(lower_map).lower() == first_name.strip().translate(lower_map).lower() and str(student.get_last_name()).strip().translate(lower_map).lower() == last_name.strip().translate(lower_map).lower()):
                     student._email = email
                     return student
+            return self.add_temporary_student(full_name, email)
         return found
 
     def get_sessions(self):
@@ -153,5 +153,11 @@ class ZoomPollViewer:
 
     def poll_metrics_calculator(self):
         pass
+
+    def add_temporary_student(self, full_name, email):
+        student = Student(self, full_name, "", "", "", True)
+        student.set_email(email)
+        self._students.append(student)
+        return student
 
 
