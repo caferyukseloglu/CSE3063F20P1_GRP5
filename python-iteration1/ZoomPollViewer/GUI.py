@@ -134,9 +134,9 @@ class GUI:
     def insert_poll(self, data):
         self.treeview_poll.insert('', 'end', text=data["id"], values=(data["name"], data["questions"], data["students"], data["average_grade"]))
 
-    # BUTTONS
+    # BUTTONS        
 
-    def insert_buttons(self):
+    def insert_buttons(self):              
 
         # FRAME TITLE
         self.frame_title = tk.Label(self.right_frame_top, text="Zoom Poll Viewer", fg="#3366ff", font=("Helvetica", 32, 'bold'))
@@ -153,30 +153,35 @@ class GUI:
                                          font=("Helvetica", 18, 'bold'))
         self.answer_key_label.grid(row=3, column=0, pady=6, columnspan=2)
         self.button_answer_key = tk.Button(self.right_frame_top, text='Import Answer Key',
-                                                   command=self.import_answer_key).grid(row=4, column=0)
+                                                   command=self.import_answer_key, state=tk.DISABLED)
+        self.button_answer_key.grid(row=4, column=0)
         self.button_answer_keys = tk.Button(self.right_frame_top, text='Import Answer Key Directory',
-                                                  command=self.import_answer_keys).grid(row=4, column=1)
+                                                  command=self.import_answer_keys, state=tk.DISABLED)
+        self.button_answer_keys.grid(row=4, column=1)
 
         # POLL REPORT
         self.poll_report_label = tk.Label(self.right_frame_top, text="3. Import Poll Report", fg="#222222",
                                           font=("Helvetica", 18, 'bold'))
         self.poll_report_label.grid(row=5, column=0, pady=6, columnspan=2)
         self.button_poll_report = tk.Button(self.right_frame_top, text='Import Zoom Report',
-                                                   command=self.import_poll_report).grid(row=6, column=0)
+                                                   command=self.import_poll_report, state=tk.DISABLED)
+        self.button_poll_report.grid(row=6, column=0)
         self.button_poll_reports = tk.Button(self.right_frame_top, text='Import Zoom Report Directory',
-                                             command=self.import_poll_reports).grid(row=6, column=1)
+                                             command=self.import_poll_reports, state=tk.DISABLED)
+        self.button_poll_reports.grid(row=6, column=1)
 
         # PROCESS
         self.process_label = tk.Label(self.right_frame_top, text="4. Process", fg="#222222",
                                           font=("Helvetica", 18, 'bold'))
         self.process_label.grid(row=7, column=0, pady=6, columnspan=2)
-        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator)
+        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator, state=tk.DISABLED)
         self.button_run.grid(row=8, column=0, columnspan=2)
 
         # EXPORT
         self.export_label = tk.Label(self.right_frame_top, text="5. Export", fg="#222222",
                                                  font=("Helvetica", 18, 'bold')).grid(row=9, column=0, pady=6, columnspan=2)
-        self.button_export = tk.Button(self.right_frame_top, text='Export to Report').grid(row=10, column=0, columnspan=2)
+        self.button_export = tk.Button(self.right_frame_top, text='Export to Report', state=tk.DISABLED)
+        self.button_export.grid(row=10, column=0, columnspan=2)
 
     def import_bys(self):
         file_path = filedialog.askopenfilename()
@@ -185,7 +190,9 @@ class GUI:
         print("BYS File Imported")
         self.update_lists()
         self.bys_label.config(fg="green")
-
+        self.button_answer_key.config(state='normal')
+        self.button_answer_keys.config(state='normal')
+        
     def import_answer_key(self):
         file_path = filedialog.askopenfilename()
         print(file_path)
@@ -193,6 +200,8 @@ class GUI:
         print("Answer Keys Imported")
         self.update_poll_list()
         self.answer_key_label.config(fg="green")
+        self.button_poll_report.config(state='normal')
+        self.button_poll_reports.config(state='normal')
 
     def import_answer_keys(self):
         file_path = filedialog.askdirectory()
@@ -201,6 +210,8 @@ class GUI:
         print("Answer Keys Imported")
         self.update_poll_list()
         self.answer_key_label.config(fg="green")
+        self.button_poll_report.config(state='normal')
+        self.button_poll_reports.config(state='normal')
 
     def import_poll_report(self):
         file_path = filedialog.askopenfilename()
@@ -208,6 +219,7 @@ class GUI:
         self.zpv.importer.import_poll_report(file_path)
         print("Poll Reports Imported")
         self.poll_report_label.config(fg="green")
+        self.button_run.config(state='normal')
 
     def import_poll_reports(self):
         file_path = filedialog.askdirectory()
@@ -215,10 +227,12 @@ class GUI:
         self.zpv.importer.import_poll_report(file_path)
         print("Poll Report Imported")
         self.poll_report_label.config(fg="green")
+        self.button_run.config(state='normal')
 
     def run_metrics_calculator_old(self):
         self.zpv.metrics_calculator()
         print("Metrics Calculated")
+        self.button_export.config(state='normal')
 
     def run_metrics_calculator(self):
         self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
