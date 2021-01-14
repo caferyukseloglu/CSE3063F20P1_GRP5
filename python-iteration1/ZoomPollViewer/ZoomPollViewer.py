@@ -9,6 +9,8 @@ import logging
 from .Student import Student
 from .Poll import Poll
 from .Session import Session
+from .GUI import GUI
+from .Importer import Importer
 from .Logger import Logger
 
 class ZoomPollViewer:
@@ -18,11 +20,15 @@ class ZoomPollViewer:
         self._sessions = []
         self._polls = []
 
-        self.GUI = 0        # not implemented yet
+        self.GUI = GUI(self)
+        self.importer = Importer(self)
 
         self.date_time_format = "%b %d, %Y %H:%M:%S"
         self.file_name_date_format = "%Y%m%d"
         self._is_logger_active = True
+        self._import_completed = False
+
+        self.GUI.root.mainloop()
 
     def get_student(self, full_name, email):
         found = False
@@ -55,13 +61,15 @@ class ZoomPollViewer:
                     return student
         return found
 
+    def get_sessions(self):
+        return self._sessions
+
     def get_poll_by_question(self, question_text):
         for poll in self._polls:
-            for question in poll._questions:
-                if question_text == question._text:
+            for question in poll.get_questions():
+                if question_text == question.get_text():
                     return poll
-        # @todo It may throw error.
-        return 0
+        return False
 
     def get_poll_by_name(self, poll_name, poll_type):
         for poll in self._polls:
@@ -77,6 +85,12 @@ class ZoomPollViewer:
                 return session
         return False
         #Logger(ZoomPollViewer.add_session.__name__,"deneme")
+
+    def get_number_of_students(self):
+        return len(self._students)
+
+    def get_number_of_sessions(self):
+        return len(self._sessions)
 
     def add_student(self, firstname, middlename, surname, student_id):
         student = Student(self, firstname, middlename, surname, student_id)
@@ -108,50 +122,36 @@ class ZoomPollViewer:
                 return True
         return False
 
-    def test(self):
+    def metrics_calculator(self):
+        for session in self._sessions:
+            session_attendance = 0
+            for poll in session.get_polls():
+                poll_grades = []
+                poll_attendance = 0
+                for student in self._students:
+                    response = student.get_response_by_session_and_poll(session, poll)
+                    if response:
+                        if poll.get_type() == "ATTENDANCE":
+                            student.add_session_attendance(session)
+                            session_attendance += 1
+                            poll_attendance += 1
+                        elif poll.get_type() == "QUIZ":
+                            poll_grades.append(response.get_grade())
+                            poll_attendance += 1
+                poll.set_session_grades(session, poll_grades)
+                poll.set_session_number_of_students(session, poll_attendance)
+                print(poll, poll_attendance)
+            session.set_attendance(session_attendance)
+        self.student_metrics_calculator()
 
-        #### 1 - OGRENCILERIN EKLENLESI
-        EST = self.add_student("Emin Safa Tok")
-        ZOK = self.add_student("Orhun Zülküf Özkaya")
+    def student_metrics_calculator(self):
+        for student in self._students:
+            student.calculate_grades()
 
+    def session_metrics_calculator(self):
+        pass
 
-
-        #### 2 - ANSWER KEY YUKLENMESI
-        POLL1 = Poll("Örnek Poll")
-        for i in range(10):
-            question = POLL1.add_question("Bu örnek bir soru - "+str(i))
-            question.add_choice("Örnek seçenek ABC", 1)
-
-
-
-        #### 3 - ÖĞRENCİ CEVAPLARININ YÜKLENMESİ
-
-        SESS1 = Session(20201102) # öğrenci cevapları yüklenirken session da tespit ediliyor.
-        SESS1.add_poll(POLL1)
-
-
-# 1. BYS (ad soyad email)
-    # AD, SOYAD, OGRENCI-NO
-    # main.add_student -> AD, SOYAD, OGRENCI-NO (3 input)
-
-# 2. Poll Answer Key (question, answer)
-    # main.add_poll -> verilen isimde poll oluştur ve oluşturulan poll objesini döndür.
-    # poll.add_question -> input olarak question text alacak. question objesini döndürecek.
-    # question.add_choice -> input olarak choice text ve correctness alacak. correctness = 1/0
-
-# 3. Poll report (students)
-    # student = main.get_student(fullname, email) @todo cafer bakacak.
-    # @todo student class'ında email array olmalı. student classında add_email diye method olmalı.
-    # session = main.add_session(date_time_text) // session üretecek ancak date time modülünü kullanacak. session return
-    # poll = main.get_poll(question_text) // verilen soru ile _poll arrayinde arama yapılacak ve ilgili poll return edilecek.
-    # student.add_response(question_text, answer_texts, poll) -> ogrenciye response objesi olusturacak ve response içerisinde verilen bilgileri tutacak
-    #      => poll loop question -> verilen question_text ile question objesi return edilecek.
-    # her answer_text için => loop ile choice aranacak. verilen choice_text ile choice objesi döndürülecek.
-    #               -> eğer choice question içerisinde yoksa oluşturulacak
-    #      => response.add_answer(<question>, [<answer>]) response classı içerisinde answer dicte eklenecek.
+    def poll_metrics_calculator(self):
+        pass
 
 
-# Session -> * poll
-# 1 poll -> * question
-# 1 question -> * choice
-# 1 student -> * response
