@@ -9,21 +9,21 @@ from .Response import Response
 
 class Student:
 
-    def __init__(self, zpv, first_name, mid_name, last_name, student_id):
+    def __init__(self, zpv, first_name, mid_name, last_name, student_id, temporary=False):
 
         self.zpv = zpv
 
-        self._firs_name = first_name
+        self._first_name = first_name
         self._middle_name = mid_name
         self._last_name = last_name
         self._email = None
         self._student_id = student_id
+        self._temporary = temporary
 
         # @todo While creating object of this Student class, we need to check all students to ensure email is unique.
         # @todo Main class is going to has check_student_email method.
 
-        self._responses = [] # this is the list of objects of responses
-
+        self._responses = []
         self._attended_sessions = []
         self._grades = []
 
@@ -36,6 +36,12 @@ class Student:
 
     def get_last_name(self):
         return self._last_name
+
+    def get_name(self):
+        if self._temporary:
+            return self._first_name
+        else:
+            return self._first_name + " " + self._last_name
 
     def get_email(self):
         return self._email
