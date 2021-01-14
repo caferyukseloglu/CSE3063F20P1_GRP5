@@ -47,6 +47,9 @@ class ZoomPollViewer:
                     return student
         return found
 
+    def get_sessions(self):
+        return self._sessions
+
     def get_poll_by_question(self, question_text):
         for poll in self._polls:
             for question in poll.get_questions():
@@ -68,6 +71,12 @@ class ZoomPollViewer:
                 return session
         return False
         #Logger(ZoomPollViewer.add_session.__name__,"deneme")
+
+    def get_number_of_students(self):
+        return len(self._students)
+
+    def get_number_of_sessions(self):
+        return len(self._sessions)
 
     def add_student(self, firstname, surname, student_id):
         student = Student(self, firstname, surname, student_id)
@@ -130,4 +139,5 @@ class ZoomPollViewer:
 
     def poll_metrics_calculator(self):
         pass
+
 

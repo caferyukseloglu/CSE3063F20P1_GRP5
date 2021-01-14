@@ -56,47 +56,65 @@ class GUI:
 
     def insert_student_list(self):
 
-        self.treeview_student = ttk.Treeview(self.tab_students)
+        self.treeview_student = ttk.Treeview(self.tab_students, height=40)
 
-        self.treeview_student["columns"] = ("1", "2", "3")
-        self.treeview_student.column("#0", width=20, minwidth=20, stretch=tk.NO)
-        self.treeview_student.column("1", width=150, minwidth=50, stretch=tk.NO)
-        self.treeview_student.column("2", width=150, minwidth=50, stretch=tk.NO)
-        self.treeview_student.column("3", width=450, minwidth=50, stretch=tk.NO)
+        self.treeview_student["columns"] = ("1", "2", "3", "4", "5", "6", "7")
+        self.treeview_student.column("#0", width=100, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("1", width=100, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("2", width=100, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("3", width=100, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("4", width=100, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("5", width=50, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("6", width=50, minwidth=20, stretch=tk.NO)
+        self.treeview_student.column("7", width=100, minwidth=20, stretch=tk.NO)
 
         self.treeview_student.heading("#0", text="ID", anchor=tk.W)
         self.treeview_student.heading("1", text="Name", anchor=tk.W)
         self.treeview_student.heading("2", text="Surname", anchor=tk.W)
         self.treeview_student.heading("3", text="E-Mail", anchor=tk.W)
+        self.treeview_student.heading("4", text="Av. Grade", anchor=tk.W)
+        self.treeview_student.heading("5", text="Attended", anchor=tk.W)
+        self.treeview_student.heading("6", text="Absent", anchor=tk.W)
+        self.treeview_student.heading("7", text="Percentage", anchor=tk.W)
 
         self.treeview_student.grid(column=0, row=0)
 
     def insert_student(self, data):
-        self.treeview_student.insert('', 'end', text=data["id"], values=(data["first_name"], data["last_name"], data["email"]))
+        self.treeview_student.insert('', 'end', text=data["id"],
+                                     values=(data["first_name"], data["last_name"], data["email"], data["grade"],
+                                             data["attended"], data["absent"], data["percentage"]))
 
     def insert_session_list(self):
 
-        self.treeview_session = ttk.Treeview(self.tab_sessions)
+        self.treeview_session = ttk.Treeview(self.tab_sessions, height=40)
 
-        self.treeview_session["columns"] = ("1", "2", "3")
-        self.treeview_session.column("#0", width=20, minwidth=20, stretch=tk.NO)
-        self.treeview_session.column("1", width=150, minwidth=50, stretch=tk.NO)
-        self.treeview_session.column("2", width=150, minwidth=50, stretch=tk.NO)
-        self.treeview_session.column("3", width=450, minwidth=50, stretch=tk.NO)
+        self.treeview_session["columns"] = ("1", "2", "3", "4", "5", "6")
+        self.treeview_session.column("#0", width=150, minwidth=40, stretch=tk.NO)
+        self.treeview_session.column("1", width=100, minwidth=30, stretch=tk.NO)
+        self.treeview_session.column("2", width=100, minwidth=30, stretch=tk.NO)
+        self.treeview_session.column("3", width=100, minwidth=30, stretch=tk.NO)
+        self.treeview_session.column("4", width=75, minwidth=30, stretch=tk.NO)
+        self.treeview_session.column("5", width=75, minwidth=30, stretch=tk.NO)
+        self.treeview_session.column("6", width=100, minwidth=30, stretch=tk.NO)
 
-        self.treeview_session.heading("#0", text="ID", anchor=tk.W)
-        self.treeview_session.heading("1", text="Date Time", anchor=tk.W)
-        self.treeview_session.heading("2", text="Students", anchor=tk.W)
-        self.treeview_session.heading("3", text="Attendance %", anchor=tk.W)
+        self.treeview_session.heading("#0", text="Date Time", anchor=tk.W)
+        self.treeview_session.heading("1", text="Students", anchor=tk.W)
+        self.treeview_session.heading("2", text="Polls", anchor=tk.W)
+        self.treeview_session.heading("3", text="Av. Grade", anchor=tk.W)
+        self.treeview_session.heading("4", text="Attended", anchor=tk.W)
+        self.treeview_session.heading("5", text="Absent", anchor=tk.W)
+        self.treeview_session.heading("6", text="Percentage", anchor=tk.W)
 
         self.treeview_session.grid(column=0, row=0)
 
     def insert_session(self, data):
-        self.treeview_session.insert('', 'end', text=data["id"], values=(data["datetime"], data["students"], data["percentage"]))
+        self.treeview_session.insert('', 'end', text=data["datetime"],
+                                     values=(data["students"], data["polls"], data["grade"], data["attended"],
+                                             data["absent"], data["percentage"]))
 
     def insert_poll_list(self):
 
-        self.treeview_poll = ttk.Treeview(self.tab_polls)
+        self.treeview_poll = ttk.Treeview(self.tab_polls, height=40)
 
         self.treeview_poll["columns"] = ("1", "2", "3", "4")
         self.treeview_poll.column("#0", width=20, minwidth=20, stretch=tk.NO)
@@ -198,7 +216,7 @@ class GUI:
         print("Poll Report Imported")
         self.poll_report_label.config(fg="green")
 
-    def run_metrics_calculator(self):
+    def run_metrics_calculator_old(self):
         self.zpv.metrics_calculator()
         print("Metrics Calculated")
 
@@ -213,20 +231,37 @@ class GUI:
     def update_lists(self):
         self.update_student_list()
         self.update_poll_list()
+        self.update_session_list()
 
     def update_student_list(self):
         for student in self.zpv._students:
-            self.insert_student(
-                {'id':student.get_student_id(),
-                 'first_name':student.get_first_name(),
-                 'last_name':student.get_last_name(),
-                 'email':student.get_average_grade()})
+            self.insert_student({
+                'id': student.get_student_id(),
+                'first_name': student.get_first_name(),
+                'last_name': student.get_last_name(),
+                'email': student.get_email(),
+                'grade': student.get_average_grade(),
+                'attended': student.get_attendance(),
+                'absent': student.get_absent(),
+                'percentage': student.get_attendance_percentage()
+            })
 
     def update_poll_list(self):
         for poll in self.zpv._polls:
             self.insert_poll({'id':"1",
-                 'name':poll.get_name(),
-                 'questions':poll.get_number_of_questions(),
-                 'students':poll.get_number_of_students(),
-                 'average_grade':96})
+                 'name': poll.get_name(),
+                 'questions': poll.get_number_of_questions(),
+                 'students': poll.get_number_of_students(),
+                 'average_grade': poll.calculate_session_average_grade()})
 
+    def update_session_list(self):
+        for session in self.zpv.get_sessions():
+            self.insert_session({
+                'datetime': session.get_date_formatted(),
+                'students': session.get_attendance(),
+                'polls': session.get_number_of_polls(),
+                'grade': session.calculate_average_grade(),
+                'attended': session.get_attendance(),
+                'absent': session.get_absent(),
+                'percentage': session.get_attendance_percentage()
+            })

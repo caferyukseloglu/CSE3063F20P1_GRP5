@@ -61,7 +61,18 @@ class Poll:
     def set_session_grades(self, session, grades):
         self._session_grades[session] = grades
 
+    def get_grades_of_seesion(self, session):
+        return self._session_grades[session]
+
     def set_session_number_of_students(self, session, number_of_students):
         self._number_of_students[session] = number_of_students
 
+    def calculate_session_average_grade(self):
+        for i in self._session_grades:
+            grades = self._session_grades[i]
+            break
 
+        if len(grades) > 0:
+            return sum(grades) / len(grades)
+        else:
+            return 0

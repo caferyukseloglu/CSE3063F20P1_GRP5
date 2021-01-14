@@ -48,6 +48,18 @@ class Student:
                 return response
         return False
 
+    def get_attendance(self):
+        return len(self._attended_sessions)
+
+    def get_absent(self):
+        return self.zpv.get_number_of_sessions() - self.get_attendance()
+
+    def get_attendance_percentage(self):
+        number_of_sessions = self.zpv.get_number_of_sessions()
+        if number_of_sessions > 0:
+            return int(self.get_attendance() / number_of_sessions * 100)
+        return 0
+
     def get_average_grade(self):
         if len(self._grades) > 0:
             return sum(self._grades) / len(self._grades)
