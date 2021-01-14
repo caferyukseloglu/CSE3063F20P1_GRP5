@@ -41,6 +41,7 @@ class ZoomPollViewer:
             last_name = full_name[-1]
             for student in self._students:
                 # For student name has Turkish lower
+                # TODO: IF student is match before don't loop in for student obj for that student...
                 lower_map = {
                     ord(u'C'): u'c',
                     ord(u'Ç'): u'ç',                    
