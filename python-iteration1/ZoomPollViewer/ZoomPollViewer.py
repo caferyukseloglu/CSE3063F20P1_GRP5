@@ -11,9 +11,7 @@ from .Poll import Poll
 from .Session import Session
 from .Logger import Logger
 
-
 class ZoomPollViewer:
-
     def __init__(self):
 
         self._students = []
@@ -36,7 +34,23 @@ class ZoomPollViewer:
             first_name = full_name[0]
             last_name = full_name[-1]
             for student in self._students:
-                if str(student._firs_name).lower() == first_name.lower() and str(student._last_name).lower() == last_name.lower():
+                # For student name has Turkish lower
+                lower_map = {
+                    ord(u'C'): u'c',
+                    ord(u'Ç'): u'ç',                    
+                    ord(u'G'): u'g',
+                    ord(u'Ğ'): u'ğ',
+                    ord(u'I'): u'ı',
+                    ord(u'İ'): u'i',                    
+                    ord(u'O'): u'o',
+                    ord(u'Ö'): u'ö',
+                    ord(u'U'): u'u',
+                    ord(u'Ü'): u'ü',
+                    ord(u'S'): u's',
+                    ord(u'Ş'): u'ş',
+                }
+                # Strip used to get away from spaces
+                if (str(student._firs_name).strip().translate(lower_map).lower() == first_name.strip().translate(lower_map).lower() and str(student._last_name).strip().translate(lower_map).lower() == last_name.strip().translate(lower_map).lower()):
                     student._email = email
                     return student
         return found
@@ -64,8 +78,8 @@ class ZoomPollViewer:
         return False
         #Logger(ZoomPollViewer.add_session.__name__,"deneme")
 
-    def add_student(self, firstname, surname, student_id):
-        student = Student(self, firstname, surname, student_id)
+    def add_student(self, firstname, middlename, surname, student_id):
+        student = Student(self, firstname, middlename, surname, student_id)
         self._students.append(student)
         # @todo It may check if user exist
         return student

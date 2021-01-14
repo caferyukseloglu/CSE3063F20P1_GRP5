@@ -9,11 +9,12 @@ from .Response import Response
 
 class Student:
 
-    def __init__(self, zpv, first_name, last_name, student_id):
+    def __init__(self, zpv, first_name, mid_name, last_name, student_id):
 
         self.zpv = zpv
 
         self._firs_name = first_name
+        self._middle_name = mid_name
         self._last_name = last_name
         self._email = None
         self._student_id = student_id
@@ -26,6 +27,9 @@ class Student:
 
     def get_first_name(self):
         return self._first_name
+    
+    def get_middle_name(self):
+        return self._middle_name
 
     def get_last_name(self):
         return self._last_name
