@@ -21,7 +21,14 @@ class Question:
     def get_choices(self):
         return self._choices
 
-    def get_choice(self, choice_text, correctness=0):
+    def get_correct_choices(self):
+        correct_choices = []
+        for choice in self._choices:
+            if choice.get_correctness() == 1:
+                correct_choices.append(choice)
+        return correct_choices
+
+    def get_choice(self, choice_text):
         for choice in self._choices:
             if choice.get_text() == choice_text:
                 return choice
@@ -32,6 +39,6 @@ class Question:
         if choice:
             return choice
         else:
-            choice = Choice(choice_text, correctness)
+            choice = Choice(self, choice_text, correctness)
             self._choices.append(choice)
             return choice

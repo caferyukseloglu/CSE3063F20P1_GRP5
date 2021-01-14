@@ -8,7 +8,7 @@ import logging
 
 class Logger:
 
-    def __init__(self,text1,text2):
+    def __init__(self, text1, text2):
         self.logger = logging.getLogger(text1)
         self.logger.setLevel(logging.INFO)
 

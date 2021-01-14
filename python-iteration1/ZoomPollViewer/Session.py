@@ -15,6 +15,8 @@ class Session:
         self._date_text = date_time_object.strftime(self.zpv.file_name_date_format)
         self._polls = []
 
+        self._attendance = 0
+
     def get_date_time(self):
         return self._date_time
 
@@ -25,4 +27,8 @@ class Session:
         return self._polls
 
     def add_poll(self, poll):
-        self._polls.append(poll)
+        if poll not in self._polls:
+            self._polls.append(poll)
+
+    def set_attendance(self, attendance):
+        self._attendance = attendance
