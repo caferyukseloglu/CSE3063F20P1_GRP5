@@ -33,6 +33,8 @@ class GUI:
         self.insert_tab_controller()
         self.insert_buttons()
 
+        self.student_matcher()
+
 
 
     ##########          TABS          ##########
@@ -188,7 +190,7 @@ class GUI:
         print(file_path)
         self.zpv.importer.import_bys(file_path)
         print("BYS File Imported")
-        self.update_lists()
+        #self.update_lists()
         self.bys_label.config(fg="green")
         self.button_answer_key.config(state='normal')
         self.button_answer_keys.config(state='normal')
@@ -198,7 +200,7 @@ class GUI:
         print(file_path)
         self.zpv.importer.import_answer_key(file_path)
         print("Answer Keys Imported")
-        self.update_poll_list()
+        #self.update_poll_list()
         self.answer_key_label.config(fg="green")
         self.button_poll_report.config(state='normal')
         self.button_poll_reports.config(state='normal')
@@ -208,7 +210,7 @@ class GUI:
         print(file_path)
         self.zpv.importer.import_answer_key(file_path)
         print("Answer Keys Imported")
-        self.update_poll_list()
+        #self.update_poll_list()
         self.answer_key_label.config(fg="green")
         self.button_poll_report.config(state='normal')
         self.button_poll_reports.config(state='normal')
@@ -235,11 +237,12 @@ class GUI:
         self.button_export.config(state='normal')
 
     def run_metrics_calculator(self):
-        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
-        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/keys")
-        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CSE3063_20201123_Mon_zoom_PollReport.csv")
+        #self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
+        #self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/keys")
+        #self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CSE3063_20201123_Mon_zoom_PollReport.csv")
         self.zpv.metrics_calculator()
         self.update_lists()
+        self.button_run.config(fg="green")
         print(self.zpv._sessions)
 
     def update_lists(self):
@@ -279,3 +282,48 @@ class GUI:
                 'absent': session.get_absent(),
                 'percentage': session.get_attendance_percentage()
             })
+
+    def student_matcher(self):
+        self.sm = tk.Tk()
+        self.sm.geometry("500x500")
+        self.root.resizable(False, False)
+        self.root.title("Student Matching")
+
+        self.sm_bys_frame = tk.Frame(self.sm, width=200, height=500)
+        self.sm_bys_frame.grid(column=0, row=0)
+
+        self.sm_unamtched_frame = tk.Frame(self.sm, width=300, height=500)
+        self.sm_unamtched_frame.grid(column=1, row=0)
+
+        self.sm_unamtched_frame = tk.Frame(self.sm, width=300, height=500)
+        self.sm_unamtched_frame.grid(column=1, row=0)
+
+        self.sm_unmatched_list = ttk.Treeview(self.sm_unamtched_frame, selectmode="browse")
+        self.sm_unmatched_list['columns'] = ("Name", "E-mail")
+
+        self.sm_unmatched_list.column("#0", width=40, minwidth=25)
+        self.sm_unmatched_list.column("Name", width=130, minwidth=25)
+        self.sm_unmatched_list.column("E-mail", width=130, minwidth=25)
+
+        self.sm_unmatched_list.heading("#0", text="No", anchor="w")
+        self.sm_unmatched_list.heading("Name", text="Name", anchor="w")
+        self.sm_unmatched_list.heading("E-mail", text="E-mail", anchor="w")
+
+        self.sm_unmatched_list.pack()
+
+        self.sm_bys_list = ttk.Treeview(self.sm_bys_frame, selectmode="browse")
+        self.sm_bys_list['columns'] = ("Name")
+
+        self.sm_bys_list.column("#0", width=70, minwidth=25)
+        self.sm_bys_list.column("Name", width=130, minwidth=25)
+
+        self.sm_bys_list.heading("#0", text="ID", anchor="w")
+        self.sm_bys_list.heading("Name", text="Name", anchor="w")
+
+        self.sm_bys_list.pack()
+
+        self.sm.mainloop()
+
+
+
+
