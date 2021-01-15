@@ -13,6 +13,9 @@ class Student:
 
         self.zpv = zpv
 
+        if isinstance(mid_name, list):
+            self._middle_name = " ".join(mid_name)
+
         self._first_name = first_name
         self._middle_name = mid_name
         self._last_name = last_name
@@ -27,7 +30,6 @@ class Student:
         self._attended_sessions = []
         self._grades = []
 
-
     def get_first_name(self):
         return self._first_name
     
@@ -41,6 +43,9 @@ class Student:
         if self._temporary:
             return self._first_name
         else:
+            if len(self._middle_name) > 0:
+                return str(self._first_name + " " + self._middle_name + " " + self._last_name)
+
             return self._first_name + " " + self._last_name
 
     def get_email(self):
@@ -80,10 +85,7 @@ class Student:
             return 0
 
     def set_email(self, email):
-        if self.zpv.check_student_email(email):
-            self._email = email
-        else:
-            return False
+        self._email = email
 
     def add_response(self, session, poll):
         response = Response(self, session, poll)

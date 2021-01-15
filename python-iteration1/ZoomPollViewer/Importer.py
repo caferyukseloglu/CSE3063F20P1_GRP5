@@ -121,7 +121,6 @@ class Importer():
          # This part is is to control every step of import
         student = self.zpv.get_student(full_name, email)
         if student:
-            print("Student found")
             response = student.add_response(session, poll)
             for j in range(4, len(row) - 1, 2):
                 response.add_answer(row[j], row[j + 1])
@@ -129,11 +128,11 @@ class Importer():
             #If fullName has digit inside it will be cleared
             if(any(a.isnumeric() for a in full_name)):
                 full_name = ''.join(b for b in full_name if b.isalpha() or b.isspace())
-                print("Student name had integer in, ", full_name)      
+                #print("Student name had integer in, ", full_name)
             #If fullName has not space inside it and starts with uppercase resumed lowercase we will add space before A-Z.a-z
             if not(any(c.isspace() for c in full_name)):
                 full_name =  re.sub(r"(\w)([A-Z][a-z])", r"\1 \2", full_name)
-                print("Student name had no space in, ", full_name)
+                #print("Student name had no space in, ", full_name)
             else:
                 #If fullName has space inside it and starts with uppercase resumed lowercase we will break it to array and add space before A-Z.a-z
                 newname = full_name.split()
@@ -142,17 +141,17 @@ class Importer():
                      m =  re.sub(r"(\w)([A-Z][a-z])", r"\1 \2", m)
                      result.append(m)
                 full_name = ' '.join(result)
-                print("Student name had space in, ", full_name)
+                #print("Student name had space in, ", full_name)
                 
             # This part is is to control every step of import
             student = self.zpv.get_student(full_name, email)
             if student:
-                print("Student found")
+                #print("Student found")
                 response = student.add_response(session, poll)
                 for j in range(4, len(row) - 1, 2):
                     response.add_answer(row[j], row[j + 1])
             else:
-                print("Student not found")
-        print("----------",full_name)
+                pass
+                #print("Student not found")
         
         return 0  
