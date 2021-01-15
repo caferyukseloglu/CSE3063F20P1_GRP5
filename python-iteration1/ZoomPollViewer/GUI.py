@@ -33,7 +33,6 @@ class GUI:
         self.insert_tab_controller()
         self.insert_buttons()
 
-        #self.student_matcher()
 
 
 
@@ -176,7 +175,7 @@ class GUI:
         self.process_label = tk.Label(self.right_frame_top, text="4. Process", fg="#222222",
                                           font=("Helvetica", 18, 'bold'))
         self.process_label.grid(row=7, column=0, pady=6, columnspan=2)
-        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator, state=tk.DISABLED)
+        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator)
         self.button_run.grid(row=8, column=0, columnspan=2)
 
         # EXPORT
@@ -231,14 +230,18 @@ class GUI:
         self.poll_report_label.config(fg="green")
         self.button_run.config(state='normal')
 
-    def run_metrics_calculator_old(self):
-        self.zpv.metrics_calculator()
-        print("Metrics Calculated")        
 
     def run_metrics_calculator(self):
-        #self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
-        #self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/keys")
-        #self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CSE3063_20201123_Mon_zoom_PollReport.csv")
+        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
+        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/keys")
+        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CSE3063_20201123_Mon_zoom_PollReport.csv")
+        if self.zpv.check_unmatched_student_exist():
+            self.student_matcher()
+            self.insert_all_unmatched_student()
+        else:
+            self.run_metrics_calculator_after_match()
+
+    def run_metrics_calculator_after_match(self):
         self.zpv.metrics_calculator()
         self.update_lists()
         self.button_run.config(fg="green")
@@ -285,44 +288,73 @@ class GUI:
 
     def student_matcher(self):
         self.sm = tk.Tk()
-        self.sm.geometry("500x500")
-        self.root.resizable(False, False)
-        self.root.title("Student Matching")
+        self.sm.geometry("1000x700")
+        self.sm.resizable(False, False)
+        self.sm.title("Student Matching")
 
-        self.sm_bys_frame = tk.Frame(self.sm, width=200, height=500)
+        self.sm_bys_frame = tk.Frame(self.sm, width=300, height=500)
         self.sm_bys_frame.grid(column=0, row=0)
+        self.sm_middle_frame = tk.Frame(self.sm, width=100, height=500)
+        self.sm_middle_frame.grid(column=1, row=0, rowspan=2)
+        self.sm_unmatched_frame = tk.Frame(self.sm, width=400, height=500)
+        self.sm_unmatched_frame.grid(column=2, row=0)
 
-        self.sm_unamtched_frame = tk.Frame(self.sm, width=300, height=500)
-        self.sm_unamtched_frame.grid(column=1, row=0)
+        # MATCH BYS
+        self.sm_bys_label = tk.Label(self.sm_bys_frame, text="BYS Student List", fg="#222222", font=("Helvetica", 18, 'bold'))
+        self.sm_bys_label.grid(row=0, column=0, pady=6)
 
-        self.sm_unamtched_frame = tk.Frame(self.sm, width=300, height=500)
-        self.sm_unamtched_frame.grid(column=1, row=0)
-
-        self.sm_unmatched_list = ttk.Treeview(self.sm_unamtched_frame, selectmode="browse")
-        self.sm_unmatched_list['columns'] = ("Name", "E-mail")
-
-        self.sm_unmatched_list.column("#0", width=40, minwidth=25)
-        self.sm_unmatched_list.column("Name", width=130, minwidth=25)
-        self.sm_unmatched_list.column("E-mail", width=130, minwidth=25)
-
-        self.sm_unmatched_list.heading("#0", text="No", anchor="w")
-        self.sm_unmatched_list.heading("Name", text="Name", anchor="w")
-        self.sm_unmatched_list.heading("E-mail", text="E-mail", anchor="w")
-
-        self.sm_unmatched_list.pack()
-
-        self.sm_bys_list = ttk.Treeview(self.sm_bys_frame, selectmode="browse")
+        self.sm_bys_list = ttk.Treeview(self.sm_bys_frame, selectmode="browse", height=25)
         self.sm_bys_list['columns'] = ("Name")
 
-        self.sm_bys_list.column("#0", width=70, minwidth=25)
-        self.sm_bys_list.column("Name", width=130, minwidth=25)
+        self.sm_bys_list.column("#0", width=150, minwidth=25)
+        self.sm_bys_list.column("Name", width=250, minwidth=25)
 
         self.sm_bys_list.heading("#0", text="ID", anchor="w")
         self.sm_bys_list.heading("Name", text="Name", anchor="w")
 
-        self.sm_bys_list.pack()
+        self.sm_bys_list.grid(column=0, row=1, sticky="nesw")
 
-        self.sm.mainloop()
+        # MATCH UNMATCHED
+        self.sm_unmatched_label = tk.Label(self.sm_unmatched_frame, text="Unmatched Student List", fg="#222222", font=("Helvetica", 18, 'bold'))
+        self.sm_unmatched_label.grid(row=0, column=0, pady=6)
+
+        self.sm_unmatched_list = ttk.Treeview(self.sm_unmatched_frame, selectmode="browse", height=25)
+        self.sm_unmatched_list['columns'] = ("Name")
+
+        self.sm_unmatched_list.column("#0", width=250, minwidth=25)
+        self.sm_unmatched_list.column("Name", width=250, minwidth=25)
+
+        self.sm_unmatched_list.heading("#0", text="Email", anchor="w")
+        self.sm_unmatched_list.heading("Name", text="Name", anchor="w")
+
+        self.sm_unmatched_list.grid(column=0, row=1, sticky="nesw")
+
+        # MIDDLE BUTTONS
+        self.sm_middle_button = tk.Button(self.sm_middle_frame, text="Match", command=self.match_selected_students)
+        self.sm_middle_button.grid(row=0, column=0, pady=200, sticky="ew")
+        self.sm_middle_exit_button = tk.Button(self.sm_middle_frame, text="Completed", command=self.match_completed)
+        self.sm_middle_exit_button.grid(row=1, column=0, pady=200, sticky="ew")
+
+    def match_completed(self):
+        self.sm.destroy()
+        self.run_metrics_calculator_after_match()
+
+    def insert_all_unmatched_student(self):
+        students = self.zpv.get_unmatched_bys_students()
+        for student in students:
+            self.sm_bys_list.insert('', 'end', text=student.get_student_id(), values=(student.get_name(),))
+        temp_students = self.zpv.get_unmatched_temporary_students()
+        for student in temp_students:
+            self.sm_unmatched_list.insert('', 'end', text=student.get_email(), values=(student.get_name(),))
+
+    def match_selected_students(self):
+        bys_student_item = self.sm_bys_list.selection()[0]
+        unmatched_student_item = self.sm_unmatched_list.selection()[0]
+        email = self.sm_unmatched_list.item(unmatched_student_item, 'values')[0]
+
+        self.zpv.match_students(self.sm_bys_list.item(bys_student_item, 'text'), email)
+        self.sm_bys_list.delete(bys_student_item)
+        self.sm_unmatched_list.delete(unmatched_student_item)
 
     def export_excell(self):
         self.zpv.exporter.export_global()

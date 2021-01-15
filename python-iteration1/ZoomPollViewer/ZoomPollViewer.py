@@ -29,6 +29,7 @@ class ZoomPollViewer:
         self._is_logger_active = True
         self._import_completed = False
         self.GUI.root.mainloop()
+        self.GUI.sm.mainloop()
 
     def get_student(self, full_name, email):
         found = False
@@ -36,9 +37,9 @@ class ZoomPollViewer:
             if student._email == email:
                 found = student
         if not found:
-            full_name = str(full_name).split(" ")
-            first_name = full_name[0]
-            last_name = full_name[-1]
+            full_name_splitted = str(full_name).split(" ")
+            first_name = full_name_splitted[0]
+            last_name = full_name_splitted[-1]
             for student in self._students:
                 # For student name has Turkish lower
                 # TODO: IF student is match before don't loop in for student obj for that student...
@@ -65,6 +66,18 @@ class ZoomPollViewer:
 
     def get_sessions(self):
         return self._sessions
+
+    def get_student_by_id(self, bys_id):
+        for student in self._students:
+            if str(student.get_student_id()) == str(bys_id):
+                return student
+        return False
+
+    def get_student_by_email(self, email):
+        for student in self._students:
+            if student.get_email() == email:
+                return student
+        return False
 
     def get_poll_by_question(self, question_text):
         for poll in self._polls:
@@ -125,9 +138,6 @@ class ZoomPollViewer:
         return False
 
     def metrics_calculator(self):
-        #unmatched_students = self.get_unmatched_students()
-        #if len(unmatched_students) > 0:
-        #    self.GUI.student_matcher()
         for session in self._sessions:
             session_attendance = 0
             for poll in session.get_polls():
@@ -165,11 +175,29 @@ class ZoomPollViewer:
         self._students.append(student)
         return student
 
-    def get_unmatched_students(self):
+    def get_unmatched_temporary_students(self):
         unmatched_students = []
         for student in self._students:
             if student.get_temporary_state():
                 unmatched_students.append(student)
         return unmatched_students
 
+    def get_unmatched_bys_students(self):
+        unmatched_students = []
+        for student in self._students:
+            if student.get_email() is None:
+                unmatched_students.append(student)
+        return unmatched_students
 
+    def match_students(self, bys_id, email):
+        student = self.get_student_by_id(bys_id)
+        temporary_student = self.get_student_by_email(email)
+        student.set_email(email)
+        self._students.remove(temporary_student)
+        print("Student MATCHED!")
+
+    def check_unmatched_student_exist(self):
+        for student in self._students:
+            if student.get_temporary_state():
+                return True
+        return False
