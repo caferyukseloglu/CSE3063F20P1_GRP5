@@ -33,7 +33,7 @@ class GUI:
         self.insert_tab_controller()
         self.insert_buttons()
 
-        self.student_matcher()
+        #self.student_matcher()
 
 
 
@@ -182,7 +182,7 @@ class GUI:
         # EXPORT
         self.export_label = tk.Label(self.right_frame_top, text="5. Export", fg="#222222",
                                                  font=("Helvetica", 18, 'bold')).grid(row=9, column=0, pady=6, columnspan=2)
-        self.button_export = tk.Button(self.right_frame_top, text='Export to Report', state=tk.DISABLED)
+        self.button_export = tk.Button(self.right_frame_top, text='Export to Report', command=self.export_excell, state=tk.DISABLED)
         self.button_export.grid(row=10, column=0, columnspan=2)
 
     def import_bys(self):
@@ -233,8 +233,7 @@ class GUI:
 
     def run_metrics_calculator_old(self):
         self.zpv.metrics_calculator()
-        print("Metrics Calculated")
-        self.button_export.config(state='normal')
+        print("Metrics Calculated")        
 
     def run_metrics_calculator(self):
         #self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
@@ -243,6 +242,7 @@ class GUI:
         self.zpv.metrics_calculator()
         self.update_lists()
         self.button_run.config(fg="green")
+        self.button_export.config(state='normal')
         print(self.zpv._sessions)
 
     def update_lists(self):
@@ -324,6 +324,5 @@ class GUI:
 
         self.sm.mainloop()
 
-
-
-
+    def export_excell(self):
+        self.zpv.exporter.export_global()

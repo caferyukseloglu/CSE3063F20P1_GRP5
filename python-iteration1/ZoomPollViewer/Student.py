@@ -60,6 +60,12 @@ class Student:
             if response.get_session() == session and response.get_poll() == poll:
                 return response
         return False
+    
+    def get_response_by_poll(self, poll):
+        for response in self._responses:
+            if response.get_poll() == poll:
+                return response
+        return False
 
     def get_attendance(self):
         return len(self._attended_sessions)
