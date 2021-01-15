@@ -52,6 +52,9 @@ class Student:
     def get_responses(self):
         return self._responses
 
+    def get_temporary_state(self):
+        return self._temporary
+
     def get_response_by_session_and_poll(self, session, poll):
         for response in self._responses:
             if response.get_session() == session and response.get_poll() == poll:

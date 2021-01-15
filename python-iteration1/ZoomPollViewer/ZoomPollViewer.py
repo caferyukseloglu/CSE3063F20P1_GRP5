@@ -124,6 +124,9 @@ class ZoomPollViewer:
         return False
 
     def metrics_calculator(self):
+        unmatched_students = self.get_unmatched_students()
+        if len(unmatched_students) > 0:
+            self.GUI.student_matcher()
         for session in self._sessions:
             session_attendance = 0
             for poll in session.get_polls():
@@ -160,5 +163,12 @@ class ZoomPollViewer:
         student.set_email(email)
         self._students.append(student)
         return student
+
+    def get_unmatched_students(self):
+        unmatched_students = []
+        for student in self._students:
+            if student.get_temporary_state():
+                unmatched_students.append(student)
+        return unmatched_students
 
 
