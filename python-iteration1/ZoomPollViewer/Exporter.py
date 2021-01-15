@@ -30,35 +30,42 @@ class Exporter():
         self.xlsx_file.close()        
     def export_global(self):
         now = date.today()
-        r = 1
+        r = 1        
         self.create_xlsx('Global.xlsx')
         self.create_xlsx_page(str(now))
         self.write_xlsx_page_data_title(0,0,'BYS')        
         self.write_xlsx_page_data_title(1,0,'ID')
         self.write_xlsx_page_data_title(1,1,'NAME')
-        self.write_xlsx_page_data_title(1,2,'SURNAME')
-        self.write_xlsx_page_data_title(0,4,'POLL NAME')
-        self.write_xlsx_page_data_title(1,3,'DATE')
-        self.write_xlsx_page_data_title(1,4,'NOQ')
-        self.write_xlsx_page_data_title(1,5,'SP')
+        self.write_xlsx_page_data_title(1,2,'SURNAME')    
+        c=3   
+        for poll in self.zpv._polls:
+            self.xlsxpage.merge_range(0,c,0,c+2,str(poll._name))
+            self.write_xlsx_page_data_title(1,c,'DATE')
+            c+=1
+            self.write_xlsx_page_data_title(1,c,'NOQ')
+            c+=1
+            self.write_xlsx_page_data_title(1,c,'SP')
+            c+=1
         for student in self.zpv._students:            
-            if student._email != None:
+            if student.get_email() != None:
                 c = 0
                 r += 1
-                self.write_xlsx_page_data(r,c,str(student._student_id)) 
+                self.write_xlsx_page_data(r,c,str(student.get_student_id())) 
                 c += 1
-                self.write_xlsx_page_data(r,c,str(student._first_name+" "+student._middle_name)) 
+                self.write_xlsx_page_data(r,c,str(student.get_name())) 
                 c += 1
-                self.write_xlsx_page_data(r,c,student._last_name)
-                for response in student._responses:
-                    if response._poll._type == 'QUIZ':
+                self.write_xlsx_page_data(r,c,student.get_last_name())
+                for poll in self.zpv._polls:                      
+                    response = student.get_response_by_poll(poll)
+                    if response:
                         c += 1
-                        date = date.strftime(response._session._date_text)
-                        self.write_xlsx_page_data(r,c,date) 
+                        self.write_xlsx_page_data(r,c,response._session._date_text) 
                         c += 1
                         self.write_xlsx_page_data(r,c,response._poll._number_of_questions) 
                         c += 1
-                        self.write_xlsx_page_data(r,c,"Static")    
+                        self.write_xlsx_page_data(r,c,response.get_grade())    
+                    else:
+                        c += 3
         self.close_xlsx()                
 
 #m = Exporter()

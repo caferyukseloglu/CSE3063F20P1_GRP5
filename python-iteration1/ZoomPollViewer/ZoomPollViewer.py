@@ -11,6 +11,7 @@ from .Poll import Poll
 from .Session import Session
 from .GUI import GUI
 from .Importer import Importer
+from .Exporter import Exporter
 from .Logger import Logger
 
 class ZoomPollViewer:
@@ -22,7 +23,7 @@ class ZoomPollViewer:
 
         self.GUI = GUI(self)
         self.importer = Importer(self)
-
+        self.exporter = Exporter(self)
         self.date_time_format = "%b %d, %Y %H:%M:%S"
         self.file_name_date_format = "%Y%m%d"
         self._is_logger_active = True
