@@ -20,6 +20,8 @@ class Exporter:
         self.xlsxpage.write(col,row,data)
     def close_xlsx(self):
         self.xlsx_file.close()
+    def export_poll(self):
+        self.chart = self.xlsx_file.add_chart()
 
 m = Exporter()
 
