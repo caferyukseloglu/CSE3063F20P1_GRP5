@@ -162,12 +162,6 @@ class ZoomPollViewer:
         for student in self._students:
             student.calculate_grades()
 
-    def session_metrics_calculator(self):
-        pass
-
-    def poll_metrics_calculator(self):
-        pass
-
     def add_temporary_student(self, full_name, email):
         student = Student(self, full_name, "", "", "", True)
         student.set_email(email)
@@ -200,3 +194,4 @@ class ZoomPollViewer:
             if student.get_temporary_state():
                 return True
         return False
+
