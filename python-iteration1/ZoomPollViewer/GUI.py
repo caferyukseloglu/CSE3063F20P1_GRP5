@@ -357,5 +357,6 @@ class GUI:
         self.sm_unmatched_list.delete(unmatched_student_item)
 
     def export_excell(self):
+        self.zpv.exporter.export_global()
         self.zpv.exporter.export_poll()
         

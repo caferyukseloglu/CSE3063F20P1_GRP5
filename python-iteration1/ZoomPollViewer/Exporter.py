@@ -73,7 +73,7 @@ class Exporter():
         for poll in self.zpv._polls:
             r = 0
             c = 3
-            self.create_xlsx(poll.get_name()+'.xlsx')
+            self.create_xlsx(str('/'+poll.get_name()).strip()+'.xlsx')
             self.create_xlsx_page('POLL STUDENT')
             self.write_xlsx_page_data_title(0,0,'STUDENT ID')        
             self.write_xlsx_page_data_title(0,1,'E-MAIL')
@@ -82,29 +82,33 @@ class Exporter():
             for question in poll.get_questions():
                 c += 1
                 self.write_xlsx_page_data_title(0,c,question.get_text())
-            self.write_xlsx_page_data_title(0,c+1,'SUCCESS RATE')
-            self.write_xlsx_page_data_title(0,c+2,'SUCCESS PERCENTAGE')
+            self.write_xlsx_page_data_title(0,c+1,'NUMBER OF QUESTIONS')
+            self.write_xlsx_page_data_title(0,c+2,'SUCCESS RATE')
+            self.write_xlsx_page_data_title(0,c+3,'SUCCESS PERCENTAGE')
             for student in self.zpv._students:
                 c = 0
                 response = student.get_response_by_poll(poll)
                 if response:
+                    r += 1                   
+                    self.write_xlsx_page_data(r,c,str(student.get_student_id())) 
+                    c += 1
+                    self.write_xlsx_page_data(r,c,str(student.get_email())) 
+                    c += 1
+                    self.write_xlsx_page_data(r,c,str(student.get_name())) 
+                    c += 1
+                    self.write_xlsx_page_data(r,c,student.get_last_name()) 
+                    c += 1
+                    success = 0
                     for question in poll.get_questions():
-                        my_choice = response._answers
-                        r += 1
-                        c += 1                    
-                        self.write_xlsx_page_data(r,c,str(student.get_student_id())) 
-                        c += 1
-                        self.write_xlsx_page_data(r,c,str(student.get_email())) 
-                        c += 1
-                        self.write_xlsx_page_data(r,c,str(student.get_name())) 
-                        c += 1
-                        self.write_xlsx_page_data(r,c,student.get_last_name()) 
-                        c += 1
-                        for right_choice in poll.get_correct_choices():
-                            if response == right_choice:
+                        correct_choices = question.get_correct_choices()
+                        if question in response._answers.keys():
+                            if len(correct_choices) == len(response._answers[question]) and all(i in correct_choices for i in response._answers[question]):
                                 self.write_xlsx_page_data(r,c,'1') 
-                                break
+                                success += 1                    
                             else:
                                 self.write_xlsx_page_data(r,c,'0') 
-                        c+=1
+                            c+=1
+                    self.write_xlsx_page_data(r,c,str(poll.get_number_of_questions()))
+                    self.write_xlsx_page_data(r,c+1,str(success)+' out of '+str(poll.get_number_of_questions()))
+                    self.write_xlsx_page_data(r,c+2,str(student.get_average_grade()))
         self.close_xlsx()
