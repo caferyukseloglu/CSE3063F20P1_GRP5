@@ -7,7 +7,7 @@ ZOOM POLL VIEWER v0.1
 import tkinter as tk
 from tkinter import filedialog
 import tkinter.ttk as ttk
-
+from .Logger import Logger
 class GUI:
 
     def __init__(self, zpv):
@@ -235,7 +235,7 @@ class GUI:
         self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
         self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/keys")
         self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CSE3063_20201123_Mon_zoom_PollReport.csv")
-
+        Logger(GUI.run_metrics_calculator.__name__,"Process")
         if self.zpv.check_unmatched_student_exist():
             self.student_matcher()
             self.insert_all_unmatched_student()

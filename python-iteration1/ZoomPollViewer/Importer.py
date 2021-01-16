@@ -8,8 +8,8 @@ import csv, xlrd, os, re
 from pprint import pprint
 from os import listdir
 from os.path import isfile, join
-
-
+from .Logger import Logger
+import logging
 class Importer():
 
     def __init__(self, zpv):
@@ -23,6 +23,7 @@ class Importer():
             first_names = xl_sheet.col_values(4)
             last_names = xl_sheet.col_values(7)
             students_ids = xl_sheet.col_values(2)
+            Logger(Importer.import_bys.__name__, "BYS Student list imported")
             for i in range(min(len(first_names),len(last_names))):
                 if first_names[i] == "" or first_names[i] == "Adı" or last_names[i] == "" or last_names[i] == "Soyadı":
                     pass
@@ -36,7 +37,9 @@ class Importer():
                     if (n.isspace() for n in str(last_names[i])):
                         lastname = last_names[i].split(" ")[-1]
                     self.zpv.add_student(first_names[i], middle_name, lastname, students_ids[i])
+            Logger(self.zpv.add_student.__name__,"All Student added successfully.")
         except Exception as err:
+            Logger(Importer.import_bys.__name__, "Import Student list failed")
             print("Error Occurred", err)
 
     def import_answer_key(self, file_path):
@@ -70,16 +73,21 @@ class Importer():
                             poll_name = row[0]
                             if poll_name == "Attendance Poll":
                                 poll = self.zpv.add_poll(poll_name, "ATTENDANCE")
+                                Logger("add_attendance_poll",poll.get_name()+" answer key added successfully.")
                             else:
                                 poll = self.zpv.add_poll(poll_name)
+
+                                Logger("add_qoiz_poll",poll.get_name()+" answer key added successfully.")
+
                         else:
                             if len(row[0]) > 0:
                                 question = poll.add_question(row[0])
                                 question.add_choice(row[1], 1)
                         i += 1
-
+                    Logger(poll.add_question.__name__, "Questions added successfully.")
     def import_poll_report(self, file_path):
         paths = self.get_paths(file_path, ["csv"])
+        Logger(Importer.import_poll_report.__name__, "Poll reports added successfully.")
         for file_path in paths:
             with open(file_path, newline='', encoding="utf8") as csv_file:
                 csv_array = csv.reader(csv_file)
@@ -99,12 +107,13 @@ class Importer():
 
 
                         session = self.zpv.add_session(row[3])
+
                         session.add_poll(poll)
                         full_name = row[1]
                         email = row[2]
                         self.control_student(full_name, email, session, poll, row)
                     i = i + 1
-
+            Logger(self.zpv.add_session.__name__, " Sessions added successfully.")
     def get_paths(self, file_path, file_types):
         paths = []
         if os.path.isdir(file_path):
@@ -122,6 +131,7 @@ class Importer():
         student = self.zpv.get_student(full_name, email)
         if student:
             response = student.add_response(session, poll)
+            Logger(Importer.control_student.__name__+ str(self.zpv.get_student(full_name,email)), "Student answers added")
             for j in range(4, len(row) - 1, 2):
                 response.add_answer(row[j], row[j + 1])
         else:            
@@ -129,9 +139,11 @@ class Importer():
             if(any(a.isnumeric() for a in full_name)):
                 full_name = ''.join(b for b in full_name if b.isalpha() or b.isspace())
                 #print("Student name had integer in, ", full_name)
+                Logger("control_student_isnumeric", "Student name had integer in, "+ full_name)
             #If fullName has not space inside it and starts with uppercase resumed lowercase we will add space before A-Z.a-z
             if not(any(c.isspace() for c in full_name)):
                 full_name =  re.sub(r"(\w)([A-Z][a-z])", r"\1 \2", full_name)
+                Logger("control_student_isspace", "Student name had no space in, " +full_name)
                 #print("Student name had no space in, ", full_name)
             else:
                 #If fullName has space inside it and starts with uppercase resumed lowercase we will break it to array and add space before A-Z.a-z
@@ -147,10 +159,12 @@ class Importer():
             student = self.zpv.get_student(full_name, email)
             if student:
                 #print("Student found")
+                Logger("control_student_found", "Student found, " +full_name)
                 response = student.add_response(session, poll)
                 for j in range(4, len(row) - 1, 2):
                     response.add_answer(row[j], row[j + 1])
             else:
+                Logger("control_student_not_found", "Student found, " +full_name)
                 pass
                 #print("Student not found")
         
