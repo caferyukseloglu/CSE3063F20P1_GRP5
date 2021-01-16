@@ -7,6 +7,12 @@ ZOOM POLL VIEWER v0.1
 import xlsxwriter
 from datetime import date
 
+from vincent.colors import brews
+
+question_section={1:'A',2:'B',3:'C',4:'D',5:'E',6:'F',7:'G',8:'H'}
+# Some sample data to plot.
+cat_4 = [ question_section[x] for x in range(1, 8)]
+
 
 class Exporter():
     def __init__(self,zpv):
@@ -108,6 +114,10 @@ class Exporter():
                             else:
                                 self.write_xlsx_page_data(r,c,'0') 
                             c+=1
+                        else:
+                            self.write_xlsx_page_data(r,c,'-')
+                            c+=1
+
                     self.write_xlsx_page_data(r,c,str(poll.get_number_of_questions()))
                     self.write_xlsx_page_data(r,c+1,str(success)+' out of '+str(poll.get_number_of_questions()))
                     self.write_xlsx_page_data(r,c+2,str(student.get_average_grade()))
