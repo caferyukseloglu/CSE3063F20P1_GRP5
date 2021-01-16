@@ -232,9 +232,9 @@ class GUI:
 
 
     def run_metrics_calculator(self):
-        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CES3063_Fall2020_rptSinifListesi.XLS")
-        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/keys")
-        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration1/CSE3063_20201123_Mon_zoom_PollReport.csv")
+        self.zpv.importer.import_bys("CES3063_Fall2020_rptSinifListesi.xls")
+        self.zpv.importer.import_answer_key("Polls")
+        self.zpv.importer.import_poll_report("CSE3063_20201123_Mon_zoom_PollReport.csv")
 
         if self.zpv.check_unmatched_student_exist():
             self.student_matcher()
@@ -357,4 +357,5 @@ class GUI:
         self.sm_unmatched_list.delete(unmatched_student_item)
 
     def export_excell(self):
-        self.zpv.exporter.export_global()
+        self.zpv.exporter.export_poll()
+        

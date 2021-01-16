@@ -27,7 +27,8 @@ class Exporter():
     def write_xlsx_page_chart(self,col,row,data):
         self.chart = self.xlsx_file.add_chart()
     def close_xlsx(self):
-        self.xlsx_file.close()        
+        self.xlsx_file.close()  
+        #To Export Global Report      
     def export_global(self):
         now = date.today()
         r = 1        
@@ -66,12 +67,44 @@ class Exporter():
                         self.write_xlsx_page_data(r,c,response.get_grade())    
                     else:
                         c += 3
-        self.close_xlsx()                
-
-#m = Exporter()
-# m.create_xlsx('Poll.xlsx')
-# m.create_xlsx_page('Pager-1')
-# m.write_xlsx_page(0,0,'Selam')
-# m.create_xlsx_page('Pager-2')
-# m.write_xlsx_page(0,0,'Selam2')
-#m.close_xlsx()
+        self.close_xlsx()      
+     #To Export Poll Report  
+    def export_poll(self):       
+        for poll in self.zpv._polls:
+            r = 0
+            c = 3
+            self.create_xlsx(poll.get_name()+'.xlsx')
+            self.create_xlsx_page('POLL STUDENT')
+            self.write_xlsx_page_data_title(0,0,'STUDENT ID')        
+            self.write_xlsx_page_data_title(0,1,'E-MAIL')
+            self.write_xlsx_page_data_title(0,2,'NAME')
+            self.write_xlsx_page_data_title(0,3,'SURNAME')
+            for question in poll.get_questions():
+                c += 1
+                self.write_xlsx_page_data_title(0,c,question.get_text())
+            self.write_xlsx_page_data_title(0,c+1,'SUCCESS RATE')
+            self.write_xlsx_page_data_title(0,c+2,'SUCCESS PERCENTAGE')
+            for student in self.zpv._students:
+                c = 0
+                response = student.get_response_by_poll(poll)
+                if response:
+                    for question in poll.get_questions():
+                        my_choice = response._answers
+                        r += 1
+                        c += 1                    
+                        self.write_xlsx_page_data(r,c,str(student.get_student_id())) 
+                        c += 1
+                        self.write_xlsx_page_data(r,c,str(student.get_email())) 
+                        c += 1
+                        self.write_xlsx_page_data(r,c,str(student.get_name())) 
+                        c += 1
+                        self.write_xlsx_page_data(r,c,student.get_last_name()) 
+                        c += 1
+                        for right_choice in poll.get_correct_choices():
+                            if response == right_choice:
+                                self.write_xlsx_page_data(r,c,'1') 
+                                break
+                            else:
+                                self.write_xlsx_page_data(r,c,'0') 
+                        c+=1
+        self.close_xlsx()
