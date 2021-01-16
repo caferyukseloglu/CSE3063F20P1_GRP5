@@ -7,13 +7,6 @@ ZOOM POLL VIEWER v0.1
 import xlsxwriter
 from datetime import date
 
-from vincent.colors import brews
-
-question_section={1:'A',2:'B',3:'C',4:'D',5:'E',6:'F',7:'G',8:'H'}
-# Some sample data to plot.
-cat_4 = [ question_section[x] for x in range(1, 8)]
-
-
 class Exporter():
     def __init__(self,zpv):
         self.zpv = zpv
@@ -27,11 +20,23 @@ class Exporter():
     # Writing Data
     def write_xlsx_page_data(self,col:int,row:int,data:str):
         self.xlsxpage.write(col,row,data)
+    # Writing title Data
     def write_xlsx_page_data_title(self,col:int,row:int,data:str):
         self.xls_cell_format = self.xlsx_file.add_format({'bold':True})
         self.xlsxpage.write(col,row,data,self.xls_cell_format)
-    def write_xlsx_page_chart(self,col,row,data):
-        self.chart = self.xlsx_file.add_chart()
+    # Create data Chart
+    def write_xlsx_page_data_chart(self,type,value='NONE'):
+        if value != 'NONE':
+            self.chart = self.xlsx_file.add_chart({'type': type, 'subtype': value})
+        else:
+            self.chart = self.xlsx_file.add_chart({'type': type})
+        self.chart.set_title({'name': 'POLL QUESTION ANALYZE'})
+        self.chart.set_x_axis({'name': 'Answears Per Question'})
+        self.chart.set_y_axis({'name': 'Number Of Students'})
+    # Add data with green color
+    def write_xlsx_page_correct_data(self,col:int,row:int,data:str):
+        cell_format = self.xlsx_file.add_format({'font_color': 'green'})
+        self.xlsxpage.write(col,row,data,cell_format)
     def close_xlsx(self):
         self.xlsx_file.close()  
         #To Export Global Report      
@@ -120,5 +125,43 @@ class Exporter():
 
                     self.write_xlsx_page_data(r,c,str(poll.get_number_of_questions()))
                     self.write_xlsx_page_data(r,c+1,str(success)+' out of '+str(poll.get_number_of_questions()))
-                    self.write_xlsx_page_data(r,c+2,str(student.get_average_grade()))
-        self.close_xlsx()
+                    grade = response.get_grade()
+                    self.write_xlsx_page_data(r,c+2,str(grade))
+            self.create_histogram_chart(poll)
+            self.close_xlsx()
+    
+    def create_histogram_chart(self,poll):
+        r = 0
+        self.create_xlsx_page('Poll Chart')        
+        data=[]
+        altdata=[]
+        for question in poll.get_questions():
+            c = 0
+            #self.write_xlsx_page_data(r,c,question.get_text())
+            c+=1
+            for choice in question.get_choices():  
+                selected_by = 0      
+                for student in self.zpv._students:                    
+                    response = student.get_response_by_poll(poll)
+                    if response:
+                        if question in response._answers.keys():
+                            if choice in response._answers[question]:
+                                selected_by += 1
+                if choice.get_correctness() == 1:
+                    #self.write_xlsx_page_correct_data(r,c,selected_by)
+                    altdata.insert(c-1,selected_by)
+                else:
+                    #self.write_xlsx_page_data(r,c,selected_by)
+                    altdata.insert(c-1,selected_by)
+                c+=1
+            data.insert(r,altdata)
+            r+=1
+        if len(data) < 2:
+            self.write_xlsx_page_data_chart('column')
+        else:
+            self.write_xlsx_page_data_chart('subtype','stacked')
+
+        for x in range(len(data)):
+            self.chart.add_series({'Question'+str(x+1) : data[x]})
+        self.xlsxpage.insert_chart('A1', self.chart)
+        
