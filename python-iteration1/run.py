@@ -8,7 +8,6 @@ from os import listdir
 from os.path import isfile, join
 a = ZoomPollViewer.ZoomPollViewer()
 
-
 #b = Importer.Importer(a)
 
 #b.import_bys("CES3063_Fall2020_rptSinifListesi.XLS")

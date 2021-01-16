@@ -15,8 +15,9 @@ from .Exporter import Exporter
 from .Logger import Logger
 
 class ZoomPollViewer:
-    def __init__(self):
 
+    def __init__(self):
+        Logger(ZoomPollViewer.__name__, "ZoomPollViewer Started!")
         self._students = []
         self._sessions = []
         self._polls = []
@@ -157,6 +158,7 @@ class ZoomPollViewer:
                 poll.set_session_number_of_students(session, poll_attendance)
                 print(poll, poll_attendance)
             session.set_attendance(session_attendance)
+        Logger(ZoomPollViewer.metrics_calculator.__name__, "Metrics calculated.")
         self.student_metrics_calculator()
 
     def student_metrics_calculator(self):
@@ -188,11 +190,13 @@ class ZoomPollViewer:
         temporary_student = self.get_student_by_email(email)
         student.set_email(email)
         self._students.remove(temporary_student)
+        Logger(ZoomPollViewer.match_students.__name__+str(self.get_student_by_id(bys_id)), "Student MATCHED!.")
         print("Student MATCHED!")
 
     def check_unmatched_student_exist(self):
         for student in self._students:
             if student.get_temporary_state():
+                Logger(ZoomPollViewer.check_unmatched_student_exist.__name__, "Unmatched Student.")
                 return True
         return False
 

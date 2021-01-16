@@ -7,7 +7,7 @@ ZOOM POLL VIEWER v0.1
 import tkinter as tk
 from tkinter import filedialog
 import tkinter.ttk as ttk
-
+from .Logger import Logger
 class GUI:
 
     def __init__(self, zpv):
