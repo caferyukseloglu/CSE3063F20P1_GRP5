@@ -5,6 +5,7 @@ ZOOM POLL VIEWER v0.1
 
 """
 import xlsxwriter
+from .Logger import Logger
 from datetime import date
 
 class Exporter():
@@ -49,6 +50,7 @@ class Exporter():
 
         #To Export Global Report      
     def export_global(self):
+        Logger(Exporter.export_global.__name__,"Global report exported")
         now = date.today()
         r = 1        
         self.create_xlsx('Global.xlsx')
@@ -88,8 +90,9 @@ class Exporter():
                         c += 3
         self.close_xlsx()      
      #To Export Poll Report  
-    def export_poll(self):       
+    def export_poll(self):            
         for poll in self.zpv._polls:
+            Logger(Exporter.export_poll.__name__ + ":"+str(poll.get_name()).strip(),str(poll.get_name()).strip()+" exported")   
             r = 0
             c = 3
             self.create_xlsx(str('/'+poll.get_name()).strip()+'.xlsx')
@@ -139,7 +142,8 @@ class Exporter():
             self.close_xlsx()
     
     def create_histogram_chart(self,poll):
-        self.create_xlsx_page('Poll Chart')        
+        self.create_xlsx_page('Poll Chart')    
+        self.write_xlsx_page_data_chart('column')    
         data=[]
         altdata=[]
         maximum_choice = poll.get_number_of_max_choices()
@@ -147,7 +151,7 @@ class Exporter():
              self.write_xlsx_page_data_title(0,i+1,'Choice '+str(i+1))
         r = 1
         for question in poll.get_questions():
-            self.write_xlsx_page_data_title(r,0,'Question '+str(r))
+            self.write_xlsx_page_data_title(r,0,str(question.get_text()))
             c = 1            
             for choice in question.get_choices():  
                 selected_by = 0      
@@ -164,13 +168,11 @@ class Exporter():
                     self.write_xlsx_page_data(r,c,selected_by)
                     altdata.insert(c-1,selected_by)
                 c+=1
-            data.insert(r,altdata)        
-            
-            self.write_xlsx_page_data_chart('column')
-            #self.chart.add_series({str(question.get_text()): '=Poll Chart!$'+str(r)+'$0:$'+str(r)+'$'+str(c)+''})
-            self.chart.add_series({
-                'categories': ['Poll Chart', 0, 0, r, 0],
-                'values':     ['Poll Chart', r, 0, r, c],
-            })
+            data.insert(r,altdata)                    
             r += 1
-        self.xlsxpage.insert_chart(r,c, self.chart)
+        for i in range(maximum_choice):
+            self.chart.add_series({           
+                'name':['Poll Chart',0,i+1],
+                'values':['Poll Chart', 1,i+1,r-1,i+1],                
+            })
+        self.xlsxpage.insert_chart(r+2,0, self.chart)
