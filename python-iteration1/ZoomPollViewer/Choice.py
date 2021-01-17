@@ -23,5 +23,3 @@ class Choice:
 
     def set_correct(self):
         self._correctness = 1
-
-

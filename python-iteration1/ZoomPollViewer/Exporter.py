@@ -11,19 +11,24 @@ class Exporter():
     def __init__(self,zpv):
         self.zpv = zpv
         self.path = "./"
+
     # To Create xlsx File
     def create_xlsx(self,name:str):
         self.xlsx_file = xlsxwriter.Workbook(self.path+name)
+
     # To Create a Page in xlsx File
     def create_xlsx_page(self,name:str):
         self.xlsxpage = self.xlsx_file.add_worksheet(name) 
+
     # Writing Data
     def write_xlsx_page_data(self,col:int,row:int,data:str):
         self.xlsxpage.write(col,row,data)
+
     # Writing title Data
     def write_xlsx_page_data_title(self,col:int,row:int,data:str):
         self.xls_cell_format = self.xlsx_file.add_format({'bold':True})
         self.xlsxpage.write(col,row,data,self.xls_cell_format)
+
     # Create data Chart
     def write_xlsx_page_data_chart(self,type,value='NONE'):
         if value != 'NONE':
@@ -33,12 +38,15 @@ class Exporter():
         self.chart.set_title({'name': 'POLL QUESTION ANALYZE'})
         self.chart.set_x_axis({'name': 'Answears Per Question'})
         self.chart.set_y_axis({'name': 'Number Of Students'})
+
     # Add data with green color
     def write_xlsx_page_correct_data(self,col:int,row:int,data:str):
         cell_format = self.xlsx_file.add_format({'font_color': 'green'})
         self.xlsxpage.write(col,row,data,cell_format)
+        
     def close_xlsx(self):
         self.xlsx_file.close()  
+
         #To Export Global Report      
     def export_global(self):
         now = date.today()
@@ -131,14 +139,16 @@ class Exporter():
             self.close_xlsx()
     
     def create_histogram_chart(self,poll):
-        r = 0
         self.create_xlsx_page('Poll Chart')        
         data=[]
         altdata=[]
+        maximum_choice = poll.get_number_of_max_choices()
+        for i in range(maximum_choice):
+             self.write_xlsx_page_data_title(0,i+1,'Choice '+str(i+1))
+        r = 1
         for question in poll.get_questions():
-            c = 0
-            #self.write_xlsx_page_data(r,c,question.get_text())
-            c+=1
+            self.write_xlsx_page_data_title(r,0,'Question '+str(r))
+            c = 1            
             for choice in question.get_choices():  
                 selected_by = 0      
                 for student in self.zpv._students:                    
@@ -148,20 +158,19 @@ class Exporter():
                             if choice in response._answers[question]:
                                 selected_by += 1
                 if choice.get_correctness() == 1:
-                    #self.write_xlsx_page_correct_data(r,c,selected_by)
+                    self.write_xlsx_page_correct_data(r,c,selected_by)
                     altdata.insert(c-1,selected_by)
                 else:
-                    #self.write_xlsx_page_data(r,c,selected_by)
+                    self.write_xlsx_page_data(r,c,selected_by)
                     altdata.insert(c-1,selected_by)
                 c+=1
-            data.insert(r,altdata)
-            r+=1
-        if len(data) < 2:
+            data.insert(r,altdata)        
+            
             self.write_xlsx_page_data_chart('column')
-        else:
-            self.write_xlsx_page_data_chart('subtype','stacked')
-
-        for x in range(len(data)):
-            self.chart.add_series({'Question'+str(x+1) : data[x]})
-        self.xlsxpage.insert_chart('A1', self.chart)
-        
+            #self.chart.add_series({str(question.get_text()): '=Poll Chart!$'+str(r)+'$0:$'+str(r)+'$'+str(c)+''})
+            self.chart.add_series({
+                'categories': ['Poll Chart', 0, 0, r, 0],
+                'values':     ['Poll Chart', r, 0, r, c],
+            })
+            r += 1
+        self.xlsxpage.insert_chart(r,c, self.chart)

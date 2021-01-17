@@ -77,3 +77,10 @@ class Poll:
                 return sum(grades) / len(grades)
             else:
                 return 0
+
+    def get_number_of_max_choices(self):
+        new_max = 0
+        for question in self.get_questions():
+            if len(question._choices) > new_max:
+                new_max = len(question._choices)
+        return new_max
