@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 
-ZOOM POLL VIEWER v0.1
+ZOOM POLL VIEWER v1.0
+GUI CLASS
 
 """
 import tkinter as tk
@@ -18,9 +19,6 @@ class GUI:
         self.root.resizable(False, False)
         self.root.title("Zoom Poll Viewer")
 
-        #p1 = tk.PhotoImage(file='ZoomPollViewer/poll.png')
-        #self.root.iconphoto(False, p1)
-
         self.left_frame = tk.Frame(self.root, bg="red")
         self.left_frame.grid(row=0, column=0, padx=0, pady=0, rowspan=2)
 
@@ -33,10 +31,7 @@ class GUI:
         self.insert_tab_controller()
         self.insert_buttons()
 
-
-
-
-    ##########          TABS          ##########
+    #          TABS
 
     def insert_tab_controller(self):
         self.tab_controller = ttk.Notebook(self.left_frame, width=700, height=740)
@@ -232,10 +227,6 @@ class GUI:
 
 
     def run_metrics_calculator(self):
-        self.zpv.importer.import_bys("CES3063_Fall2020_rptSinifListesi.xls")
-        self.zpv.importer.import_answer_key("Polls")
-        self.zpv.importer.import_poll_report("CSE3063_20201123_Mon_zoom_PollReport.csv")
-
         if self.zpv.check_unmatched_student_exist():
             self.student_matcher()
             self.insert_all_unmatched_student()
@@ -359,4 +350,3 @@ class GUI:
     def export_excell(self):
         self.zpv.exporter.export_global()
         self.zpv.exporter.export_poll()
-        
