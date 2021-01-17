@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 
-ZOOM POLL VIEWER v0.1
+ZOOM POLL VIEWER v1.0
+RESPONSE CLASS
 
 """
-#from .ZoomPollViewer import ZoomPollViewer
 
 
 class Response:
@@ -14,23 +14,25 @@ class Response:
         self._session = session
         self._poll = poll
 
-        # @todo need to check if poll does not belongs to session
-
         self._answers = {}
-        # _answers = { <question_A> :  [<choice_1>, <choice_2>], <question_B> :  [<choice_2>]}
+        # Structure of _answers = { <question_A> :  [<choice_1>, <choice_2>], <question_B> :  [<choice_2>]}
 
         self._grade = None
 
     def get_student(self):
+        # Returns student object
         return self._student
 
     def get_session(self):
+        # Returns session object
         return self._session
 
     def get_poll(self):
+        # Returns poll object
         return self._poll
 
     def add_answer(self, question_text, answer_texts):
+        # Adds question and returns its object
         question = self._poll.get_question(question_text)
         choices = []
         if isinstance(answer_texts, list):
@@ -48,11 +50,13 @@ class Response:
             self._answers[question].append(choice)
 
     def get_grade(self):
+        # Returns grade of reponse
         if self._grade is None:
             self.calculate_grade()
         return self._grade
 
     def calculate_grade(self):
+        # Calculates and sets grade
         true_answers = 0
         false_answers = 0
         for question in self._poll.get_questions():

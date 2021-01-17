@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 
-ZOOM POLL VIEWER v0.1
+ZOOM POLL VIEWER v1.0
+IMPORTER CLASS
 
 """
 import csv, xlrd, os, re
@@ -17,6 +18,7 @@ class Importer():
         self.zpv = zpv
 
     def import_bys(self, file_path):
+        # Imports BYS file
         try:
             read_xls=xlrd.open_workbook(file_path)
             xl_sheet = read_xls.sheet_by_index(0)
@@ -43,8 +45,11 @@ class Importer():
             print("Error Occurred", err)
 
     def import_answer_key(self, file_path):
+        # Imports Answer Key
+        # Uses related library csv or xls
         # @todo CSV version not working well with semicolon delimeter
-        # TODO: This library will no longer read anything other than .xls
+        # @todo This library will no longer read anything other than .xls
+
         print(file_path)
         paths = self.get_paths(file_path, ["xls", "csv"])
         print("PATHS: ", paths)
@@ -85,7 +90,9 @@ class Importer():
                                 question.add_choice(row[1], 1)
                         i += 1
                     Logger(poll.add_question.__name__, "Questions added successfully.")
+
     def import_poll_report(self, file_path):
+        # Imports Poll Report
         paths = self.get_paths(file_path, ["csv"])
         Logger(Importer.import_poll_report.__name__, "Poll reports added successfully.")
         for file_path in paths:
@@ -104,17 +111,16 @@ class Importer():
                                 poll = self.zpv.get_poll_by_question(row[q_index])
                                 if poll:
                                     break
-
-
                         session = self.zpv.add_session(row[3])
-
                         session.add_poll(poll)
                         full_name = row[1]
                         email = row[2]
                         self.control_student(full_name, email, session, poll, row)
                     i = i + 1
             Logger(self.zpv.add_session.__name__, " Sessions added successfully.")
+
     def get_paths(self, file_path, file_types):
+        # Returns paths of dirextory
         paths = []
         if os.path.isdir(file_path):
             temp_paths = [f for f in listdir(file_path) if isfile(join(file_path, f))]
@@ -168,4 +174,4 @@ class Importer():
                 pass
                 #print("Student not found")
         
-        return 0  
+        return 0

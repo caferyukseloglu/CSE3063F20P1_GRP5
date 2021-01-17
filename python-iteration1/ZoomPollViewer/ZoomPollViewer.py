@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """
 
-ZOOM POLL VIEWER v0.1
+ZOOM POLL VIEWER v1.O
+
+THIS SOFTWARE PROCESS ZOOM AND STUDENT LIST OF MARMARA UNIVERSITY BYS SYSTEM
+VIEWS DETAILED QUIZ AND ATTENDANCE DATA RELATED TO SESSIONS AND STUDENT
+
+CSE3063 PROJECT 2
+GROUP #5
 
 """
 from datetime import datetime
-import logging
 from .Student import Student
 from .Poll import Poll
 from .Session import Session
@@ -13,6 +18,7 @@ from .GUI import GUI
 from .Importer import Importer
 from .Exporter import Exporter
 from .Logger import Logger
+
 
 class ZoomPollViewer:
 
@@ -33,6 +39,8 @@ class ZoomPollViewer:
         self.GUI.sm.mainloop()
 
     def get_student(self, full_name, email):
+        # Returns student related to given inputs.
+        # If not match, tries to match with string operands.
         found = False
         for student in self._students:
             if student._email == email:
@@ -66,21 +74,25 @@ class ZoomPollViewer:
         return found
 
     def get_sessions(self):
+        # Returns sessions
         return self._sessions
 
     def get_student_by_id(self, bys_id):
+        # Returns student by given BYS #
         for student in self._students:
             if str(student.get_student_id()) == str(bys_id):
                 return student
         return False
 
     def get_student_by_email(self, email):
+        # Returns student by email
         for student in self._students:
             if student.get_email() == email:
                 return student
         return False
 
     def get_poll_by_question(self, question_text):
+        # Returns poll by given question text
         for poll in self._polls:
             for question in poll.get_questions():
                 if question_text == question.get_text():
@@ -88,33 +100,38 @@ class ZoomPollViewer:
         return False
 
     def get_poll_by_name(self, poll_name, poll_type):
+        # Returns poll by given name
         for poll in self._polls:
             if poll.get_name() == poll_name:
                 return poll
         return False
 
     def get_session(self, date_time_text):
+        # Returns session with given date time text
         date_time_object = datetime.strptime(date_time_text, self.date_time_format)
         date_text = date_time_object.strftime(self.file_name_date_format)
         for session in self._sessions:
             if session.get_date_text() == date_text:
                 return session
         return False
-        #Logger(ZoomPollViewer.add_session.__name__,"deneme")
 
     def get_number_of_students(self):
+        # Returns number of students
         return len(self._students)
 
     def get_number_of_sessions(self):
+        # Returns number of sessions
         return len(self._sessions)
 
     def add_student(self, firstname, middlename, surname, student_id):
+        # Adds student with given inputs, then returns student object
         student = Student(self, firstname, middlename, surname, student_id)
         self._students.append(student)
         # @todo It may check if user exist
         return student
 
     def add_session(self, date_time_text):
+        # Adds session and returns object
         session = self.get_session(date_time_text)
         if session:
             return session
@@ -125,6 +142,7 @@ class ZoomPollViewer:
             return session
 
     def add_poll(self, poll_name, poll_type="QUIZ"):
+        # Adds and returns poll object
         for poll in self._polls:
             if poll.get_name() == poll_name:
                 return poll
@@ -133,12 +151,14 @@ class ZoomPollViewer:
         return poll
 
     def check_student_email(self, email):
+        # Check if any student has given email address
         for student in self._students:
             if student.get_email() == email:
                 return True
         return False
 
     def metrics_calculator(self):
+        # Calculates grades, attendance and other metrics
         for session in self._sessions:
             session_attendance = 0
             for poll in session.get_polls():
@@ -162,16 +182,19 @@ class ZoomPollViewer:
         self.student_metrics_calculator()
 
     def student_metrics_calculator(self):
+        # If not calculated before, calculates grade of student
         for student in self._students:
             student.calculate_grades()
 
     def add_temporary_student(self, full_name, email):
+        # If student has not matched anyway; creates, adds and returns temporary student object
         student = Student(self, full_name, "", "", "", True)
         student.set_email(email)
         self._students.append(student)
         return student
 
     def get_unmatched_temporary_students(self):
+        # Returns objects of unmatched students
         unmatched_students = []
         for student in self._students:
             if student.get_temporary_state():
@@ -179,6 +202,7 @@ class ZoomPollViewer:
         return unmatched_students
 
     def get_unmatched_bys_students(self):
+        # Returns unmatched BYS student objects
         unmatched_students = []
         for student in self._students:
             if student.get_email() is None:
@@ -186,6 +210,7 @@ class ZoomPollViewer:
         return unmatched_students
 
     def match_students(self, bys_id, email):
+        # Matches student object then transfers data
         student = self.get_student_by_id(bys_id)
         temporary_student = self.get_student_by_email(email)
         student.set_email(email)
@@ -194,9 +219,9 @@ class ZoomPollViewer:
         print("Student MATCHED!")
 
     def check_unmatched_student_exist(self):
+        # Checks if there is any unmatched student
         for student in self._students:
             if student.get_temporary_state():
                 Logger(ZoomPollViewer.check_unmatched_student_exist.__name__, "Unmatched Student.")
                 return True
         return False
-

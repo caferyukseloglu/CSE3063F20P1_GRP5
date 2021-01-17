@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
 
-ZOOM POLL VIEWER v0.1
+ZOOM POLL VIEWER v1.0
+LOGGING CLASS
 
 """
 import logging
+
 
 class Logger:
 
