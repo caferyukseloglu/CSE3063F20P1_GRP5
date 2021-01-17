@@ -170,7 +170,7 @@ class GUI:
         self.process_label = tk.Label(self.right_frame_top, text="4. Process", fg="#222222",
                                           font=("Helvetica", 18, 'bold'))
         self.process_label.grid(row=7, column=0, pady=6, columnspan=2)
-        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator)
+        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator, state=tk.DISABLED)
         self.button_run.grid(row=8, column=0, columnspan=2)
 
         # EXPORT

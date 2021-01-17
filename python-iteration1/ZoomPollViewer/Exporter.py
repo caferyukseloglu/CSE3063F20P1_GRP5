@@ -171,8 +171,13 @@ class Exporter():
             data.insert(r,altdata)                    
             r += 1
         for i in range(maximum_choice):
+            if i == 0:
+                color = 'green'
+            else:
+                color = 'gray'
             self.chart.add_series({           
                 'name':['Poll Chart',0,i+1],
-                'values':['Poll Chart', 1,i+1,r-1,i+1],                
+                'values':['Poll Chart', 1,i+1,r-1,i+1], 
+                'fill': {'color': color},          
             })
         self.xlsxpage.insert_chart(r+2,0, self.chart)
