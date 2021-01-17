@@ -1,0 +1,174 @@
+@startuml
+actor User
+
+
+User -> run: a
+activate run
+
+
+run -> ZoomPollViewer: __init__(self)
+activate ZoomPollViewer
+
+ZoomPollViewer -> Logger: __init__(self)
+activate Logger
+
+
+ZoomPollViewer -> GUI:__init__(self)
+activate GUI
+
+
+ZoomPollViewer -> Importer:Importer(self)
+activate Importer
+
+GUI->GUI:insert_tab_controller(self)
+
+GUI->GUI:insert_student_list(self)
+
+GUI->GUI:insert_session_list(self)
+
+GUI->GUI:insert_poll_list(self)
+
+GUI->GUI:insert_buttons(self)
+
+
+GUI->Importer:import_bys(self,file_path)
+
+Importer->Logger: Logger(self)
+
+Importer->ZoomPollViewer:add_student(self,firstname,middlename,surname,student_id)
+
+ZoomPollViewer->Student:__init__(self,zpv,firtst_name,mid_name,last_name,last_name,student_id,temporary)
+activate Student
+
+loop in range 0 to length of last_names 
+ Student->ZoomPollViewer:add_student(self,firstname,middlename,surname,student_id)
+ ZoomPollViewer-->Importer:student
+end
+
+Importer -> Logger:__init__(self,text1,text2)
+
+GUI->Importer:import_answer_key(self):
+
+Importer-->Importer: return path
+
+Importer->Logger:Logger(self,text1,text2)
+
+GUI->Importer:import_poll_report(self)
+
+Importer-->Importer: return path
+
+Importer->Logger:Logger(self,text1,text2)
+
+Importer->ZoomPollViewer:get_poll_by_question(self, row[q_index])
+
+ZoomPollViewer-->Importer: question
+
+Importer->ZoomPollViewer: add_session(self,date_time_text)
+ZoomPollViewer-->Importer: session
+
+loop in self._session
+ group if session_test==date_test
+  ZoomPollViewer->ZoomPollViewer: session
+ end
+end
+
+ZoomPollViewer->Session:get_date_text(self)
+Session-->ZoomPollViewer: self._date_text
+
+ZoomPollViewer->Importer:add_session(row[3])
+Importer->Session:add_poll(self,poll)
+
+Importer->Importer:control_student(self,full_name,email,session,poll,row)
+Importer->ZoomPollViewer:get_student(self,full_name,email)
+
+ZoomPollViewer-->Importer:found
+Importer->Student:add_response(self,session,poll)
+Student->Response:__init__(self,student,session,poll)
+activate Response
+Student-->Importer:response
+
+Importer->ZoomPollViewer:get_student(self,full_name,email)
+ZoomPollViewer->Importer:control_student(sef,full_name,email,session,poll,row)
+Importer->Logger:__init__(self,text1,text2)
+
+Importer->Response:add_answer(self,question_text,answer_texts)
+Response->Poll:get_question(self,question_text)
+activate Poll
+
+
+
+loop in selff._questions
+ Poll->Question:get_text(self)
+ activate Question
+ Question-->Poll: question
+end
+
+Poll->Response:add_answer(self,question_text,answer_texts)
+Response->Question:add_choice(self,choice_text,correctness=0)
+Question->Question:get_choice()
+Question->Choice:get_text(self)
+Choice-->Question:self._text
+Question-->Question:choice
+Question->Question:add_choice(self,choice_text,correctness)
+Question-->Response:choice
+
+Importer->ZoomPollViewer:get_poll_by_question(self,question_text)
+loop
+ ZoomPollViewer->Poll:get_question(self)
+ Poll-->ZoomPollViewer:self._question
+
+ ZoomPollViewer->Question:get_text(self)
+ Question-->ZoomPollViewer:self.__text
+end
+
+GUI->GUI:export_excell(self):
+GUI->Exporter:export_global(self)
+activate Exporter
+
+Exporter->Exporter:create_xlsx(self,name:str)
+Exporter->Exporter:create_xlsx_page(str(now))
+loop four times
+ Exporter->Exporter:write_xlsx_page_data_title(self,col,row,data)
+end
+
+loop in _polls
+ loop three times
+  Exporter->Exporter:write_xlsx_page_data_title(self,col,row,data)
+  end
+end
+
+loop in _zpv._students
+ loop three times
+   Exporter->Exporter:write_xlsx_page_data(self,col,row,data)
+  end
+  loop in _zpv._polls
+    loop three times
+      Exporter->Student:get_email(self)
+      Exporter->Exporter:write_xlsx_page_data(self,col,row,data)
+    end
+  end 
+end
+
+Exporter->Response:get_grade(self)
+Response->Response:calculate_grade(self)
+loop
+ Response->Poll:get_question(self)
+ Poll-->Response:self._question
+ Response->Question:get_correct_choices(self)
+ Question-->Exporter
+end
+Exporter->Exporter:close_xlsx(self)
+Exporter-->GUI
+GUI->Exporter:export_poll()
+Exporter->Exporter:create_histogram_chart(self,poll)
+Exporter->Exporter:create_xlsx_page(string)
+loop in question_number
+ loop in question_choices
+  Exporter->Student:get_response_by_poll(poll)
+  Student-->Exporter:response
+ end
+  Exporter->Choice:get_correctness()
+  Choice-->Exporter: correctness
+
+end
+@enduml
