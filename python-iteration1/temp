@@ -1,0 +1,824 @@
+<gpx creator="Mission Planner" xmlns="http://www.topografix.com/GPX/1/1">
+    <trk>
+        <trkseg>
+
+            <trkpt lat="-35.3639911" lon="149.1652877">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:04+03:00</time>
+                <course>359.71</course>
+                <roll>-0.2</roll>
+                <pitch>-0.01</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.363991" lon="149.1652876">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:05+03:00</time>
+                <course>359.72</course>
+                <roll>-0.24</roll>
+                <pitch>-0.05</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639907" lon="149.1652873">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:05+03:00</time>
+                <course>359.73</course>
+                <roll>-0.27</roll>
+                <pitch>-0.08</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639906" lon="149.1652872">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:05+03:00</time>
+                <course>359.73</course>
+                <roll>-0.31</roll>
+                <pitch>-0.12</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639905" lon="149.1652868">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:05+03:00</time>
+                <course>359.75</course>
+                <roll>-0.34</roll>
+                <pitch>-0.19</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639904" lon="149.1652867">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:06+03:00</time>
+                <course>359.76</course>
+                <roll>-0.35</roll>
+                <pitch>-0.2</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639903" lon="149.1652864">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:06+03:00</time>
+                <course>359.77</course>
+                <roll>-0.35</roll>
+                <pitch>-0.21</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639901" lon="149.1652863">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:06+03:00</time>
+                <course>359.78</course>
+                <roll>-0.36</roll>
+                <pitch>-0.22</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639899" lon="149.1652859">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:07+03:00</time>
+                <course>359.79</course>
+                <roll>-0.34</roll>
+                <pitch>-0.26</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639898" lon="149.1652858">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:07+03:00</time>
+                <course>359.79</course>
+                <roll>-0.34</roll>
+                <pitch>-0.26</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639895" lon="149.1652857">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:07+03:00</time>
+                <course>359.79</course>
+                <roll>-0.35</roll>
+                <pitch>-0.28</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639894" lon="149.1652854">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:08+03:00</time>
+                <course>359.79</course>
+                <roll>-0.35</roll>
+                <pitch>-0.32</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639892" lon="149.1652852">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:08+03:00</time>
+                <course>359.81</course>
+                <roll>-0.38</roll>
+                <pitch>-0.33</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639891" lon="149.1652851">
+                <ele>612.64</ele>
+                <time>2021-01-18T14:43:09+03:00</time>
+                <course>359.82</course>
+                <roll>-0.35</roll>
+                <pitch>-0.32</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639854" lon="149.1652843">
+                <ele>611.76</ele>
+                <time>2021-01-18T14:43:38+03:00</time>
+                <course>359.98</course>
+                <roll>-0.81</roll>
+                <pitch>2.05</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639826" lon="149.1652842">
+                <ele>611.18</ele>
+                <time>2021-01-18T14:43:38+03:00</time>
+                <course>359.98</course>
+                <roll>-1.02</roll>
+                <pitch>1.63</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639803" lon="149.165284">
+                <ele>610.73</ele>
+                <time>2021-01-18T14:43:39+03:00</time>
+                <course>359.98</course>
+                <roll>-1.12</roll>
+                <pitch>1.55</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639748" lon="149.1652839">
+                <ele>609.74</ele>
+                <time>2021-01-18T14:43:39+03:00</time>
+                <course>359.98</course>
+                <roll>-1.25</roll>
+                <pitch>0.93</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639718" lon="149.165284">
+                <ele>609.22</ele>
+                <time>2021-01-18T14:43:40+03:00</time>
+                <course>359.98</course>
+                <roll>-1.23</roll>
+                <pitch>0.52</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639674" lon="149.1652842">
+                <ele>608.4</ele>
+                <time>2021-01-18T14:43:40+03:00</time>
+                <course>359.98</course>
+                <roll>-1.14</roll>
+                <pitch>0.73</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639627" lon="149.1652843">
+                <ele>607.57</ele>
+                <time>2021-01-18T14:43:41+03:00</time>
+                <course>359.98</course>
+                <roll>-1.05</roll>
+                <pitch>0.06</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639597" lon="149.1652844">
+                <ele>607</ele>
+                <time>2021-01-18T14:43:41+03:00</time>
+                <course>359.98</course>
+                <roll>-1.03</roll>
+                <pitch>0.57</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639527" lon="149.1652846">
+                <ele>605.59</ele>
+                <time>2021-01-18T14:43:42+03:00</time>
+                <course>359.98</course>
+                <roll>-0.98</roll>
+                <pitch>0.27</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639336" lon="149.1652844">
+                <ele>601.61</ele>
+                <time>2021-01-18T14:43:45+03:00</time>
+                <course>359.98</course>
+                <roll>-1.05</roll>
+                <pitch>0.62</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639097" lon="149.1652846">
+                <ele>596.51</ele>
+                <time>2021-01-18T14:43:49+03:00</time>
+                <course>359.99</course>
+                <roll>-1.6</roll>
+                <pitch>-0.5</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639065" lon="149.1652847">
+                <ele>595.66</ele>
+                <time>2021-01-18T14:43:49+03:00</time>
+                <course>359.98</course>
+                <roll>-3.65</roll>
+                <pitch>-1.21</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639055" lon="149.1652849">
+                <ele>595.38</ele>
+                <time>2021-01-18T14:43:50+03:00</time>
+                <course>359.97</course>
+                <roll>-2.21</roll>
+                <pitch>-0.04</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639047" lon="149.1652854">
+                <ele>595.1</ele>
+                <time>2021-01-18T14:43:50+03:00</time>
+                <course>359.97</course>
+                <roll>-0.69</roll>
+                <pitch>1.38</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639037" lon="149.1652863">
+                <ele>594.81</ele>
+                <time>2021-01-18T14:43:50+03:00</time>
+                <course>359.98</course>
+                <roll>0.21</roll>
+                <pitch>1.94</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.363903" lon="149.165287">
+                <ele>594.53</ele>
+                <time>2021-01-18T14:43:50+03:00</time>
+                <course>359.99</course>
+                <roll>0.66</roll>
+                <pitch>1.39</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639019" lon="149.1652876">
+                <ele>594.25</ele>
+                <time>2021-01-18T14:43:50+03:00</time>
+                <course>359.99</course>
+                <roll>0.86</roll>
+                <pitch>0.92</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3639009" lon="149.165288">
+                <ele>593.97</ele>
+                <time>2021-01-18T14:43:51+03:00</time>
+                <course>359.99</course>
+                <roll>0.88</roll>
+                <pitch>0.7</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638997" lon="149.1652882">
+                <ele>593.69</ele>
+                <time>2021-01-18T14:43:51+03:00</time>
+                <course>359.99</course>
+                <roll>0.74</roll>
+                <pitch>1.05</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638985" lon="149.1652885">
+                <ele>593.41</ele>
+                <time>2021-01-18T14:43:51+03:00</time>
+                <course>359.99</course>
+                <roll>0.52</roll>
+                <pitch>1.61</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638961" lon="149.1652883">
+                <ele>592.85</ele>
+                <time>2021-01-18T14:43:51+03:00</time>
+                <course>359.99</course>
+                <roll>-0.11</roll>
+                <pitch>1.28</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638948" lon="149.1652882">
+                <ele>592.56</ele>
+                <time>2021-01-18T14:43:52+03:00</time>
+                <course>359.98</course>
+                <roll>-0.43</roll>
+                <pitch>0.93</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638934" lon="149.1652878">
+                <ele>592.28</ele>
+                <time>2021-01-18T14:43:52+03:00</time>
+                <course>359.98</course>
+                <roll>-0.73</roll>
+                <pitch>0.75</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638921" lon="149.1652876">
+                <ele>592</ele>
+                <time>2021-01-18T14:43:52+03:00</time>
+                <course>359.98</course>
+                <roll>-0.96</roll>
+                <pitch>1.3</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638907" lon="149.1652873">
+                <ele>591.72</ele>
+                <time>2021-01-18T14:43:52+03:00</time>
+                <course>359.99</course>
+                <roll>-1.1</roll>
+                <pitch>2.05</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638892" lon="149.1652868">
+                <ele>591.43</ele>
+                <time>2021-01-18T14:43:52+03:00</time>
+                <course>359.99</course>
+                <roll>-1.24</roll>
+                <pitch>1.84</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638878" lon="149.1652866">
+                <ele>591.15</ele>
+                <time>2021-01-18T14:43:53+03:00</time>
+                <course>359.99</course>
+                <roll>-1.34</roll>
+                <pitch>0.77</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638863" lon="149.1652863">
+                <ele>590.87</ele>
+                <time>2021-01-18T14:43:53+03:00</time>
+                <course>359.99</course>
+                <roll>-1.42</roll>
+                <pitch>0.05</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638846" lon="149.1652859">
+                <ele>590.59</ele>
+                <time>2021-01-18T14:43:53+03:00</time>
+                <course>359.98</course>
+                <roll>-1.44</roll>
+                <pitch>-0.23</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.363883" lon="149.1652857">
+                <ele>590.3</ele>
+                <time>2021-01-18T14:43:53+03:00</time>
+                <course>359.97</course>
+                <roll>-1.42</roll>
+                <pitch>0.24</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638816" lon="149.1652854">
+                <ele>590.02</ele>
+                <time>2021-01-18T14:43:53+03:00</time>
+                <course>359.98</course>
+                <roll>-1.37</roll>
+                <pitch>0.82</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.36388" lon="149.1652853">
+                <ele>589.74</ele>
+                <time>2021-01-18T14:43:54+03:00</time>
+                <course>359.99</course>
+                <roll>-1.34</roll>
+                <pitch>0.32</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638786" lon="149.1652852">
+                <ele>589.46</ele>
+                <time>2021-01-18T14:43:54+03:00</time>
+                <course>359.99</course>
+                <roll>-1.33</roll>
+                <pitch>-1.27</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.363877" lon="149.1652849">
+                <ele>589.17</ele>
+                <time>2021-01-18T14:43:54+03:00</time>
+                <course>359.98</course>
+                <roll>-1.25</roll>
+                <pitch>-2.23</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638744" lon="149.1652848">
+                <ele>588.61</ele>
+                <time>2021-01-18T14:43:54+03:00</time>
+                <course>359.96</course>
+                <roll>-1.07</roll>
+                <pitch>-0.09</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638666" lon="149.1652849">
+                <ele>586.51</ele>
+                <time>2021-01-18T14:43:56+03:00</time>
+                <course>359.99</course>
+                <roll>-0.4</roll>
+                <pitch>1.66</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638627" lon="149.1652848">
+                <ele>585.73</ele>
+                <time>2021-01-18T14:43:57+03:00</time>
+                <course>359.99</course>
+                <roll>-0.73</roll>
+                <pitch>2.44</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638617" lon="149.1652847">
+                <ele>585.64</ele>
+                <time>2021-01-18T14:43:58+03:00</time>
+                <course>359.99</course>
+                <roll>-0.83</roll>
+                <pitch>2.89</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638594" lon="149.1652846">
+                <ele>585.45</ele>
+                <time>2021-01-18T14:43:58+03:00</time>
+                <course>0</course>
+                <roll>-1.06</roll>
+                <pitch>1.1</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638581" lon="149.1652844">
+                <ele>585.35</ele>
+                <time>2021-01-18T14:43:58+03:00</time>
+                <course>359.99</course>
+                <roll>-1.15</roll>
+                <pitch>-1.01</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638551" lon="149.1652843">
+                <ele>585.2</ele>
+                <time>2021-01-18T14:43:59+03:00</time>
+                <course>359.98</course>
+                <roll>-1.2</roll>
+                <pitch>-3.19</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638538" lon="149.1652842">
+                <ele>585.14</ele>
+                <time>2021-01-18T14:43:59+03:00</time>
+                <course>359.97</course>
+                <roll>-1.13</roll>
+                <pitch>-2.87</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638513" lon="149.1652843">
+                <ele>585.03</ele>
+                <time>2021-01-18T14:43:59+03:00</time>
+                <course>359.98</course>
+                <roll>0.48</roll>
+                <pitch>-3.19</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638502" lon="149.1652842">
+                <ele>584.98</ele>
+                <time>2021-01-18T14:44:00+03:00</time>
+                <course>359.98</course>
+                <roll>2.22</roll>
+                <pitch>-3.22</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638501" lon="149.165284">
+                <ele>584.97</ele>
+                <time>2021-01-18T14:44:00+03:00</time>
+                <course>359.98</course>
+                <roll>2.93</roll>
+                <pitch>-3.33</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638502" lon="149.1652838">
+                <ele>584.96</ele>
+                <time>2021-01-18T14:44:00+03:00</time>
+                <course>359.98</course>
+                <roll>2.55</roll>
+                <pitch>-2.57</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638506" lon="149.1652833">
+                <ele>584.95</ele>
+                <time>2021-01-18T14:44:01+03:00</time>
+                <course>359.98</course>
+                <roll>2.71</roll>
+                <pitch>-2.25</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638511" lon="149.1652825">
+                <ele>584.94</ele>
+                <time>2021-01-18T14:44:01+03:00</time>
+                <course>359.99</course>
+                <roll>1.7</roll>
+                <pitch>-0.95</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638517" lon="149.1652816">
+                <ele>584.92</ele>
+                <time>2021-01-18T14:44:01+03:00</time>
+                <course>0</course>
+                <roll>0.36</roll>
+                <pitch>1.4</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638524" lon="149.1652806">
+                <ele>584.91</ele>
+                <time>2021-01-18T14:44:01+03:00</time>
+                <course>0</course>
+                <roll>-0.64</roll>
+                <pitch>2.57</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638531" lon="149.1652796">
+                <ele>584.91</ele>
+                <time>2021-01-18T14:44:01+03:00</time>
+                <course>0</course>
+                <roll>-1.3</roll>
+                <pitch>2.83</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638536" lon="149.1652785">
+                <ele>584.9</ele>
+                <time>2021-01-18T14:44:02+03:00</time>
+                <course>0</course>
+                <roll>-1.69</roll>
+                <pitch>2.66</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638538" lon="149.1652776">
+                <ele>584.89</ele>
+                <time>2021-01-18T14:44:02+03:00</time>
+                <course>359.99</course>
+                <roll>-1.79</roll>
+                <pitch>2.95</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638539" lon="149.1652767">
+                <ele>584.88</ele>
+                <time>2021-01-18T14:44:02+03:00</time>
+                <course>359.99</course>
+                <roll>-1.86</roll>
+                <pitch>2.45</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638538" lon="149.1652761">
+                <ele>584.87</ele>
+                <time>2021-01-18T14:44:02+03:00</time>
+                <course>359.99</course>
+                <roll>-1.85</roll>
+                <pitch>1.75</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638536" lon="149.1652755">
+                <ele>584.86</ele>
+                <time>2021-01-18T14:44:02+03:00</time>
+                <course>359.98</course>
+                <roll>-1.67</roll>
+                <pitch>1.6</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638532" lon="149.1652751">
+                <ele>584.85</ele>
+                <time>2021-01-18T14:44:03+03:00</time>
+                <course>359.97</course>
+                <roll>-1.34</roll>
+                <pitch>2.42</pitch>
+                <mode/>
+            </trkpt>
+            <trkpt lat="-35.3638526" lon="149.1652747">
+                <ele>584.83</ele>
+                <time>2021-01-18T14:44:03+03:00</time>
+                <course>359.97</course>
+                <roll>-0.93</roll>
+                <pitch>3.76</pitch>
+                <mode/>
+            </trkpt>
+
+        </trkseg>
+    </trk>
+    <wpt lat="-35.363991" lon="149.1652876">
+        <name>191</name>
+    </wpt>
+    <wpt lat="-35.3639907" lon="149.1652873">
+        <name>192</name>
+    </wpt>
+    <wpt lat="-35.3639906" lon="149.1652872">
+        <name>193</name>
+    </wpt>
+    <wpt lat="-35.3639905" lon="149.1652868">
+        <name>194</name>
+    </wpt>
+    <wpt lat="-35.3639904" lon="149.1652867">
+        <name>195</name>
+    </wpt>
+    <wpt lat="-35.3639903" lon="149.1652864">
+        <name>196</name>
+    </wpt>
+    <wpt lat="-35.3639901" lon="149.1652863">
+        <name>197</name>
+    </wpt>
+    <wpt lat="-35.3639899" lon="149.1652859">
+        <name>198</name>
+    </wpt>
+    <wpt lat="-35.3639898" lon="149.1652858">
+        <name>199</name>
+    </wpt>
+    <wpt lat="-35.3639895" lon="149.1652857">
+        <name>200</name>
+    </wpt>
+    <wpt lat="-35.3639894" lon="149.1652854">
+        <name>201</name>
+    </wpt>
+    <wpt lat="-35.3639892" lon="149.1652852">
+        <name>202</name>
+    </wpt>
+    <wpt lat="-35.3639891" lon="149.1652851">
+        <name>203</name>
+    </wpt>
+    <wpt lat="-35.3639854" lon="149.1652843">
+        <name>204</name>
+    </wpt>
+    <wpt lat="-35.3639826" lon="149.1652842">
+        <name>205</name>
+    </wpt>
+    <wpt lat="-35.3639803" lon="149.165284">
+        <name>206</name>
+    </wpt>
+    <wpt lat="-35.3639748" lon="149.1652839">
+        <name>207</name>
+    </wpt>
+    <wpt lat="-35.3639718" lon="149.165284">
+        <name>208</name>
+    </wpt>
+    <wpt lat="-35.3639674" lon="149.1652842">
+        <name>209</name>
+    </wpt>
+    <wpt lat="-35.3639627" lon="149.1652843">
+        <name>210</name>
+    </wpt>
+    <wpt lat="-35.3639597" lon="149.1652844">
+        <name>211</name>
+    </wpt>
+    <wpt lat="-35.3639527" lon="149.1652846">
+        <name>212</name>
+    </wpt>
+    <wpt lat="-35.3639336" lon="149.1652844">
+        <name>213</name>
+    </wpt>
+    <wpt lat="-35.3639097" lon="149.1652846">
+        <name>214</name>
+    </wpt>
+    <wpt lat="-35.3639065" lon="149.1652847">
+        <name>215</name>
+    </wpt>
+    <wpt lat="-35.3639055" lon="149.1652849">
+        <name>216</name>
+    </wpt>
+    <wpt lat="-35.3639047" lon="149.1652854">
+        <name>217</name>
+    </wpt>
+    <wpt lat="-35.3639037" lon="149.1652863">
+        <name>218</name>
+    </wpt>
+    <wpt lat="-35.363903" lon="149.165287">
+        <name>219</name>
+    </wpt>
+    <wpt lat="-35.3639019" lon="149.1652876">
+        <name>220</name>
+    </wpt>
+    <wpt lat="-35.3639009" lon="149.165288">
+        <name>221</name>
+    </wpt>
+    <wpt lat="-35.3638997" lon="149.1652882">
+        <name>222</name>
+    </wpt>
+    <wpt lat="-35.3638985" lon="149.1652885">
+        <name>223</name>
+    </wpt>
+    <wpt lat="-35.3638961" lon="149.1652883">
+        <name>224</name>
+    </wpt>
+    <wpt lat="-35.3638948" lon="149.1652882">
+        <name>225</name>
+    </wpt>
+    <wpt lat="-35.3638934" lon="149.1652878">
+        <name>226</name>
+    </wpt>
+    <wpt lat="-35.3638921" lon="149.1652876">
+        <name>227</name>
+    </wpt>
+    <wpt lat="-35.3638907" lon="149.1652873">
+        <name>228</name>
+    </wpt>
+    <wpt lat="-35.3638892" lon="149.1652868">
+        <name>229</name>
+    </wpt>
+    <wpt lat="-35.3638878" lon="149.1652866">
+        <name>230</name>
+    </wpt>
+    <wpt lat="-35.3638863" lon="149.1652863">
+        <name>231</name>
+    </wpt>
+    <wpt lat="-35.3638846" lon="149.1652859">
+        <name>232</name>
+    </wpt>
+    <wpt lat="-35.363883" lon="149.1652857">
+        <name>233</name>
+    </wpt>
+    <wpt lat="-35.3638816" lon="149.1652854">
+        <name>234</name>
+    </wpt>
+    <wpt lat="-35.36388" lon="149.1652853">
+        <name>235</name>
+    </wpt>
+    <wpt lat="-35.3638786" lon="149.1652852">
+        <name>236</name>
+    </wpt>
+    <wpt lat="-35.363877" lon="149.1652849">
+        <name>237</name>
+    </wpt>
+    <wpt lat="-35.3638744" lon="149.1652848">
+        <name>238</name>
+    </wpt>
+    <wpt lat="-35.3638666" lon="149.1652849">
+        <name>239</name>
+    </wpt>
+    <wpt lat="-35.3638627" lon="149.1652848">
+        <name>240</name>
+    </wpt>
+    <wpt lat="-35.3638617" lon="149.1652847">
+        <name>241</name>
+    </wpt>
+    <wpt lat="-35.3638594" lon="149.1652846">
+        <name>242</name>
+    </wpt>
+    <wpt lat="-35.3638581" lon="149.1652844">
+        <name>243</name>
+    </wpt>
+    <wpt lat="-35.3638551" lon="149.1652843">
+        <name>244</name>
+    </wpt>
+    <wpt lat="-35.3638538" lon="149.1652842">
+        <name>245</name>
+    </wpt>
+    <wpt lat="-35.3638513" lon="149.1652843">
+        <name>246</name>
+    </wpt>
+    <wpt lat="-35.3638502" lon="149.1652842">
+        <name>247</name>
+    </wpt>
+    <wpt lat="-35.3638501" lon="149.165284">
+        <name>248</name>
+    </wpt>
+    <wpt lat="-35.3638502" lon="149.1652838">
+        <name>249</name>
+    </wpt>
+    <wpt lat="-35.3638506" lon="149.1652833">
+        <name>250</name>
+    </wpt>
+    <wpt lat="-35.3638511" lon="149.1652825">
+        <name>251</name>
+    </wpt>
+    <wpt lat="-35.3638517" lon="149.1652816">
+        <name>252</name>
+    </wpt>
+    <wpt lat="-35.3638524" lon="149.1652806">
+        <name>253</name>
+    </wpt>
+    <wpt lat="-35.3638531" lon="149.1652796">
+        <name>254</name>
+    </wpt>
+    <wpt lat="-35.3638536" lon="149.1652785">
+        <name>255</name>
+    </wpt>
+    <wpt lat="-35.3638538" lon="149.1652776">
+        <name>256</name>
+    </wpt>
+    <wpt lat="-35.3638539" lon="149.1652767">
+        <name>257</name>
+    </wpt>
+    <wpt lat="-35.3638538" lon="149.1652761">
+        <name>258</name>
+    </wpt>
+    <wpt lat="-35.3638536" lon="149.1652755">
+        <name>259</name>
+    </wpt>
+    <wpt lat="-35.3638532" lon="149.1652751">
+        <name>260</name>
+    </wpt>
+    <wpt lat="-35.3638526" lon="149.1652747">
+        <name>261</name>
+    </wpt>
+    <wpt lat="-35.363852" lon="149.1652744">
+        <name>262</name>
+    </wpt>
+    <wpt lat="-35.3638514" lon="149.1652743">
+        <name>263</name>
+    </wpt>
+    <wpt lat="-35.3638502" lon="149.1652739">
+        <name>264</name>
+    </wpt>
+    <wpt lat="-35.363849" lon="149.1652737">
+        <name>265</name>
+    </wpt>
+    <wpt lat="-35.3638474" lon="149.1652734">
+        <name>266</name>
+    </wpt>
+    <wpt lat="-35.3638453" lon="149.1652729">
+        <name>267</name>
+    </wpt>
+    <wpt lat="-35.3638433" lon="149.1652724">
+        <name>268</name>
+    </wpt>
+    <wpt lat="-35.3638411" lon="149.165272">
+        <name>269</name>
+    </wpt>
+    <wpt lat="-35.3638392" lon="149.1652717">
+        <name>270</name>
+    </wpt>
+</gpx>
