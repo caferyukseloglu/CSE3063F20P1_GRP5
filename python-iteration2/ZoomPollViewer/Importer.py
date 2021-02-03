@@ -3,6 +3,7 @@
 
 ZOOM POLL VIEWER v1.0
 IMPORTER CLASS
+# coding=utf-8
 
 """
 import csv, xlrd, os, re
@@ -11,6 +12,7 @@ from os import listdir
 from os.path import isfile, join
 from .Logger import Logger
 import logging
+
 class Importer():
 
     def __init__(self, zpv):
@@ -27,6 +29,7 @@ class Importer():
             students_ids = xl_sheet.col_values(2)
             Logger(Importer.import_bys.__name__, "BYS Student list imported")
             for i in range(min(len(first_names),len(last_names))):
+
                 if first_names[i] == "" or first_names[i] == "Adı" or last_names[i] == "" or last_names[i] == "Soyadı":
                     pass
                 else:

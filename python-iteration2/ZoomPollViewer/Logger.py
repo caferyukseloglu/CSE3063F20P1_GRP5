@@ -20,5 +20,5 @@ class Logger:
         self.fh.setFormatter(self.formatter)
         self.ch.setFormatter(self.formatter)
         self.logger.addHandler(self.fh)
-        self.logger.addHandler(self.ch)
+        #self.logger.addHandler(self.ch)
         self.logger.info(text2)
