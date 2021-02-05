@@ -38,7 +38,18 @@ class Poll:
         for question in self._questions:
             if question.get_text() == question_text:
                 return question
+        question_text = self.question_formatter(question_text)
+        for question in self._questions:
+            if self.question_formatter(question.get_text()) == self.question_formatter(question_text):
+                return question
         return False
+
+    def question_formatter(self, question_text):
+        result = question_text.replace(" ", "")
+        result = result.replace("\t", "")
+        result = result.replace("\n", "")
+        return result
+
 
     def get_number_of_questions(self):
         # Returns number of questions

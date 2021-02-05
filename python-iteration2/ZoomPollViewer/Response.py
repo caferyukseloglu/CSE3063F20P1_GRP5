@@ -63,21 +63,24 @@ class Response:
     def add_answer(self, question_text, answer_texts):
         # Adds question and returns its object
         question = self._poll.get_question(question_text)
-        choices = []
-        if isinstance(answer_texts, list):
-            for answer_text in answer_texts:
-                choice = question.add_choice(answer_text, 0)
+        if question:
+            choices = []
+            if isinstance(answer_texts, list):
+                for answer_text in answer_texts:
+                    choice = question.add_choice(answer_text, 0)
+                    choices.append(choice)
+            else:
+                choice = question.add_choice(answer_texts, 0)
                 choices.append(choice)
+
+            if question not in self._answers.keys():
+                self._answers[question] = []
+
+            for choice in choices:
+                self._answers[question].append(choice)
         else:
-            choice = question.add_choice(answer_texts, 0)
-            choices.append(choice)
-
-        if question not in self._answers.keys():
-            self._answers[question] = []
-
-        for choice in choices:
-            self._answers[question].append(choice)
-
+            #pass
+            print(question_text)
     def get_grade(self):
         # Returns grade of reponse
         if self._grade is None:

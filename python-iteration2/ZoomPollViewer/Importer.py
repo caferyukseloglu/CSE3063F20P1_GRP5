@@ -47,7 +47,7 @@ class Importer():
             Logger(Importer.import_bys.__name__, "Import Student list failed")
             print("Error Occurred", err)
 
-    def import_answer_key(self, file_path):
+    def import_answer_key_old(self, file_path):
         # Imports Answer Key
         # Uses related library csv or xls
         # @todo CSV version not working well with semicolon delimeter
@@ -104,7 +104,7 @@ class Importer():
                 poll_cache = {}
                 i = 0
                 for row in csv_array:
-                    if i == 0:
+                    if i < 10:
                         pass
                     else:
                         if row[4] in poll_cache.keys():
@@ -178,3 +178,44 @@ class Importer():
                 #print("Student not found")
         
         return 0
+
+    def import_answer_key(self, file_path):
+        print(file_path)
+        paths = self.get_paths(file_path, ["txt"])
+        print("PATHS: ", paths)
+        poll = self.zpv.add_poll("Attendance", "ATTENDANCE")
+        question = poll.add_question("Are you attending this lecture?")
+        question.add_choice("Yes", True)
+
+        for file_name in paths:
+            f = open(file_name)
+            lines = f.readlines()
+
+            last_poll = ""
+            question_id = 1
+            last_question = ""
+            polls = {}
+            counter = 0
+
+            for line in lines:
+                if counter < 2:
+                    pass
+                else:
+                    if line[1:5] == "Poll":
+                        poll_name = line[8:-15].split("\t")[0]
+                        poll = self.zpv.add_poll(poll_name)
+                        last_poll = poll
+                        question_id = 1
+                    elif line.split(".")[0] == str(question_id):
+                        if " ( Multiple Choice)\n" in line:
+                            question_text = line[:-20]
+                        elif " ( Single Choice)\n" in line:
+                            question_text = line[:-18]
+                        question_text = ". ".join(question_text.split(". ")[1:])
+                        question = poll.add_question(question_text)
+                        last_question = question
+                        question_id += 1
+                    elif line[:6] == "Answer":
+                        answer_text = line[10:-1]
+                        question.add_choice(answer_text, True)
+                counter += 1

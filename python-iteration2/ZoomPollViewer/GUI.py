@@ -227,9 +227,13 @@ class GUI:
 
 
     def run_metrics_calculator(self):
+
         self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
-        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/old/AnswerKeys")
-        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/old/PollReports")
+        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
+        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
+        #for poll in self.zpv._polls:
+        #    for question in poll._questions:
+        #        print(question.get_text())
         if self.zpv.check_unmatched_student_exist():
             self.student_matcher()
             self.insert_all_unmatched_student()
