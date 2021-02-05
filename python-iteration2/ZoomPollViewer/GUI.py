@@ -352,7 +352,7 @@ class GUI:
 
     def run_exporter(self):
         self.zpv.exporter.export_quiz_report()
-        #self.zpv.exporter.export_student_reports() # HAZIR
+        self.zpv.exporter.export_student_reports() # HAZIR
 
         #self.zpv.exporter.export_global()
         #self.zpv.exporter.export_poll()
