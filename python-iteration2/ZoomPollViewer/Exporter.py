@@ -88,9 +88,10 @@ class Exporter():
                         self.write_xlsx_page_data(r,c,response.get_grade())    
                     else:
                         c += 3
-        self.close_xlsx()      
-     #To Export Poll Report  
-    def export_poll(self):            
+        self.close_xlsx()
+
+    # To Export Poll Report
+    def export_poll(self):
         for poll in self.zpv._polls:
             Logger(Exporter.export_poll.__name__ + ":"+str(poll.get_name()).strip(),str(poll.get_name()).strip()+" exported")   
             r = 0
@@ -181,3 +182,118 @@ class Exporter():
                 'fill': {'color': color},          
             })
         self.xlsxpage.insert_chart(r+2,0, self.chart)
+
+    def export_quiz_report(self):
+        for session in self.zpv.get_sessions():
+            for poll in session.get_polls("QUIZ"):
+                Logger(Exporter.export_poll.__name__ + ":"+str(poll.get_name()).strip(),str(poll.get_name()).strip()+" exported")
+                self.create_xlsx(str('Outputs/'+poll.get_name()).strip()+'.xlsx')
+                self.create_xlsx_page('Quiz Report')
+
+                self.write_xlsx_page_data_title(0, 0, 'Quiz Report')
+                self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
+                self.write_xlsx_page_data_title(1, 1, '2000-00-00 00:00:00')
+
+                self.write_xlsx_page_data_title(2, 0, 'Poll Name')
+                self.write_xlsx_page_data_title(2, 1, poll.get_name())
+
+                self.write_xlsx_page_data_title(5, 0, '#')
+                self.write_xlsx_page_data_title(5, 1, 'Student ID')
+                self.write_xlsx_page_data_title(5, 2, 'First Name')
+                self.write_xlsx_page_data_title(5, 3, 'Last Name')
+
+                self.write_xlsx_page_data_title(5, 4, 'Number of Questions')
+                self.write_xlsx_page_data_title(5, 5, 'Number of Correctly Answered Questions')
+                self.write_xlsx_page_data_title(5, 6, 'Number of Wrongly Answered Questions')
+                self.write_xlsx_page_data_title(5, 7, 'Number of Empty Questions')
+                self.write_xlsx_page_data_title(5, 8, 'Rate of Correctly Answered Questions')  # 0.4
+                self.write_xlsx_page_data_title(5, 9, 'Accuracy Percentage')
+
+                counter = 1
+                number_of_questions = poll.get_number_of_questions()
+
+                for student in self.zpv.get_students():
+                    response = student.get_response_by_session_and_poll(session, poll)
+                    if response:
+                        correct_answer_count = response.get_correct_answer_count()
+                        wrong_answer_count = response.get_wrong_answer_count()
+                        empty_answer_count = response.get_empty_answer_count()
+                        correct_rate = correct_answer_count/number_of_questions
+                        accuracy_percentage = round(correct_rate * 100, 2)
+                    else:
+                        correct_answer_count = ''
+                        wrong_answer_count = ''
+                        empty_answer_count = ''
+                        correct_rate = ''
+                        accuracy_percentage = ''
+
+                    self.write_xlsx_page_data(3 + counter, 0, str(counter))
+                    self.write_xlsx_page_data(3 + counter, 1, str(student.get_student_id()))
+                    self.write_xlsx_page_data(3 + counter, 2, str(student.get_first_name()))
+                    self.write_xlsx_page_data(3 + counter, 3, str(student.get_last_name()))
+
+                    self.write_xlsx_page_data(3 + counter, 4, str(number_of_questions))
+                    self.write_xlsx_page_data(3 + counter, 5, str(correct_answer_count))
+                    self.write_xlsx_page_data(3 + counter, 6, str(wrong_answer_count))
+                    self.write_xlsx_page_data(3 + counter, 7, str(empty_answer_count))
+                    self.write_xlsx_page_data(3 + counter, 8, str(correct_rate))
+                    self.write_xlsx_page_data(3 + counter, 9, str(accuracy_percentage))
+                    counter += 1
+
+                self.close_xlsx()
+
+    def export_student_reports(self):
+        for session in self.zpv.get_sessions():
+            for poll in session.get_polls("QUIZ"):
+                for student in self.zpv.get_students():
+                    response = student.get_response_by_session_and_poll(session, poll)
+                    if response:
+                        self.create_xlsx(str('Outputs/Student Reports/' + self.format_name(poll, session, student) + '.xlsx'))
+                        self.create_xlsx_page('Quiz Report')
+
+                        self.write_xlsx_page_data_title(0, 0, 'Student Report')
+                        self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
+                        self.write_xlsx_page_data_title(1, 1, '2000-00-00 00:00:00')
+
+                        self.write_xlsx_page_data_title(2, 0, 'Student ID')
+                        self.write_xlsx_page_data_title(3, 0, student.get_student_id())
+                        self.write_xlsx_page_data_title(2, 1, 'First Name')
+                        self.write_xlsx_page_data_title(3, 1, student.get_first_name())
+                        self.write_xlsx_page_data_title(2, 2, 'Last Name')
+                        self.write_xlsx_page_data_title(3, 2, student.get_last_name())
+
+                        self.write_xlsx_page_data_title(2, 3, 'Poll Name')
+                        self.write_xlsx_page_data_title(3, 3, poll.get_name())
+                        self.write_xlsx_page_data_title(2, 4, 'Session Date/Time')
+                        self.write_xlsx_page_data_title(3, 4, session.get_date_text())
+
+                        self.write_xlsx_page_data_title(4, 0, '#')
+                        self.write_xlsx_page_data_title(4, 1, 'Question')
+                        self.write_xlsx_page_data_title(4, 2, 'Given Answer')
+                        self.write_xlsx_page_data_title(4, 3, 'Correct Answer')
+                        self.write_xlsx_page_data_title(4, 4, 'Correct')
+
+                        counter = 1
+                        for question in poll.get_questions():
+                            self.write_xlsx_page_data(4 + counter, 0, str(counter))
+                            self.write_xlsx_page_data(4 + counter, 1, str(question.get_text()))
+                            given_answers = response.get_given_answer(question)
+                            if given_answers:
+                                given_answers_text = "; ".join([choice.get_text() for choice in given_answers])
+                            self.write_xlsx_page_data(4 + counter, 2, given_answers_text)
+                            correct_choices = question.get_correct_choices()
+                            if correct_choices:
+                                correct_choices_text = "; ".join([choice.get_text() for choice in correct_choices])
+                            self.write_xlsx_page_data(4 + counter, 3, correct_choices_text)
+                            self.write_xlsx_page_data(4 + counter, 4, str(response.get_correctness_of_answer(question)))
+                            counter += 1
+                        self.close_xlsx()
+
+    def format_name(self, poll, session, student):
+        result = ""
+        result += "_".join(poll.get_name().split())
+        result += "_" + session.get_date_time().strftime("%Y_%m_%d_%H_%M_%S")
+        result += "_" + "_".join(student.get_name().split())
+        result += "_" + student.get_student_id()
+        return result
+

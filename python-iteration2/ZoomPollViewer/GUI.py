@@ -170,13 +170,13 @@ class GUI:
         self.process_label = tk.Label(self.right_frame_top, text="4. Process", fg="#222222",
                                           font=("Helvetica", 18, 'bold'))
         self.process_label.grid(row=7, column=0, pady=6, columnspan=2)
-        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator, state=tk.DISABLED)
+        self.button_run = tk.Button(self.right_frame_top, text='Process', command=self.run_metrics_calculator)  #, state=tk.DISABLED
         self.button_run.grid(row=8, column=0, columnspan=2)
 
         # EXPORT
         self.export_label = tk.Label(self.right_frame_top, text="5. Export", fg="#222222",
                                                  font=("Helvetica", 18, 'bold')).grid(row=9, column=0, pady=6, columnspan=2)
-        self.button_export = tk.Button(self.right_frame_top, text='Export to Report', command=self.export_excell, state=tk.DISABLED)
+        self.button_export = tk.Button(self.right_frame_top, text='Export to Report', command=self.run_exporter, state=tk.DISABLED)
         self.button_export.grid(row=10, column=0, columnspan=2)
 
     def import_bys(self):
@@ -227,6 +227,9 @@ class GUI:
 
 
     def run_metrics_calculator(self):
+        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
+        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/old/AnswerKeys")
+        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/old/PollReports")
         if self.zpv.check_unmatched_student_exist():
             self.student_matcher()
             self.insert_all_unmatched_student()
@@ -347,6 +350,19 @@ class GUI:
         self.sm_bys_list.delete(bys_student_item)
         self.sm_unmatched_list.delete(unmatched_student_item)
 
-    def export_excell(self):
-        self.zpv.exporter.export_global()
-        self.zpv.exporter.export_poll()
+    def run_exporter(self):
+        self.zpv.exporter.export_quiz_report()
+        #self.zpv.exporter.export_student_reports() # HAZIR
+
+        #self.zpv.exporter.export_global()
+        #self.zpv.exporter.export_poll()
+
+    def export_quiz_reports(self):
+        # Quiz = Poll
+        pass
+
+    def export_student_reports(self):
+        pass
+
+    def export_global_report(self):
+        pass

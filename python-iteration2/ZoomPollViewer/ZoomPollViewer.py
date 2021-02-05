@@ -38,6 +38,15 @@ class ZoomPollViewer:
         self.GUI.root.mainloop()
         self.GUI.sm.mainloop()
 
+    def get_students(self):
+        return self._students
+
+    def get_sessions(self):
+        return self._sessions
+
+    def get_polls(self):
+        return self._polls
+
     def get_student(self, full_name, email):
         # Returns student related to given inputs.
         # If not match, tries to match with string operands.

@@ -26,9 +26,16 @@ class Session:
         # Returns date time text
         return self._date_text
 
-    def get_polls(self):
+    def get_polls(self, poll_type=None):
         # Returns poll object
-        return self._polls
+        if poll_type:
+            polls = []
+            for poll in self._polls:
+                if poll.get_type() == poll_type:
+                    polls.append(poll)
+            return polls
+        else:
+            return self._polls
 
     def get_attendance(self):
         # Returns attendance

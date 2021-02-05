@@ -51,7 +51,8 @@ class Poll:
         total = 0
         print(self._number_of_students)
         for session in self._number_of_students:
-            total += self._number_of_students[session]
+            if self._number_of_students[session] > total:
+                total = self._number_of_students[session]
         return total
 
     def add_question(self, question_text):
