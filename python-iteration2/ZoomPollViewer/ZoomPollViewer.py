@@ -19,6 +19,7 @@ from .Importer import Importer
 from .Exporter import Exporter
 from .Logger import Logger
 
+import unicodedata
 
 class ZoomPollViewer:
 
@@ -63,7 +64,7 @@ class ZoomPollViewer:
                 # TODO: IF student is match before don't loop in for student obj for that student...
                 lower_map = {
                     ord(u'C'): u'c',
-                    ord(u'Ç'): u'ç',                    
+                    ord(u'Ç'): u'ç',
                     ord(u'G'): u'g',
                     ord(u'Ğ'): u'ğ',
                     ord(u'I'): u'ı',
@@ -79,6 +80,10 @@ class ZoomPollViewer:
                 if (str(student.get_first_name()).strip().translate(lower_map).lower() == first_name.strip().translate(lower_map).lower() and str(student.get_last_name()).strip().translate(lower_map).lower() == last_name.strip().translate(lower_map).lower()):
                     student._email = email
                     return student
+                elif(str(unicodedata.normalize('NFD',student.get_first_name()).encode('ascii', 'ignore').decode("utf-8")).lower()==str(unicodedata.normalize('NFD',first_name).encode('ascii', 'ignore').decode("utf-8")).lower() and str(unicodedata.normalize('NFD',student.get_last_name()).encode('ascii', 'ignore').decode("utf-8")).lower() ==str(unicodedata.normalize('NFD',last_name).encode('ascii', 'ignore').decode("utf-8")).lower()):
+                    student._email = email
+                    return student
+
             return self.add_temporary_student(full_name, email)
         return found
 
