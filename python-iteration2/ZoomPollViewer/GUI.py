@@ -3,7 +3,7 @@
 
 ZOOM POLL VIEWER v1.0
 GUI CLASS
-
+Functions 25
 """
 import tkinter as tk
 from tkinter import filedialog
@@ -228,9 +228,9 @@ class GUI:
 
     def run_metrics_calculator(self):
 
-        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
-        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
-        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
+        #self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
+        #self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
+        #self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
         #for poll in self.zpv._polls:
         #    for question in poll._questions:
         #        print(question.get_text())
@@ -353,7 +353,7 @@ class GUI:
                 data = {}
                 data["Students in BYS list but don't exist in this poll report (Absence)"] = []
                 data["Students in this poll report but don't exist in BYS Student List (Anomalies)"] = []
-                json.dump(data, json_file)
+                json.dump(data, json_file, ensure_ascii=False)
         except:
             print("Exist")
 
@@ -366,7 +366,7 @@ class GUI:
                      "student name" : str(student.get_name())
                  })
             with open('not_matched.json', 'w') as json_file:
-                json.dump(data, json_file)
+                json.dump(data, json_file, ensure_ascii=False)
         temp_students = self.zpv.get_unmatched_temporary_students()
         for student in temp_students:
             with open('not_matched.json', 'r') as json_file:
@@ -376,7 +376,7 @@ class GUI:
                      "student name" : str(student.get_name())
                  })
             with open('not_matched.json', 'w') as json_file:
-                json.dump(data, json_file)
+                json.dump(data, json_file, ensure_ascii=False)
 
         self.sm.destroy()
         self.run_metrics_calculator_after_match()

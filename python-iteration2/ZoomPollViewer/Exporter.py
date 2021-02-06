@@ -2,20 +2,20 @@
 """
 
 ZOOM POLL VIEWER v0.1
-13 Function
+15 Function
 2 Object
 256 Lines
 """
 import xlsxwriter
 from .Logger import Logger
-from datetime import date
+import datetime as date
 import os
 import re
 
 class Exporter():
     def __init__(self,zpv):
         self.zpv = zpv
-        self.path = str(os.getcwd()) + '/Outputs/'
+        self.path = str(os.getcwd()) + '/python-iteration2/Outputs/'
         if not os.path.isdir(self.path): 
             os.mkdir(self.path)
             os.mkdir(self.path+'Student Reports/')
@@ -60,7 +60,7 @@ class Exporter():
         #To Export Global Report      
     def export_global(self):
         Logger(Exporter.export_global.__name__,"Global report exported")
-        now = date.today()
+        now = date.date.today()
         r = 1        
         self.create_xlsx('Global.xlsx')
         self.create_xlsx_page(str(now))
@@ -201,7 +201,9 @@ class Exporter():
 
                 self.write_xlsx_page_data_title(0, 0, 'Quiz Report')
                 self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
-                self.write_xlsx_page_data_title(1, 1, '2000-00-00 00:00:00') #TODO: DateTime şuan eklenecek
+                now = date.datetime.now()
+                date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+                self.write_xlsx_page_data_title(1, 1, str(date_time)) #TODO: DateTime şuan eklenecek
 
                 self.write_xlsx_page_data_title(2, 0, 'Poll Name')
                 self.write_xlsx_page_data_title(2, 1, poll.get_name())
@@ -248,7 +250,7 @@ class Exporter():
                     self.write_xlsx_page_data(3 + counter, 8, str(correct_rate))
                     self.write_xlsx_page_data(3 + counter, 9, str(accuracy_percentage))
                     counter += 1
-
+                self.create_histogram_chart(poll)
                 self.close_xlsx()
 
     def export_student_reports(self):
@@ -260,8 +262,7 @@ class Exporter():
 
                         self.create_xlsx(str('Student Reports/' + self.format_name(poll, session, student) + '.xlsx'))
                         self.create_xlsx_page('Quiz Report')
-
-                        now = date.now()
+                        now = date.datetime.now()
                         date_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
                         self.write_xlsx_page_data_title(0, 0, 'Student Report')
@@ -298,7 +299,12 @@ class Exporter():
                             if correct_choices:
                                 correct_choices_text = "; ".join([choice.get_text() for choice in correct_choices])
                             self.write_xlsx_page_data(4 + counter, 3, correct_choices_text)
-                            self.write_xlsx_page_data(4 + counter, 4, str(response.get_correctness_of_answer(question)))
+                            if str(response.get_correctness_of_answer(question)) == "True":
+                                response_correctness = 1
+                            else:
+                                response_correctness = 0 
+
+                            self.write_xlsx_page_data(4 + counter, 4, str(response_correctness))
                             counter += 1
                         self.close_xlsx()
 
@@ -306,10 +312,11 @@ class Exporter():
     def export_global_analytics(self):
         self.create_xlsx(str('Global_Analytics.xlsx'))
         self.create_xlsx_page('Analytics')
-
+        now = date.datetime.now()
+        date_time = now.strftime("%Y-%m-%d %H:%M:%S")
         self.write_xlsx_page_data_title(0, 0, 'Global Analytics Report')
         self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
-        self.write_xlsx_page_data_title(1, 1, str())
+        self.write_xlsx_page_data_title(1, 1, str(date_time))
 
         self.write_xlsx_page_data_title(2, 0, '#')
         self.write_xlsx_page_data_title(2, 1, 'Student ID')

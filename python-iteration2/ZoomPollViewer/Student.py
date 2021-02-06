@@ -3,6 +3,8 @@
 
 ZOOM POLL VIEWER v1.0
 
+11 Functions
+3 Object
 """
 from .Response import Response
 

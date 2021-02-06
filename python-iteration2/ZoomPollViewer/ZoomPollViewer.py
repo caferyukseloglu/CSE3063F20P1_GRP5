@@ -8,7 +8,8 @@ VIEWS DETAILED QUIZ AND ATTENDANCE DATA RELATED TO SESSIONS AND STUDENT
 
 CSE3063 PROJECT 2
 GROUP #5
-
+20 Functions
+0 Object
 """
 from datetime import datetime
 from .Student import Student

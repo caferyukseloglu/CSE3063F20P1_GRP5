@@ -4,7 +4,8 @@
 ZOOM POLL VIEWER v1.0
 IMPORTER CLASS
 # coding=utf-8
-
+7 Function
+1 Object
 """
 import csv, xlrd, os, re
 from pprint import pprint
@@ -140,7 +141,7 @@ class Importer():
         student = self.zpv.get_student(full_name, email)
         if student:
             response = student.add_response(session, poll)
-            Logger(Importer.control_student.__name__+ str(self.zpv.get_student(full_name,email)), "Student answers added")
+            #Logger(Importer.control_student.__name__+ str(self.zpv.get_student(full_name,email)), "Student answers added")
             for j in range(4, len(row) - 1, 2):
                 response.add_answer(row[j], row[j + 1])
         else:            

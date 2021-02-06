@@ -3,7 +3,8 @@
 
 ZOOM POLL VIEWER v0.1
 POLL CLASS
-
+11 Function
+3 Object
 """
 from .Question import Question
 

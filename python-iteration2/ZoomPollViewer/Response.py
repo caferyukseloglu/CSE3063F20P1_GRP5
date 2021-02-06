@@ -4,6 +4,8 @@
 ZOOM POLL VIEWER v1.0
 RESPONSE CLASS
 
+6 Function
+2 Object
 """
 
 
