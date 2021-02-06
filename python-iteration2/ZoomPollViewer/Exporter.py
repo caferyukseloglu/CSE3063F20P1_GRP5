@@ -14,8 +14,11 @@ class Exporter():
     def __init__(self,zpv):
         self.zpv = zpv
         self.path = str(os.getcwd()) + '/python-iteration2/Outputs/'
-        os.mkdir(self.path)
-        os.mkdir(self.path+'Student Reports/')
+        if not os.path.isdir(self.path): 
+            os.mkdir(self.path)
+            os.mkdir(self.path+'Student Reports/')
+        elif not os.path.isdir(self.path+'Student Reports/'):
+            os.mkdir(self.path+'Student Reports/')
 
     # To Create xlsx File
     def create_xlsx(self,name:str):

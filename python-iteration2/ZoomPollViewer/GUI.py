@@ -9,6 +9,7 @@ import tkinter as tk
 from tkinter import filedialog
 import tkinter.ttk as ttk
 from .Logger import Logger
+import json
 class GUI:
 
     def __init__(self, zpv):
@@ -228,13 +229,24 @@ class GUI:
 
     def run_metrics_calculator(self):
 
-        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
-        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
-        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
+        #self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
+        #self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
+        #self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
         #for poll in self.zpv._polls:
         #    for question in poll._questions:
         #        print(question.get_text())
         if self.zpv.check_unmatched_student_exist():
+            try:
+                with open('match.json', 'r') as json_file:
+                    data = json.load(json_file)
+                    for s in data['student']:
+                        self.zpv.match_students(s['bys_id'],s['email'])
+            except:
+                with open('match.json', 'w') as json_file:
+                    data = {}
+                    data["student"] = []
+                    json.dump(data, json_file)
+
             self.student_matcher()
             self.insert_all_unmatched_student()
         else:
@@ -335,6 +347,36 @@ class GUI:
         self.sm_middle_exit_button.grid(row=1, column=0, pady=200, sticky="ew")
 
     def match_completed(self):
+        try:
+            with open('not_matched.json', 'w') as json_file:
+                data = {}
+                data["Students in BYS list but don't exist in this poll report (Absence)"] = []
+                data["Students in this poll report but don't exist in BYS Student List (Anomalies)"] = []
+                json.dump(data, json_file)
+        except:
+            print("Exist")
+
+        students = self.zpv.get_unmatched_bys_students()
+        for student in students:
+            with open('not_matched.json', 'r') as json_file:
+                 data = json.load(json_file)
+                 data["Students in BYS list but don't exist in this poll report (Absence)"].append({
+                     "student no" : str(student.get_student_id()),
+                     "student name" : str(student.get_name())
+                 })
+            with open('not_matched.json', 'w') as json_file:
+                json.dump(data, json_file)
+        temp_students = self.zpv.get_unmatched_temporary_students()
+        for student in temp_students:
+            with open('not_matched.json', 'r') as json_file:
+                 data = json.load(json_file)
+                 data["Students in this poll report but don't exist in BYS Student List (Anomalies)"].append({
+                     "student email" : str(student.get_email()),
+                     "student name" : str(student.get_name())
+                 })
+            with open('not_matched.json', 'w') as json_file:
+                json.dump(data, json_file)
+
         self.sm.destroy()
         self.run_metrics_calculator_after_match()
 
@@ -351,6 +393,15 @@ class GUI:
         unmatched_student_item = self.sm_unmatched_list.selection()[0]
 
         self.zpv.match_students(self.sm_bys_list.item(bys_student_item, 'text'), self.sm_unmatched_list.item(unmatched_student_item, 'text'))
+        with open('match.json', 'r') as json_file:
+            data = json.load(json_file)
+            data["student"].append({
+                "email" : str(self.sm_unmatched_list.item(unmatched_student_item, 'text')),
+                "bys_id": str(self.sm_bys_list.item(bys_student_item, 'text'))
+            })
+        with open('match.json', 'w') as json_file:
+            json.dump(data, json_file)
+
         self.sm_bys_list.delete(bys_student_item)
         self.sm_unmatched_list.delete(unmatched_student_item)
 
