@@ -7,15 +7,19 @@ ZOOM POLL VIEWER v0.1
 import xlsxwriter
 from .Logger import Logger
 from datetime import date
+import os
+import re
 
 class Exporter():
     def __init__(self,zpv):
         self.zpv = zpv
-        self.path = "./"
+        self.path = str(os.getcwd()) + '/python-iteration2/Outputs/'
+        os.mkdir(self.path)
+        os.mkdir(self.path+'Student Reports/')
 
     # To Create xlsx File
     def create_xlsx(self,name:str):
-        self.xlsx_file = xlsxwriter.Workbook(self.path+name)
+        self.xlsx_file = xlsxwriter.Workbook(self.path+name, {'constant_memory': True})
 
     # To Create a Page in xlsx File
     def create_xlsx_page(self,name:str):
@@ -96,7 +100,7 @@ class Exporter():
             Logger(Exporter.export_poll.__name__ + ":"+str(poll.get_name()).strip(),str(poll.get_name()).strip()+" exported")   
             r = 0
             c = 3
-            self.create_xlsx(str('/'+poll.get_name()).strip()+'.xlsx')
+            self.create_xlsx(str(poll.get_name()).strip()+'.xlsx')
             self.create_xlsx_page('POLL STUDENT')
             self.write_xlsx_page_data_title(0,0,'STUDENT ID')        
             self.write_xlsx_page_data_title(0,1,'E-MAIL')
@@ -187,12 +191,12 @@ class Exporter():
         for session in self.zpv.get_sessions():
             for poll in session.get_polls("QUIZ"):
                 Logger(Exporter.export_poll.__name__ + ":"+str(poll.get_name()).strip(),str(poll.get_name()).strip()+" exported")
-                self.create_xlsx(str('Outputs/'+poll.get_name()).strip()+'.xlsx')
+                self.create_xlsx(str(self.format_name(poll, session) + '.xlsx'))
                 self.create_xlsx_page('Quiz Report')
 
                 self.write_xlsx_page_data_title(0, 0, 'Quiz Report')
                 self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
-                self.write_xlsx_page_data_title(1, 1, '2000-00-00 00:00:00')
+                self.write_xlsx_page_data_title(1, 1, '2000-00-00 00:00:00') #TODO: DateTime şuan eklenecek
 
                 self.write_xlsx_page_data_title(2, 0, 'Poll Name')
                 self.write_xlsx_page_data_title(2, 1, poll.get_name())
@@ -248,7 +252,7 @@ class Exporter():
                 for student in self.zpv.get_students():
                     response = student.get_response_by_session_and_poll(session, poll)
                     if response:
-                        self.create_xlsx(str('Outputs/Student Reports/' + self.format_name(poll, session, student) + '.xlsx'))
+                        self.create_xlsx(str('Student Reports/' + self.format_name(poll, session, student) + '.xlsx'))
                         self.create_xlsx_page('Quiz Report')
 
                         self.write_xlsx_page_data_title(0, 0, 'Student Report')
@@ -289,11 +293,13 @@ class Exporter():
                             counter += 1
                         self.close_xlsx()
 
-    def format_name(self, poll, session, student):
+    def format_name(self, poll, session, student = ""):
         result = ""
         result += "_".join(poll.get_name().split())
         result += "_" + session.get_date_time().strftime("%Y_%m_%d_%H_%M_%S")
-        result += "_" + "_".join(student.get_name().split())
-        result += "_" + student.get_student_id()
+        if student != "":
+            result += "_" + "_".join(student.get_name().split())
+            result += "_" + student.get_student_id()
+        result = re.sub('[!@#$.:,]','', result)
         return result
 
