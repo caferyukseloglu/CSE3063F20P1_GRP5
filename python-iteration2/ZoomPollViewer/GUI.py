@@ -11,7 +11,6 @@ import tkinter.ttk as ttk
 from .Logger import Logger
 import json
 class GUI:
-
     def __init__(self, zpv):
 
         self.zpv = zpv
@@ -229,9 +228,9 @@ class GUI:
 
     def run_metrics_calculator(self):
 
-        #self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
-        #self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
-        #self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
+        self.zpv.importer.import_bys("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/CES3063_Fall2020_rptSinifListesi.XLS")
+        self.zpv.importer.import_answer_key("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/keys_test")
+        self.zpv.importer.import_poll_report("/Users/eminsafatok/Documents/Marmara/CSE3063/CSE3063F20P1_GRP5/python-iteration2/Documents/test")
         #for poll in self.zpv._polls:
         #    for question in poll._questions:
         #        print(question.get_text())
@@ -268,7 +267,7 @@ class GUI:
         for student in self.zpv._students:
             self.insert_student({
                 'id': student.get_student_id(),
-                'first_name': student.get_name(),
+                'first_name': student.get_first_name(),
                 'last_name': student.get_last_name(),
                 'email': student.get_email(),
                 'grade': student.get_average_grade(),
@@ -278,12 +277,14 @@ class GUI:
             })
 
     def update_poll_list(self):
+        counter = 1
         for poll in self.zpv._polls:
-            self.insert_poll({'id':"1",
+            self.insert_poll({'id':str(counter),
                  'name': poll.get_name(),
                  'questions': poll.get_number_of_questions(),
                  'students': poll.get_number_of_students(),
                  'average_grade': poll.calculate_session_average_grade()})
+            counter += 1
 
     def update_session_list(self):
         for session in self.zpv.get_sessions():
@@ -408,7 +409,7 @@ class GUI:
     def run_exporter(self):
         self.zpv.exporter.export_quiz_report()
         self.zpv.exporter.export_student_reports() # HAZIR
-
+        self.zpv.exporter.export_global_analytics()
         #self.zpv.exporter.export_global()
         #self.zpv.exporter.export_poll()
 

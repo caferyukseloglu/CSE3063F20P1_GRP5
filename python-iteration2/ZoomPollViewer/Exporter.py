@@ -2,7 +2,9 @@
 """
 
 ZOOM POLL VIEWER v0.1
-
+13 Function
+2 Object
+256 Lines
 """
 import xlsxwriter
 from .Logger import Logger
@@ -13,11 +15,11 @@ import re
 class Exporter():
     def __init__(self,zpv):
         self.zpv = zpv
-        self.path = str(os.getcwd()) + '/python-iteration2/Outputs/'
+        self.path = str(os.getcwd()) + '/Outputs/'
         if not os.path.isdir(self.path): 
             os.mkdir(self.path)
             os.mkdir(self.path+'Student Reports/')
-        elif not os.path.isdir(self.path+'Student Reports/'):
+        elif not os.path.isdir(self.path + 'Student Reports/'):
             os.mkdir(self.path+'Student Reports/')
 
     # To Create xlsx File
@@ -170,13 +172,13 @@ class Exporter():
                             if choice in response._answers[question]:
                                 selected_by += 1
                 if choice.get_correctness() == 1:
-                    self.write_xlsx_page_correct_data(r,c,selected_by)
-                    altdata.insert(c-1,selected_by)
+                    self.write_xlsx_page_correct_data(r, c, selected_by)
+                    altdata.insert(c-1, selected_by)
                 else:
-                    self.write_xlsx_page_data(r,c,selected_by)
-                    altdata.insert(c-1,selected_by)
+                    self.write_xlsx_page_data(r, c, selected_by)
+                    altdata.insert(c-1, selected_by)
                 c+=1
-            data.insert(r,altdata)                    
+            data.insert(r, altdata)
             r += 1
         for i in range(maximum_choice):
             if i == 0:
@@ -184,8 +186,8 @@ class Exporter():
             else:
                 color = 'gray'
             self.chart.add_series({           
-                'name':['Poll Chart',0,i+1],
-                'values':['Poll Chart', 1,i+1,r-1,i+1], 
+                'name':['Poll Chart', 0, i+1],
+                'values':['Poll Chart', 1, i+1, r-1, i+1],
                 'fill': {'color': color},          
             })
         self.xlsxpage.insert_chart(r+2,0, self.chart)
@@ -204,17 +206,17 @@ class Exporter():
                 self.write_xlsx_page_data_title(2, 0, 'Poll Name')
                 self.write_xlsx_page_data_title(2, 1, poll.get_name())
 
-                self.write_xlsx_page_data_title(5, 0, '#')
-                self.write_xlsx_page_data_title(5, 1, 'Student ID')
-                self.write_xlsx_page_data_title(5, 2, 'First Name')
-                self.write_xlsx_page_data_title(5, 3, 'Last Name')
+                self.write_xlsx_page_data_title(3, 0, '#')
+                self.write_xlsx_page_data_title(3, 1, 'Student ID')
+                self.write_xlsx_page_data_title(3, 2, 'First Name')
+                self.write_xlsx_page_data_title(3, 3, 'Last Name')
 
-                self.write_xlsx_page_data_title(5, 4, 'Number of Questions')
-                self.write_xlsx_page_data_title(5, 5, 'Number of Correctly Answered Questions')
-                self.write_xlsx_page_data_title(5, 6, 'Number of Wrongly Answered Questions')
-                self.write_xlsx_page_data_title(5, 7, 'Number of Empty Questions')
-                self.write_xlsx_page_data_title(5, 8, 'Rate of Correctly Answered Questions')  # 0.4
-                self.write_xlsx_page_data_title(5, 9, 'Accuracy Percentage')
+                self.write_xlsx_page_data_title(3, 4, 'Number of Questions')
+                self.write_xlsx_page_data_title(3, 5, 'Number of Correctly Answered Questions')
+                self.write_xlsx_page_data_title(3, 6, 'Number of Wrongly Answered Questions')
+                self.write_xlsx_page_data_title(3, 7, 'Number of Empty Questions')
+                self.write_xlsx_page_data_title(3, 8, 'Rate of Correctly Answered Questions')  # 0.4
+                self.write_xlsx_page_data_title(3, 9, 'Accuracy Percentage')
 
                 counter = 1
                 number_of_questions = poll.get_number_of_questions()
@@ -255,12 +257,16 @@ class Exporter():
                 for student in self.zpv.get_students():
                     response = student.get_response_by_session_and_poll(session, poll)
                     if response:
+
                         self.create_xlsx(str('Student Reports/' + self.format_name(poll, session, student) + '.xlsx'))
                         self.create_xlsx_page('Quiz Report')
 
+                        now = date.now()
+                        date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+
                         self.write_xlsx_page_data_title(0, 0, 'Student Report')
                         self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
-                        self.write_xlsx_page_data_title(1, 1, '2000-00-00 00:00:00')
+                        self.write_xlsx_page_data_title(1, 1, str(date_time))
 
                         self.write_xlsx_page_data_title(2, 0, 'Student ID')
                         self.write_xlsx_page_data_title(3, 0, student.get_student_id())
@@ -296,6 +302,46 @@ class Exporter():
                             counter += 1
                         self.close_xlsx()
 
+
+    def export_global_analytics(self):
+        self.create_xlsx(str('Global_Analytics.xlsx'))
+        self.create_xlsx_page('Analytics')
+
+        self.write_xlsx_page_data_title(0, 0, 'Global Analytics Report')
+        self.write_xlsx_page_data_title(1, 0, 'Report Generated:')
+        self.write_xlsx_page_data_title(1, 1, str())
+
+        self.write_xlsx_page_data_title(2, 0, '#')
+        self.write_xlsx_page_data_title(2, 1, 'Student ID')
+        self.write_xlsx_page_data_title(2, 2, 'Student Name')
+
+        column_counter = 3
+        total_number_of_questions = 0
+        for session in self.zpv.get_sessions():
+            for poll in session.get_polls("QUIZ"):
+                self.write_xlsx_page_data_title(2, column_counter, self.format_name(poll, session))
+                total_number_of_questions += poll.get_number_of_questions()
+                column_counter += 1
+        self.write_xlsx_page_data_title(2, column_counter, "Total")
+
+        row_counter = 3
+        for student in self.zpv.get_students():
+            self.write_xlsx_page_data(row_counter, 0, str(row_counter-2))
+            self.write_xlsx_page_data(row_counter, 1, str(student.get_student_id()))
+            self.write_xlsx_page_data(row_counter, 2, str(student.get_name()))
+            column_counter = 3
+            student_total_correct_answer_count = 0
+            for session in self.zpv.get_sessions():
+                for poll in session.get_polls("QUIZ"):
+                    response = student.get_response_by_session_and_poll(session, poll)
+                    if response:
+                        self.write_xlsx_page_data_title(row_counter, column_counter, response.get_correct_answer_count())
+                        student_total_correct_answer_count += response.get_correct_answer_count()
+                    column_counter += 1
+            self.write_xlsx_page_data_title(row_counter, column_counter, student_total_correct_answer_count/total_number_of_questions)
+            row_counter += 1
+        self.close_xlsx()
+
     def format_name(self, poll, session, student = ""):
         result = ""
         result += "_".join(poll.get_name().split())
@@ -305,4 +351,3 @@ class Exporter():
             result += "_" + student.get_student_id()
         result = re.sub('[!@#$.:,]','', result)
         return result
-
